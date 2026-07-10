@@ -12,6 +12,11 @@ mkdir -p .mise
 curl -sLo .mise/pakku.jar "https://github.com/juraj-hrivnak/Pakku/releases/latest/download/pakku.jar"
 echo "Pakku updated successfully!"
 """
+run_windows = '''
+if not exist .mise mkdir .mise
+curl -sLo .mise/pakku.jar "https://github.com/juraj-hrivnak/Pakku/releases/latest/download/pakku.jar"
+echo Pakku updated successfully!
+'''
 
 [tasks."prism:setup"]
 description = "Generates a drag-and-drop Prism instance linked to this repository"
@@ -38,11 +43,6 @@ cat << EOF > .mise/prism-instance/mmc-pack.json
 }
 EOF
 
-MANGO_HUD_LINE=""
-if [ "$(uname -s)" = "Linux" ]; then
-    MANGO_HUD_LINE="EnableMangoHud=true"
-fi
-
 REPO_PATH=$(pwd)
 cat << EOF > .mise/prism-instance/instance.cfg
 [General]
@@ -50,7 +50,7 @@ InstanceType=OneSix
 OverrideCommands=true
 PreLaunchCommand=\\$INST_JAVA "-Ddev.repo.path=${REPO_PATH}" "${REPO_PATH}/DevLaunch.java"
 OverridePerformance=true
-${MANGO_HUD_LINE}
+EnableMangoHud=true
 EOF
 
 cd .mise/prism-instance
@@ -59,6 +59,46 @@ cd ../..
 
 echo "Success! Drag and drop '.mise/Season 4 Dev.zip' into Prism Launcher to import it."
 """
+run_windows = '''
+if not exist pakku-lock.json (
+    echo pakku-lock.json not found!
+    exit /b 1
+)
+
+echo Reading versions from pakku-lock.json...
+for /f "delims=" %%i in ('jq -r ".mc_versions[0]" pakku-lock.json') do set MC_VERSION=%%i
+for /f "delims=" %%i in ('jq -r ".loaders.fabric" pakku-lock.json') do set FABRIC_VERSION=%%i
+echo Detected Minecraft %MC_VERSION% with Fabric %FABRIC_VERSION%
+
+if not exist .mise\prism-instance mkdir .mise\prism-instance
+
+echo {> .mise\prism-instance\mmc-pack.json
+echo    "components": [>> .mise\prism-instance\mmc-pack.json
+echo        { "important": true, "uid": "net.minecraft", "version": "%MC_VERSION%" },>> .mise\prism-instance\mmc-pack.json
+echo        { "uid": "net.fabricmc.fabric-loader", "version": "%FABRIC_VERSION%" }>> .mise\prism-instance\mmc-pack.json
+echo    ],>> .mise\prism-instance\mmc-pack.json
+echo    "formatVersion": 1>> .mise\prism-instance\mmc-pack.json
+echo }>> .mise\prism-instance\mmc-pack.json
+
+:: windows backslashes to forward slashes
+set REPO_PATH=%CD:\=/%
+
+echo [General]> .mise\prism-instance\instance.cfg
+echo InstanceType=OneSix>> .mise\prism-instance\instance.cfg
+echo OverrideCommands=true>> .mise\prism-instance\instance.cfg
+echo PreLaunchCommand=$INST_JAVA "-Ddev.repo.path=%REPO_PATH%" "%REPO_PATH%/DevLaunch.java">> .mise\prism-instance\instance.cfg
+
+cd .mise\prism-instance
+jar cMf "../Season 4 Dev.zip" *
+cd ..\..
+
+echo Success! Drag and drop '.mise/Season 4 Dev.zip' into Prism Launcher to import it.
+'''
+
+[tasks.pakku]
+description = "Runs the local Pakku jar"
+run = "java -jar .mise/pakku.jar"
 
 [shell_alias]
 pakku = "java -jar .mise/pakku.jar"
+
