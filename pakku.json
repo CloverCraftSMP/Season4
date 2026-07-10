@@ -2,5 +2,12 @@
     "name": "CloverCraft SMP Season 4",
     "version": "0.0.1-DEV",
     "author": "CloverCraft Team",
-    "export_server_side_projects_to_client": false
+    "projects": {
+        "sodium": {
+            "update_strategy": "NONE"
+        },
+        "iris": {
+            "update_strategy": "NONE"
+        }
+    }
 }
