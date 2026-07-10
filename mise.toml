@@ -61,31 +61,18 @@ echo "Success! Drag and drop '.mise/Season 4 Dev.zip' into Prism Launcher to imp
 """
 run_windows = [
     "if not exist pakku-lock.json ( echo pakku-lock.json not found! & exit /b 1 )",
-    "echo Reading versions from pakku-lock.json...",
-    "for /f \"delims=\" %%i in ('jq -r \".mc_versions[0]\" pakku-lock.json') do set MC_VERSION=%%i",
-    "for /f \"delims=\" %%i in ('jq -r \".loaders.fabric\" pakku-lock.json') do set FABRIC_VERSION=%%i",
-    "echo Detected Minecraft %MC_VERSION% with Fabric %FABRIC_VERSION%",
-    
     "if not exist .mise\\prism-instance mkdir .mise\\prism-instance",
-    
-    "echo {> .mise\\prism-instance\\mmc-pack.json",
-    "echo     \"components\": [>> .mise\\prism-instance\\mmc-pack.json",
-    "echo         { \"important\": true, \"uid\": \"net.minecraft\", \"version\": \"%MC_VERSION%\" },>> .mise\\prism-instance\\mmc-pack.json",
-    "echo         { \"uid\": \"net.fabricmc.fabric-loader\", \"version\": \"%FABRIC_VERSION%\" }>> .mise\\prism-instance\\mmc-pack.json",
-    "echo     ],>> .mise\\prism-instance\\mmc-pack.json",
-    "echo     \"formatVersion\": 1>> .mise\\prism-instance\\mmc-pack.json",
-    "echo }>> .mise\\prism-instance\\mmc-pack.json",
-    
-    "set REPO_PATH=%CD:\\=/%",
+
+    "echo Reading versions from pakku-lock.json and generating Prism pack...",
+
+    "jq \"{ components: [ { important: true, uid: \\\"net.minecraft\\\", version: .mc_versions[0] }, { uid: \\\"net.fabricmc.fabric-loader\\\", version: .loaders.fabric } ], formatVersion: 1 }\" pakku-lock.json > .mise\\prism-instance\\mmc-pack.json",
     
     "echo [General]> .mise\\prism-instance\\instance.cfg",
     "echo InstanceType=OneSix>> .mise\\prism-instance\\instance.cfg",
     "echo OverrideCommands=true>> .mise\\prism-instance\\instance.cfg",
-    "echo PreLaunchCommand=$INST_JAVA \"-Ddev.repo.path=%REPO_PATH%\" \"%REPO_PATH%/DevLaunch.java\">> .mise\\prism-instance\\instance.cfg",
-    
-    "cd .mise\\prism-instance",
-    "jar cMf \"../Season 4 Dev.zip\" *",
-    "cd ..\\..",
+    "echo PreLaunchCommand=$INST_JAVA \"-Ddev.repo.path=%CD:\\=/%\" \"%CD:\\=/%/DevLaunch.java\">> .mise\\prism-instance\\instance.cfg",
+
+    "cd .mise\\prism-instance && jar cMf \"../Season 4 Dev.zip\" *",
     
     "echo Success! Drag and drop '.mise/Season 4 Dev.zip' into Prism Launcher to import it."
 ]
