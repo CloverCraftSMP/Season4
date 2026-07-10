@@ -8,6 +8,50 @@
     },
     "projects": [
         {
+            "pakku_id": "63njsySn2VL8pe5v",
+            "pakku_links": [
+                "gnTjXBTfD5sK0qFy"
+            ],
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "better-compatibility-checker"
+            },
+            "name": {
+                "modrinth": "Better Compatibility Checker"
+            },
+            "id": {
+                "modrinth": "KJhXPbHQ"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "better-compatability-checker-fabric-26.1.2.1.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/KJhXPbHQ/versions/7SDUWDbZ/better-compatability-checker-fabric-26.1.2.1.jar",
+                    "id": "7SDUWDbZ",
+                    "parent_id": "KJhXPbHQ",
+                    "hashes": {
+                        "sha512": "1c46b5a4844c53a03f87d1ad310dafb9a4bf15f6f5c87b4ad4b01fdf9be8575819844b6e3706bf1fd098e49d5f78acc85fbf0b06f8e598bc1b55e6e7d0294855",
+                        "sha1": "8456fb674f086beb262b1e9213a09a37d08bf545"
+                    },
+                    "required_dependencies": [
+                        "P7dR8mSH"
+                    ],
+                    "size": 30680,
+                    "date_published": "2026-04-10T14:54:00.631999Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "C2pRNH05MGxVRQ47",
             "type": "MOD",
             "side": "SERVER",
@@ -270,6 +314,7 @@
             "id": {
                 "modrinth": "YL57xq9U"
             },
+            "update_strategy": "NONE",
             "files": [
                 {
                     "type": "modrinth",

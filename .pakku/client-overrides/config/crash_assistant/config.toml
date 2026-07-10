@@ -1,0 +1,25 @@
+[general]
+    help_link = "CHANGE_ME"
+    formulation_type = "DISCORD"
+    upload_to = "mclo.gs"
+    #Anti censoring only versions, IP's are kept censored.
+    enable_mclogs_anti_ip_like_version_censorer = true
+
+[text]
+    support_name = "CloverCraft Discord"
+    support_place = "#tickets channel"
+    modpack_name = "$BCC.modpackName$ $BCC.modpackVersion$"
+
+[modpack_modlist]
+    enabled = true
+    modpack_creators = ["4tz","thecolonel63"]
+    auto_update = true
+    add_modloader_jar_name = true
+    add_modlist_txt_as_log = true
+
+[greeting]
+	shown_greeting = true
+
+[gui_customisation]
+    theme_file_name = "FlatDarculaLaf"
+    
