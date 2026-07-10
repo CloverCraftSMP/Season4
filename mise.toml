@@ -1,0 +1,16 @@
+[tools]
+java = "temurin-25"
+
+[hooks]
+postinstall = { task = "pakku:update" }
+
+[tasks."pakku:update"]
+description = "Downloads or updates the latest pakku.jar"
+run = """
+mkdir -p .mise
+curl -sLo .mise/pakku.jar "https://github.com/juraj-hrivnak/Pakku/releases/latest/download/pakku.jar"
+echo "Pakku updated successfully!"
+"""
+
+[shell_alias]
+pakku = "java -jar .mise/pakku.jar"
