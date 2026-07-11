@@ -1,0 +1,44 @@
+name: Server Boot Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Environment (Mise)
+        uses: jdx/mise-action@v2
+
+      - name: Build Server Artifact
+        run: mise run ci:build-server
+        
+      - name: Stage Test Environment
+        run: mise run ci:stage-server
+
+      - name: Boot Server and Verify Health
+        run: mise run ci:test-server
+
+      - name: Save Deploy Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Server-Package
+          path: server-deploy.zip
+          retention-days: 14
+
+      - name: Save Crash Logs (On Failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Server-Crash-Logs
+          path: |
+            .ci-server/logs/
+            .ci-server/crash-reports/
+          retention-days: 14

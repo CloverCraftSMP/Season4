@@ -1,1 +1,6 @@
+# pakku
+build
+.ci-server
+server-deploy.zip
+
 .mise

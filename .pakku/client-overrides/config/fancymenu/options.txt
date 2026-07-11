@@ -5,7 +5,3 @@ B:show_welcome_screen = 'false';
 ##[customization]
 
 B:modpack_mode = 'true';
-
-##[general]
-
-I:default_gui_scale = '2';
