@@ -17,8 +17,8 @@ jobs:
       - name: Setup Environment (Mise)
         uses: jdx/mise-action@v4
 
-      - name: Build Server Artifact
-        run: mise run ci:build-server
+      - name: Build Artifact
+        run: mise run ci:export
         
       - name: Stage Test Environment
         run: mise run ci:stage-server
@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Server-Package
-          path: server-deploy.zip
+          path: .ci/artifacts/*.zip
           retention-days: 14
 
       - name: Save Crash Logs (On Failure)

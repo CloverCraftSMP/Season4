@@ -1,10 +1,6 @@
-# pakku
-build
+# ci and artifacts
+.ci/
+build/
 
-# ci
-.ci-server
-server-deploy.zip
-pr_body.md
-update_log.txt
-
+# mise + pakku jar
 .mise

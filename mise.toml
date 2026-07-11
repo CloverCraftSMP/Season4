@@ -84,30 +84,36 @@ run_windows = [
 description = "Runs the local Pakku jar"
 run = "java -jar .mise/pakku.jar"
 
-[tasks."ci:build-server"]
-description = "Builds server-deploy.zip artifact using Pakku's exporter"
+[tasks."ci:export"]
+description = "Exports all profiles (mrpack and serverpack) into the .ci/artifacts folder"
 run = """
 echo "Cleaning up old builds..."
-rm -rf build server-deploy.zip
+rm -rf build .ci/artifacts
+mkdir -p .ci/artifacts
 
-echo "Exporting ServerPack via Pakku..."
-java -jar .mise/pakku.jar export
+echo "Exporting profiles via Pakku..."
+java --enable-native-access=ALL-UNNAMED -jar .mise/pakku.jar export
 
-mv build/serverpack/*.zip server-deploy.zip
-echo "Server artifact generated successfully!"
+echo "Organizing artifacts..."
+mv build/serverpack/*.zip .ci/artifacts/
+mv build/modrinth/*.mrpack .ci/artifacts/
+
+rm -rf build
+echo "Artifacts generated successfully in .ci/artifacts/"
 """
 
 [tasks."ci:stage-server"]
-description = "Unzips the Pakku server artifact into a test folder and preps for boot"
+description = "Stages the Minecraft server environment for the boot test"
 run = """
-rm -rf .ci-server
-mkdir -p .ci-server
+echo "Preparing test environment..."
+rm -rf .ci/server-test
+mkdir -p .ci/server-test
 
 echo "Unzipping deploy artifact for testing..."
-unzip -q server-deploy.zip -d .ci-server/
+unzip -q .ci/artifacts/*.zip -d .ci/server-test/
 
 echo "Accepting EULA..."
-echo "eula=true" > .ci-server/eula.txt
+echo "eula=true" > .ci/server-test/eula.txt
 """
 
 [tasks."ci:test-server"]
@@ -124,7 +130,7 @@ FABRIC_VERSION=$(jq -r '.loaders.fabric' pakku-lock.json)
 
 INSTALLER_VERSION="1.0.1"
 
-cd .ci-server
+cd .ci/server-test
 
 echo "Downloading Fabric Server $FABRIC_VERSION for MC $MC_VERSION..."
 curl -sLo fabric-server.jar "https://meta.fabricmc.net/v2/versions/loader/${MC_VERSION}/${FABRIC_VERSION}/${INSTALLER_VERSION}/server/jar"
