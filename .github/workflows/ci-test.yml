@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Environment (Mise)
-        uses: jdx/mise-action@v2
+        uses: jdx/mise-action@v4
 
       - name: Build Server Artifact
         run: mise run ci:build-server

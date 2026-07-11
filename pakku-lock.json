@@ -753,10 +753,9 @@
             ]
         },
         {
-            "pakku_id": "XNEHkxQJi6pGBdLF",
+            "pakku_id": "oO5hw54wvLUzdEUq",
             "pakku_links": [
                 "gnTjXBTfD5sK0qFy",
-                "bv6zWo1psKi3LivM",
                 "IXkKfDsWqAMYU1YH"
             ],
             "type": "MOD",
@@ -773,27 +772,29 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "voxy-0.2.16-beta.jar",
+                    "file_name": "voxy-0.2.15-beta+26.1.jar",
                     "mc_versions": [
+                        "26.1",
+                        "26.1.1",
                         "26.1.2"
                     ],
                     "loaders": [
                         "fabric"
                     ],
                     "release_type": "beta",
-                    "url": "https://cdn.modrinth.com/data/fxxUqruK/versions/7RYVKQJm/voxy-0.2.16-beta.jar",
-                    "id": "7RYVKQJm",
+                    "url": "https://cdn.modrinth.com/data/fxxUqruK/versions/tIs0IXaN/voxy-0.2.15-beta+26.1.jar",
+                    "id": "tIs0IXaN",
                     "parent_id": "fxxUqruK",
                     "hashes": {
-                        "sha512": "d839f9d06a6f93d28a973dcaf49a9c4307dfabb8393961005d0a830213e23990e82c2afc845f339701aadb5441b83ce3a19c00cc04b846e2cbe73165495adea0",
-                        "sha1": "fb1540e3da6e801ed3da63ef6d514eadf79bdfc0"
+                        "sha512": "e18e6b7697038bdd7c7e0f230342c356f9be14b79f18a5215cf73e7c1bda33699f5ce1ce3b37c8ce6a23161bc64365cc7835dab90f54aa6a4e3efa1def4c1cd1",
+                        "sha1": "7570259d68157e32a0841abafb6755aef5656881"
                     },
                     "required_dependencies": [
                         "P7dR8mSH",
                         "AANobbMI"
                     ],
-                    "size": 12639617,
-                    "date_published": "2026-05-25T07:54:20.047925Z"
+                    "size": 12638804,
+                    "date_published": "2026-05-06T02:11:53.952436Z"
                 }
             ]
         }

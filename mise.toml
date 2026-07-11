@@ -166,6 +166,11 @@ kill $SERVER_PID
 exit 0
 """
 
+[tasks."ci:update-mods"]
+description = "Updates all projects in the modpack to their latest versions"
+run = "java --enable-native-access=ALL-UNNAMED -jar .mise/pakku.jar update -a"
+
+
 [shell_alias]
 pakku = "java -jar .mise/pakku.jar"
 
