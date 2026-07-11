@@ -1,6 +1,10 @@
 # pakku
 build
+
+# ci
 .ci-server
 server-deploy.zip
+pr_body.md
+update_log.txt
 
 .mise
