@@ -27,7 +27,7 @@ jobs:
         run: mise run ci:test-server
 
       - name: Save Deploy Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: Server-Package
           path: .ci/artifacts/*.zip
@@ -35,7 +35,7 @@ jobs:
 
       - name: Save Crash Logs (On Failure)
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: Server-Crash-Logs
           path: |
