@@ -400,7 +400,7 @@
         {
             "pakku_id": "mrCeKjkVwWOosi6Y",
             "type": "MOD",
-            "side": "BOTH",
+            "side": "CLIENT",
             "slug": {
                 "modrinth": "baguettelib"
             },
@@ -1679,6 +1679,46 @@
             ]
         },
         {
+            "pakku_id": "KZXxkXGGaKFIfUxZ",
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "ferrite-core"
+            },
+            "name": {
+                "modrinth": "FerriteCore"
+            },
+            "id": {
+                "modrinth": "uXXizFIs"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "ferritecore-9.0.0-fabric.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2",
+                        "26.2"
+                    ],
+                    "loaders": [
+                        "fabric"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/uXXizFIs/versions/d5ddUdiB/ferritecore-9.0.0-fabric.jar",
+                    "id": "d5ddUdiB",
+                    "parent_id": "uXXizFIs",
+                    "hashes": {
+                        "sha512": "d81fa97e11784c19d42f89c2f433831d007603dd7193cee45fa177e4a6a9c52b384b198586e04a0f7f63cd996fed713322578bde9a8db57e1188854ae5cbe584",
+                        "sha1": "eac76ff0f3753422c61b2c44487d0d195d88d4bc"
+                    },
+                    "required_dependencies": [],
+                    "size": 72677,
+                    "date_published": "2026-03-24T18:31:50.491773Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "JNEOEruoi8IFiyFk",
             "pakku_links": [
                 "gnTjXBTfD5sK0qFy"
@@ -1858,7 +1898,7 @@
             ]
         },
         {
-            "pakku_id": "GpvYGb7PkulYe7nk",
+            "pakku_id": "4ledINIKi6DGG9xx",
             "type": "MOD",
             "side": "CLIENT",
             "slug": {
@@ -2313,7 +2353,7 @@
             ]
         },
         {
-            "pakku_id": "PXrs5CQpT8DIDB7O",
+            "pakku_id": "u6sBa2Q2Yxe8Kss8",
             "type": "MOD",
             "side": "CLIENT",
             "slug": {
@@ -4453,6 +4493,52 @@
                     ],
                     "size": 82146,
                     "date_published": "2026-03-27T08:44:34.302825Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "TrG0uLJZtQHMUljC",
+            "pakku_links": [
+                "oO5hw54wvLUzdEUq",
+                "gnTjXBTfD5sK0qFy"
+            ],
+            "type": "MOD",
+            "side": "CLIENT",
+            "slug": {
+                "modrinth": "voxy-extra"
+            },
+            "name": {
+                "modrinth": "Voxy Extra"
+            },
+            "id": {
+                "modrinth": "znQnhrkQ"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "voxy-extra-0.1.7.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/znQnhrkQ/versions/lcdt5j2r/voxy-extra-0.1.7.jar",
+                    "id": "lcdt5j2r",
+                    "parent_id": "znQnhrkQ",
+                    "hashes": {
+                        "sha512": "8046afd796b47e20af45114c6c804b34b2a56c652dfdd6831c5dbb633fff79f4f5ed5b3af43a1879567b3eddf0f8492c339330e1a5d8d56354802ed1d3afcffc",
+                        "sha1": "6e0342c82cf433e224fba049ec25937a99c4c242"
+                    },
+                    "required_dependencies": [
+                        "fxxUqruK",
+                        "P7dR8mSH"
+                    ],
+                    "size": 59777,
+                    "date_published": "2026-06-20T16:24:44.931067Z"
                 }
             ]
         },

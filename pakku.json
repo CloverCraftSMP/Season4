@@ -22,7 +22,7 @@
             "side": "SERVER"
         },
         "baguettelib": {
-            "side": "BOTH"
+            "side": "CLIENT"
         }
     }
 }

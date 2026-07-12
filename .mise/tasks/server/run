@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 #MISE description="Interactively runs the local dev server"
+#USAGE flag "--wipe" help="Clean wipe the server environment before staging"
 #MISE depends=["build:export", "server:setup-jar"]
 #MISE interactive=true
-mise run server:stage {% if usage.wipe %}--wipe{% endif %}
+if [ "$usage_wipe" = "true" ]; then
+    mise run server:stage --wipe
+else
+    mise run server:stage
+fi
  
 cd .ci/server
 java -Xmx4G -jar fabric-server.jar nogui
