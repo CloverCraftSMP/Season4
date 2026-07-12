@@ -3,8 +3,20 @@ name: Server Boot Test
 on:
   push:
     branches: [ main ]
+    paths:
+      - '.pakku/**'
+      - 'pakku.json'
+      - 'pakku-lock.json'
   pull_request:
     branches: [ main ]
+    paths:
+      - '.pakku/**'
+      - 'pakku.json'
+      - 'pakku-lock.json'
+
+permissions:
+  contents: read
+  actions: write
 
 jobs:
   test:
@@ -17,14 +29,8 @@ jobs:
       - name: Setup Environment (Mise)
         uses: jdx/mise-action@v4
 
-      - name: Build Artifact
-        run: mise run ci:export
-        
-      - name: Stage Test Environment
-        run: mise run ci:stage-server
-
-      - name: Boot Server and Verify Health
-        run: mise run ci:test-server
+      - name: Run pipeline
+        run: mise run ci:pipeline
 
       - name: Save Deploy Artifact
         uses: actions/upload-artifact@v6
@@ -42,3 +48,9 @@ jobs:
             .ci-server/logs/
             .ci-server/crash-reports/
           retention-days: 14
+
+      - name: Prune Old Artifacts
+        if: always() 
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash .github/scripts/prune-artifacts.sh
