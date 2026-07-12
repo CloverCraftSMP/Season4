@@ -1,9 +1,16 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.zip.ZipFile;
 
 public class DevLaunch {
     public static void main(String[] args) throws Exception {
@@ -25,10 +32,14 @@ public class DevLaunch {
         System.out.println("Syncing overrides and Pakku files...");
         copy(commonOverridesDir, rootDir);
         copy(clientOverridesDir, rootDir);
-        copy(repoDir.resolve("pakku.json"), rootDir);
-        copy(repoDir.resolve("pakku-lock.json"), rootDir);
         
-        runPakkuFetch(pakkuJar);
+        runPakkuFetch(repoDir, pakkuJar);
+
+        Set<String> validClientMods = generateClientWhitelist(repoDir, pakkuJar);
+        
+        if (!validClientMods.isEmpty()) {
+            syncClientMods(repoDir, rootDir, validClientMods);
+        }
 
         System.out.println("Booting pack...");
     }
@@ -72,17 +83,91 @@ public class DevLaunch {
         }
     }
 
-    private static void runPakkuFetch(Path pakkuJar) throws Exception {
+    private static void runPakkuFetch(Path repoDir, Path pakkuJar) throws Exception {
         System.out.println("Syncing mods via Pakku...");
         var javaExe = Paths.get(System.getProperty("java.home"), "bin", "java");
 
         var pb = new ProcessBuilder(javaExe.toString(), "-jar", pakkuJar.toString(), "fetch");
+        pb.directory(repoDir.toFile());
         pb.inheritIO();
         
         int exitCode = pb.start().waitFor();
         if (exitCode != 0) {
             System.err.println("Pakku fetch failed! Halting launch.");
             System.exit(exitCode);
+        }
+    }
+
+    private static Set<String> generateClientWhitelist(Path repoDir, Path pakkuJar) throws Exception {
+        System.out.println("Determining client-only mods...");
+        var javaExe = Paths.get(System.getProperty("java.home"), "bin", "java");
+        
+        ProcessBuilder pb = new ProcessBuilder(
+            javaExe.toString(), "-jar", pakkuJar.toString(), "export", "--no-server"
+        );
+        pb.directory(repoDir.toFile());
+        pb.start().waitFor();
+        
+        Path modrinthBuildDir = repoDir.resolve("build").resolve("modrinth");
+        if (!Files.exists(modrinthBuildDir)) return Set.of();
+        
+        Path mrpackPath = null;
+        try (var stream = Files.list(modrinthBuildDir)) {
+            mrpackPath = stream.filter(p -> p.toString().endsWith(".mrpack")).findFirst().orElse(null);
+        }
+        
+        if (mrpackPath == null) return Set.of();
+        
+        Set<String> validMods = new HashSet<>();
+        try (ZipFile zip = new ZipFile(mrpackPath.toFile())) {
+            var entry = zip.getEntry("modrinth.index.json");
+            if (entry != null) {
+                try (var is = zip.getInputStream(entry);
+                     var scanner = new Scanner(is, StandardCharsets.UTF_8)) {
+                    String content = scanner.useDelimiter("\\A").next();
+                    Matcher m = Pattern.compile("\"path\"\\s*:\\s*\"mods/([^\"]+\\.jar)\"").matcher(content);
+                    while (m.find()) {
+                        String fullPath = m.group(1);
+                        validMods.add(Paths.get(fullPath).getFileName().toString());
+                    }
+                }
+            }
+        }
+        return validMods;
+    }
+
+    private static void syncClientMods(Path repoDir, Path rootDir, Set<String> validClientMods) throws IOException {
+        Path repoModsDir = repoDir.resolve("mods");
+        Path prismModsDir = rootDir.resolve("mods");
+        
+        if (!Files.exists(prismModsDir)) {
+            Files.createDirectory(prismModsDir);
+        }
+
+        System.out.println("Syncing whitelisted mods to Prism...");
+        
+        for (String modName : validClientMods) {
+            Path sourceJar = repoModsDir.resolve(modName);
+            Path destJar = prismModsDir.resolve(modName);
+            
+            if (Files.exists(sourceJar) && !Files.exists(destJar)) {
+                Files.copy(sourceJar, destJar, StandardCopyOption.REPLACE_EXISTING);
+            }
+        }
+
+        try (var stream = Files.list(prismModsDir)) {
+            stream.filter(p -> p.toString().endsWith(".jar"))
+                  .forEach(p -> {
+                      String fileName = p.getFileName().toString();
+                      if (!validClientMods.contains(fileName)) {
+                          System.out.println("❯❯❯  Purged invalid/server mod: " + fileName);
+                          try {
+                              Files.delete(p);
+                          } catch (IOException e) {
+                              System.err.println("❯❯❯  Failed to delete: " + fileName);
+                          }
+                      }
+                  });
         }
     }
 }

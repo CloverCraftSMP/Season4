@@ -1,6 +1,11 @@
 # ci and artifacts
 .ci/
-build/
+/build/
 
-# mise + pakku jar
-.mise
+# mise and cache
+.mise/*
+!.mise/tasks/
+
+# pakku fetch cache
+/mods/
+/resourcepacks/
