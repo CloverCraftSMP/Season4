@@ -223,5 +223,5 @@ java -Xmx4G -jar fabric-server.jar nogui
 
 
 [shell_alias]
-pakku = "java -jar .mise/pakku.jar"
+pakku = "java --enable-native-access=ALL-UNNAMED -jar .mise/pakku.jar"
 
