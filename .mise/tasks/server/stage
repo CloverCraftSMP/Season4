@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #MISE description="Stages the Minecraft server environment for boot"
 #USAGE flag "--wipe" help="Clean wipe the server environment before staging"
+#MISE depends=["server:setup-jar"]
 #MISE wait_for=["build:export"]
 if [ "$usage_wipe" = true ]; then
     echo "Trashing old server environment..."
