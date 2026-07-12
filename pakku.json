@@ -6,8 +6,23 @@
         "sodium": {
             "update_strategy": "NONE"
         },
+        "sodium-extra": {
+            "update_strategy": "NONE"
+        },
         "iris": {
             "update_strategy": "NONE"
+        },
+        "better-block-entities": {
+            "update_strategy": "NONE"
+        },
+        "vmp-fabric": {
+            "side": "SERVER"
+        },
+        "c2me-fabric": {
+            "side": "SERVER"
+        },
+        "baguettelib": {
+            "side": "BOTH"
         }
     }
 }
