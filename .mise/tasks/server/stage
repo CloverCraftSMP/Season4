@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#MISE description="Stages the Minecraft server environment for boot"
+#USAGE flag "--wipe" help="Clean wipe the server environment before staging"
+#MISE wait_for=["build:export"]
+if [ "$usage_wipe" = true ]; then
+    echo "Trashing old server environment..."
+    mise run clean:server
+else
+    echo "Preserving data (if any). Wiping only the old mods folder..."
+    mise run clean:server-mods
+fi
+
+mkdir -p .ci/server
+
+echo "Unzipping deploy artifact for testing..."
+unzip -q .ci/artifacts/*.zip -d .ci/server/
+
+echo "Accepting EULA..."
+echo "eula=true" > .ci/server/eula.txt
+
+MC_VERSION=$(jq -r '.mc_versions[0]' pakku-lock.json)
+FABRIC_VERSION=$(jq -r '.loaders.fabric' pakku-lock.json)
+cp "$MISE_PROJECT_ROOT/.mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar" .ci/server/fabric-server.jar

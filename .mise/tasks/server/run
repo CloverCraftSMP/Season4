@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#MISE description="Interactively runs the local dev server"
+#MISE depends=["build:export", "server:setup-jar"]
+#MISE interactive=true
+mise run server:stage {% if usage.wipe %}--wipe{% endif %}
+ 
+cd .ci/server
+java -Xmx4G -jar fabric-server.jar nogui

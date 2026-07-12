@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#MISE description="Removes generated export artifacts"
+rm -rf build .ci/artifacts

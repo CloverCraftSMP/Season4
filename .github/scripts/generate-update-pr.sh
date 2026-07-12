@@ -3,7 +3,7 @@ set -euo pipefail
 
 mkdir -p .ci
 
-mise run ci:update-mods > .ci/update_log.txt
+mise run pakku:update-mods > .ci/update_log.txt
 
 cat .ci/update_log.txt
 

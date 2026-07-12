@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#MISE description="Boots the Fabric server and waits for it to become healthy"
+#MISE depends=["server:setup-jar"]
+#MISE wait_for=["server:stage"]
+cd .ci/server
+
+echo "Starting test server..."
+java -Xmx2G -Djava.awt.headless=true -jar fabric-server.jar nogui &
+SERVER_PID=$!
+
+echo "Waiting for server to become healthy (Timeout: 4 minutes)..."
+TIMEOUT=240
+ELAPSED=0
+INTERVAL=5
+
+while ! mc-monitor status -host localhost -port 25565 > /dev/null 2>&1; do
+    if ! kill -0 $SERVER_PID 2>/dev/null; then
+        echo "========================================="
+        echo "FAILURE: Server process crashed during boot!"
+        echo "========================================="
+        exit 1
+    fi
+
+    if [ $ELAPSED -ge $TIMEOUT ]; then
+        echo "========================================="
+        echo "FAILURE: Server failed to start within 4 minutes."
+        echo "========================================="
+        kill $SERVER_PID
+        exit 1
+    fi
+    
+    sleep $INTERVAL
+    ELAPSED=$((ELAPSED + INTERVAL))
+done
+
+echo "========================================="
+echo "SUCCESS: Server booted and is responding!"
+echo "========================================="
+kill $SERVER_PID
+exit 0

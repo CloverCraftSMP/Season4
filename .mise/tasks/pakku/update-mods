@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#MISE description="Updates all projects in the modpack to their latest versions"
+mise run pakku update -a

@@ -30,7 +30,7 @@ jobs:
         uses: jdx/mise-action@v4
 
       - name: Run pipeline
-        run: mise run ci:pipeline
+        run: mise run ci:run
 
       - name: Save Deploy Artifact
         uses: actions/upload-artifact@v6
