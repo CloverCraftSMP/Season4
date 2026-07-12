@@ -1293,6 +1293,50 @@
             ]
         },
         {
+            "pakku_id": "oMXqwkLgnAKXA3Y4",
+            "pakku_links": [
+                "gnTjXBTfD5sK0qFy"
+            ],
+            "type": "MOD",
+            "side": "CLIENT",
+            "slug": {
+                "modrinth": "entityculling"
+            },
+            "name": {
+                "modrinth": "Entity Culling"
+            },
+            "id": {
+                "modrinth": "NNAgCjsB"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "entityculling-fabric-1.10.5-mc26.1.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/zAi8nQHj/entityculling-fabric-1.10.5-mc26.1.jar",
+                    "id": "zAi8nQHj",
+                    "parent_id": "NNAgCjsB",
+                    "hashes": {
+                        "sha512": "66fb5518f61a62643eb2901e3d16550fb2ccb496c397f29d1adacf745f4f836805c593cec8560aeab9f2b826cd3af4535d526c4f1ff5a6bde56d5578b3079a18",
+                        "sha1": "62ac7ed3bbc0b920428bcfc18d1962836b84c391"
+                    },
+                    "required_dependencies": [
+                        "P7dR8mSH"
+                    ],
+                    "size": 1581987,
+                    "date_published": "2026-06-20T14:42:48.999244Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "khxL1hfPM2PYMDgz",
             "pakku_links": [
                 "gnTjXBTfD5sK0qFy"
