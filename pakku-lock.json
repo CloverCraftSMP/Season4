@@ -54,6 +54,52 @@
             ]
         },
         {
+            "pakku_id": "nR7X51tyMjQWjUJF",
+            "pakku_links": [
+                "y3CzOciqzpx3BbN5"
+            ],
+            "type": "MOD",
+            "side": "CLIENT",
+            "slug": {
+                "modrinth": "advancements-reloaded"
+            },
+            "name": {
+                "modrinth": "Advancements Reloaded (AdvancementInfo)"
+            },
+            "id": {
+                "modrinth": "tLuRLqpa"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "advancements_reloaded-0.14.0-fabric-26.2.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2",
+                        "26.2"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "quilt"
+                    ],
+                    "release_type": "beta",
+                    "url": "https://cdn.modrinth.com/data/tLuRLqpa/versions/padTP1d1/advancements_reloaded-0.14.0-fabric-26.2.jar",
+                    "id": "padTP1d1",
+                    "parent_id": "tLuRLqpa",
+                    "hashes": {
+                        "sha512": "3a946742b04f79f8804572fa6cd1a026ff67194df5238e1c3f8460325dc643b14358ee45a7403bbbd4c243186bd116659a9c4925606f32125bc04e457233d403",
+                        "sha1": "387c499364c6544d5ab07c3929ca02cb1f857a54"
+                    },
+                    "required_dependencies": [
+                        "9s6osm5g"
+                    ],
+                    "size": 337150,
+                    "date_published": "2026-06-23T10:34:54.346439Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "hHJy38Mr53fTwP7q",
             "pakku_links": [
                 "gnTjXBTfD5sK0qFy",
@@ -2353,72 +2399,6 @@
             ]
         },
         {
-            "pakku_id": "EYMu9iHkOLegbMYC",
-            "pakku_links": [
-                "gnTjXBTfD5sK0qFy"
-            ],
-            "type": "MOD",
-            "side": "CLIENT",
-            "slug": {
-                "modrinth": "hide-item-frame"
-            },
-            "name": {
-                "modrinth": "Hide Item Frame"
-            },
-            "id": {
-                "modrinth": "kQBKK3h1"
-            },
-            "files": [
-                {
-                    "type": "modrinth",
-                    "file_name": "hide-item-frame-fabric-1.4.2+26.1.jar",
-                    "mc_versions": [
-                        "26.1-snapshot-1",
-                        "26.1-snapshot-2",
-                        "26.1-snapshot-3",
-                        "26.1-snapshot-4",
-                        "26.1-snapshot-5",
-                        "26.1-snapshot-6",
-                        "26.1-snapshot-7",
-                        "26.1-snapshot-8",
-                        "26.1-snapshot-9",
-                        "26.1-snapshot-10",
-                        "26.1-snapshot-11",
-                        "26.1-pre-1",
-                        "26.1-pre-2",
-                        "26.1-pre-3",
-                        "26.1-rc-1",
-                        "26.1-rc-2",
-                        "26.1-rc-3",
-                        "26.1",
-                        "26.1.1-rc-1",
-                        "26.1.1",
-                        "26w14a",
-                        "26.1.2-rc-1",
-                        "26.1.2",
-                        "26.2"
-                    ],
-                    "loaders": [
-                        "fabric",
-                        "quilt"
-                    ],
-                    "release_type": "release",
-                    "url": "https://cdn.modrinth.com/data/kQBKK3h1/versions/BJ5sL9Jt/hide-item-frame-fabric-1.4.2+26.1.jar",
-                    "id": "BJ5sL9Jt",
-                    "parent_id": "kQBKK3h1",
-                    "hashes": {
-                        "sha512": "3e7d862493e03dc0510bbfc800005731ae03c5ec398803d2dde1d48472417979421104adbfb6b7aa9eda330dc3c2fb7349ca86038827a7b3738f3f55dfb57cb1",
-                        "sha1": "8841ffd896c3d1d01e12148530797e500bdabdb7"
-                    },
-                    "required_dependencies": [
-                        "P7dR8mSH"
-                    ],
-                    "size": 52657,
-                    "date_published": "2026-04-04T20:24:55.961173Z"
-                }
-            ]
-        },
-        {
             "pakku_id": "IEVNm3o1WPDJt8Cs",
             "pakku_links": [
                 "gnTjXBTfD5sK0qFy"
@@ -2545,6 +2525,51 @@
                     ],
                     "size": 1784492,
                     "date_published": "2026-07-11T16:43:14.427203Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "v4mGAQ4Jv877waAr",
+            "pakku_links": [
+                "gnTjXBTfD5sK0qFy"
+            ],
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "invisible-frames-mod"
+            },
+            "name": {
+                "modrinth": "Invisible Frames"
+            },
+            "id": {
+                "modrinth": "QD87oMUf"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "invisibleframes-fabric-2.0.1+26.1.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "quilt"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/QD87oMUf/versions/gv9BPKJC/invisibleframes-fabric-2.0.1+26.1.jar",
+                    "id": "gv9BPKJC",
+                    "parent_id": "QD87oMUf",
+                    "hashes": {
+                        "sha512": "52b2833406e1e20460d816159d315063d600048e8f6e92dc28453f465f58afc1c89c0bed72e172862811d6f7f150307f2cfc2c8cf6b0bc4bb9cb8052b93fbcdd",
+                        "sha1": "908c1b4bd6d441372bbce66e4be780a6c19a353b"
+                    },
+                    "required_dependencies": [
+                        "P7dR8mSH"
+                    ],
+                    "size": 181254,
+                    "date_published": "2026-06-11T18:57:42.793761Z"
                 }
             ]
         },
@@ -3594,6 +3619,51 @@
                     ],
                     "size": 1810474,
                     "date_published": "2026-05-01T09:25:53.215189Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "cIXxEC6ctbZhRlUC",
+            "pakku_links": [
+                "NoPTube8UWaERQmK"
+            ],
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "no-animal-tempt-delay"
+            },
+            "name": {
+                "modrinth": "No Animal Tempt Delay"
+            },
+            "id": {
+                "modrinth": "7YM5AXYm"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "noanimaltemptdelay-26.1.2-1.2.jar",
+                    "mc_versions": [
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "forge",
+                        "neoforge",
+                        "quilt"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/7YM5AXYm/versions/2fSJKnUH/noanimaltemptdelay-26.1.2-1.2.jar",
+                    "id": "2fSJKnUH",
+                    "parent_id": "7YM5AXYm",
+                    "hashes": {
+                        "sha512": "b9975eb2bbffa8a5da9b06dd078194c3600f31563b37c75b56369d0dad62908de4ffcd2dbed5b3b1cb4cd13451f75b30d8ad243027febec1f9a44ccf33c79a78",
+                        "sha1": "5c4699f0c5cebbb6ef2250122401d2536f296ac0"
+                    },
+                    "required_dependencies": [
+                        "e0M1UDsY"
+                    ],
+                    "size": 23987,
+                    "date_published": "2026-04-09T23:07:15.287599Z"
                 }
             ]
         },
@@ -5105,6 +5175,55 @@
             ]
         },
         {
+            "pakku_id": "m10VZYE1BMVxjGzw",
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "tab-was-taken"
+            },
+            "name": {
+                "modrinth": "TAB"
+            },
+            "id": {
+                "modrinth": "gG7VFbG0"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "TAB v6.0.3 - Fabric, NeoForge.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "bukkit",
+                        "bungeecord",
+                        "fabric",
+                        "folia",
+                        "neoforge",
+                        "paper",
+                        "purpur",
+                        "quilt",
+                        "spigot",
+                        "velocity",
+                        "waterfall"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/gG7VFbG0/versions/PrnXeUa0/TAB v6.0.3 - Fabric, NeoForge.jar",
+                    "id": "PrnXeUa0",
+                    "parent_id": "gG7VFbG0",
+                    "hashes": {
+                        "sha512": "e63fc7311b59da93b4722ec4838ac90a44845108aee3f393a0fbb9de005ef3a0910a44166596a191ecd120a64c5e58ca3e86d5a18af258265f15a90b41d1709e",
+                        "sha1": "9ab7e3b339f1be7e9f9d37017df936b9bb417081"
+                    },
+                    "required_dependencies": [],
+                    "size": 8437123,
+                    "date_published": "2026-06-02T15:59:47.463249Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "vQYfQXz1kf5LYRfb",
             "type": "MOD",
             "side": "BOTH",
@@ -5225,6 +5344,48 @@
                     ],
                     "size": 148600,
                     "date_published": "2026-05-29T06:28:04.526455Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "np6foxjhk5jCNLz8",
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "vanilla-permissions"
+            },
+            "name": {
+                "modrinth": "Vanilla Permissions"
+            },
+            "id": {
+                "modrinth": "fdZkP5Bb"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "vanilla-permissions-0.3.6+26.1.2.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2",
+                        "26.2-rc-2",
+                        "26.2"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "quilt"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/fdZkP5Bb/versions/bpq3ZDRl/vanilla-permissions-0.3.6+26.1.2.jar",
+                    "id": "bpq3ZDRl",
+                    "parent_id": "fdZkP5Bb",
+                    "hashes": {
+                        "sha512": "f541fcb459e6b315c87b8de446a1c6bbb3ddf7b06317c5fe1e64a8bd26460dd7e206545beaeb565c5036fb321398c986462cd5913305068bdd9190ead367ce93",
+                        "sha1": "4de07ac050d7ba8c2faff0f6ac549d2052425282"
+                    },
+                    "required_dependencies": [],
+                    "size": 99126,
+                    "date_published": "2026-05-18T18:41:48.998522Z"
                 }
             ]
         },
@@ -5660,6 +5821,45 @@
                     "required_dependencies": [],
                     "size": 740706,
                     "date_published": "2026-04-15T13:07:14.448754Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "zliPfTqLEIo889a7",
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "fabric-permissions-api"
+            },
+            "name": {
+                "modrinth": "fabric-permissions-api"
+            },
+            "id": {
+                "modrinth": "lzVo0Dll"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "fabric-permissions-api-0.7.0.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/lzVo0Dll/versions/b1EqjxFs/fabric-permissions-api-0.7.0.jar",
+                    "id": "b1EqjxFs",
+                    "parent_id": "lzVo0Dll",
+                    "hashes": {
+                        "sha512": "fd1961a4496cdc6cf22fbac0627a331407e97d3131f222641c1e370824adb3179e530e33e9e03adff1843e5556750edbb7abe0be7a241c7f0e3ca3ddc8b78ab7",
+                        "sha1": "8c536967c417676af59b4574fc079444a19c87fd"
+                    },
+                    "required_dependencies": [],
+                    "size": 15050,
+                    "date_published": "2026-05-27T07:12:16.437641Z"
                 }
             ]
         },
