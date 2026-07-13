@@ -14,7 +14,7 @@ fi
 mkdir -p .ci/server
 
 echo "Unzipping deploy artifact for testing..."
-unzip -q .ci/artifacts/*.zip -d .ci/server/
+unzip -q -o .ci/artifacts/*.zip -d .ci/server/
 
 echo "Accepting EULA..."
 echo "eula=true" > .ci/server/eula.txt

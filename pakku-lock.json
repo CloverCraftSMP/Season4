@@ -3487,6 +3487,43 @@
             ]
         },
         {
+            "pakku_id": "2ss5OOP7tUnhc5Ws",
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "minimotd"
+            },
+            "name": {
+                "modrinth": "MiniMOTD"
+            },
+            "id": {
+                "modrinth": "16vhQOQN"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "minimotd-fabric-mc26.1.2-2.2.3.jar",
+                    "mc_versions": [
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/16vhQOQN/versions/o5VUklNM/minimotd-fabric-mc26.1.2-2.2.3.jar",
+                    "id": "o5VUklNM",
+                    "parent_id": "16vhQOQN",
+                    "hashes": {
+                        "sha512": "db669d16dc2f429bbf3a8b22bf5073359524e9796912be46743f798ac0854459e5d0ed6b32c93126fa885c778e6ab29fead64208a160b449b5ce2c9713963890",
+                        "sha1": "e9acbf940a729a3b7fe09cc5396a68ef9539dffe"
+                    },
+                    "required_dependencies": [],
+                    "size": 1810493,
+                    "date_published": "2026-04-15T02:35:20.752595Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "L2slnCG40sAYsSR7",
             "pakku_links": [
                 "gnTjXBTfD5sK0qFy"

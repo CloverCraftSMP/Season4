@@ -1,6 +1,7 @@
 fov:0.5
 enableVsync:false
 guiScale:2
+maxFps:165
 toggleSprint:true
 darkMojangStudiosBackground:true
 highContrastBlockOutline:true
@@ -11,3 +12,4 @@ tutorialStep:none
 joinedFirstServer:true
 soundCategory_master:0.5
 soundCategory_music:0.2
+lastServer:localhost

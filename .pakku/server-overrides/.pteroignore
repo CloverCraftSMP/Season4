@@ -1,0 +1,11 @@
+*
+
+!world/
+
+!banned-ips.json
+!banned-players.json
+!ops.json
+!whitelist.json
+!usercache.json
+
+!.pteroignore
