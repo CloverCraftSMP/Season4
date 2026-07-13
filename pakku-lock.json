@@ -1614,29 +1614,28 @@
             "files": [
                 {
                     "type": "modrinth",
-                    "file_name": "fancymenu_fabric_3.9.6_MC_26.1.1.jar",
+                    "file_name": "fancymenu_fabric_3.9.7_MC_26.1.2.jar",
                     "mc_versions": [
-                        "26.1.1",
                         "26.1.2"
                     ],
                     "loaders": [
                         "fabric"
                     ],
                     "release_type": "release",
-                    "url": "https://cdn.modrinth.com/data/Wq5SjeWM/versions/M8oCsyp2/fancymenu_fabric_3.9.6_MC_26.1.1.jar",
-                    "id": "M8oCsyp2",
+                    "url": "https://cdn.modrinth.com/data/Wq5SjeWM/versions/mfuvasNi/fancymenu_fabric_3.9.7_MC_26.1.2.jar",
+                    "id": "mfuvasNi",
                     "parent_id": "Wq5SjeWM",
                     "hashes": {
-                        "sha512": "26de3c50b70ea4a2d9fc941b9efdd8ce6880c35aaef0791e1ad55345605ae9552ed2245f427d49b13041e30f5578abbb817ded3901e4661e6be4daa7e8051a51",
-                        "sha1": "a336b0f97344c41ef23bc43bff0f77070062f81a"
+                        "sha512": "73c9cd4c1a37e06c36d469a5ea38a7c8115eabf69fbbd9766ebfb37adcf1d5645ebcd9c76f5ff9a801915323bc5b7c7269151e6bddf4b11a2814a92a469bad18",
+                        "sha1": "922ca369b21d20f75fbdd4c13b16f6eea3afc7a4"
                     },
                     "required_dependencies": [
-                        "J81TRJWm",
                         "P7dR8mSH",
-                        "CVT4pFB2"
+                        "CVT4pFB2",
+                        "J81TRJWm"
                     ],
-                    "size": 25695534,
-                    "date_published": "2026-06-28T06:15:16.696360Z"
+                    "size": 25795055,
+                    "date_published": "2026-07-12T17:32:01.460543Z"
                 }
             ]
         },
