@@ -1,9 +1,6 @@
 [tools]
 java = "temurin-25"
 jq = "latest"
-go = "latest"
-"go:github.com/itzg/mc-monitor" = "latest"
-act = "latest"
 
 [hooks]
 postinstall = { task = "pakku:update" }

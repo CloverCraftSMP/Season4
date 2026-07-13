@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #MISE description="Downloads and caches the Fabric server jar matching pakku-lock.json"
+set -euo pipefail
+
 if [ ! -f pakku-lock.json ]; then
     echo "Error: pakku-lock.json not found in root directory!"
     exit 1

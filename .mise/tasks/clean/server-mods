@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 #MISE description="Removes the local test server mods folder"
+set -euo pipefail
+
 rm -rf .ci/server/mods

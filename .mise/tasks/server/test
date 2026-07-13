@@ -2,7 +2,16 @@
 #MISE description="Boots the Fabric server and waits for it to become healthy"
 #MISE depends=["server:setup-jar"]
 #MISE wait_for=["server:stage"]
+set -euo pipefail
+
 cd .ci/server
+
+if < /dev/tcp/127.0.0.1/25565 2>/dev/null; then
+    echo "========================================="
+    echo "FAILURE: Port 25565 is already in use!"
+    echo "========================================="
+    exit 1
+fi
 
 echo "Starting test server..."
 java -Xmx2G -Djava.awt.headless=true -jar fabric-server.jar nogui &
@@ -13,7 +22,7 @@ TIMEOUT=240
 ELAPSED=0
 INTERVAL=5
 
-while ! mc-monitor status -host localhost -port 25565 > /dev/null 2>&1; do
+while ! < /dev/tcp/127.0.0.1/25565 2>/dev/null; do
     if ! kill -0 $SERVER_PID 2>/dev/null; then
         echo "========================================="
         echo "FAILURE: Server process crashed during boot!"

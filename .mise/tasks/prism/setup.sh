@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #MISE description="Generates a drag-and-drop Prism instance linked to this repository"
+set -euo pipefail
+
 if [ ! -f pakku-lock.json ]; then
     echo "pakku-lock.json not found!"
     exit 1

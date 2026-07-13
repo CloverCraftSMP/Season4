@@ -3,6 +3,8 @@
 #USAGE flag "--wipe" help="Clean wipe the server environment before staging"
 #MISE depends=["build:export", "server:setup-jar"]
 #MISE interactive=true
+set -euo pipefail
+
 if [ "$usage_wipe" = "true" ]; then
     mise run server:stage --wipe
 else

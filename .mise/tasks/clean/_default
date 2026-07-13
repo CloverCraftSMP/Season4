@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Removes all generated build and staging output"
 #MISE depends= ["clean:build", "clean:server"]
+set -euo pipefail
+
 echo 'Workspace cleaned.'
