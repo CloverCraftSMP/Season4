@@ -1532,6 +1532,53 @@
             ]
         },
         {
+            "pakku_id": "VnbHK3xkZ6MObKH1",
+            "pakku_links": [
+                "y3CzOciqzpx3BbN5",
+                "gnTjXBTfD5sK0qFy"
+            ],
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "cristel-lib"
+            },
+            "name": {
+                "modrinth": "Cristel Lib"
+            },
+            "id": {
+                "modrinth": "cl223EMc"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "cristellib-fabric-26.1.2-3.1.11.jar",
+                    "mc_versions": [
+                        "26.1",
+                        "26.1.1",
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "quilt"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/cl223EMc/versions/QLCbh6Ql/cristellib-fabric-26.1.2-3.1.11.jar",
+                    "id": "QLCbh6Ql",
+                    "parent_id": "cl223EMc",
+                    "hashes": {
+                        "sha512": "e462916c7ed8709a191117cbdd642223090cc45bb32bcc4f96431e346ceb44d87b54057294f85d1a457d26bc0386e46bf5cedbb5cce2e937e96ede6e91dd7782",
+                        "sha1": "27ebae86a13e481725812bdff4cc56bf01f5c118"
+                    },
+                    "required_dependencies": [
+                        "9s6osm5g",
+                        "P7dR8mSH"
+                    ],
+                    "size": 588189,
+                    "date_published": "2026-07-17T15:34:31.990792Z"
+                }
+            ]
+        },
+        {
             "pakku_id": "RfI8LcGsFQdYZArG",
             "pakku_links": [
                 "7EE4kx7b31ggg40T",
@@ -3360,48 +3407,6 @@
             ]
         },
         {
-            "pakku_id": "Am4Kh6vOlqQUae23",
-            "pakku_links": [
-                "gnTjXBTfD5sK0qFy"
-            ],
-            "type": "MOD",
-            "side": "BOTH",
-            "slug": {
-                "modrinth": "lootr"
-            },
-            "name": {
-                "modrinth": "Lootr"
-            },
-            "id": {
-                "modrinth": "EltpO5cN"
-            },
-            "files": [
-                {
-                    "type": "modrinth",
-                    "file_name": "lootr-fabric-26.1.2-1.23.38.118.jar",
-                    "mc_versions": [
-                        "26.1.2"
-                    ],
-                    "loaders": [
-                        "fabric"
-                    ],
-                    "release_type": "release",
-                    "url": "https://cdn.modrinth.com/data/EltpO5cN/versions/v3bIij0K/lootr-fabric-26.1.2-1.23.38.118.jar",
-                    "id": "v3bIij0K",
-                    "parent_id": "EltpO5cN",
-                    "hashes": {
-                        "sha512": "84120feb9838fb2cbfe880a26c382e315b2248a0cfb86cef4b9e989d0d5d3e57e9ffcd548143f12630358415ad1d021b0063895985b2a22451cc2cf54d8f8609",
-                        "sha1": "841a20beda970e7c45cd2db7307370300f62ce6f"
-                    },
-                    "required_dependencies": [
-                        "P7dR8mSH"
-                    ],
-                    "size": 1487080,
-                    "date_published": "2026-07-13T03:30:20.776229Z"
-                }
-            ]
-        },
-        {
             "pakku_id": "Sfr6dGRFkq6i7xIx",
             "pakku_links": [
                 "gnTjXBTfD5sK0qFy"
@@ -3442,6 +3447,48 @@
                     ],
                     "size": 858679,
                     "date_published": "2026-07-06T00:40:09.741832Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "Am4Kh6vOlqQUae23",
+            "pakku_links": [
+                "gnTjXBTfD5sK0qFy"
+            ],
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "lootr"
+            },
+            "name": {
+                "modrinth": "Lootr"
+            },
+            "id": {
+                "modrinth": "EltpO5cN"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "lootr-fabric-26.1.2-1.23.38.118.jar",
+                    "mc_versions": [
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/EltpO5cN/versions/v3bIij0K/lootr-fabric-26.1.2-1.23.38.118.jar",
+                    "id": "v3bIij0K",
+                    "parent_id": "EltpO5cN",
+                    "hashes": {
+                        "sha512": "84120feb9838fb2cbfe880a26c382e315b2248a0cfb86cef4b9e989d0d5d3e57e9ffcd548143f12630358415ad1d021b0063895985b2a22451cc2cf54d8f8609",
+                        "sha1": "841a20beda970e7c45cd2db7307370300f62ce6f"
+                    },
+                    "required_dependencies": [
+                        "P7dR8mSH"
+                    ],
+                    "size": 1487080,
+                    "date_published": "2026-07-13T03:30:20.776229Z"
                 }
             ]
         },
@@ -6312,6 +6359,51 @@
                     ],
                     "size": 59777,
                     "date_published": "2026-06-20T16:24:44.931067Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "mRKAf7ZJE3PyPdtu",
+            "pakku_links": [
+                "VnbHK3xkZ6MObKH1",
+                "gnTjXBTfD5sK0qFy"
+            ],
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "modrinth": "wwoo"
+            },
+            "name": {
+                "modrinth": "William Wythers' Overhauled Overworld"
+            },
+            "id": {
+                "modrinth": "II7t6llZ"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "wwoo-fabric-26.1.2-2.7.0.jar",
+                    "mc_versions": [
+                        "26.1.2"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "quilt"
+                    ],
+                    "release_type": "beta",
+                    "url": "https://cdn.modrinth.com/data/II7t6llZ/versions/svF64mZQ/wwoo-fabric-26.1.2-2.7.0.jar",
+                    "id": "svF64mZQ",
+                    "parent_id": "II7t6llZ",
+                    "hashes": {
+                        "sha512": "38f38f8e7abc217678cddf3a403f1c129c7da5f0c14371c827dfbe3fb44007d8bfbc639b8c32c07038071a6d81c6fd281ca2097f72e38ea4a769ca1197a8483f",
+                        "sha1": "e14ff2824b055e34691794080db8b57b754c5244"
+                    },
+                    "required_dependencies": [
+                        "cl223EMc",
+                        "P7dR8mSH"
+                    ],
+                    "size": 8957281,
+                    "date_published": "2026-07-16T15:57:59.027647Z"
                 }
             ]
         },
