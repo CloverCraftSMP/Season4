@@ -1,5 +1,6 @@
 #!/usr/bin/env pwsh
 #MISE description="Downloads or updates the latest pakku.jar"
+#MISE hide=true
 if (-not (Test-Path ".mise")) {
     New-Item -ItemType Directory -Force -Path ".mise" | Out-Null
 }

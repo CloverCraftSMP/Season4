@@ -1,5 +1,6 @@
 #!/usr/bin/env pwsh
 #MISE description="Generates a drag-and-drop Prism instance linked to this repository"
+#MISE hide=true
 if (-not (Test-Path "pakku-lock.json")) {
     Write-Host "pakku-lock.json not found!" -ForegroundColor Red
     exit 1

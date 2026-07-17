@@ -1,0 +1,4 @@
+["pakku:update"]
+    description = "Downloads or updates the latest pakku.jar"
+    run = "mise run pakku:update_linux"
+    run_windows = "mise run pakku:update_windows"

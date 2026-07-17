@@ -1,0 +1,4 @@
+["prism:setup"]
+    description = "Generates a drag-and-drop Prism instance linked to this repository"
+    run = "mise run prism:setup_linux"
+    run_windows = "mise run prism:setup_windows"

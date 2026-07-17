@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Downloads or updates the latest pakku.jar"
+#MISE hide=true
 set -euo pipefail
 
 mkdir -p .mise
