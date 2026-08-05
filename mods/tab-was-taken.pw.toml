@@ -1,0 +1,13 @@
+name = "TAB"
+filename = "TAB v6.0.3 - Fabric, NeoForge.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/gG7VFbG0/versions/PrnXeUa0/TAB%20v6.0.3%20-%20Fabric%2C%20NeoForge.jar"
+hash-format = "sha512"
+hash = "e63fc7311b59da93b4722ec4838ac90a44845108aee3f393a0fbb9de005ef3a0910a44166596a191ecd120a64c5e58ca3e86d5a18af258265f15a90b41d1709e"
+
+[update]
+[update.modrinth]
+mod-id = "gG7VFbG0"
+version = "PrnXeUa0"

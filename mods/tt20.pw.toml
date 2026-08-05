@@ -1,0 +1,13 @@
+name = "TT20 (TPS Fixer)"
+filename = "tt20-0.8.4+mc26.1.1-fabric.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/YS3ZignI/versions/Dy4aibJb/tt20-0.8.4%2Bmc26.1.1-fabric.jar"
+hash-format = "sha512"
+hash = "4d87234c7606932ecc20ed852188852fc0a6169ad68a5dec416194bc86aa25f91fd08cb7014ea7f8a36addcccc76db5eed9f13171b0d6aa64f48e7cb608fa1c9"
+
+[update]
+[update.modrinth]
+mod-id = "YS3ZignI"
+version = "Dy4aibJb"

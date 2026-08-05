@@ -1,0 +1,13 @@
+name = "Biome Replacer"
+filename = "biomereplacer-3.1-newt-fabric.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/DAXbR0Wj/versions/RFvpvuiP/biomereplacer-3.1-newt-fabric.jar"
+hash-format = "sha512"
+hash = "ec216b9d9d8f8d0841be4bf809cdb3cfc8409e4d694856b30b194590821a4eed55b7ec134b19bb97f503e9675bbbb728315688a2ffcd64b97ee5236ed651e1a1"
+
+[update]
+[update.modrinth]
+mod-id = "DAXbR0Wj"
+version = "RFvpvuiP"

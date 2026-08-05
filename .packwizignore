@@ -1,0 +1,7 @@
+# mise
+.mise/
+mise.toml
+
+# ci
+.github
+.ci

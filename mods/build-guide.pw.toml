@@ -1,0 +1,13 @@
+name = "Build Guide"
+filename = "BuildGuide-26.1.2-0.4.9.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/XwBDibES/versions/cDYigBJi/BuildGuide-26.1.2-0.4.9.jar"
+hash-format = "sha512"
+hash = "1a85e3176a279a8eea624572469ac2fb1a16dedbeca332900fc1892867e1cbaf19d4aefc2518bdcb5113d738b46f0cd3e1b5819e4902d6a4b9f1685fded230f5"
+
+[update]
+[update.modrinth]
+mod-id = "XwBDibES"
+version = "cDYigBJi"

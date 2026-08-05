@@ -1,0 +1,13 @@
+name = "Advancement Plaques"
+filename = "AdvancementPlaques-26.1.2-fabric-1.7.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/9NM0dXub/versions/PrBPZ5eb/AdvancementPlaques-26.1.2-fabric-1.7.1.jar"
+hash-format = "sha512"
+hash = "c26f35140c53d2cb0fc6865d1b695b7f05db062bed750a32687e76f11712e558ff277b886f0bc5294bd546cbaaa3bcc965a09f84147422f267d91be3e593e5dd"
+
+[update]
+[update.modrinth]
+mod-id = "9NM0dXub"
+version = "PrBPZ5eb"

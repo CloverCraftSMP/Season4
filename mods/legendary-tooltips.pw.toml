@@ -1,0 +1,13 @@
+name = "Legendary Tooltips"
+filename = "LegendaryTooltips-26.1.2-fabric-1.6.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/atHH8NyV/versions/dbBooSlX/LegendaryTooltips-26.1.2-fabric-1.6.1.jar"
+hash-format = "sha512"
+hash = "123f31a7320f4975659ebc24418a1f990aafa422b25052c1cef37e3dac662d8fd6bdbf67973d7b234c5f64d6281dee626ab95f63e2a9f91618aa5a695ec43f00"
+
+[update]
+[update.modrinth]
+mod-id = "atHH8NyV"
+version = "dbBooSlX"

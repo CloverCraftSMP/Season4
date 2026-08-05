@@ -1,0 +1,13 @@
+name = "Prism"
+filename = "Prism-26.1.2-fabric-1.1.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/1OE8wbN0/versions/uxupbyjR/Prism-26.1.2-fabric-1.1.1.jar"
+hash-format = "sha512"
+hash = "5126585b729b48d8657d44228bb45d21ce1bd2dd9f661aee600706a18b07767cfcb02f26617db962db43da1eead8d0da518f2e3641d69700c84ca652d24a5dc9"
+
+[update]
+[update.modrinth]
+mod-id = "1OE8wbN0"
+version = "uxupbyjR"

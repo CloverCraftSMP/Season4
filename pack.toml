@@ -1,0 +1,13 @@
+name = "CloverCraft Season 4"
+author = "CloverCraft Team, Syfe, Colonel"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "f6660607df19c6a8b186c501a64091d54fa1c8ecbd81c2583d3375beba3ffcfe"
+
+[versions]
+fabric = "0.19.3"
+minecraft = "26.1.2"

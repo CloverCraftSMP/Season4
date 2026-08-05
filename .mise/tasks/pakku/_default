@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-#MISE description = "Runs the local Pakku jar"
-java --enable-native-access=ALL-UNNAMED -jar .mise/pakku.jar "$@"
