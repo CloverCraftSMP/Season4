@@ -1,6 +1,6 @@
 name = "TAB"
 filename = "TAB v6.0.3 - Fabric, NeoForge.jar"
-side = "both"
+side = "server"
 
 [download]
 url = "https://cdn.modrinth.com/data/gG7VFbG0/versions/PrnXeUa0/TAB%20v6.0.3%20-%20Fabric%2C%20NeoForge.jar"

@@ -1,6 +1,6 @@
 name = "spark"
 filename = "spark-1.10.173-fabric.jar"
-side = "both"
+side = "server"
 
 [download]
 url = "https://cdn.modrinth.com/data/l6YH9Als/versions/iYFOl6lQ/spark-1.10.173-fabric.jar"
