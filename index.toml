@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/MiniMOTD/main.conf"
+hash = "858b8b41a660334ca17c5c3c9c2e92e9e4b91b64a3ab4eed9688e020e3a5bce3"
+
+[[files]]
 file = "config/bcc-common.json"
 hash = "e54492b89612f5978098f738339b90999955290554fd34491d7b6cca34c5fa22"
 
@@ -11,6 +15,10 @@ hash = "4a412027fb0a53a3dc1a07abea1b2124d8df488f0851a1b8aba6aae887baa5d9"
 [[files]]
 file = "config/fancymenu/options.txt"
 hash = "cec4b194848d9b74cc4951867271b56215531de0ff1fdbe75f3cb9c5b526843b"
+
+[[files]]
+file = "config/voicechat/voicechat-server.properties"
+hash = "e47a995268162140073056eb2c190a0f4eb6650e043caa4ad1f3d7f8924795a7"
 
 [[files]]
 file = "config/yosbr/config/NoChatReports/NCR-Client.json"
@@ -27,6 +35,11 @@ hash = "e3837ebdfd4354970c5cd99449ba580b365e0d1351b04b437fb2d5814a81fa57"
 [[files]]
 file = "config/yosbr/options.txt"
 hash = "ab25ad65ae1b28293485ed58ac8cdfefc96376da91de56b34b4069b5f86b2a1b"
+
+[[files]]
+file = "fabric-server.pw.toml"
+hash = "a7548d3eb2a049c0ce9e29100ef40b8d1addd47a169c41d2738ec99747c95dd6"
+metafile = true
 
 [[files]]
 file = "mods/advancement-plaques.pw.toml"
@@ -130,7 +143,7 @@ metafile = true
 
 [[files]]
 file = "mods/c2me-fabric.pw.toml"
-hash = "032ed9d0cfe4b7b964a56d149a5d2487f6a77d5a5a2e47857bc25400a0619903"
+hash = "c9f59943d45d03efa813aaffe21ed95bbcf09a0e923bfc8afffba7a8c295e976"
 metafile = true
 
 [[files]]
@@ -140,7 +153,7 @@ metafile = true
 
 [[files]]
 file = "mods/chunky.pw.toml"
-hash = "8e4512056e448a6f3d1ac179961eb699c15fbe000284e0aee041b5971b417302"
+hash = "c3e4fe1c4469a4cbad5fc201fe7083166b6bf3cab7edb23398a317b4c29bd727"
 metafile = true
 
 [[files]]
@@ -180,7 +193,7 @@ metafile = true
 
 [[files]]
 file = "mods/coolrain.pw.toml"
-hash = "b358d3f1d73335119d92e71fd359ec0ea57aa42267fbf874a6f769b1c8ee787e"
+hash = "da73b8bc4ce8afdf67271b39d7ab75bb5013f09ebcb1ce3a53bc738cbbce4d53"
 metafile = true
 
 [[files]]
@@ -255,7 +268,7 @@ metafile = true
 
 [[files]]
 file = "mods/extreme_sound_muffler.pw.toml"
-hash = "c8b4ae7d5f963b2ce248a568505177409cc9ffb93d9c77beb138ba1e2a9f0f05"
+hash = "d3677333ab7f0eed65bcd69cccac27a52d2dcc6930802044217180f6febc00d3"
 metafile = true
 
 [[files]]
@@ -290,7 +303,7 @@ metafile = true
 
 [[files]]
 file = "mods/fancymenu.pw.toml"
-hash = "d82c723c7349ff2c34ea7a0cb6c69cc830245e6725b64e769149f8f2bd6865ed"
+hash = "ab2141eaba5742f75c1b3cec3e4b50280c0d7abf521fee559b200c0580e3b4ef"
 metafile = true
 
 [[files]]
@@ -645,7 +658,7 @@ metafile = true
 
 [[files]]
 file = "mods/sound-physics-remastered.pw.toml"
-hash = "7560a0a8d7737d587fc2e3484e5573a743988549c2ce5f24746f8ea816cad5c9"
+hash = "dc7d0673d0d8ce0965e74c43da862c06386ed0f7020e37ab992b3128a893c28c"
 metafile = true
 
 [[files]]
@@ -655,7 +668,7 @@ metafile = true
 
 [[files]]
 file = "mods/spark.pw.toml"
-hash = "c7b6e4a7666e9e64a70df0b550db2e25f7150d4c1c2c2e79e81dfbc036ce3a25"
+hash = "2e6f00e2997c2176c1454a8bf448b4b000c495cbb15cf5c401a3daee80e4355c"
 metafile = true
 
 [[files]]
@@ -685,12 +698,12 @@ metafile = true
 
 [[files]]
 file = "mods/subtle-effects.pw.toml"
-hash = "093b71a04cb15cf174fdabaf69f16f2e1cd9de5aaf16130e037ef62b6d4e42ba"
+hash = "9bb0ffbdf54037eb320af5727f89fe67e156bab4738d65bfe0781d8b17b20212"
 metafile = true
 
 [[files]]
 file = "mods/tab-was-taken.pw.toml"
-hash = "d383dd2b94373165e5aab58fddfa9d8cd3bf35c965790214148712d41f5422f0"
+hash = "877fa3c32d7770efee9678ddc95ed51f937ab95c7acef1d2b9e0f32394fa3c0b"
 metafile = true
 
 [[files]]
@@ -705,7 +718,7 @@ metafile = true
 
 [[files]]
 file = "mods/terrablender.pw.toml"
-hash = "b9f14b26a3b9554e2870dd45b2c6d3f24494d90708d7388b1a941bfeabecfd07"
+hash = "5ee4f4d6936c420e0b3b574dc848563560e3237be1641205e4e8c3bb92753e48"
 metafile = true
 
 [[files]]
@@ -725,7 +738,7 @@ metafile = true
 
 [[files]]
 file = "mods/villager-names-serilum.pw.toml"
-hash = "cc7f89ad3b02af65564d105e3323aa95262ddf3852ace22fb8d239beb2b7f8ea"
+hash = "b7bf8851e0bc6b7477470d624e26f74fadfe30dd8fb21ba404946b6360f80c8b"
 metafile = true
 
 [[files]]
@@ -755,7 +768,7 @@ metafile = true
 
 [[files]]
 file = "mods/wwoo.pw.toml"
-hash = "c79962f1669dedd51e929a7c10395fdbd44250057d8e1bdb42a5bc71969d020e"
+hash = "15f720fd1625bbadcd5cc834f32f0c909403b1d71ebbaefc682b38140ad0e109"
 metafile = true
 
 [[files]]
