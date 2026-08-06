@@ -1,6 +1,6 @@
 name = "BaguetteLib"
 filename = "baguettelib-26.1.2-Fabric-2.0.4.jar"
-side = "server"
+side = "both"
 
 [download]
 url = "https://cdn.modrinth.com/data/OfKzpbRU/versions/R0y52e1u/baguettelib-26.1.2-Fabric-2.0.4.jar"

@@ -80,7 +80,7 @@ metafile = true
 
 [[files]]
 file = "mods/baguettelib.pw.toml"
-hash = "c51d2f3f669eb227aad3e4009253db17b08a0693edc2a119af6fd98f720fc28b"
+hash = "6caf204c1925b7b8a9eb657863144a98af9e5666974579b51b34ce04ccbf0273"
 metafile = true
 
 [[files]]
@@ -640,7 +640,7 @@ metafile = true
 
 [[files]]
 file = "mods/sodium.pw.toml"
-hash = "29d554075cdcdff3a9708bd937672874989247d5275d2be3c8938295ce87bfdd"
+hash = "626f5984826fcebdcaab0ba4e8b21568d7b32fe5233039e3884c3c9ea2058c6b"
 metafile = true
 
 [[files]]
@@ -700,7 +700,12 @@ metafile = true
 
 [[files]]
 file = "mods/tectonic.pw.toml"
-hash = "a45e9c7820dc90cd4c9b4446002f09d5fc39414dfcf9fbaf7f718542e75b9474"
+hash = "37174bf51752f0b29f7ef548236ff5ae49615f861df38f06132f19e1fd7fd757"
+metafile = true
+
+[[files]]
+file = "mods/terrablender.pw.toml"
+hash = "b9f14b26a3b9554e2870dd45b2c6d3f24494d90708d7388b1a941bfeabecfd07"
 metafile = true
 
 [[files]]
@@ -790,3 +795,11 @@ hash = "f9f8ba07ad01a3cd703a6521baf68e3fac66a3886238a6b042f84c7cac9f655c"
 [[files]]
 file = "server.properties"
 hash = "9b518732615e32ffec70b8e8949df9408e0a05f14b994e2ca92d9b952928204a"
+
+[[files]]
+file = "unsup.ini"
+hash = "3377d5b151c32a4e35877297e11f8d0977284962f6df549d50494f77d915345a"
+
+[[files]]
+file = "unsup.toml"
+hash = "ad05913543e983a861e13bffb98ecc4aed702f5e14b117426f950d17c46b4cac"
