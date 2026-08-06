@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #MISE description="Stages the Minecraft server environment for boot"
 #MISE depends=["server:setup-jar"]
-#MISE wait_for=["clean"]
+#MISE wait_for=["clean", "server:setup-jar"]
 set -o pipefail
 
 source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
