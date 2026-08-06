@@ -36,3 +36,11 @@ package_dir() {
         zip -r "$output_path" . >/dev/null 2>&1 || jar cMf "$output_path" *
     )
 }
+
+ensure_server_running() {
+    if ! curl -s --head http://localhost:8080/pack.toml > /dev/null; then
+        echo "Error: The local packwiz server is not running!"
+        echo "Please open a new terminal window and run: mise run serve"
+        exit 1
+    fi
+}

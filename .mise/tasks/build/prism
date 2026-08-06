@@ -2,7 +2,7 @@
 #MISE description="Generates local Prism Dev Client linked to localhost:8080"
 set -euo pipefail
 
-source "$(dirname "${BASH_SOURCE[0]}")/_common.sh"
+source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
 
 load_pack_versions
 

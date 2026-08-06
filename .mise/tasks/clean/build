@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-#MISE description="Removes generated export artifacts"
-set -euo pipefail
-
-rm -rf build .ci/artifacts

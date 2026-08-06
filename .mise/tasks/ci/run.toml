@@ -1,7 +1,0 @@
-["ci:run"]
-    description= "Runs the full pipeline in one shot"
-    run = [
-        { task = "build:export" },
-        { task = "server:stage", args = ["--wipe"] },
-        { task = "server:test" }
-    ]

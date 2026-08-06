@@ -2,7 +2,7 @@
 #MISE description="Builds universal mrpack using unsup java agent"
 set -euo pipefail
 
-source "$(dirname "${BASH_SOURCE[0]}")/_common.sh"
+source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
 
 load_pack_versions
 
