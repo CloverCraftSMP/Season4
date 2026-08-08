@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Stages the Minecraft server environment for boot"
-#MISE depends=["server:setup-jar"]
+#MISE depends=["clean", "server:setup-jar"]
 #MISE wait_for=["clean", "server:setup-jar"]
 set -o pipefail
 
@@ -8,21 +8,19 @@ source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
 
 ensure_server_running
 
-SERVER_DIR=".ci/server"
-
-mkdir -p "$SERVER_DIR"
+mkdir -p "$SERVER_BASE_DIR"
 
 echo "Accepting EULA..."
-echo "eula=true" > "$SERVER_DIR/eula.txt"
+echo "eula=true" > "$SERVER_BASE_DIR/eula.txt"
 
 load_pack_versions
 
-cp ".mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar" "$SERVER_DIR/fabric-server.jar"
+cp ".mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar" "$SERVER_BASE_DIR/fabric-server.jar"
 
-fetch_unsup "$SERVER_DIR/unsup.jar"
+fetch_unsup "$SERVER_BASE_DIR/unsup.jar"
 
 echo "Configuring unsup to look at local packwiz server..."
-cat << EOF > "$SERVER_DIR/unsup.ini"
+cat << EOF > "$SERVER_BASE_DIR/unsup.ini"
 version=1
 preset=minecraft
 
@@ -31,5 +29,5 @@ source=http://localhost:8080/pack.toml
 EOF
 
 echo "Syncing server mods..."
-cd "$SERVER_DIR"
+cd "$SERVER_BASE_DIR"
 java -jar unsup.jar server

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #MISE description="Boots the Fabric server and waits for it to become healthy"
-#MISE depends=["clean", "server:setup-jar", "server:stage"]
-#MISE wait_for=["clean", "server:setup-jar", "server:stage"]
+#MISE depends=["server:stage"]
+#MISE wait_for=["server:stage"]
 set -euo pipefail
 
 cd .ci/server

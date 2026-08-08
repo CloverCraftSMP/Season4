@@ -2,6 +2,8 @@
 #MISE hide=true
 set -euo pipefail
 
+SERVER_BASE_DIR="$MISE_PROJECT_ROOT/.ci/server"
+
 load_pack_versions() {
     if [ ! -f pack.toml ]; then
         echo "Error: pack.toml not found! Run this from the repository root." >&2

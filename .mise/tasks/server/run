@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 #MISE description="Interactively runs the local dev server"
-#MISE depends=["server:setup-jar"]
+#MISE depends=["server:stage"]
+#MISE wait_for=["server:stage"]
 #MISE interactive=true
 set -eo pipefail
 
 source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
 
 ensure_server_running
- 
-cd .ci/server
+
+cd "$SERVER_BASE_DIR"
 java -Xmx4G -jar fabric-server.jar nogui
