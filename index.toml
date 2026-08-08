@@ -243,7 +243,7 @@ metafile = true
 
 [[files]]
 file = "mods/distanthorizons.pw.toml"
-hash = "e052cb3685baecae837c574cebd658ebc54ededf24186bb152194a78b7eded7d"
+hash = "21e8e7dd430bb43f5559a68b74146a7a3f2a148bb0c2e7ea71863f76c7403a76"
 metafile = true
 
 [[files]]
@@ -344,6 +344,11 @@ metafile = true
 [[files]]
 file = "mods/fzzy-config.pw.toml"
 hash = "de954e56216772900768426c541731ec91d0c7bd1c5037ad2f6cc5552f87c635"
+metafile = true
+
+[[files]]
+file = "mods/geckolib.pw.toml"
+hash = "833e17466c66c772e2e25c2728fd0aa6570aac63f605769f6b1f4c55d3564da5"
 metafile = true
 
 [[files]]
@@ -522,6 +527,11 @@ hash = "31c46cafee43c4c8ca7eff020133b5664638f03dc0c863a819a8ff3a19aedf95"
 metafile = true
 
 [[files]]
+file = "mods/naturally-trimmed.pw.toml"
+hash = "20994427c4e67d90af4d3eb9ba43ee031d9cf76d4929aa01f365be5ac08219c4"
+metafile = true
+
+[[files]]
 file = "mods/neruina.pw.toml"
 hash = "d1b3d60f3d502363aa8b076eb8757591b742c9aaa0b9fb6b6f9ef838effe62de"
 metafile = true
@@ -622,6 +632,11 @@ hash = "80449d5aca8411de1cd373e9117fb4ff3962e902d023d651b134851883a05f6e"
 metafile = true
 
 [[files]]
+file = "mods/scholar.pw.toml"
+hash = "733f54c7988bb4d4007d9b4d35ce595f56a080b72b358bee8aa4682278d9b2c5"
+metafile = true
+
+[[files]]
 file = "mods/sdlink.pw.toml"
 hash = "51a0eea1834c166d9bed01170f686741863b6e16a49b71d219b69ecbc6206807"
 metafile = true
@@ -697,8 +712,8 @@ hash = "c56611400afb8baac4ee0a12d0b80fbee77c581c39c48c9835aaa0200e14423f"
 metafile = true
 
 [[files]]
-file = "mods/stendhal.pw.toml"
-hash = "c178f060f33e3e105e32e75429cc4a7edbd280201af14974e0663514a87bcecc"
+file = "mods/streams-reflowing.pw.toml"
+hash = "29afc4c34bc9e9cf38688a6497422f4c475456a0339d273eedc09b49e303df33"
 metafile = true
 
 [[files]]
@@ -747,6 +762,11 @@ hash = "08f6c185e95d207d1d0aa9cf14c75d24ca0f6b0eec7261df9e8a6fd8a433eedb"
 metafile = true
 
 [[files]]
+file = "mods/untitled-duck-mod.pw.toml"
+hash = "8f2864bb790b146e992841652bf382d3388f86bb432486796793d5a47195973c"
+metafile = true
+
+[[files]]
 file = "mods/vanilla-permissions.pw.toml"
 hash = "69208ee3e357483ac7cea9bc904d91dfadfb263bab88660f2024d43daa8419b0"
 metafile = true
@@ -778,7 +798,7 @@ metafile = true
 
 [[files]]
 file = "mods/voxy.pw.toml"
-hash = "a5f5e80be1db5192dbe02b728c02f459758e58423e4fcc33df51300352a3eef7"
+hash = "4717b14d0d829c711286851a1a03502a935b230f46367658a7c9b2e727af218b"
 metafile = true
 
 [[files]]
@@ -830,4 +850,4 @@ hash = "3377d5b151c32a4e35877297e11f8d0977284962f6df549d50494f77d915345a"
 
 [[files]]
 file = "unsup.toml"
-hash = "7704a3d08c8b6c6a6487c7fee48ee4f2d0aa239eb09309c2920083c1c089531b"
+hash = "deed2a84bc29725d883c756a054c4c4133ab377d56f0e0eb3a0746e2d98e6740"

@@ -1,0 +1,13 @@
+name = "Scholar"
+filename = "scholar-fabric-26.1.2-1.2.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/fX4dIQCo/versions/EgSey68l/scholar-fabric-26.1.2-1.2.4.jar"
+hash-format = "sha512"
+hash = "d225271b6cbd181fc9aeeca9bc2314c0a12e9e33bfff915d098c5720492eb00124979e90e9eaaee6c9f7e4ed3eaf8d5e0582f861080699f48ae2fc4e4f70e3d4"
+
+[update]
+[update.modrinth]
+mod-id = "fX4dIQCo"
+version = "EgSey68l"

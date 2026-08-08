@@ -1,0 +1,13 @@
+name = "Naturally Trimmed"
+filename = "naturally_trimmed-3.5.0+26.1-fabric.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/hHVaPgFK/versions/vnFt7Fhi/naturally_trimmed-3.5.0%2B26.1-fabric.jar"
+hash-format = "sha512"
+hash = "7dae05d706ffc52729cdd1a3d86dee23cb5b88bb306f4acc0564867d846f966980c7bcfb6ac7892c00a26a19b21429b9b94ff2d474d0191a3fe28b90767f9ad0"
+
+[update]
+[update.modrinth]
+mod-id = "hHVaPgFK"
+version = "vnFt7Fhi"
