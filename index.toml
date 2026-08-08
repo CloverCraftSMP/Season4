@@ -347,6 +347,11 @@ hash = "de954e56216772900768426c541731ec91d0c7bd1c5037ad2f6cc5552f87c635"
 metafile = true
 
 [[files]]
+file = "mods/geckolib.pw.toml"
+hash = "833e17466c66c772e2e25c2728fd0aa6570aac63f605769f6b1f4c55d3564da5"
+metafile = true
+
+[[files]]
 file = "mods/globalpacks.pw.toml"
 hash = "4054621ba956c149298aeddeb452272f9b9cab2fff6a525ca76e73a5321e10fc"
 metafile = true
@@ -522,6 +527,11 @@ hash = "31c46cafee43c4c8ca7eff020133b5664638f03dc0c863a819a8ff3a19aedf95"
 metafile = true
 
 [[files]]
+file = "mods/naturally-trimmed.pw.toml"
+hash = "20994427c4e67d90af4d3eb9ba43ee031d9cf76d4929aa01f365be5ac08219c4"
+metafile = true
+
+[[files]]
 file = "mods/neruina.pw.toml"
 hash = "d1b3d60f3d502363aa8b076eb8757591b742c9aaa0b9fb6b6f9ef838effe62de"
 metafile = true
@@ -622,6 +632,11 @@ hash = "80449d5aca8411de1cd373e9117fb4ff3962e902d023d651b134851883a05f6e"
 metafile = true
 
 [[files]]
+file = "mods/scholar.pw.toml"
+hash = "733f54c7988bb4d4007d9b4d35ce595f56a080b72b358bee8aa4682278d9b2c5"
+metafile = true
+
+[[files]]
 file = "mods/sdlink.pw.toml"
 hash = "51a0eea1834c166d9bed01170f686741863b6e16a49b71d219b69ecbc6206807"
 metafile = true
@@ -697,8 +712,8 @@ hash = "c56611400afb8baac4ee0a12d0b80fbee77c581c39c48c9835aaa0200e14423f"
 metafile = true
 
 [[files]]
-file = "mods/stendhal.pw.toml"
-hash = "c178f060f33e3e105e32e75429cc4a7edbd280201af14974e0663514a87bcecc"
+file = "mods/streams-reflowing.pw.toml"
+hash = "29afc4c34bc9e9cf38688a6497422f4c475456a0339d273eedc09b49e303df33"
 metafile = true
 
 [[files]]
@@ -744,6 +759,11 @@ metafile = true
 [[files]]
 file = "mods/tt20.pw.toml"
 hash = "08f6c185e95d207d1d0aa9cf14c75d24ca0f6b0eec7261df9e8a6fd8a433eedb"
+metafile = true
+
+[[files]]
+file = "mods/untitled-duck-mod.pw.toml"
+hash = "8f2864bb790b146e992841652bf382d3388f86bb432486796793d5a47195973c"
 metafile = true
 
 [[files]]

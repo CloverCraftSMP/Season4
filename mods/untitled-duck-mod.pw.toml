@@ -1,0 +1,13 @@
+name = "Untitled Duck Mod"
+filename = "untitledduckmod-fabric-26.1.2-1.5.6.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/ojFjz7JF/versions/4ZAB0CRa/untitledduckmod-fabric-26.1.2-1.5.6.jar"
+hash-format = "sha512"
+hash = "baff510af6f53d8c23b5f13c066cd445454c86474db696f35c3f21cd7f83e9f2dba28aff2f05a81b3b80e54a6ab0f0cc0c917eee072127b10db1dd9ff6ec7803"
+
+[update]
+[update.modrinth]
+mod-id = "ojFjz7JF"
+version = "4ZAB0CRa"

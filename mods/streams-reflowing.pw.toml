@@ -1,0 +1,13 @@
+name = "Streams Reflowing"
+filename = "StreamsReflowing-26.1.2-fabric-2.11.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/oLS8HdJ1/versions/dkIqf44X/StreamsReflowing-26.1.2-fabric-2.11.0.jar"
+hash-format = "sha512"
+hash = "44d2586c3c954ba25d66424aae97540e3a3234707c436eb8136ca23cdb8c527a7f3229aa27d959c602d85088d0392830a2f70de34837e6d232656a2034051b78"
+
+[update]
+[update.modrinth]
+mod-id = "oLS8HdJ1"
+version = "dkIqf44X"
