@@ -102,6 +102,11 @@ hash = "a45b5591a68bcb4515fa0e30d4dcc46d9b4c051426fdf8133a34eda01d01124f"
 metafile = true
 
 [[files]]
+file = "mods/beautify-refabricated.pw.toml"
+hash = "3fdbdeda28c051b65c5dbec8aaeb4468450131c3d226d775813e2dea42d7612e"
+metafile = true
+
+[[files]]
 file = "mods/better-block-entities.pw.toml"
 hash = "6ca9484dcfa28762f68768bca2c7e26373554c1ec8dd9abe6dca07ac05bb27ee"
 metafile = true
@@ -304,6 +309,11 @@ metafile = true
 [[files]]
 file = "mods/fallingleaves.pw.toml"
 hash = "aa33cb41c810c66e39c6fcea071fca1c6f8a6eaf63ecbea473f81a2708c6641a"
+metafile = true
+
+[[files]]
+file = "mods/fallingtree.pw.toml"
+hash = "b1baa744204940671c7501296ae56e97da705f57b9d58bfdb522f87aa30d7d81"
 metafile = true
 
 [[files]]
