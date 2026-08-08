@@ -1,54 +1,62 @@
+# ===========
+#  FLAVOURS
+# ===========
+
+# ===================
 # Performance Profile
+# ===================
 
 [flavor_groups.profile]
 name = "Graphics and Effects"
 description = "Choose the profile that best matches your computer's specs."
 side = "client"
+choices = [
+    { id = "full", name = "Ultra", description = "For high-end PCs. Shader support, advanced physics, and all visual effects." },
+    { id = "standard", name = "Standard", description = "Balanced performance and visuals. Includes shader support and QoL enhancements." },
+    { id = "lite", name = "Lite", description = "Maximum performance for low-end laptops and older PCs. Disables shaders, LOD renderers, heavy particles, and ambient physics." }
+]
 
-[[flavor_groups.profile.choices]]
-id = "full"
-name = "Ultra"
-description = "For high-end PCs. Shader support, advanced physics, and all visual effects."
-
-[[flavor_groups.profile.choices]]
-id = "standard"
-name = "Standard"
-description = "Balanced performance and visuals. Includes shader support and QoL enhancements."
-
-[[flavor_groups.profile.choices]]
-id = "lite"
-name = "Lite"
-description = "Maximum performance for low-end laptops and older PCs. Disables shaders, LOD renderers, heavy particles, and ambient physics."
-
-# LOD
+# ===================
+#        LOD
+# ===================
 
 [flavor_groups.lod]
 name = "Distant Rendering (LODs)"
 description = "Render chunks extremely far away. Highly performance-intensive!"
 side = "client"
+choices = [
+    { id = "none", name = "None", description = "Standard Minecraft render distance. Best for performance and stability." },
+    { id = "voxy", name = "Voxy", description = "An advanced, highly performant voxel-based LOD renderer. Great for vanilla-like rendering, but experimental." },
+    { id = "dh", name = "Distant Horizons", description = "The classic LOD renderer." }
+]
 
-[[flavor_groups.lod.choices]]
-id = "none"
-name = "None"
-description = "Standard Minecraft render distance. Best for performance and stability."
+# ===========
+#    MAPS
+# ===========
 
-[[flavor_groups.lod.choices]]
-id = "voxy"
-name = "Voxy"
-description = "An advanced, highly performant voxel-based LOD renderer. Great for vanilla-like rendering, but experimental."
+[metafile]
+# =================
+#      ULTRA
+# =================
 
-[[flavor_groups.lod.choices]]
-id = "dh"
-name = "Distant Horizons"
-description = "The classic LOD renderer."
 
-# MAPS
+# =================
+#     STANDARD
+# =================
 
-[metafile.voxy]
-flavors = ["voxy"]
 
-[metafile.voxy-extra]
-flavors = ["voxy"]
+# =================
+#       LITE
+# =================
 
-[metafile.distant-horizons]
-flavors = ["dh"]
+
+# =================
+#      VOXY
+# =================
+voxy = { flavors = ["voxy"] }
+voxy-extra = { flavors = ["voxy"] }
+
+# =================
+#       DH
+# =================
+distanthorizons = { flavors = ["dh"] }
