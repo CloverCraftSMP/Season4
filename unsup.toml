@@ -11,7 +11,7 @@ name = "Graphics and Effects"
 description = "Choose the profile that best matches your computer's specs."
 side = "client"
 choices = [
-    { id = "full", name = "Ultra", description = "For high-end PCs. Shader support, advanced physics, and all visual effects." },
+    { id = "ultra", name = "Ultra", description = "For high-end PCs. Shader support, advanced physics, and all visual effects." },
     { id = "standard", name = "Standard", description = "Balanced performance and visuals. Includes shader support and QoL enhancements." },
     { id = "lite", name = "Lite", description = "Maximum performance for low-end laptops and older PCs. Disables shaders, LOD renderers, heavy particles, and ambient physics." }
 ]
@@ -38,12 +38,25 @@ choices = [
 # =================
 #      ULTRA
 # =================
-
+inventory-particles = { flavors = ["ultra"] }
+smooth-scroll = { flavors = ["ultra"] }
+nuit = { flavors = ["ultra"] }
+blur-plus = { flavors = ["ultra"] }
 
 # =================
 #     STANDARD
 # =================
-
+particular-reforged = { flavors = ["ultra", "standard"] }
+visuality = { flavors = ["ultra", "standard"] }
+subtle-effects = { flavors = ["ultra", "standard"] }
+sound-physics-remastered = { flavors = ["ultra", "standard"] }
+respackopts = { flavors = ["ultra", "standard"] }
+particle-effects = { flavors = ["ultra", "standard"] }
+fallingleaves = { flavors = ["ultra", "standard"] }
+iris = { flavors = ["ultra", "standard"] }
+build-guide = { flavors = ["ultra", "standard"] }
+coolrain = { flavors = ["ultra", "standard"] }
+animaticarefabricated = { flavors = ["ultra", "standard"] }
 
 # =================
 #       LITE

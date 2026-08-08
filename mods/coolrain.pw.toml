@@ -11,3 +11,7 @@ hash = "d37d509772af8f083fa605a2df0efd5d755ab1dd3d23d1250396118bd6742af2a9b2f283
 [update.modrinth]
 mod-id = "iDyqnQLT"
 version = "KsLfEOWC"
+
+[option]
+optional = true
+default = true

@@ -11,3 +11,7 @@ hash = "a1dc04b1bd366d9a94719c745123d9be4ea402333964dfb21a78f8c2494cd634f1febce0
 [update.modrinth]
 mod-id = "PLAGcSFJ"
 version = "VbDewMn7"
+
+[option]
+optional = true
+default = true

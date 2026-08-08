@@ -11,3 +11,7 @@ hash = "9334163dc3c5c90c889d5b372bd4b2246379ab28986d4ead23e5253653ade512d050c1b5
 [update.modrinth]
 mod-id = "NK39zBp2"
 version = "xAtVI5Sc"
+
+[option]
+optional = true
+default = false
