@@ -2,4 +2,4 @@
 #MISE description="Updates all projects in the modpack to their latest versions"
 set -euo pipefail
 
-packwiz update --all
+packwiz update -y --all
