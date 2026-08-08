@@ -2,4 +2,6 @@
 #MISE description="Removes the local test server"
 set -euo pipefail
 
-rm -rf .ci/server
+source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
+
+rm -rf "$SERVER_BASE_DIR"

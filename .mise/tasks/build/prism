@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#MISE description="Generates local Prism Dev Client linked to localhost:8080"
+set -euo pipefail
+
+source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
+
+load_pack_versions
+
+BUILD_DIR=".mise/prism-instance"
+rm -rf "$BUILD_DIR"
+mkdir -p "$BUILD_DIR/.minecraft"
+
+fetch_unsup "$BUILD_DIR/.minecraft/unsup.jar"
+
+if [ -f "unsup.ini" ]; then
+    echo "Including unsup.ini from root directory..."
+    cp unsup.ini "$BUILD_DIR/.minecraft/unsup.ini"
+fi
+
+cat << EOF > "$BUILD_DIR/mmc-pack.json"
+{
+    "components": [
+        { "important": true, "uid": "net.minecraft", "version": "${MC_VERSION}" },
+        { "uid": "net.fabricmc.fabric-loader", "version": "${FABRIC_VERSION}" }
+    ],
+    "formatVersion": 1
+}
+EOF
+
+cat << EOF > "$BUILD_DIR/instance.cfg"
+[General]
+InstanceType=OneSix
+OverrideJavaArgs=true
+JvmArgs=-javaagent:"unsup.jar"
+OverridePerformance=true
+EnableMangoHud=true
+EOF
+
+package_dir "$BUILD_DIR" "$(pwd)/.mise/Season 4 Dev.zip"
+
+echo "Success! Prism Dev client generated at .mise/Season 4 Dev.zip"
+echo "Remember to run 'mise run serve' before clicking Play!"

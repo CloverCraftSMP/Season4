@@ -38,8 +38,8 @@ jobs:
       - name: Setup Environment (Mise)
         uses: jdx/mise-action@v4
 
-      - name: Run Pakku Update & Generate Log
-        run: bash .github/scripts/generate-update-pr.sh
+      - name: Run Packwiz Update & Generate Log
+        run: mise run ci:generate-pr
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
@@ -47,7 +47,7 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           author: ${{ steps.committer.outputs.string }}
           committer: ${{ steps.committer.outputs.string }}
-          commit-message: "chore(mods): update mod versions via pakku"
+          commit-message: "chore(mods): update mod versions via packwiz"
           title: "Automated Mod Updates"
           body-path: .ci/pr_body.md
           branch: "auto-update-mods"

@@ -1,0 +1,13 @@
+name = "ShatterLib | OctoLib"
+filename = "shatterlib-fabric-0.7.0+26.1.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/RH2KUdKJ/versions/IZNCj2sj/shatterlib-fabric-0.7.0%2B26.1.2.jar"
+hash-format = "sha512"
+hash = "57e70a337e3870ce2a8ebebe57086249574b15ead0f20706af40df7f28565d758995101cd921c3c61103c9e4b01d8ec0bfc411672a742726a919e3bcecad2fbb"
+
+[update]
+[update.modrinth]
+mod-id = "RH2KUdKJ"
+version = "IZNCj2sj"

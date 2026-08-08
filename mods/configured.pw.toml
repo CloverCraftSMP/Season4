@@ -1,0 +1,13 @@
+name = "Configured"
+filename = "Configured-mc26.1.2-v1.9.7.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/HlpEBg3R/versions/fTrJdejI/Configured-mc26.1.2-v1.9.7.jar"
+hash-format = "sha512"
+hash = "21d5e28409bc4457cbeb2185ec4cc1b0ad3674069ce501ebeaa2bb91989ec842eb360dc708d994124acd48e2e22936346f46a86d251910e05f40b400c6e7f998"
+
+[update]
+[update.modrinth]
+mod-id = "HlpEBg3R"
+version = "fTrJdejI"

@@ -1,26 +1,33 @@
 #!/usr/bin/env bash
 #MISE description="Stages the Minecraft server environment for boot"
-#USAGE flag "--wipe" help="Clean wipe the server environment before staging"
-#MISE depends=["server:setup-jar"]
-#MISE wait_for=["build:export"]
-set -eo pipefail
+#MISE depends=["clean", "server:setup-jar"]
+#MISE wait_for=["clean", "server:setup-jar"]
+set -o pipefail
 
-if [ "$usage_wipe" = true ]; then
-    echo "Trashing old server environment..."
-    mise run clean:server
-else
-    echo "Preserving data (if any). Wiping only the old mods folder..."
-    mise run clean:server-mods
-fi
+source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
 
-mkdir -p .ci/server
+ensure_server_running
 
-echo "Unzipping deploy artifact for testing..."
-unzip -q -o .ci/artifacts/*.zip -d .ci/server/
+mkdir -p "$SERVER_BASE_DIR"
 
 echo "Accepting EULA..."
-echo "eula=true" > .ci/server/eula.txt
+echo "eula=true" > "$SERVER_BASE_DIR/eula.txt"
 
-MC_VERSION=$(jq -r '.mc_versions[0]' pakku-lock.json)
-FABRIC_VERSION=$(jq -r '.loaders.fabric' pakku-lock.json)
-cp "$MISE_PROJECT_ROOT/.mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar" .ci/server/fabric-server.jar
+load_pack_versions
+
+cp ".mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar" "$SERVER_BASE_DIR/fabric-server.jar"
+
+fetch_unsup "$SERVER_BASE_DIR/unsup.jar"
+
+echo "Configuring unsup to look at local packwiz server..."
+cat << EOF > "$SERVER_BASE_DIR/unsup.ini"
+version=1
+preset=minecraft
+
+source_format=packwiz
+source=http://localhost:8080/pack.toml
+EOF
+
+echo "Syncing server mods..."
+cd "$SERVER_BASE_DIR"
+java -jar unsup.jar server

@@ -1,0 +1,13 @@
+name = "VinURL"
+filename = "vinurl-2.6.0+mc26.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/5PsMUIsq/versions/myqNwplT/vinurl-2.6.0%2Bmc26.1.jar"
+hash-format = "sha512"
+hash = "e8cb1869433c8e6b1e221c7ff30aebd357612e25d25c7c0978eba35911650121b5c1dd73948d3205d544db6aacb2e551e5c2311a66e7ff7d4d02d4cc121952e4"
+
+[update]
+[update.modrinth]
+mod-id = "5PsMUIsq"
+version = "myqNwplT"

@@ -1,10 +1,5 @@
 [tools]
+go = "latest"
+"go:github.com/packwiz/packwiz" = "latest"
 java = "temurin-25"
 jq = "latest"
-
-[hooks]
-postinstall = { task = "pakku:update" }
-
-[shell_alias]
-pakku = "java --enable-native-access=ALL-UNNAMED -jar .mise/pakku.jar"
-

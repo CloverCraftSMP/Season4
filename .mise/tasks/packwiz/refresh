@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Updates file hashes in index.toml after manual config edits"
+set -euo pipefail
+
+packwiz refresh

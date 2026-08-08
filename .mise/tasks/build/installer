@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#MISE description="Builds universal mrpack using unsup java agent"
+set -euo pipefail
+
+source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
+
+load_pack_versions
+
+BUILD_DIR=".mise/installer"
+rm -rf "$BUILD_DIR"
+mkdir -p "$BUILD_DIR/overrides"
+
+cat << EOF > "$BUILD_DIR/modrinth.index.json"
+{
+  "formatVersion": 1,
+  "game": "minecraft",
+  "versionId": "Season 4",
+  "name": "Season 4 Updater",
+  "dependencies": {
+    "minecraft": "${MC_VERSION}",
+    "fabric-loader": "${FABRIC_VERSION}"
+  },
+  "files": []
+}
+EOF
+
+fetch_unsup "$BUILD_DIR/overrides/unsup.jar"
+
+if [ -f "unsup.ini" ]; then
+    echo "Including unsup.ini from root directory..."
+    cp unsup.ini "$BUILD_DIR/.minecraft/unsup.ini"
+fi
+
+package_dir "$BUILD_DIR" "$(pwd)/.mise/Season4-Installer.mrpack"
+
+echo "Success! Universal installer generated at .mise/Season4-Installer.mrpack"

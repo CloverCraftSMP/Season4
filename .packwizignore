@@ -1,0 +1,10 @@
+# mise
+.mise/
+mise.toml
+
+# ci
+.github
+.ci
+
+# md files
+/*.md

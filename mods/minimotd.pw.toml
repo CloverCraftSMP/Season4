@@ -1,0 +1,13 @@
+name = "MiniMOTD"
+filename = "minimotd-fabric-mc26.1.2-2.2.3.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/16vhQOQN/versions/o5VUklNM/minimotd-fabric-mc26.1.2-2.2.3.jar"
+hash-format = "sha512"
+hash = "db669d16dc2f429bbf3a8b22bf5073359524e9796912be46743f798ac0854459e5d0ed6b32c93126fa885c778e6ab29fead64208a160b449b5ce2c9713963890"
+
+[update]
+[update.modrinth]
+mod-id = "16vhQOQN"
+version = "o5VUklNM"

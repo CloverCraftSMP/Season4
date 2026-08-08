@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
-#MISE description="Downloads and caches the Fabric server jar matching pakku-lock.json"
-set -euo pipefail
+#MISE description="Downloads and caches the Fabric server jar matching pack.toml"
+set -o pipefail
 
-if [ ! -f pakku-lock.json ]; then
-    echo "Error: pakku-lock.json not found in root directory!"
-    exit 1
-fi
- 
-MC_VERSION=$(jq -r '.mc_versions[0]' pakku-lock.json)
-FABRIC_VERSION=$(jq -r '.loaders.fabric' pakku-lock.json)
+source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
+
+load_pack_versions
+
 INSTALLER_VERSION="1.0.1"
 SERVER_JAR_CACHE=".mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar"
  

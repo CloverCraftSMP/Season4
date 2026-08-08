@@ -1,0 +1,13 @@
+name = "Item Stat Tracker"
+filename = "itemstats-1.1.1+fabric-26.1.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/ow5rRJYD/versions/mSF21gdg/itemstats-1.1.1%2Bfabric-26.1.2.jar"
+hash-format = "sha512"
+hash = "ab2d17264bf72161ea5008903e5e5c2bd767840b7771a4ca52cae5945c0ec9f0904e47c339f809b2a2326fd66ab68deb9d39ef6e8b60bee251043f9371e2040a"
+
+[update]
+[update.modrinth]
+mod-id = "ow5rRJYD"
+version = "mSF21gdg"

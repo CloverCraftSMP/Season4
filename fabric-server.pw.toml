@@ -1,0 +1,8 @@
+name = "fabric-server"
+filename = "fabric-server.jar"
+side = "server"
+
+[download]
+url = "https://meta.fabricmc.net/v2/versions/loader/26.1.2/0.19.3/1.0.1/server/jar"
+hash-format = "sha256"
+hash = "7328f04292b9dfce925797139850054913c46d39b2154ca77eb387e1c1b8d941"
