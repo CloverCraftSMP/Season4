@@ -73,7 +73,7 @@ metafile = true
 
 [[files]]
 file = "mods/asyncparticles.pw.toml"
-hash = "4a5faa6358bfce92a7278f1846f369f042dd973c4ecce9bb3e6a5e1411545acf"
+hash = "ee59718bd00b578d6e69d1c5aec83fa6fbe5e15b0df705e2777f39732973c7b7"
 metafile = true
 
 [[files]]
@@ -118,7 +118,7 @@ metafile = true
 
 [[files]]
 file = "mods/better-stats.pw.toml"
-hash = "841fb563ceadc88a73c55500b19bbede3568dea3005c901db638c2b9d898ed49"
+hash = "e5b37b59722c7f73fae670a280def0aa2e78493775fdf47d6149efcdd151dbe0"
 metafile = true
 
 [[files]]
@@ -148,7 +148,7 @@ metafile = true
 
 [[files]]
 file = "mods/chat-heads.pw.toml"
-hash = "2d7d7cd4670d42a52aeb9d5761166f4c79eecf5513b10f86cc1b39d30e02557a"
+hash = "437ffcd6d5e33f97752f5a99637d36240c7fd6cdf226ad8da901c04f44d65c02"
 metafile = true
 
 [[files]]
@@ -343,7 +343,7 @@ metafile = true
 
 [[files]]
 file = "mods/gnetum.pw.toml"
-hash = "c181c4e55e5df283c5c7d37151cee465bbdd44bb979eba59b4e611c0bc6f9afc"
+hash = "6d93c76b22cd9acff01442f1f7a5bb4b99e37c40f7fb5c7e19d98cd17f24d5f0"
 metafile = true
 
 [[files]]
@@ -553,7 +553,7 @@ metafile = true
 
 [[files]]
 file = "mods/owo-lib.pw.toml"
-hash = "2df6e71ac01b886ff496669c5cd6d8c89ca358c655ca4983487d09e6b7d2728c"
+hash = "b5d30402c7f440d2a332cd85277a6f4c119198e930fa5855f081263f3d353043"
 metafile = true
 
 [[files]]
@@ -638,7 +638,7 @@ metafile = true
 
 [[files]]
 file = "mods/simple-voice-chat.pw.toml"
-hash = "f675fb68db6493e26d25e860443249d2f6d681751c53f23cd29d4a4a1bbb28b5"
+hash = "27f525160243b25cadc2e7202f663ed1da1638204ba80c8ce9f651ed10ba7fb1"
 metafile = true
 
 [[files]]
@@ -713,7 +713,7 @@ metafile = true
 
 [[files]]
 file = "mods/tcdcommons.pw.toml"
-hash = "694549a06bdc8b37262958fbcb26eec57df96c2a624cd05378f025289639efce"
+hash = "bb294df5aaf304a813d7ffb8337bc56efa70d424018919dc556f039461cd8803"
 metafile = true
 
 [[files]]
@@ -763,7 +763,7 @@ metafile = true
 
 [[files]]
 file = "mods/voxy-extra.pw.toml"
-hash = "675a3acdf68face3b080c5579532a449b8ef0a61069bd9198ba87375a6798895"
+hash = "d6fcf7ecb8c9fb5f110d15e44312cbc5268f20502376fe94ee9df6eef54248a5"
 metafile = true
 
 [[files]]
@@ -788,7 +788,7 @@ metafile = true
 
 [[files]]
 file = "mods/zannaghs-armor-hider.pw.toml"
-hash = "b1fc45c0ef80434ab2d3d5c015af47a7b40289ba36331be6509e95b5b7fcf6fa"
+hash = "d9c90b3a5dcb22e277c60b49d4492d978d6621e88cce2185ce43330b9144a687"
 metafile = true
 
 [[files]]
