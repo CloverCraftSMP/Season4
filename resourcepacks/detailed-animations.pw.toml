@@ -1,0 +1,13 @@
+name = "Detailed Animations"
+filename = "DetailedAnimationsV0.19.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/9pR04wDX/versions/p5NVi4Nv/DetailedAnimationsV0.19.zip"
+hash-format = "sha512"
+hash = "833eaada801ed465d4c4eb7e0ac8efe28edd3c65b34fc363cd2b957b6b8f356e8907549449c30d859dbd1f046264004d76d8c700487844a336460547caa9a6b9"
+
+[update]
+[update.modrinth]
+mod-id = "9pR04wDX"
+version = "p5NVi4Nv"

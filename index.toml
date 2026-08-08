@@ -13,8 +13,16 @@ file = "config/crash_assistant/config.toml"
 hash = "4a412027fb0a53a3dc1a07abea1b2124d8df488f0851a1b8aba6aae887baa5d9"
 
 [[files]]
+file = "config/enhancedgroups/enhancedgroups.properties"
+hash = "bb3cf8404575ecac9196d2e311d923ea5521d5c0d5cc80973db953eb4bd39002"
+
+[[files]]
 file = "config/fancymenu/options.txt"
 hash = "cec4b194848d9b74cc4951867271b56215531de0ff1fdbe75f3cb9c5b526843b"
+
+[[files]]
+file = "config/streamsreflowing.properties"
+hash = "465daa18cc9855919ea8ce9ea8f91b923be485082a81d73071f890919d23fcd1"
 
 [[files]]
 file = "config/voicechat/voicechat-server.properties"
@@ -33,8 +41,12 @@ file = "config/yosbr/config/my_totem_doll.json5"
 hash = "e3837ebdfd4354970c5cd99449ba580b365e0d1351b04b437fb2d5814a81fa57"
 
 [[files]]
+file = "config/yosbr/config/peek/peek.properties"
+hash = "6e5116dc2330bcdaf5e749f889164fffbd259e8e77c36d01ecfdf4a06d6c2583"
+
+[[files]]
 file = "config/yosbr/options.txt"
-hash = "ab25ad65ae1b28293485ed58ac8cdfefc96376da91de56b34b4069b5f86b2a1b"
+hash = "7eaca66120e8e66d2d02a664e969ed2352037a92c697a511af7337dc93f7e70d"
 
 [[files]]
 file = "fabric-server.pw.toml"
@@ -457,6 +469,11 @@ hash = "5211d95b4b26cd51887a77160baa00c55a4fdf128760d525ab4fd7754892ba37"
 metafile = true
 
 [[files]]
+file = "mods/libjf.pw.toml"
+hash = "ea7e41e34001a5bf8c12e12d742bb256f1588f5c3f0c76b05b0988712afe056e"
+metafile = true
+
+[[files]]
 file = "mods/lithium.pw.toml"
 hash = "ff3b8e19820888b63a129f5c5769a1671bda1e1376de0deb216c6862f0feca2d"
 metafile = true
@@ -567,6 +584,11 @@ hash = "4f67ae9bc63da0e52b126a56b81a7c6dcc91f0bded3b8225acc6cfabf861f6ad"
 metafile = true
 
 [[files]]
+file = "mods/nuit.pw.toml"
+hash = "f31cc92ffd5a49dd61d2793d47833f4a0abd30664835ccab9bfed0e34ae17b08"
+metafile = true
+
+[[files]]
 file = "mods/optigui.pw.toml"
 hash = "460aa9c8aaed3845f1c4f31e997991bcc92fafe4d5c25f79255f1e0ddec82eac"
 metafile = true
@@ -619,6 +641,11 @@ metafile = true
 [[files]]
 file = "mods/resourcify.pw.toml"
 hash = "e52710c9a98faeea7e660550d2f6dd9c999d042f12b36a534d94947fb91334fc"
+metafile = true
+
+[[files]]
+file = "mods/respackopts.pw.toml"
+hash = "c61b8049eb33872425c133917b6e49a2e57025b7c7bce59045530a2932ab523b"
 metafile = true
 
 [[files]]
@@ -832,8 +859,43 @@ hash = "d623bb2b64ebdfdb20c1d43e10ccf4e8a9dd4efe8a284ab811dc66dc4ccbd734"
 metafile = true
 
 [[files]]
+file = "resourcepacks/default-dark-mode.pw.toml"
+hash = "10768dfa9e284efd3d7eb7889cb8b4638c1449bdeab6ed8c9f10ca201f5c73c8"
+metafile = true
+
+[[files]]
+file = "resourcepacks/detailed-animations.pw.toml"
+hash = "827a010017a2a29babd8204a9453e18185a76c0c80b9832c000b8866de62cb24"
+metafile = true
+
+[[files]]
+file = "resourcepacks/dramatic-skys.pw.toml"
+hash = "7e0210d3e5f6e260dcaaffa1788f633d319df78a62504b0c2c50b98c54fd669c"
+metafile = true
+
+[[files]]
+file = "resourcepacks/even-better-enchants.pw.toml"
+hash = "26c0e4a143ee9c0aa5c257996a7efba141c30674f2b0209af5c263c36db555ea"
+metafile = true
+
+[[files]]
+file = "resourcepacks/fresh-animations.pw.toml"
+hash = "d9fe57736e862db4420a6481eda6b41f65d0466c36cb92de31cb4b9822121ff7"
+metafile = true
+
+[[files]]
+file = "resourcepacks/icons.pw.toml"
+hash = "50eb46926ef44099727ef8047fc407dda9808dc32a38a6c685b0cc3df3d1ad43"
+metafile = true
+
+[[files]]
 file = "resourcepacks/recolourful-containers-gui-hud-dark.pw.toml"
-hash = "6cc473b00a83d973551b5e75949a5e86335a6bbeded07e8e220a9ea6058d412a"
+hash = "7f124ab26068c1a0de8c08382de81e66fe68ca612141f24b593e628a0ecc155c"
+metafile = true
+
+[[files]]
+file = "resourcepacks/recolourful-containers-gui.pw.toml"
+hash = "289ba859abee214b52135edaac5e2a92443e852942cf433ebf3768c33ef463dc"
 metafile = true
 
 [[files]]

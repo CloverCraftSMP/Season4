@@ -1,0 +1,13 @@
+name = "Nuit"
+filename = "nuit-fabric-1.0.0-beta.3+mc26.1.2.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/YBz7DOs8/versions/i1Y5SmCe/nuit-fabric-1.0.0-beta.3%2Bmc26.1.2.jar"
+hash-format = "sha512"
+hash = "2192e03ded7e872b4b6b6f48d2b729c122b54069440df862a5533555d354eca0820b38a9c22e5fbc187566d711b09b3cf782bd4894d9b5657ad443cc3acc0492"
+
+[update]
+[update.modrinth]
+mod-id = "YBz7DOs8"
+version = "i1Y5SmCe"
