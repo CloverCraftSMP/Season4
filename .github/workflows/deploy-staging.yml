@@ -1,0 +1,31 @@
+name: Deploy Staging Server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Get Short SHA
+        run: echo "SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - uses: ./.github/actions/deploy-pack
+        with:
+          target_branch: staging
+          version_name: "staging-${{ env.SHA }}"
+          server_id: ${{ secrets.PTERO_STAGING_SERVER_ID }}
+          ptero_panel_url: ${{ secrets.PTERO_PANEL_URL }}
+          ptero_api_key: ${{ secrets.PTERO_API_KEY }}
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: Season4-staging-${{ env.SHA }}
+          path: |
+            *.mrpack
+            *.zip
+          retention-days: 7

@@ -1,6 +1,6 @@
 name = "CloverCraft Season 4"
 author = "CloverCraft Team, Syfe, Colonel"
-version = "1.0.0"
+version = "@modpack_version@"
 pack-format = "packwiz:1.1.0"
 
 [index]

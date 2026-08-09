@@ -1,0 +1,45 @@
+name: 'Deploy Pack'
+description: 'Prepares target branch, restarts Pterodactyl server, and builds .mrpack'
+
+inputs:
+  target_branch:
+    required: true
+  version_name:
+    required: true
+  server_id:
+    required: true
+  ptero_panel_url:
+    required: true
+  ptero_api_key:
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: jdx/mise-action@v4
+
+    - name: Prepare Branch
+      shell: bash
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git checkout -B ${{ inputs.target_branch }}
+        find pack.toml config -type f -exec sed -i "s/@modpack_version@/${{ inputs.version_name }}/g" {} +
+        packwiz refresh
+        git add .
+        git commit -m "deploy: ${{ inputs.version_name }}" || true
+        git push -f origin ${{ inputs.target_branch }}
+
+    - name: Restart Server
+      shell: bash
+      run: |
+        curl -X POST "${{ inputs.ptero_panel_url }}/api/client/servers/${{ inputs.server_id }}/power" \
+          -H "Authorization: Bearer ${{ inputs.ptero_api_key }}" \
+          -H "Content-Type: application/json" \
+          -H "Accept: application/json" \
+          -d '{"signal": "restart"}'
+
+    - name: Build Clients
+      shell: bash
+      run: |
+        mise run build:clients "${{ inputs.version_name }}"

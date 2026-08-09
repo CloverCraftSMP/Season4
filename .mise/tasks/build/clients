@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+#MISE description="Builds both .mrpack and Prism Instance .zip with Unsup"
+set -euo pipefail
+
+source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
+load_pack_versions
+
+VERSION=${1:-dev}
+ORIG_DIR=$(pwd)
+
+if [[ "$VERSION" == v* || "$VERSION" == "prod" ]]; then
+    BOOTSTRAP_URL="${REPO_BASE_RAW}/prod/pack.toml"
+elif [[ "$VERSION" == staging* ]]; then
+    BOOTSTRAP_URL="${REPO_BASE_RAW}/staging/pack.toml"
+else
+    BOOTSTRAP_URL="http://localhost:8080/pack.toml"
+fi
+
+echo "Building clients for: $VERSION..."
+BUILD_DIR=$(mktemp -d)
+cp -r . "$BUILD_DIR"
+
+find "$BUILD_DIR/pack.toml" "$BUILD_DIR/config" -type f -exec sed -i "s/@modpack_version@/${VERSION}/g" {} +
+
+cd "$BUILD_DIR"
+packwiz refresh
+
+fetch_unsup "unsup.jar"
+cat << EOF > unsup.ini
+version=1
+preset=minecraft
+source_format=packwiz
+source=$BOOTSTRAP_URL
+EOF
+
+# REGULAR MRPACK GENERATION
+
+MRPACK_REGULAR="Season4-${VERSION}.mrpack"
+packwiz modrinth export -o "$MRPACK_REGULAR"
+
+# UNSUP MRPACK GENERATION
+
+MRPACK_UNSUP="Season4-${VERSION}-Unsup.mrpack"
+mkdir -p unsup_mrpack/overrides
+cp unsup.jar unsup.ini unsup_mrpack/overrides/
+
+cat << EOF > unsup_mrpack/modrinth.index.json
+{
+  "formatVersion": 1,
+  "game": "minecraft",
+  "versionId": "${VERSION}",
+  "name": "Season 4",
+  "dependencies": {
+    "minecraft": "${MC_VERSION}",
+    "fabric-loader": "${FABRIC_VERSION}"
+  },
+  "files": []
+}
+EOF
+
+cd unsup_mrpack
+zip -r "../$MRPACK_UNSUP" . > /dev/null
+cd ..
+
+# PRISM ZIP GENERATION (automatically includes JVM args)
+
+PRISM_NAME="Season4-${VERSION}-Prism.zip"
+PRISM_DIR="prism_temp"
+mkdir -p "$PRISM_DIR/.minecraft"
+
+cp unsup.jar unsup.ini "$PRISM_DIR/.minecraft/"
+
+cat << EOF > "$PRISM_DIR/mmc-pack.json"
+{
+    "components": [
+        { "important": true, "uid": "net.minecraft", "version": "${MC_VERSION}" },
+        { "uid": "net.fabricmc.fabric-loader", "version": "${FABRIC_VERSION}" }
+    ],
+    "formatVersion": 1
+}
+EOF
+
+cat << EOF > "$PRISM_DIR/instance.cfg"
+[General]
+InstanceType=OneSix
+OverrideJavaArgs=true
+JvmArgs=-javaagent:unsup.jar
+EOF
+
+cd "$PRISM_DIR"
+zip -r "../$PRISM_NAME" . > /dev/null
+cd ..
+
+cd "$ORIG_DIR"
+mv "$BUILD_DIR/$MRPACK_REGULAR" ./
+mv "$BUILD_DIR/$MRPACK_UNSUP" ./
+mv "$BUILD_DIR/$PRISM_NAME" ./
+rm -rf "$BUILD_DIR"
+
+echo "Built:"
+echo " - $MRPACK_REGULAR"
+echo " - $MRPACK_UNSUP"
+echo " - $PRISM_NAME"

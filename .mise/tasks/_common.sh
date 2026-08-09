@@ -3,6 +3,7 @@
 set -euo pipefail
 
 SERVER_BASE_DIR="$MISE_PROJECT_ROOT/.ci/server"
+REPO_BASE_RAW="https://raw.githubusercontent.com/CloverCraftSMP/Season4"
 
 load_pack_versions() {
     if [ ! -f pack.toml ]; then

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#MISE description="Exports the modpack to .mrpack format"
+#MISE usage="[version]"
+set -euo pipefail
+
+VERSION=${1:-dev}
+OUTPUT_FILE="Season4-${VERSION}.mrpack"
+
+packwiz refresh
+packwiz modrinth export -o "$OUTPUT_FILE"
