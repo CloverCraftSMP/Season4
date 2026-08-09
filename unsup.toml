@@ -55,13 +55,12 @@ particle-effects = { flavors = ["ultra", "standard"] }
 fallingleaves = { flavors = ["ultra", "standard"] }
 iris = { flavors = ["ultra", "standard"] }
 build-guide = { flavors = ["ultra", "standard"] }
-coolrain = { flavors = ["ultra", "standard"] }
 animaticarefabricated = { flavors = ["ultra", "standard"] }
 
 # =================
 #       LITE
 # =================
-
+coolrain = { flavors = ["ultra", "standard", "lite"] }
 
 # =================
 #      VOXY
