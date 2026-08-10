@@ -27,12 +27,6 @@ cd "$BUILD_DIR"
 packwiz refresh
 
 fetch_unsup "unsup.jar"
-cat << EOF > unsup.ini
-version=1
-preset=minecraft
-source_format=packwiz
-source=$BOOTSTRAP_URL
-EOF
 
 # REGULAR MRPACK GENERATION
 
