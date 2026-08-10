@@ -25,7 +25,7 @@ runs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git checkout -B ${{ inputs.target_branch }}
         find pack.toml config -type f -exec sed -i "s/@modpack_version@/${{ inputs.version_name }}/g" {} +
-        TARGET_URL="https://raw.githubusercontent.com/CloverCraft/Season4/${{ inputs.target_branch }}/pack.toml"
+        TARGET_URL="https://raw.githubusercontent.com/CloverCraftSMP/Season4/${{ inputs.target_branch }}/pack.toml"
         sed -i "s|^source=.*|source=${TARGET_URL}|" unsup.ini
         packwiz refresh
         git add .
