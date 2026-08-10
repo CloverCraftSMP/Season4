@@ -160,7 +160,7 @@ metafile = true
 
 [[files]]
 file = "mods/chat-heads.pw.toml"
-hash = "437ffcd6d5e33f97752f5a99637d36240c7fd6cdf226ad8da901c04f44d65c02"
+hash = "e9654c5d253e4fdc00ac2f0ffa32a38ed9c93e9d052e8095deaf054e1efb8bd1"
 metafile = true
 
 [[files]]
@@ -310,7 +310,7 @@ metafile = true
 
 [[files]]
 file = "mods/falldropbackport.pw.toml"
-hash = "82965b4c36b96fba5ea6f8c7dd0caac27e1cfdeaa3aa1103c0ad53abcf9c94f7"
+hash = "6d574850c9887c84c820a10f5402ef9fa7e6714e88727ac04a9dd976cb21e046"
 metafile = true
 
 [[files]]
@@ -365,7 +365,7 @@ metafile = true
 
 [[files]]
 file = "mods/gnetum.pw.toml"
-hash = "6d93c76b22cd9acff01442f1f7a5bb4b99e37c40f7fb5c7e19d98cd17f24d5f0"
+hash = "cef6746689a5c28cb265d88c7959fd2e422c51843accf273d379279378e15db5"
 metafile = true
 
 [[files]]
@@ -655,7 +655,7 @@ metafile = true
 
 [[files]]
 file = "mods/scholar.pw.toml"
-hash = "733f54c7988bb4d4007d9b4d35ce595f56a080b72b358bee8aa4682278d9b2c5"
+hash = "78a8554a9837987db61973ad843f7326ea3dc3b004e070a9008f2a9805bdd06b"
 metafile = true
 
 [[files]]
