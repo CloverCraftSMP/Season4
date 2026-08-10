@@ -21,6 +21,7 @@ BUILD_DIR=$(mktemp -d)
 cp -r . "$BUILD_DIR"
 
 find "$BUILD_DIR/pack.toml" "$BUILD_DIR/config" -type f -exec sed -i "s/@modpack_version@/${VERSION}/g" {} +
+sed -i "s|^source=.*|source=${BOOTSTRAP_URL}|" "$BUILD_DIR/unsup.ini"
 
 cd "$BUILD_DIR"
 packwiz refresh
