@@ -14,3 +14,25 @@ soundCategory_master:0.5
 soundCategory_music:0.2
 lastServer:localhost
 resourcePacks:["file/Recolourful Containers DARK.zip"]
+
+key_key.itemstats.show_stats:key.keyboard.unknown
+key_key.itemstats.open_stats_screen:key.keyboard.unknown
+
+key_key.halfbright.toggle:key.keyboard.unknown
+key_key.halfbright.increase:key.keyboard.unknown
+key_key.halfbright.decrease:key.keyboard.unknown
+
+key_key.craftingtweaks.compress_one:key.keyboard.unknown
+key_key.craftingtweaks.compress_stack:key.keyboard.unknown
+key_key.craftingtweaks.compress_all:key.keyboard.unknown
+key_key.craftingtweaks.refill_last:key.keyboard.unknown
+key_key.craftingtweaks.refill_last_stack:key.keyboard.unknown
+
+key_key.armorhider.toggle_keybind:key.keyboard.unknown
+key_key.armorhider.open_settings:key.keyboard.unknown
+key_key.armorhider.preset:key.keyboard.unknown
+
+key_key.mute_microphone:key.keyboard.unknown
+key_key.hide_icons:key.keyboard.unknown
+
+key_zoomify.key.zoom.secondary:key.keyboard.unknown

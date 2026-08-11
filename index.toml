@@ -21,6 +21,10 @@ file = "config/fancymenu/options.txt"
 hash = "cec4b194848d9b74cc4951867271b56215531de0ff1fdbe75f3cb9c5b526843b"
 
 [[files]]
+file = "config/preferred-gamerules.properties"
+hash = "5fceb93c18d11fdff73a7844cc092b47afbda5cf8126958e101d1bc5d9ff2dfa"
+
+[[files]]
 file = "config/streamsreflowing.properties"
 hash = "465daa18cc9855919ea8ce9ea8f91b923be485082a81d73071f890919d23fcd1"
 
@@ -46,7 +50,7 @@ hash = "6e5116dc2330bcdaf5e749f889164fffbd259e8e77c36d01ecfdf4a06d6c2583"
 
 [[files]]
 file = "config/yosbr/options.txt"
-hash = "7eaca66120e8e66d2d02a664e969ed2352037a92c697a511af7337dc93f7e70d"
+hash = "6673a79cf97ca37682125a8b43ba77834dc5ae2e5f6b3bf00cbb3790a3b94181"
 
 [[files]]
 file = "fabric-server.pw.toml"
@@ -76,6 +80,11 @@ metafile = true
 [[files]]
 file = "mods/appleskin.pw.toml"
 hash = "785e74169e884a0535517140796a8448a831abf7f7dfa29cf6326b178c0dcf48"
+metafile = true
+
+[[files]]
+file = "mods/architectury-api.pw.toml"
+hash = "acb1cfcd29bee820e0151739954616858bbf1a2ffc244a9fcf1824f16fa8362b"
 metafile = true
 
 [[files]]
@@ -369,6 +378,11 @@ hash = "cef6746689a5c28cb265d88c7959fd2e422c51843accf273d379279378e15db5"
 metafile = true
 
 [[files]]
+file = "mods/halfbright.pw.toml"
+hash = "d11b82848ea8d1314cfa257dfe6e07f4d0bc830458a2d17965524a0884252229"
+metafile = true
+
+[[files]]
 file = "mods/held-item-info.pw.toml"
 hash = "62b4398ba178efecba4aced610039b1003a8cc82ce5931e3fe0f6541f69a6870"
 metafile = true
@@ -619,6 +633,11 @@ hash = "79096f408696ff9db10afe2f16085a7ea7ed64aed6812ccff3051e1a2004b337"
 metafile = true
 
 [[files]]
+file = "mods/preferred-gamerules.pw.toml"
+hash = "59eeea904f5912fca5aa6fcac32ecf2912c34455d9a8052cb4926c1dcf357bf6"
+metafile = true
+
+[[files]]
 file = "mods/prickle.pw.toml"
 hash = "101da57f5931601efbd1a532fc0bc2becc8cc0d8450421c354cc062ea3bd20a3"
 metafile = true
@@ -631,6 +650,11 @@ metafile = true
 [[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "965d8981b4e1cba8feb64bfafad13d5c523267afa0200edb57398a923ec99a74"
+metafile = true
+
+[[files]]
+file = "mods/rei.pw.toml"
+hash = "48f2b92cfa53cf05268d977c6cae642549e97c5f460571f0f2718675706a7166"
 metafile = true
 
 [[files]]
@@ -903,7 +927,7 @@ hash = "9b518732615e32ffec70b8e8949df9408e0a05f14b994e2ca92d9b952928204a"
 
 [[files]]
 file = "unsup.ini"
-hash = "567bf79d4b0c01c9391550887b28c40bb929e7384dbc4a7c2976b3899f6b05b0"
+hash = "d2df5de13b7453beb94f591b39b62c14c0d34c573468ba86c9c2a97aba22dcb9"
 
 [[files]]
 file = "unsup.toml"
