@@ -588,11 +588,6 @@ hash = "c5e7e0a3de03c138f587fc56dca70013978677e0cde2ad19024dc798178a49bd"
 metafile = true
 
 [[files]]
-file = "mods/notenoughrecipebook.pw.toml"
-hash = "4f67ae9bc63da0e52b126a56b81a7c6dcc91f0bded3b8225acc6cfabf861f6ad"
-metafile = true
-
-[[files]]
 file = "mods/nuit.pw.toml"
 hash = "7871e36ef484a1653bcd90340c8b0269ee3c3093876fcdcfd71113326ddce5ce"
 metafile = true

@@ -40,8 +40,3 @@ runs:
           -H "Content-Type: application/json" \
           -H "Accept: application/json" \
           -d '{"signal": "restart"}'
-
-    - name: Build Clients
-      shell: bash
-      run: |
-        mise run build:clients "${{ inputs.version_name }}"

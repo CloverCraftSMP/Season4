@@ -1,0 +1,30 @@
+name: Build Clients Staging
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Get Short SHA
+        run: echo "SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - uses: jdx/mise-action@v4
+
+      - name: Build Clients
+        shell: bash
+        run: |
+          mise run build:clients "staging-${{ env.SHA }}"
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: Season4-staging-${{ env.SHA }}
+          path: |
+            *.mrpack
+            *.zip
+          retention-days: 7
