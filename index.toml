@@ -33,6 +33,10 @@ file = "config/preferred-gamerules.properties"
 hash = "5fceb93c18d11fdff73a7844cc092b47afbda5cf8126958e101d1bc5d9ff2dfa"
 
 [[files]]
+file = "config/scholar-common.toml"
+hash = "a8dd60048c0ee1e44f9facaf0cce678503e01a952443efea216b5d8039bb8fae"
+
+[[files]]
 file = "config/streamsreflowing.properties"
 hash = "465daa18cc9855919ea8ce9ea8f91b923be485082a81d73071f890919d23fcd1"
 
@@ -50,7 +54,7 @@ hash = "fb5bb4c7e2d17d1d0831ec2b456880c068a3ff917e3d82f9cea82532d196cfdf"
 
 [[files]]
 file = "config/yosbr/config/my_totem_doll.json5"
-hash = "8b927bd884124c2f30cda0272d697a0c3e5199c90894d2249e60b7c827d4e355"
+hash = "08529098ed4abc4a102103af73942fd24644dbe603cbc8d1303e4ede59b35887"
 
 [[files]]
 file = "config/yosbr/config/peek/peek.properties"

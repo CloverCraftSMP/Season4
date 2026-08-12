@@ -1,0 +1,3 @@
+[book]
+	[book.screen]
+		replace_screens_on_lectern = false
