@@ -203,6 +203,11 @@ hash = "c3e4fe1c4469a4cbad5fc201fe7083166b6bf3cab7edb23398a317b4c29bd727"
 metafile = true
 
 [[files]]
+file = "mods/clientsort.pw.toml"
+hash = "34e4b9b0b39b104f7722c0bfc5e37d18b0f214b0b70ca5d9e95fe6cff4b8b87e"
+metafile = true
+
+[[files]]
 file = "mods/cloth-config.pw.toml"
 hash = "1b8f4603e81c48badce4a9321dea87bdeb9d3b5a2f0be566139d087afad73a47"
 metafile = true
@@ -373,6 +378,11 @@ hash = "069d81cab53c0141459ad4d70bcf3e10f17652f24cc62d3b4a0fc2cd2b700871"
 metafile = true
 
 [[files]]
+file = "mods/fishing-rod-fix.pw.toml"
+hash = "db98113075be8e3a9cecbbb210b228e9233ae3ba5c9ffe9d16e03218b8c58d91"
+metafile = true
+
+[[files]]
 file = "mods/flashback.pw.toml"
 hash = "60010486c238142007787ff8f8f283c48c4cf3486b5afc4aa83d0bfaa2cf612b"
 metafile = true
@@ -525,6 +535,11 @@ metafile = true
 [[files]]
 file = "mods/lithostitched.pw.toml"
 hash = "6b55813a43e5fb8df2187861906ce0527034a4237370b8d7d083253dd6a25fbe"
+metafile = true
+
+[[files]]
+file = "mods/little-joys.pw.toml"
+hash = "18a838c6b1e3d00dee3c414daa3fa7fad1dd80fa027d4a032cb1e0a1b3abb8e3"
 metafile = true
 
 [[files]]
