@@ -1,0 +1,11 @@
+configVersion = 7
+
+[common]
+	luckperms = true
+
+[luckperms]
+	syncToMinecraft = true
+	
+	[[luckperms.syncs]]
+        rank = "dev"
+        role = "1361352890379272407"

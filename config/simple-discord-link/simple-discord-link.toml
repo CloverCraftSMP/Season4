@@ -1,0 +1,25 @@
+[general]
+	# disable for dev
+	enabled = false
+
+	debug = false
+	configVersion = 37
+
+[botConfig]
+	botToken = "@bot_token@"
+	[botConfig.topicUpdates]
+		channelTopic = "Playing CloverCraft with %players%/%maxplayers% people | Uptime: %uptime%"
+
+	[[botConfig.botStatus]]
+		status = "CloverCraft with %players%/%maxplayers% players"
+
+[channelsAndWebhooks]
+	[channelsAndWebhooks.channels]
+		chatChannelID = "0"
+
+	[channelsAndWebhooks.webhooks]
+		enabled = true
+		chatWebhook = "@chat_webhook@"
+
+[accessControl]
+	optionalVerification = true

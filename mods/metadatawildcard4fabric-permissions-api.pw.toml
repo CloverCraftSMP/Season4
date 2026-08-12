@@ -1,0 +1,13 @@
+name = "Metadata Wildcard for fabric-permissions-api"
+filename = "unobfuscated.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/eCT6lHG4/versions/bgIKRB6h/unobfuscated.jar"
+hash-format = "sha512"
+hash = "2b104ad91b256059013562a67f4d2bb42fd3d02a55b65058e866cd10b1f4aafe359d1d08f48fc34545975f9f8cfd0b26fa8f8b8e8273a29ab65428ed46a1f615"
+
+[update]
+[update.modrinth]
+mod-id = "eCT6lHG4"
+version = "bgIKRB6h"

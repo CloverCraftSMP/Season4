@@ -29,12 +29,24 @@ file = "config/fsit.yml"
 hash = "909d557388e46be651c1c5b976e47f26b332fecb4807ce798f65ce0004f4ce4b"
 
 [[files]]
+file = "config/luckperms/luckperms.conf"
+hash = "10ccf1034c131c5f8b942a573f6bef0f902cb42fe2b67ae856dd8db6d00ed4bc"
+
+[[files]]
 file = "config/preferred-gamerules.properties"
 hash = "5fceb93c18d11fdff73a7844cc092b47afbda5cf8126958e101d1bc5d9ff2dfa"
 
 [[files]]
 file = "config/scholar-common.toml"
 hash = "a8dd60048c0ee1e44f9facaf0cce678503e01a952443efea216b5d8039bb8fae"
+
+[[files]]
+file = "config/simple-discord-link/simple-discord-compat.toml"
+hash = "8951c22543f795df6952e7571e523a135c054a6092385e667036cde5dcaaee4b"
+
+[[files]]
+file = "config/simple-discord-link/simple-discord-link.toml"
+hash = "40d3cd5fd4912fad094807d2b74f0e121b762dd7a1de2107e398a5035ea2b620"
 
 [[files]]
 file = "config/streamsreflowing.properties"
@@ -553,8 +565,21 @@ hash = "99811c67881579897393b3927dfb3edf708713adb5702fda8e231bfcb4c28abb"
 metafile = true
 
 [[files]]
+file = "mods/luckperms/yaml-storage/groups/default.yml"
+hash = "505ae288295c265cadf1fbaacddf554d7c3dc9978a0a93e2ea7acc1d035c63d0"
+
+[[files]]
+file = "mods/luckperms/yaml-storage/groups/dev.yml"
+hash = "e34989cf5256a02fe78acc7aefa7f14ac574b83b93088b97d1efceeeee78f769"
+
+[[files]]
 file = "mods/melody.pw.toml"
 hash = "6650c54bff58b2551d7c1d66474c545231040ddac892a1e80126a73233c5e4e8"
+metafile = true
+
+[[files]]
+file = "mods/metadatawildcard4fabric-permissions-api.pw.toml"
+hash = "6ca9faeacc543fa917c29503769bab95a7e16fc4836fbf2c095138b5c8644283"
 metafile = true
 
 [[files]]
