@@ -63,7 +63,7 @@ PRISM_NAME="Season4-${VERSION}-Prism.zip"
 PRISM_DIR="prism_temp"
 mkdir -p "$PRISM_DIR/.minecraft"
 
-cp unsup.jar unsup.ini "$PRISM_DIR/.minecraft/"
+cp unsup.ini "$PRISM_DIR/.minecraft/"
 
 mkdir -p "$PRISM_DIR/patches"
 
