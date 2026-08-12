@@ -3,5 +3,7 @@
   "use_vanilla_totem_model": false,
   "first_run": false,
   "first_run_temp": false,
-  "support_other_mods_totems": true
+  "support_other_mods_totems": false,
+  "selected_standard_doll_model_data": "my_totem_doll:dolls/3d_doll.bbmodel",
+  "standard_doll_model_data": "my_totem_doll:dolls/3d_doll.bbmodel",
 }

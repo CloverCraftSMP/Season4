@@ -50,7 +50,7 @@ hash = "fb5bb4c7e2d17d1d0831ec2b456880c068a3ff917e3d82f9cea82532d196cfdf"
 
 [[files]]
 file = "config/yosbr/config/my_totem_doll.json5"
-hash = "e3837ebdfd4354970c5cd99449ba580b365e0d1351b04b437fb2d5814a81fa57"
+hash = "8b927bd884124c2f30cda0272d697a0c3e5199c90894d2249e60b7c827d4e355"
 
 [[files]]
 file = "config/yosbr/config/peek/peek.properties"
