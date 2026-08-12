@@ -1,0 +1,13 @@
+name = "Superb Steeds"
+filename = "superb-steeds-fabric-26.1-r2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/UIZkbR3j/versions/bKGXydR8/superb-steeds-fabric-26.1-r2.jar"
+hash-format = "sha512"
+hash = "2899c2f46088c1dfbc0e50dac1aab5676ced0437546a015be4a04e827db5389f297479fcb836f6b93d3a18f0c26e95ed48c5076ae16ff60c1aa02db835b5ae9e"
+
+[update]
+[update.modrinth]
+mod-id = "UIZkbR3j"
+version = "bKGXydR8"

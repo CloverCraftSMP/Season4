@@ -9,6 +9,10 @@ file = "config/bcc-common.json"
 hash = "e54492b89612f5978098f738339b90999955290554fd34491d7b6cca34c5fa22"
 
 [[files]]
+file = "config/betterarcheology.jsonc"
+hash = "8b0264ad5e93d5208cbcef951db431b58ddcfa0c96d0a54955aa217ff382e215"
+
+[[files]]
 file = "config/crash_assistant/config.toml"
 hash = "4a412027fb0a53a3dc1a07abea1b2124d8df488f0851a1b8aba6aae887baa5d9"
 
@@ -19,6 +23,10 @@ hash = "bb3cf8404575ecac9196d2e311d923ea5521d5c0d5cc80973db953eb4bd39002"
 [[files]]
 file = "config/fancymenu/options.txt"
 hash = "cec4b194848d9b74cc4951867271b56215531de0ff1fdbe75f3cb9c5b526843b"
+
+[[files]]
+file = "config/fsit.yml"
+hash = "909d557388e46be651c1c5b976e47f26b332fecb4807ce798f65ce0004f4ce4b"
 
 [[files]]
 file = "config/preferred-gamerules.properties"
@@ -51,6 +59,10 @@ hash = "6e5116dc2330bcdaf5e749f889164fffbd259e8e77c36d01ecfdf4a06d6c2583"
 [[files]]
 file = "config/yosbr/config/roughlyenoughitems/config.json5"
 hash = "25447d93848d767926f6743c36d59494df9fddcad5bf059a8a22d6db9aeee4b1"
+
+[[files]]
+file = "config/yosbr/config/subtle_effects/entities.toml"
+hash = "6427e19363095c7856b2380ab2e5d7b349dcd874e2b74b20976eb38bfd721bea"
 
 [[files]]
 file = "config/yosbr/options.txt"
@@ -124,6 +136,11 @@ metafile = true
 [[files]]
 file = "mods/balm.pw.toml"
 hash = "a45b5591a68bcb4515fa0e30d4dcc46d9b4c051426fdf8133a34eda01d01124f"
+metafile = true
+
+[[files]]
+file = "mods/better-archeology.pw.toml"
+hash = "df06a96b3399c794078e7637699916adaf5e2ae4b845543b805db92e03fe6c9a"
 metafile = true
 
 [[files]]
@@ -272,6 +289,11 @@ hash = "17b8ecedbf3560b2ccdee03527f394c19c182bde4b778f679c5f22b55c179287"
 metafile = true
 
 [[files]]
+file = "mods/elytra-physics.pw.toml"
+hash = "de16a2a2208b6e9ad285b3f2f8ff99f0c6ede5f6f3cdb5dd9986fab1b5cb264a"
+metafile = true
+
+[[files]]
 file = "mods/elytra-trims.pw.toml"
 hash = "3afbd0e7055125c20c3c8fd42aa8bfa9961796b237d5ff7aecca1d0d0e7d25dd"
 metafile = true
@@ -359,6 +381,11 @@ metafile = true
 [[files]]
 file = "mods/freecam.pw.toml"
 hash = "8e0b3dae100af365310eaa3a8be8a9517cbd787b4ea8cd7c3a87e06738a57d5e"
+metafile = true
+
+[[files]]
+file = "mods/fsit.pw.toml"
+hash = "822fb2481dc711ff1935a34d16da2871a1ba538f837a6e2eb45896403e546973"
 metafile = true
 
 [[files]]
@@ -547,6 +574,11 @@ hash = "133e60df2d4bbf9ce2f056be65b213e60356622841f948e88af17cc35656e014"
 metafile = true
 
 [[files]]
+file = "mods/mouse-tweaks.pw.toml"
+hash = "89fcae9fccf6aec59355405e1160ed15d523c34e08e555a0da6f46fb8a5087fe"
+metafile = true
+
+[[files]]
 file = "mods/mru.pw.toml"
 hash = "5a42f066b9ede2baf736b88b8d1b9f41445188bcf05323e11e947044d9fd27f2"
 metafile = true
@@ -657,6 +689,11 @@ hash = "48f2b92cfa53cf05268d977c6cae642549e97c5f460571f0f2718675706a7166"
 metafile = true
 
 [[files]]
+file = "mods/resourceful-config.pw.toml"
+hash = "d5a2925609b3dcf060253a1d75414e4c7747c9d5c206c5ff83a678f75b94ff5b"
+metafile = true
+
+[[files]]
 file = "mods/resourcify.pw.toml"
 hash = "e52710c9a98faeea7e660550d2f6dd9c999d042f12b36a534d94947fb91334fc"
 metafile = true
@@ -664,6 +701,11 @@ metafile = true
 [[files]]
 file = "mods/respackopts.pw.toml"
 hash = "fe4f572bf81d146f72dfd2bdc6915beaeef38d1ba2b27be49624e3076da43890"
+metafile = true
+
+[[files]]
+file = "mods/respawnable-pets.pw.toml"
+hash = "9b4597c812a3d7337674debac383b90df5a31197a54adfbcd46ad56f5abdcf57"
 metafile = true
 
 [[files]]
@@ -757,6 +799,11 @@ hash = "c56611400afb8baac4ee0a12d0b80fbee77c581c39c48c9835aaa0200e14423f"
 metafile = true
 
 [[files]]
+file = "mods/strawberrylib.pw.toml"
+hash = "57ed1c7e74d9a49717c57cd3e5d66af1e7c44f420e3d58c73b761621251e87af"
+metafile = true
+
+[[files]]
 file = "mods/streams-reflowing.pw.toml"
 hash = "597fb09e675be84608c634982ca2a5edd058ca91293fb9f65a11c909f08c1582"
 metafile = true
@@ -774,6 +821,11 @@ metafile = true
 [[files]]
 file = "mods/subtle-effects.pw.toml"
 hash = "b0adf9d6b0a268df5c5baafaac859bfe271025cf58f248d62761f844e53cf90e"
+metafile = true
+
+[[files]]
+file = "mods/superb-steeds.pw.toml"
+hash = "248ff6f4c4dd76d67e34658f857f078bf61a90538de8ce8768581ecd37fa2df3"
 metafile = true
 
 [[files]]
@@ -799,6 +851,16 @@ metafile = true
 [[files]]
 file = "mods/trashslot.pw.toml"
 hash = "1e20f2f017b4f043161649c07fa8ca5137a63106ae71b296715571db7e176cc5"
+metafile = true
+
+[[files]]
+file = "mods/trinkets-elytra-support.pw.toml"
+hash = "1cd983cf5148e9c1bf2552e3d09ae089a9c6b5a19a298ab349d770a8617671b2"
+metafile = true
+
+[[files]]
+file = "mods/trinkets-updated.pw.toml"
+hash = "592c12675a19959c994b833c56c58885079db6b568db5e16b13f189c5ab6050b"
 metafile = true
 
 [[files]]
@@ -930,4 +992,4 @@ hash = "d2df5de13b7453beb94f591b39b62c14c0d34c573468ba86c9c2a97aba22dcb9"
 
 [[files]]
 file = "unsup.toml"
-hash = "57e9ab520c3d5009244b6bc6fa9ca8436be4d479f90ee17411c8557b58d0213c"
+hash = "9c0d783dc77207c9c448f6b09da8670da7b264a8740605554e879175fec2306e"

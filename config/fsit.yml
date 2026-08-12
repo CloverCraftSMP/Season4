@@ -1,0 +1,14 @@
+use-server: true
+seats-trait: moveable
+seats-centered: false
+block-interaction: false
+block-interaction-ids: []
+riding-minimum-yaw: 45
+sneak-window: 10
+sneak-minimum-pitch: 60
+sneak-crawling: false
+commands:
+  root: fsit
+  sit: sit
+  crawl: ""
+  lay: ""

@@ -1,0 +1,13 @@
+name = "Trinkets Elytra Support"
+filename = "trinkets-elytra-support-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/md0lxAjO/versions/dVbRqjFk/trinkets-elytra-support-1.0.0.jar"
+hash-format = "sha512"
+hash = "30d788448ac9888551bacc8947ef8db8c01cec24d550b812f43076464ae16715be0eb50ed5833e1f85e10c950eb6bf7ebdd046ebec515a77123a3514809bb15e"
+
+[update]
+[update.modrinth]
+mod-id = "md0lxAjO"
+version = "dVbRqjFk"

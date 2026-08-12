@@ -1,0 +1,7 @@
+[sleeping]
+playerSnoreSoundVolume = 0.0
+villagerSnoreSoundVolume = 0.0
+
+[humanoids.player]
+stomachGrowlingVolume = 0.0
+heartbeatVolume = 0.0

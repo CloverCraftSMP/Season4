@@ -42,6 +42,7 @@ inventory-particles = { flavors = ["ultra"] }
 smooth-scroll = { flavors = ["ultra"] }
 nuit = { flavors = ["ultra"] }
 blur-plus = { flavors = ["ultra"] }
+elytra-physics = { flavors = ["ultra"] }
 
 # =================
 #     STANDARD
