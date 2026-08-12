@@ -65,11 +65,33 @@ mkdir -p "$PRISM_DIR/.minecraft"
 
 cp unsup.jar unsup.ini "$PRISM_DIR/.minecraft/"
 
+mkdir -p "$PRISM_DIR/patches"
+
+cat << EOF > "$PRISM_DIR/patches/com.unascribed.unsup.json"
+{
+	"formatVersion": 1,
+	"name": "unsup",
+	"uid": "com.unascribed.unsup",
+	"version": "1.2.7",
+	"+agents": [
+		{
+			"name": "com.unascribed:unsup:1.2.7",
+			"url": "https://repo.sleeping.town"
+		}
+	]
+}
+EOF
+
 cat << EOF > "$PRISM_DIR/mmc-pack.json"
 {
     "components": [
         { "important": true, "uid": "net.minecraft", "version": "${MC_VERSION}" },
-        { "uid": "net.fabricmc.fabric-loader", "version": "${FABRIC_VERSION}" }
+        { "uid": "net.fabricmc.fabric-loader", "version": "${FABRIC_VERSION}" },
+        {
+            "cachedName": "unsup",
+            "cachedVersion": "1.2.7",
+            "uid": "com.unascribed.unsup"
+        }
     ],
     "formatVersion": 1
 }
@@ -78,8 +100,6 @@ EOF
 cat << EOF > "$PRISM_DIR/instance.cfg"
 [General]
 InstanceType=OneSix
-OverrideJavaArgs=true
-JvmArgs=-javaagent:unsup.jar
 EOF
 
 cd "$PRISM_DIR"
