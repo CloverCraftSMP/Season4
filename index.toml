@@ -46,7 +46,7 @@ hash = "8951c22543f795df6952e7571e523a135c054a6092385e667036cde5dcaaee4b"
 
 [[files]]
 file = "config/simple-discord-link/simple-discord-link.toml"
-hash = "40d3cd5fd4912fad094807d2b74f0e121b762dd7a1de2107e398a5035ea2b620"
+hash = "ec1ca3f2a135148f0178479b7ca522b217d952cab34d34d580731d9db22bb03e"
 
 [[files]]
 file = "config/streamsreflowing.properties"
@@ -175,6 +175,11 @@ hash = "156e8688835a92ff6f1a199b77c0f9a16f3d5b15fd9c311cd7dd8a5b1b4d8b4d"
 metafile = true
 
 [[files]]
+file = "mods/better-smoke.pw.toml"
+hash = "4f4f638ab92d8a29c5c36ce49c186d2a0277c297a504872cdc1646a83465cffa"
+metafile = true
+
+[[files]]
 file = "mods/better-stats.pw.toml"
 hash = "af04fd84610bc3df63b2d13e6ca03f33c3df9cfd87ef6de024cbe5f3e4efa723"
 metafile = true
@@ -212,6 +217,11 @@ metafile = true
 [[files]]
 file = "mods/chunky.pw.toml"
 hash = "c3e4fe1c4469a4cbad5fc201fe7083166b6bf3cab7edb23398a317b4c29bd727"
+metafile = true
+
+[[files]]
+file = "mods/cit-resewn-continuation.pw.toml"
+hash = "72835f208bd82901a119322a15e532bb2166bb5199c798c36866a324922986dd"
 metafile = true
 
 [[files]]
@@ -307,6 +317,16 @@ metafile = true
 [[files]]
 file = "mods/double-doors.pw.toml"
 hash = "17b8ecedbf3560b2ccdee03527f394c19c182bde4b778f679c5f22b55c179287"
+metafile = true
+
+[[files]]
+file = "mods/ears.pw.toml"
+hash = "d911f12e4dc216bc4b61b46a24b10baa4b4d1de2c84bb62dd0405387936b2e13"
+metafile = true
+
+[[files]]
+file = "mods/elytra-contrails-mod.pw.toml"
+hash = "dcbbae43c3b7c0fa76e67e134bb550bb98914a37a3195853d1e2b2ad82aeb011"
 metafile = true
 
 [[files]]
@@ -938,6 +958,11 @@ hash = "dd8d545da13351aac0e4ed1469b3db58c702f510d628eee793435fa6f3e150fe"
 metafile = true
 
 [[files]]
+file = "mods/visualkeys.pw.toml"
+hash = "0e043aa5201610f4b8c7b99638fc418615e041b4a07972e412b1f9a812a54e17"
+metafile = true
+
+[[files]]
 file = "mods/vmp-fabric.pw.toml"
 hash = "96c75aa9280fb3704a4c729b1b1a03d0660af2848455db627e3bdf84170f3f25"
 metafile = true
@@ -1032,8 +1057,8 @@ hash = "9b518732615e32ffec70b8e8949df9408e0a05f14b994e2ca92d9b952928204a"
 
 [[files]]
 file = "unsup.ini"
-hash = "d2df5de13b7453beb94f591b39b62c14c0d34c573468ba86c9c2a97aba22dcb9"
+hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
 
 [[files]]
 file = "unsup.toml"
-hash = "9c0d783dc77207c9c448f6b09da8670da7b264a8740605554e879175fec2306e"
+hash = "4c42c93b08c282c3d882440b689c9df475bb6f9c60b93814ab13dd929014aea3"

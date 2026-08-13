@@ -1,0 +1,13 @@
+name = "VisualKeys"
+filename = "VisualKeys-0.0.11+26.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/HEds12HI/versions/vjaVDgRj/VisualKeys-0.0.11%2B26.1.jar"
+hash-format = "sha512"
+hash = "46d52923cf025fddf79d4a6ede16a55e1554d014ec6edb3a55526da5fa8c3c6d85f50e5b9699141c5e2dd650b9bd416ab34bac6822103ab1589424d9ca5c0f2d"
+
+[update]
+[update.modrinth]
+mod-id = "HEds12HI"
+version = "vjaVDgRj"

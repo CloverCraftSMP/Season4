@@ -43,6 +43,8 @@ smooth-scroll = { flavors = ["ultra"] }
 nuit = { flavors = ["ultra"] }
 blur-plus = { flavors = ["ultra"] }
 elytra-physics = { flavors = ["ultra"] }
+better-smoke = { flavors = ["ultra"] }
+elytra-contrails-mod = { flavors = ["ultra"] }
 
 # =================
 #     STANDARD
@@ -57,6 +59,8 @@ fallingleaves = { flavors = ["ultra", "standard"] }
 iris = { flavors = ["ultra", "standard"] }
 build-guide = { flavors = ["ultra", "standard"] }
 animaticarefabricated = { flavors = ["ultra", "standard"] }
+cit-resewn-continuation = { flavors = ["ultra", "standard"] }
+ears = { flavors = ["ultra", "standard"] }
 
 # =================
 #       LITE

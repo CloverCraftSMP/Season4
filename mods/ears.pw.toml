@@ -1,0 +1,13 @@
+name = "Ears (+ Snouts/Muzzles, Tails, Horns, Wings, and More)"
+filename = "ears-thermite-2.0.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/mfzaZK3Z/versions/Oy3spSmn/ears-thermite-2.0.1.jar"
+hash-format = "sha512"
+hash = "23a4433617435d7e8d28e80e246fd82b2c8b2d06c31e95af23cf08d942f1a8808fc552331389685ba5113cf33fc64a8f9d7370cf44dae4da324c852297109296"
+
+[update]
+[update.modrinth]
+mod-id = "mfzaZK3Z"
+version = "Oy3spSmn"

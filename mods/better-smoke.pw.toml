@@ -1,0 +1,13 @@
+name = "Better Smoke"
+filename = "bettersmoke-0.1.2.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/Effrh3ze/versions/RA9ff5pG/bettersmoke-0.1.2.jar"
+hash-format = "sha512"
+hash = "5d7af9755c8c661094361368016d90280dc72c44ce60dddf4e4efee52041d8ebf84f72dbd7974f7ab5eeb73e915419fc163ec4b138b0a6159ecf46e93797f272"
+
+[update]
+[update.modrinth]
+mod-id = "Effrh3ze"
+version = "RA9ff5pG"
