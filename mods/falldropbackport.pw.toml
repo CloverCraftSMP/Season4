@@ -1,13 +1,13 @@
 name = "Falldrop Backport"
-filename = "falldrop_backport-1.3.3-26.1.2-Fabric.jar"
+filename = "falldrop_backport-1.3.4-26.1.2-Fabric.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/uigvLKK4/versions/26uR28ME/falldrop_backport-1.3.3-26.1.2-Fabric.jar"
+url = "https://cdn.modrinth.com/data/uigvLKK4/versions/mMTJwDdi/falldrop_backport-1.3.4-26.1.2-Fabric.jar"
 hash-format = "sha512"
-hash = "b911c6b5654d340adf33bcf5583ff2afcb712ff4759846f6e357bcecb8fc6004af5b45c5b91d66929a315919b8d05541ef98959c503c7912889770e84fe7829c"
+hash = "d721df16184d473e7f874b0c7bc3add86abfc29bfa41d33840d3a6c5956215870aae55788801e1181a31b536f3d296415866d6d586fdf823113271f3c28c1325"
 
 [update]
 [update.modrinth]
 mod-id = "uigvLKK4"
-version = "26uR28ME"
+version = "mMTJwDdi"
