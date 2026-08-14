@@ -6,7 +6,7 @@
     ]
   },
   "modpackVersion": {
-    "value": "@modpack_version@",
+    "value": "staging-9be2c98",
     "comments": [
       "The version of the modpack"
     ]
