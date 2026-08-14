@@ -1,3 +1,4 @@
 name: dev
 permissions:
 - displayname.Developer
+- luckperms.autoop

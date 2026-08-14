@@ -1,12 +1,9 @@
 {
   "mod_enabled": true,
-  "use_vanilla_totem_model": false,
+  "use_vanilla_totem_model": true,
   "first_run": false,
   "first_run_temp": false,
   "support_other_mods_totems": false,
-  "standard_doll_skin_data": "",
-  "standard_doll_skin_type": "steve",
-  "selected_standard_doll_model_data": "my_totem_doll:dolls/2d_doll.bbmodel",
-  "standard_doll_model_data": "my_totem_doll:dolls/3d_doll.bbmodel",
-  "standard_doll_model_arms_type": "wide",
+  "selected_standard_doll_model_data": "my_totem_doll:dolls/3d_doll.bbmodel",
+  "standard_doll_model_data": "my_totem_doll:dolls/3d_doll.bbmodel"
 }

@@ -66,7 +66,7 @@ hash = "fb5bb4c7e2d17d1d0831ec2b456880c068a3ff917e3d82f9cea82532d196cfdf"
 
 [[files]]
 file = "config/yosbr/config/my_totem_doll.json5"
-hash = "245dc4dd78949c0ea4029453cfd293a2cf4e2e546c8a6618e1acde5d1634de2f"
+hash = "5899f583aa4a210ce1fa47e132a6dfb83402cadc19638924668338035d26a563"
 
 [[files]]
 file = "config/yosbr/config/peek/peek.properties"
@@ -151,7 +151,7 @@ metafile = true
 
 [[files]]
 file = "mods/balm.pw.toml"
-hash = "a45b5591a68bcb4515fa0e30d4dcc46d9b4c051426fdf8133a34eda01d01124f"
+hash = "de30d5dabb3af19d05b42f4aa3d8310fada94900a00dacd426590ee9ec423dbc"
 metafile = true
 
 [[files]]
@@ -360,11 +360,6 @@ hash = "93be568ffd5908e1991054d273d0d008204afe55a53714bff471719d32dcbb5d"
 metafile = true
 
 [[files]]
-file = "mods/extreme_sound_muffler.pw.toml"
-hash = "a2ff8eeba2193d1c5698b3bdc16592ce0653c41c09ff27985265f715f2d00c9d"
-metafile = true
-
-[[files]]
 file = "mods/fabric-api.pw.toml"
 hash = "fed9bdaac0173f3cab2692f538441afda1e2cd46c6f6363790b424c009e34e03"
 metafile = true
@@ -511,7 +506,7 @@ metafile = true
 
 [[files]]
 file = "mods/ixeris.pw.toml"
-hash = "d37e02e49f79a26ce8099217671b027a60db46eff44a869495a45e15e27672c2"
+hash = "441a8a0190a199c46911fe3d121182092247b657798592eda52d3c1e593d76f0"
 metafile = true
 
 [[files]]
@@ -590,7 +585,11 @@ hash = "505ae288295c265cadf1fbaacddf554d7c3dc9978a0a93e2ea7acc1d035c63d0"
 
 [[files]]
 file = "mods/luckperms/yaml-storage/groups/dev.yml"
-hash = "e34989cf5256a02fe78acc7aefa7f14ac574b83b93088b97d1efceeeee78f769"
+hash = "edd107c0880773c5a862b748bb975d4c6def1f1e7d443288444831ceb835d3e9"
+
+[[files]]
+file = "mods/luckperms/yaml-storage/users/4f5469d3-522b-4bf8-ad42-7373ece5317e.yml"
+hash = "95bdab8b681519b2e3493f03dc5d579054f1de871d3652e6b046f58411dafee4"
 
 [[files]]
 file = "mods/melody.pw.toml"
