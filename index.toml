@@ -206,7 +206,7 @@ metafile = true
 
 [[files]]
 file = "mods/c2me-fabric.pw.toml"
-hash = "12587f0df11c52846ec4eba7c5f0a081f417d23c6b20dbf971026ec94e0c1ea7"
+hash = "426441d6c864041b23bd68637d960ff9c03e8cbcb2bd9179bdb94b476c8fb416"
 metafile = true
 
 [[files]]
@@ -226,7 +226,7 @@ metafile = true
 
 [[files]]
 file = "mods/clientsort.pw.toml"
-hash = "34e4b9b0b39b104f7722c0bfc5e37d18b0f214b0b70ca5d9e95fe6cff4b8b87e"
+hash = "e29b73e6ca891a08ed8feec8c629d7f2053ef4943088d5671eed122535c84e43"
 metafile = true
 
 [[files]]
@@ -271,7 +271,7 @@ metafile = true
 
 [[files]]
 file = "mods/crafting-tweaks.pw.toml"
-hash = "a474fff550faa54351f111d4baf2c582b9f1a7060c5e986ffe991e278713806f"
+hash = "430dcf3df4989d6668308f83702da06fe8d632ea891d3b31c9f4cc595ec8d460"
 metafile = true
 
 [[files]]
@@ -321,7 +321,7 @@ metafile = true
 
 [[files]]
 file = "mods/ears.pw.toml"
-hash = "d911f12e4dc216bc4b61b46a24b10baa4b4d1de2c84bb62dd0405387936b2e13"
+hash = "e6de06e5710dcd38a6ebeae5ba599107c77709a95ae6fe516e2302bb5195c19e"
 metafile = true
 
 [[files]]
@@ -396,7 +396,7 @@ metafile = true
 
 [[files]]
 file = "mods/fancymenu.pw.toml"
-hash = "ab2141eaba5742f75c1b3cec3e4b50280c0d7abf521fee559b200c0580e3b4ef"
+hash = "141567009163b09c27de3b24a692983c6cd9e7ecedce0fa1dd8aa3bcdd3def5a"
 metafile = true
 
 [[files]]
@@ -471,7 +471,7 @@ metafile = true
 
 [[files]]
 file = "mods/inventory-particles.pw.toml"
-hash = "e256fefc56f5f2ddfc21fa29b33e825dd8a1e728a39670868a33551f97784273"
+hash = "43f96d0333295c2599bb3b53c28efbf2782c30cb658bc373341474be64bbb3e3"
 metafile = true
 
 [[files]]
@@ -506,12 +506,12 @@ metafile = true
 
 [[files]]
 file = "mods/ixeris.pw.toml"
-hash = "441a8a0190a199c46911fe3d121182092247b657798592eda52d3c1e593d76f0"
+hash = "5208a028d4b62edc7ccd971ff2756fa191f1338df4ead1a62dd9426aa26d08aa"
 metafile = true
 
 [[files]]
 file = "mods/jade.pw.toml"
-hash = "f294d82e6cb1f9dabd7de9f1d3d4674585370423f2a3bb87dc5f9371e16db512"
+hash = "a414658ea9ed3ff6f7c3a9122e9471e857ae0540640b654e35a1345039c7392a"
 metafile = true
 
 [[files]]
@@ -531,7 +531,7 @@ metafile = true
 
 [[files]]
 file = "mods/lambdynamiclights.pw.toml"
-hash = "4af50837d039d8b8a8857674033cbc87e90c441de2c296b2bd80a70ee04d3c96"
+hash = "a986edf63958a3efd8cf49fd44a1d65a45eb18be0b67dd7b56b47d81779eba9b"
 metafile = true
 
 [[files]]
@@ -546,7 +546,7 @@ metafile = true
 
 [[files]]
 file = "mods/legendary-tooltips.pw.toml"
-hash = "5211d95b4b26cd51887a77160baa00c55a4fdf128760d525ab4fd7754892ba37"
+hash = "520a83d7c47ead54af4ee995576503c2af2d447b0081f00e750a60c210b30bff"
 metafile = true
 
 [[files]]
@@ -561,7 +561,7 @@ metafile = true
 
 [[files]]
 file = "mods/lithostitched.pw.toml"
-hash = "e111568991856e363f8457c05f2224df284e13b3f283ec528808f6d408d2886c"
+hash = "c622bbe8898ba1e240dd6536c1ab7c2b631cec802c052e4084e193d80da38476"
 metafile = true
 
 [[files]]
@@ -678,7 +678,7 @@ metafile = true
 
 [[files]]
 file = "mods/no-chat-restrictions.pw.toml"
-hash = "526aa1bf510ced14a3bbbfaacecfb3602c6336f271dba2c9778e22758c81f8ca"
+hash = "02ea10ec32038c33358c262e2affed7e29d0f253ced4e1ecb851722e86bb0a13"
 metafile = true
 
 [[files]]
@@ -718,7 +718,7 @@ metafile = true
 
 [[files]]
 file = "mods/particular-reforged.pw.toml"
-hash = "0295bdcf5c01fe167ab256653725e7f74295db94c4511af0b8a52b657158b634"
+hash = "ae3bd7605a3e32e19b4adea2d699b5b011185b76efcd8a62b096b2f3bc2e2449"
 metafile = true
 
 [[files]]
@@ -868,7 +868,7 @@ metafile = true
 
 [[files]]
 file = "mods/streams-reflowing.pw.toml"
-hash = "ef59f259edd70334822cd21df9587fc35d26aca855e1d80cfea0773186609364"
+hash = "40f9cab8cd1f1ac71d7116a4c4276460fc0b85af9c341bffcf21c2380681292e"
 metafile = true
 
 [[files]]
@@ -923,7 +923,7 @@ metafile = true
 
 [[files]]
 file = "mods/trinkets-updated.pw.toml"
-hash = "592c12675a19959c994b833c56c58885079db6b568db5e16b13f189c5ab6050b"
+hash = "4a2d8a12e65303b9d51d98b9d008e6fac06c427949d7f141d6c0870dbb184510"
 metafile = true
 
 [[files]]
@@ -993,7 +993,7 @@ metafile = true
 
 [[files]]
 file = "mods/zannaghs-armor-hider.pw.toml"
-hash = "d9c90b3a5dcb22e277c60b49d4492d978d6621e88cce2185ce43330b9144a687"
+hash = "aa241145c28132366f869d5d76faa46dc0e60b1495cfb3f2aca401a7922674c2"
 metafile = true
 
 [[files]]
