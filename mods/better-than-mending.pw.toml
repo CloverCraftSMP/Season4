@@ -1,0 +1,13 @@
+name = "Better Than Mending"
+filename = "BetterThanMending-2.3.0-merged.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Lvv4SHrK/versions/SydvTww2/BetterThanMending-2.3.0-merged.jar"
+hash-format = "sha512"
+hash = "cd540aa7a436186e669cd733b46b6ae2e3403dc1978577d479bbaa654a8c71233eba17f1bcf9510a2fcd1991d708273f77dec61b2b2c2d94064863f15392fb36"
+
+[update]
+[update.modrinth]
+mod-id = "Lvv4SHrK"
+version = "SydvTww2"

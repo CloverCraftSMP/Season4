@@ -185,6 +185,11 @@ hash = "af04fd84610bc3df63b2d13e6ca03f33c3df9cfd87ef6de024cbe5f3e4efa723"
 metafile = true
 
 [[files]]
+file = "mods/better-than-mending.pw.toml"
+hash = "9fa6ca1afa5b6b06ed5ac6706dc544206a57792d1fbaa3dddec59ea77d99b418"
+metafile = true
+
+[[files]]
 file = "mods/bettergrassify.pw.toml"
 hash = "bf2ddf048cc30ccc6bfd35c87c93d8d86855b48180254703a7db994847515104"
 metafile = true
@@ -542,6 +547,11 @@ metafile = true
 [[files]]
 file = "mods/jamlib.pw.toml"
 hash = "a6b342a387653f2accd5d812b748fa71144de254ecfa706d6ec8b6ee7e1afefc"
+metafile = true
+
+[[files]]
+file = "mods/joy-of-painting.pw.toml"
+hash = "5a0e2d78899f9344e599750c7631b734aaeab366ad0d83fad2fed98c4cbf8fbc"
 metafile = true
 
 [[files]]
