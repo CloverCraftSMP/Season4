@@ -425,6 +425,11 @@ hash = "dcc363603a2b2782ae86101eb5d19a8af3b53906eadbd2e32811313a10150060"
 metafile = true
 
 [[files]]
+file = "mods/frozenlib.pw.toml"
+hash = "0fc4796995bd2729378091695c22ec1f028aad8b2c06bcf1279037ac35e10c1c"
+metafile = true
+
+[[files]]
 file = "mods/fsit.pw.toml"
 hash = "822fb2481dc711ff1935a34d16da2871a1ba538f837a6e2eb45896403e546973"
 metafile = true
@@ -747,6 +752,11 @@ hash = "965d8981b4e1cba8feb64bfafad13d5c523267afa0200edb57398a923ec99a74"
 metafile = true
 
 [[files]]
+file = "mods/raised.pw.toml"
+hash = "6e42ce5460a1af8ac023e414401fc77008a88b63b0d950e8510673c97ba5ff86"
+metafile = true
+
+[[files]]
 file = "mods/rei.pw.toml"
 hash = "48f2b92cfa53cf05268d977c6cae642549e97c5f460571f0f2718675706a7166"
 metafile = true
@@ -809,6 +819,11 @@ metafile = true
 [[files]]
 file = "mods/shatterbyte-lib.pw.toml"
 hash = "832da6f7c767839e2ec2b16301c3ed9a8fec825a90992ccc15d6d77c3b8287bb"
+metafile = true
+
+[[files]]
+file = "mods/simple-copper-pipes.pw.toml"
+hash = "171185ab8aab7c83eca29a9bbf55f341c1735863a11b01a003f7a9cbf0bf83cc"
 metafile = true
 
 [[files]]
@@ -909,6 +924,11 @@ metafile = true
 [[files]]
 file = "mods/terrablender.pw.toml"
 hash = "b9f14b26a3b9554e2870dd45b2c6d3f24494d90708d7388b1a941bfeabecfd07"
+metafile = true
+
+[[files]]
+file = "mods/trade-cycling.pw.toml"
+hash = "a21615592d84b8dfacf6c5e1b1c9a01d798d6155b7ab08314b0bbe2e31c3dc73"
 metafile = true
 
 [[files]]
