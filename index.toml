@@ -977,11 +977,6 @@ hash = "1cd983cf5148e9c1bf2552e3d09ae089a9c6b5a19a298ab349d770a8617671b2"
 metafile = true
 
 [[files]]
-file = "mods/trinkets-updated.pw.toml"
-hash = "4a2d8a12e65303b9d51d98b9d008e6fac06c427949d7f141d6c0870dbb184510"
-metafile = true
-
-[[files]]
 file = "mods/tt20.pw.toml"
 hash = "08f6c185e95d207d1d0aa9cf14c75d24ca0f6b0eec7261df9e8a6fd8a433eedb"
 metafile = true
