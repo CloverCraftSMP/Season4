@@ -45,6 +45,11 @@ blur-plus = { flavors = ["ultra"] }
 elytra-physics = { flavors = ["ultra"] }
 better-smoke = { flavors = ["ultra"] }
 elytra-contrails-mod = { flavors = ["ultra"] }
+explosive-enhancement = { flavors = ["ultra"] }
+itemphysic-lite = { flavors = ["ultra"] }
+punchy-fpa = { flavors = ["ultra"] }
+footprintparticle = { flavors = ["ultra"] }
+particle-interactions = { flavors = ["ultra"] }
 
 # =================
 #     STANDARD
@@ -61,6 +66,7 @@ build-guide = { flavors = ["ultra", "standard"] }
 animaticarefabricated = { flavors = ["ultra", "standard"] }
 cit-resewn-continuation = { flavors = ["ultra", "standard"] }
 ears = { flavors = ["ultra", "standard"] }
+music-notification = { flavors = ["ultra", "standard"] }
 
 # =================
 #       LITE

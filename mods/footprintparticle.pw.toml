@@ -1,0 +1,17 @@
+name = "FootprintParticle"
+filename = "footprintparticle-0.5.4-mc26.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/xZQOoOaY/versions/nnoB59O9/footprintparticle-0.5.4-mc26.1.jar"
+hash-format = "sha512"
+hash = "9cc60d5b99d1ad0c656c3d597e2b417070e5c4635bf8c702eccf553b6586e3d4cc0b6974f467c8bbc33b9d45682b74fd3efa6d0155178b3891b7b156ed637c62"
+
+[update]
+[update.modrinth]
+mod-id = "xZQOoOaY"
+version = "nnoB59O9"
+
+[option]
+optional = true
+default = false

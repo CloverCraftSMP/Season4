@@ -210,6 +210,11 @@ hash = "426441d6c864041b23bd68637d960ff9c03e8cbcb2bd9179bdb94b476c8fb416"
 metafile = true
 
 [[files]]
+file = "mods/cameraoverhaul.pw.toml"
+hash = "0cb8f99d2f06a014ac85a78071746622b65b6bb7c7436586d51a768948e97584"
+metafile = true
+
+[[files]]
 file = "mods/chat-heads.pw.toml"
 hash = "e9654c5d253e4fdc00ac2f0ffa32a38ed9c93e9d052e8095deaf054e1efb8bd1"
 metafile = true
@@ -360,6 +365,11 @@ hash = "93be568ffd5908e1991054d273d0d008204afe55a53714bff471719d32dcbb5d"
 metafile = true
 
 [[files]]
+file = "mods/explosive-enhancement.pw.toml"
+hash = "f1c97808ee286fc6f2cfdeb7d2248ed0c28d03cda3aefd0eb2267df1b8a3cf1c"
+metafile = true
+
+[[files]]
 file = "mods/fabric-api.pw.toml"
 hash = "fed9bdaac0173f3cab2692f538441afda1e2cd46c6f6363790b424c009e34e03"
 metafile = true
@@ -412,6 +422,11 @@ metafile = true
 [[files]]
 file = "mods/flashback.pw.toml"
 hash = "3c0c8ba3871dd1453c10596de685cb8fff4f6af2ff1ed4f4998dad7e4ca2d2a2"
+metafile = true
+
+[[files]]
+file = "mods/footprintparticle.pw.toml"
+hash = "1c4ceb526310c00cb9d5385c9841d2a701f02dec4a89a948f30f09776bc93aa8"
 metafile = true
 
 [[files]]
@@ -502,6 +517,11 @@ metafile = true
 [[files]]
 file = "mods/item-highlighter.pw.toml"
 hash = "a4179b1a1725d8de5c0c8fcaf6ce81208f2ea0364e0a0b869655af4cfcdcab51"
+metafile = true
+
+[[files]]
+file = "mods/itemphysic-lite.pw.toml"
+hash = "8484ae8c6fbdc9ba9e8cb8541b5abfb8526ba8c13abe82436751b7e0241531fb"
 metafile = true
 
 [[files]]
@@ -652,6 +672,11 @@ hash = "5a42f066b9ede2baf736b88b8d1b9f41445188bcf05323e11e947044d9fd27f2"
 metafile = true
 
 [[files]]
+file = "mods/music-notification.pw.toml"
+hash = "934b741dc6a738e15447de1fa995a440e5a21cb03d2cff60557b560e94f6e416"
+metafile = true
+
+[[files]]
 file = "mods/my_totem_doll.pw.toml"
 hash = "31c46cafee43c4c8ca7eff020133b5664638f03dc0c863a819a8ff3a19aedf95"
 metafile = true
@@ -722,6 +747,11 @@ hash = "4b369d27af584c91d5c482562571641d46046a393375a3f96bd8bbc6e29cf798"
 metafile = true
 
 [[files]]
+file = "mods/particle-interactions.pw.toml"
+hash = "525b010402412ebf0cd5680845dd8da6731ed5de56934f64ef498c256300c777"
+metafile = true
+
+[[files]]
 file = "mods/particular-reforged.pw.toml"
 hash = "ae3bd7605a3e32e19b4adea2d699b5b011185b76efcd8a62b096b2f3bc2e2449"
 metafile = true
@@ -744,6 +774,11 @@ metafile = true
 [[files]]
 file = "mods/prism-lib.pw.toml"
 hash = "c65cc1cf8e9f1c318ae957b38f14a056a6da448d9d0dd17d31f483725f7ab034"
+metafile = true
+
+[[files]]
+file = "mods/punchy-fpa.pw.toml"
+hash = "724677653cca52cb2da9c0fd80dcf770318a2c245907d6589a18b2392fc2adf7"
 metafile = true
 
 [[files]]
@@ -1080,4 +1115,4 @@ hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
 
 [[files]]
 file = "unsup.toml"
-hash = "4c42c93b08c282c3d882440b689c9df475bb6f9c60b93814ab13dd929014aea3"
+hash = "dbc8179fbacd7812264a9b9cfc3615a2286d8a6d1c3c11f26b2021c981f65333"
