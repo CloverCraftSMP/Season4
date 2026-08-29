@@ -1,16 +1,16 @@
 name = "Voxy Extra"
-filename = "voxy-extra-0.2.2.jar"
+filename = "voxy-extra-0.2.3.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/znQnhrkQ/versions/j0BwIiIM/voxy-extra-0.2.2.jar"
+url = "https://cdn.modrinth.com/data/znQnhrkQ/versions/NkTzXVDo/voxy-extra-0.2.3.jar"
 hash-format = "sha512"
-hash = "83d478c878f61b4957a7c1f0a94c7d4c317d87d2fd5f370823c20d76fd163e4f2937ed14e0d3ac06de83806074c2bb99c137c971eb382581016717fcc1e0cfff"
+hash = "72a239ebf250570e67ba2da6e472f3029b3c25e4de614699e86abd9abcc971ae8bc75a8f0e5963b9b6a8ab8416161f6bfd1a1e63fd94cae9c2fbef60cbba94de"
 
 [update]
 [update.modrinth]
 mod-id = "znQnhrkQ"
-version = "j0BwIiIM"
+version = "NkTzXVDo"
 
 [option]
 optional = true
