@@ -13,7 +13,7 @@ side = "client"
 choices = [
     { id = "ultra", name = "Ultra", description = "For high-end PCs. Shader support, advanced physics, and all visual effects." },
     { id = "standard", name = "Standard", description = "Balanced performance and visuals. Includes shader support and QoL enhancements." },
-    { id = "lite", name = "Lite", description = "Maximum performance for low-end laptops and older PCs. Disables shaders, LOD renderers, heavy particles, and ambient physics." }
+    { id = "lite", name = "Lite", description = "Maximum performance for low-end laptops and older PCs. Disables shaders, heavy particles, and ambient physics." }
 ]
 
 # ===================
@@ -28,6 +28,19 @@ choices = [
     { id = "none", name = "None", description = "Standard Minecraft render distance. Best for performance and stability." },
     { id = "voxy", name = "Voxy", description = "An advanced, highly performant voxel-based LOD renderer. Great for vanilla-like rendering, but experimental." },
     { id = "dh", name = "Distant Horizons", description = "The classic LOD renderer." }
+]
+
+# ===================
+#      CREATOR
+# ===================
+
+[flavor_groups.creator]
+name = "Content Creator mods"
+description = "Mods that are more suited for content creators, includes things like Flashback and Axiom."
+side = "client"
+choices = [
+    { id = "none", name = "None", description = "None of that creator nonsense." },
+    { id = "creator", name = "Content Creator", description = "ME I'M A CREATOR, ME ME!" }
 ]
 
 # ===========
@@ -47,7 +60,6 @@ better-smoke = { flavors = ["ultra"] }
 elytra-contrails-mod = { flavors = ["ultra"] }
 explosive-enhancement = { flavors = ["ultra"] }
 itemphysic-lite = { flavors = ["ultra"] }
-punchy-fpa = { flavors = ["ultra"] }
 footprintparticle = { flavors = ["ultra"] }
 particle-interactions = { flavors = ["ultra"] }
 
@@ -83,3 +95,9 @@ voxy-extra = { flavors = ["voxy"] }
 #       DH
 # =================
 distanthorizons = { flavors = ["dh"] }
+
+# =================
+#     CREATOR
+# =================
+flashback = { flavors = ["creator"] }
+axiom = { flavors = ["creator"] }

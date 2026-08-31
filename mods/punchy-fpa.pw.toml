@@ -15,3 +15,4 @@ version = "sB7LxiDN"
 [option]
 optional = true
 default = false
+description = "Transforms how combat and movement feel in Minecraft. Fluid animations, in-hand physics, and real-time tuning add weight, style, and personality to every action.\n\nPairs well with Camera Overhaul."

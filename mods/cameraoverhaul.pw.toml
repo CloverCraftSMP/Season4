@@ -15,3 +15,4 @@ version = "VDq7aIuZ"
 [option]
 optional = true
 default = false
+description = "More fluid movement through the use of various camera rotations, and more. Emphasizing the player's movement and improving visual feedback. Strafing and turning around will tilt the camera sideways. Jumping, falling, and moving forward or backwards will affect the camera's pitch. Nearby explosions will shake the screen, and ceasing movement for enough time will cause the camera to gently sway around while waiting for your input.\n\nPairs well with Punchy!"
