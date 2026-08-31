@@ -6,7 +6,7 @@ hash = "858b8b41a660334ca17c5c3c9c2e92e9e4b91b64a3ab4eed9688e020e3a5bce3"
 
 [[files]]
 file = "config/bcc-common.json"
-hash = "e54492b89612f5978098f738339b90999955290554fd34491d7b6cca34c5fa22"
+hash = "de7dd3c793bd013cf2219dcb57aa591463f488c1f58c2d5ed0023eeb2c80cac1"
 
 [[files]]
 file = "config/betterarcheology.jsonc"
@@ -1116,7 +1116,7 @@ hash = "9b518732615e32ffec70b8e8949df9408e0a05f14b994e2ca92d9b952928204a"
 
 [[files]]
 file = "unsup.ini"
-hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
+hash = "a8b11cb81c928628ddc3335892ce4c8aa17fea47e235f7d2b06bcceaea53287a"
 
 [[files]]
 file = "unsup.toml"
