@@ -1,13 +1,13 @@
 name = "Armor Hider"
-filename = "armor-hider-fabric-0.13.0+mc-26.1.0-2.jar"
+filename = "armor-hider-fabric-0.13.2+mc-26.1.0-2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/GgG2my3y/versions/vA0GBajX/armor-hider-fabric-0.13.0%2Bmc-26.1.0-2.jar"
+url = "https://cdn.modrinth.com/data/GgG2my3y/versions/1pwXEFoW/armor-hider-fabric-0.13.2%2Bmc-26.1.0-2.jar"
 hash-format = "sha512"
-hash = "7cc10361fec6e942b254ace05305fc27c318e111a4c95583535b91f298797d1c576a1804ece366f79c5c604e3951ca2834e3ddd864056ead30147605d5787244"
+hash = "3406a4db2f044e04dcb53e3a659b4f9535f395aa067fad94451af259ef5a387032df12a983b3a88babe879ed2a082e0f7481708471c46b3072725958948bb28c"
 
 [update]
 [update.modrinth]
 mod-id = "GgG2my3y"
-version = "vA0GBajX"
+version = "1pwXEFoW"
