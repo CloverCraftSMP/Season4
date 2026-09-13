@@ -1,13 +1,13 @@
 name = "BaguetteLib"
-filename = "baguettelib-26.1.2-Fabric-2.0.4.jar"
+filename = "baguettelib-26.1.2-Fabric-2.0.5.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/OfKzpbRU/versions/R0y52e1u/baguettelib-26.1.2-Fabric-2.0.4.jar"
+url = "https://cdn.modrinth.com/data/OfKzpbRU/versions/E2Yw2jFN/baguettelib-26.1.2-Fabric-2.0.5.jar"
 hash-format = "sha512"
-hash = "1f104462323205b4b4b58ceb1a004e3da6c32a6e18475c9d3c1ff010d2f55ff1d43605a0406ae04d1d3f580db1c95e27922eb84a7600c8688dafd33dbb65b392"
+hash = "9c541f476e3d6de11fb7e63f3376ee2969514fc3d77a3e73547f15a5303f70c98bf439765aaa7ed799179f66df5ff85994ef11f4795148ad07a5e4eb6a809f9e"
 
 [update]
 [update.modrinth]
 mod-id = "OfKzpbRU"
-version = "R0y52e1u"
+version = "E2Yw2jFN"
