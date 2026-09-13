@@ -1,13 +1,13 @@
 name = "Halfbright"
-filename = "halfbright-fabric-v1.1.0+26.1.2.jar"
+filename = "halfbright-fabric-v1.1.4+26.1.2.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/NUQIP0lM/versions/RQe2iNc9/halfbright-fabric-v1.1.0%2B26.1.2.jar"
+url = "https://cdn.modrinth.com/data/NUQIP0lM/versions/pMhyTRja/halfbright-fabric-v1.1.4%2B26.1.2.jar"
 hash-format = "sha512"
-hash = "7ff815376447a35afbf30dad12aa7e22575875c18ef360129fdff08007ba82c0ea7f170ed52cff09d776cad592933e6fc10a85599a1e42cc941c1b02c0bd5d78"
+hash = "688354f89d60cd695c18acfdb33c79403e9329293048f10de262b70b64b829c34d54f236f2e060257a0141a0db2852f870242bdf113ea74829ddc3689b89a276"
 
 [update]
 [update.modrinth]
 mod-id = "NUQIP0lM"
-version = "RQe2iNc9"
+version = "pMhyTRja"

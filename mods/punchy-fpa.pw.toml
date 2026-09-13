@@ -1,18 +1,17 @@
 name = "Punchy!"
-filename = "punchy-2.7d-fabric-26.1-26.1.1-26.1.2.jar"
+filename = "punchy-2.7e-fabric-26.1-26.1.1-26.1.2.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/8aoMKplv/versions/sB7LxiDN/punchy-2.7d-fabric-26.1-26.1.1-26.1.2.jar"
+url = "https://cdn.modrinth.com/data/8aoMKplv/versions/oTGWkA2S/punchy-2.7e-fabric-26.1-26.1.1-26.1.2.jar"
 hash-format = "sha512"
-hash = "db2d86ab08944d0f53af21b6341c6a846aa2bd55b89e23fe3aca0f9de9e4276102b1ba33054376a415279f03b15e9f884e35b9b78c241d51d6945a0c4017dcfe"
+hash = "b9ea3bf4b0b5967743bb2ba92bf0206b0e28b36349d1c9fcddbd2b85296307069204a2b990cff4562c7a19e1c0c3af3a8760197236817086ef5d85e5aefd7588"
 
 [update]
 [update.modrinth]
 mod-id = "8aoMKplv"
-version = "sB7LxiDN"
+version = "oTGWkA2S"
 
 [option]
 optional = true
-default = false
 description = "Transforms how combat and movement feel in Minecraft. Fluid animations, in-hand physics, and real-time tuning add weight, style, and personality to every action.\n\nPairs well with Camera Overhaul."

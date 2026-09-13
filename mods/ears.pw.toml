@@ -1,13 +1,13 @@
 name = "Ears (+ Snouts/Muzzles, Tails, Horns, Wings, and More)"
-filename = "ears-thermite-2.1.0.jar"
+filename = "ears-thermite-2.2.1-c.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/mfzaZK3Z/versions/XsRJWcmT/ears-thermite-2.1.0.jar"
+url = "https://cdn.modrinth.com/data/mfzaZK3Z/versions/MWdkKcnk/ears-thermite-2.2.1-c.jar"
 hash-format = "sha512"
-hash = "b0e1f44d80763226d160c89688dcd668b165c7391878adeaead17d9990c3c664afc4895bb861590e859305f4fee0359bd5ca97c01b1a353e5fec5826223a15cb"
+hash = "2b6e6de8ba526cba468d7767fcb1c0d08a80efb7232ef1f93d4749ce70fb23ea9f9799fa9f03e2721213cf6ca2ba762dac65b67de4ffeb98d8a880178c7b4cd2"
 
 [update]
 [update.modrinth]
 mod-id = "mfzaZK3Z"
-version = "XsRJWcmT"
+version = "MWdkKcnk"
