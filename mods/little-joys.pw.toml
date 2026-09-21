@@ -1,13 +1,13 @@
 name = "Little Joys"
-filename = "littlejoys-fabric-26.1.2-26.1.2.3.jar"
+filename = "littlejoys-fabric-26.1.2-26.1.2.5.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/v0j2ftEp/versions/WohbOmVA/littlejoys-fabric-26.1.2-26.1.2.3.jar"
+url = "https://cdn.modrinth.com/data/v0j2ftEp/versions/hs2J1UEc/littlejoys-fabric-26.1.2-26.1.2.5.jar"
 hash-format = "sha512"
-hash = "e368ec7a77b6a1e1cd4734bd572df233ed5f80475eb5e626a35efe94279defff067f0cdbf14ae4d5bbccdecbbbb4b5acbdd446ada00aaaf8f353782a7b78800d"
+hash = "fe7c8e0a7267b987315ebd2e5a0d9666d7e4bf7470f87880b2e1c02ffb5e573f0792bdd7eef88a3020bfb94cfd5ba8f35c0c8bf11d204e97a2bec11a1c4ad1de"
 
 [update]
 [update.modrinth]
 mod-id = "v0j2ftEp"
-version = "WohbOmVA"
+version = "hs2J1UEc"

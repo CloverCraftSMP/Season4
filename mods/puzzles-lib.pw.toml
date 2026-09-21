@@ -1,13 +1,13 @@
 name = "Puzzles Lib"
-filename = "PuzzlesLib-v26.1.14-mc26.1.x-Fabric.jar"
+filename = "PuzzlesLib-v26.1.15-mc26.1.x-Fabric.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/QAGBst4M/versions/rEJUehiZ/PuzzlesLib-v26.1.14-mc26.1.x-Fabric.jar"
+url = "https://cdn.modrinth.com/data/QAGBst4M/versions/UlPkm617/PuzzlesLib-v26.1.15-mc26.1.x-Fabric.jar"
 hash-format = "sha512"
-hash = "57ff6a8486b8c0ebd6e41a1f2c12ea8f813d35c385019dfdc0f5fedae08a8910d25ea83fde14f41893825575a35c6bdf7ce8047fbc20b611dd08718bc29301b0"
+hash = "54418d37c1cd17b8953d0cb217fad4826453f57e44da2a1444125c73fa32d608f79678653e61e99a574398f3eab1fdca82aa42bc29d8bf26735474422610764e"
 
 [update]
 [update.modrinth]
 mod-id = "QAGBst4M"
-version = "rEJUehiZ"
+version = "UlPkm617"
