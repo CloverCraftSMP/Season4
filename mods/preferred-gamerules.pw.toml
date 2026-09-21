@@ -1,13 +1,13 @@
 name = "Preferred Gamerules"
-filename = "preferred-gamerules-2.0.0+26.1.jar"
+filename = "preferred-gamerules-2.0.1+26.1.jar"
 side = "server"
 
 [download]
-url = "https://cdn.modrinth.com/data/kKib77nY/versions/YwL9Cznl/preferred-gamerules-2.0.0%2B26.1.jar"
+url = "https://cdn.modrinth.com/data/kKib77nY/versions/Ji4K5Mo3/preferred-gamerules-2.0.1%2B26.1.jar"
 hash-format = "sha512"
-hash = "46bb8565208e1eab3bbf62ed14a055ffcce9ac512483845c4e3a580b6b0f7f63d44a75d6975d4c8f6ca2982b32d3eddd2616bf9480ec01ce5dd5d84134400238"
+hash = "79b4fe051ed47d96de3e8ff5ba58cf054bb1af00975405c2d3a375fbca7fa937890c33d6f31957342fb555282183f3d832e987ac550eb18e00aae1a233ed644a"
 
 [update]
 [update.modrinth]
 mod-id = "kKib77nY"
-version = "YwL9Cznl"
+version = "Ji4K5Mo3"

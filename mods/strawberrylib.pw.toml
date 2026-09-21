@@ -1,13 +1,13 @@
 name = "StrawberryLib"
-filename = "strawberrylib-fabric-26.1-r9.jar"
+filename = "strawberrylib-fabric-26.1-r11.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/9Ya7Yyre/versions/ZTcuEejF/strawberrylib-fabric-26.1-r9.jar"
+url = "https://cdn.modrinth.com/data/9Ya7Yyre/versions/Ir202gxM/strawberrylib-fabric-26.1-r11.jar"
 hash-format = "sha512"
-hash = "6eb172cb61fbf8f995e46ff6ddbda2336669a4060dd26b08a78ea2c1a59769a4a3ba64bd00f58f66283d80ad2f044b7650b81bb5fbc1fae35bade25a4f63b37c"
+hash = "6b064d372eaf5345c43c8bb0f88a07be5b92bc426715549cb663a91e277408701767b5b6f00babcdad412e505953933b5817b044d05371e853b680a22f60bb1d"
 
 [update]
 [update.modrinth]
 mod-id = "9Ya7Yyre"
-version = "ZTcuEejF"
+version = "Ir202gxM"
