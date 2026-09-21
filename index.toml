@@ -86,7 +86,7 @@ hash = "8a5f90a3a1713b790428bc669b2bc49f966689b84b61f1420448706120fb9d9e"
 
 [[files]]
 file = "fabric-server.pw.toml"
-hash = "a7548d3eb2a049c0ce9e29100ef40b8d1addd47a169c41d2738ec99747c95dd6"
+hash = "925b0b3ffb33015e82452c4bf83e87afea37c56776bd172e2dcfceccfe7f590f"
 metafile = true
 
 [[files]]
@@ -367,6 +367,11 @@ metafile = true
 [[files]]
 file = "mods/entitytexturefeatures.pw.toml"
 hash = "b05e931319716d77b1baa428ceb56ba8ef25c00d36ae60deb2b9732c6eb64d4e"
+metafile = true
+
+[[files]]
+file = "mods/eunomia.pw.toml"
+hash = "39d49fad5f249602cfdd8d5aaf4adafed49e73bdc1a17d6e5136448b6c2c4143"
 metafile = true
 
 [[files]]
@@ -1054,6 +1059,11 @@ metafile = true
 [[files]]
 file = "mods/zannaghs-armor-hider.pw.toml"
 hash = "f41188f3b238b851b21e69f90f2ce2607120c907c4d34ea365f67f7adb509aa8"
+metafile = true
+
+[[files]]
+file = "mods/zconfig.pw.toml"
+hash = "8078347c8e2fd79bbb3e414fd36bc319e2d043f8d3b955c14f430fee0b5d6843"
 metafile = true
 
 [[files]]
