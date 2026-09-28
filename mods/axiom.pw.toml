@@ -14,3 +14,4 @@ version = "aZ3IOnv2"
 
 [option]
 optional = true
+default = true
