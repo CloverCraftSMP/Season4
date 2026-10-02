@@ -221,7 +221,7 @@ metafile = true
 
 [[files]]
 file = "mods/chat-heads.pw.toml"
-hash = "2c7716d3ad04c2dc38771184e2ef23523bd6ed4c88c922b13ad43e01914ee60c"
+hash = "3c70120a9ea5ce86f807e5f97c286c076b3671532dcf20576fb3fd8ca30ac736"
 metafile = true
 
 [[files]]
@@ -648,7 +648,7 @@ metafile = true
 
 [[files]]
 file = "mods/mobexplosiongriefinggamerule.pw.toml"
-hash = "9c088b417dda4cf926486db945354057266cc91aed004e005e5b18b745c35bc1"
+hash = "51f4d8cc13e19666023def72325225a517ffdd121a433d69672953780849e7c4"
 metafile = true
 
 [[files]]
@@ -893,7 +893,7 @@ metafile = true
 
 [[files]]
 file = "mods/sodium-extra.pw.toml"
-hash = "734a061544bad93b004eb110f67de8e99651f2a0d97533101ce44dbe66b2b619"
+hash = "f24b8409bb1ffc380884a5b3a8ec16f0495385f5c75bd56c4ee7a3ad9e0f9d32"
 metafile = true
 
 [[files]]
@@ -1108,12 +1108,12 @@ metafile = true
 
 [[files]]
 file = "resourcepacks/recolourful-containers-gui-hud-dark.pw.toml"
-hash = "7f124ab26068c1a0de8c08382de81e66fe68ca612141f24b593e628a0ecc155c"
+hash = "ccebb3f8e7ffe02a86cff25671e2f645f63bf6f69c9e020e366aae09bde58963"
 metafile = true
 
 [[files]]
 file = "resourcepacks/recolourful-containers-gui.pw.toml"
-hash = "289ba859abee214b52135edaac5e2a92443e852942cf433ebf3768c33ef463dc"
+hash = "a8c77ef0a7e1abff041d5346a81d973f21f7640423d934e484d5763e2e7cd59b"
 metafile = true
 
 [[files]]
