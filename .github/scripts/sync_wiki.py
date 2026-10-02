@@ -172,46 +172,105 @@ def generate_html_cards(mods):
 
 
 def update_wiki_page(content):
-    mutation = """
-    mutation ($content: String!, $description: String!, $path: String!, $title: String!) {
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {WIKIJS_API_TOKEN}"
+    }
+
+    get_page_query = """
+    query ($path: String!, $locale: String!) {
       pages {
-        create(
-          content: $content
-          description: $description
-          editor: "html"
-          isPublished: true
-          isPrivate: false
-          locale: "en"
-          path: $path
-          tags: ["modpack"]
-          title: $title
-        ) {
-          responseResult {
-            succeeded
-            message
-          }
+        single(path: $path, locale: $locale) {
+          id
         }
       }
     }
     """
+    
+    page_req = urllib.request.Request(
+        WIKIJS_GRAPHQL_URL,
+        data=json.dumps({
+            "query": get_page_query,
+            "variables": {"path": WIKI_PAGE_PATH, "locale": "en"}
+        }).encode("utf-8"),
+        headers=headers,
+        method="POST"
+    )
 
-    payload = json.dumps({
-        "query": mutation,
-        "variables": {
+    page_id = None
+    try:
+        with urllib.request.urlopen(page_req) as resp:
+            data = json.loads(resp.read().decode())
+            page_id = data.get("data", {}).get("pages", {}).get("single", {}).get("id")
+    except Exception as e:
+        print(f"Could not check existing page status: {e}")
+
+    if page_id:
+        print(f"Page exists (ID: {page_id}). Updating...")
+        mutation = """
+        mutation ($id: Int!, $content: String!, $description: String!, $title: String!) {
+          pages {
+            update(
+              id: $id
+              content: $content
+              description: $description
+              editor: "markdown"
+              isPublished: true
+              isPrivate: false
+              locale: "en"
+              tags: ["modpack"]
+              title: $title
+            ) {
+              responseResult {
+                succeeded
+                message
+              }
+            }
+          }
+        }
+        """
+        variables = {
+            "id": page_id,
+            "content": content,
+            "description": "Card view of mods",
+            "title": WIKI_PAGE_TITLE
+        }
+    else:
+        print("Page does not exist. Creating...")
+        mutation = """
+        mutation ($content: String!, $description: String!, $path: String!, $title: String!) {
+          pages {
+            create(
+              content: $content
+              description: $description
+              editor: "markdown"
+              isPublished: true
+              isPrivate: false
+              locale: "en"
+              path: $path
+              tags: ["modpack"]
+              title: $title
+            ) {
+              responseResult {
+                succeeded
+                message
+              }
+            }
+          }
+        }
+        """
+        variables = {
             "content": content,
             "description": "Card view of mods",
             "path": WIKI_PAGE_PATH,
             "title": WIKI_PAGE_TITLE
         }
-    }).encode("utf-8")
 
+    payload = json.dumps({"query": mutation, "variables": variables}).encode("utf-8")
     req = urllib.request.Request(
         WIKIJS_GRAPHQL_URL,
         data=payload,
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {WIKIJS_API_TOKEN}"
-        },
+        headers=headers,
         method="POST"
     )
 
