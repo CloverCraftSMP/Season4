@@ -1,18 +1,17 @@
 name = "Camera Overhaul"
-filename = "CameraOverhaul-v2.1.1-fabric+mc[26.1-plus]-downgrade.jar"
+filename = "CameraOverhaul-v2.1.2-fabric+mc[26.1-26.1.2].jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/m0oRwcZx/versions/VDq7aIuZ/CameraOverhaul-v2.1.1-fabric%2Bmc%5B26.1-plus%5D-downgrade.jar"
+url = "https://cdn.modrinth.com/data/m0oRwcZx/versions/RVjlBM9t/CameraOverhaul-v2.1.2-fabric%2Bmc%5B26.1-26.1.2%5D.jar"
 hash-format = "sha512"
-hash = "15fc87e4a1d497ec2b58b08c6049a55524cb21566e68a0026dc905fee3c158f628af65aca4fbd5f63459cd1616124bccd247f1ed411c8ba52c3cf10aa9c4640a"
+hash = "3d74a800609f409ef7e1e52369a027a40cd9c811e359443ead6fe6c6caaef345159ba082b9f92e96cda9617dc96154407853b17f9f616b13f0a9d3d582888542"
 
 [update]
 [update.modrinth]
 mod-id = "m0oRwcZx"
-version = "VDq7aIuZ"
+version = "RVjlBM9t"
 
 [option]
 optional = true
-default = false
 description = "More fluid movement through the use of various camera rotations, and more. Emphasizing the player's movement and improving visual feedback. Strafing and turning around will tilt the camera sideways. Jumping, falling, and moving forward or backwards will affect the camera's pitch. Nearby explosions will shake the screen, and ceasing movement for enough time will cause the camera to gently sway around while waiting for your input.\n\nPairs well with Punchy!"

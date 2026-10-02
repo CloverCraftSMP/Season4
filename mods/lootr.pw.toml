@@ -1,13 +1,13 @@
 name = "Lootr"
-filename = "lootr-fabric-26.1.2-1.23.38.122.jar"
+filename = "lootr-fabric-26.1.2-1.23.38.123.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/EltpO5cN/versions/81VLWvv9/lootr-fabric-26.1.2-1.23.38.122.jar"
+url = "https://cdn.modrinth.com/data/EltpO5cN/versions/RjolbdhC/lootr-fabric-26.1.2-1.23.38.123.jar"
 hash-format = "sha512"
-hash = "a607b00467e319b9d7832d53dd89deb98e7f52ba03585458863f8878c4d61f7d5249d384fdfc260b16b138da86dac488111148f5537b479c28ba52e06f501a65"
+hash = "e2119696bbf0578cee6616bf74019e083439f10b1bef7fedb3fcc9131cff9eb32df8e28ec303dd2a45a5dd8685f1482ebb06732f3eaf03fd223381a025fe4cc7"
 
 [update]
 [update.modrinth]
 mod-id = "EltpO5cN"
-version = "81VLWvv9"
+version = "RjolbdhC"

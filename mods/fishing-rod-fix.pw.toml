@@ -1,13 +1,13 @@
 name = "Fishing Rod Fix"
-filename = "fishingrodfix-26.1.2-v0.5.jar"
+filename = "fishingrodfix-26.1-26.1.2-v0.6.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/x9ISUf1U/versions/swI4n1pQ/fishingrodfix-26.1.2-v0.5.jar"
+url = "https://cdn.modrinth.com/data/x9ISUf1U/versions/52WVYg8R/fishingrodfix-26.1-26.1.2-v0.6.jar"
 hash-format = "sha512"
-hash = "e9bbdb903b97adab0f34b31f0ad30297cc4a184e9d061d371f1047adc6885ee97582b2fbcf9f6319d5c1619e9b793b6276f787ad9a90bfcc77ca670d2456b299"
+hash = "57a0ab1c5567022e8028fe2f2a9eca619bf5467bc28f335d91174899ecb2572bcd603029a8354dd5e1017d78c9f9559795c350810571bf57d94e680962503f05"
 
 [update]
 [update.modrinth]
 mod-id = "x9ISUf1U"
-version = "swI4n1pQ"
+version = "52WVYg8R"
