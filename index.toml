@@ -737,6 +737,11 @@ hash = "3e3a00035beec30a9d9279ecee34fcae3d5d65a6ba08cbda03da0a69ac984c82"
 metafile = true
 
 [[files]]
+file = "mods/open-parties-and-claims.pw.toml"
+hash = "7032f947047f4707b9e853de8263505ef3a95281f326af5e60afe6633747e054"
+metafile = true
+
+[[files]]
 file = "mods/optigui.pw.toml"
 hash = "460aa9c8aaed3845f1c4f31e997991bcc92fafe4d5c25f79255f1e0ddec82eac"
 metafile = true
@@ -1044,6 +1049,16 @@ metafile = true
 [[files]]
 file = "mods/wwoo.pw.toml"
 hash = "15f720fd1625bbadcd5cc834f32f0c909403b1d71ebbaefc682b38140ad0e109"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-minimap.pw.toml"
+hash = "7f18bebd0a56a60ce6e57adc32828193a41271095c1362aea2c7a4a30969afb5"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-world-map.pw.toml"
+hash = "5df9067a60471de05776a57d2b77a40436b635904271d9556ef73c81decd56f5"
 metafile = true
 
 [[files]]
