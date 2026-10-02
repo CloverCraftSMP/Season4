@@ -214,7 +214,7 @@ def update_wiki_page(content):
               id: $id
               content: $content
               description: $description
-              editor: "html"
+              editor: "code"
               isPublished: true
               isPrivate: false
               locale: "en"
@@ -243,7 +243,7 @@ def update_wiki_page(content):
             create(
               content: $content
               description: $description
-              editor: "html"
+              editor: "code"
               isPublished: true
               isPrivate: false
               locale: "en"
