@@ -922,6 +922,11 @@ hash = "43bdce478a1b421f2fe0718b2b5aea0624833340970c9621ff56ed00b0fc44c0"
 metafile = true
 
 [[files]]
+file = "mods/squaremap.pw.toml"
+hash = "4973f35098bfe756a638bcded9ea32306de960e9abfe64732a2dd908056451da"
+metafile = true
+
+[[files]]
 file = "mods/startup-timer.pw.toml"
 hash = "c117d21e68b90794df7876d6e0ca289d7b336a1598f8af64fc00495f3a41d79c"
 metafile = true
@@ -1145,4 +1150,4 @@ hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
 
 [[files]]
 file = "unsup.toml"
-hash = "987b78c5646524f1130c915554c298439ffa71a6f218c5f23ee2455a61c42875"
+hash = "909abb31687c016a9430db0ce2d9542945bfeb455f91ece39bee99f9ad539c3c"
