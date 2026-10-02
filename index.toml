@@ -155,11 +155,6 @@ hash = "63ef3449c9efd6f1ed0f87d7ee463615d7c9b74783e99c0a05f15f03d4bf7309"
 metafile = true
 
 [[files]]
-file = "mods/better-archeology.pw.toml"
-hash = "df06a96b3399c794078e7637699916adaf5e2ae4b845543b805db92e03fe6c9a"
-metafile = true
-
-[[files]]
 file = "mods/better-block-entities.pw.toml"
 hash = "6ca9484dcfa28762f68768bca2c7e26373554c1ec8dd9abe6dca07ac05bb27ee"
 metafile = true
@@ -994,11 +989,6 @@ metafile = true
 [[files]]
 file = "mods/trashslot.pw.toml"
 hash = "1e20f2f017b4f043161649c07fa8ca5137a63106ae71b296715571db7e176cc5"
-metafile = true
-
-[[files]]
-file = "mods/trinkets-elytra-support.pw.toml"
-hash = "1cd983cf5148e9c1bf2552e3d09ae089a9c6b5a19a298ab349d770a8617671b2"
 metafile = true
 
 [[files]]
