@@ -1,16 +1,16 @@
 name = "Music Notification"
-filename = "musicnotification-fabric-3.3.0+mc26.1.jar"
+filename = "musicnotification-fabric-3.4.0-alpha.1+mc26.1.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/A4YQgwzz/versions/mRIuGG1u/musicnotification-fabric-3.3.0%2Bmc26.1.jar"
+url = "https://cdn.modrinth.com/data/A4YQgwzz/versions/iVqzZ0A1/musicnotification-fabric-3.4.0-alpha.1%2Bmc26.1.jar"
 hash-format = "sha512"
-hash = "6e3836df5756f3f3325e9bd2d84232c7b039a94a2634619cc9aa8dcf4f763f7614fa64c595a84e0c8c297c92a3938ecc1a42ac0983b8b3ccc78024df30f053c2"
+hash = "9f4b0a86b45c7eff9e945c5531157e899eb295ea8b16220e7e0be07d6859cd11e0d569ca35ae01a7db80e04b6df2580baf5db47a88882098fcfe94352a628857"
 
 [update]
 [update.modrinth]
 mod-id = "A4YQgwzz"
-version = "mRIuGG1u"
+version = "iVqzZ0A1"
 
 [option]
 optional = true

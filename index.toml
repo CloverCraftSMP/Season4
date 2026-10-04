@@ -206,7 +206,7 @@ metafile = true
 
 [[files]]
 file = "mods/c2me-fabric.pw.toml"
-hash = "9ac8f57004d117c2f03e5835ea8110af5cecd23dc74fb8af51e43071af9e67df"
+hash = "40af534010e45b8161eee489c5e4e714f46d901aea61101eff69ef11ffe139ca"
 metafile = true
 
 [[files]]
@@ -571,7 +571,7 @@ metafile = true
 
 [[files]]
 file = "mods/language-reload.pw.toml"
-hash = "2c7f4e5909fe14046115f1ec3427865580f4e10eb1b433b3ce9e805ac95aeff9"
+hash = "51e10fa5980d68dfd667b9aab33fbd81e681082438c18eeec225c699436bd9e2"
 metafile = true
 
 [[files]]
@@ -683,7 +683,7 @@ metafile = true
 
 [[files]]
 file = "mods/music-notification.pw.toml"
-hash = "934b741dc6a738e15447de1fa995a440e5a21cb03d2cff60557b560e94f6e416"
+hash = "ff7ef074c46f719ceb6f1c92aa04b2bae4c4f9aa89caef6d4e9ab03a646bce32"
 metafile = true
 
 [[files]]
