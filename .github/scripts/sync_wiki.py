@@ -2,29 +2,169 @@ import os
 import json
 import urllib.request
 import urllib.parse
+import urllib.error
 from pathlib import Path
 import tomllib
+import time
+import re
 
 WIKIJS_URL = os.environ.get("WIKIJS_URL", "").rstrip("/")
 WIKIJS_GRAPHQL_URL = f"{WIKIJS_URL}/graphql"
 WIKIJS_API_TOKEN = os.environ.get("WIKIJS_API_TOKEN", "")
-WIKI_PAGE_PATH = "test/mods"
-WIKI_PAGE_TITLE = "Mods"
+WIKI_PAGE_PATH = "seasons/season4/mods"
+WIKI_PAGE_TITLE = "Season 4 Mods"
 MODS_DIR = Path.cwd() / "mods"
 
+CACHE_DIR = Path.cwd() / ".cache" / "modrinth"
+IS_CI = os.environ.get("CI", "").lower() in ("true", "1")
+DISABLE_CACHE = os.environ.get("DISABLE_CACHE", "").lower() in ("true", "1") or IS_CI
+CACHE_EXPIRY_SECONDS = 0 if DISABLE_CACHE else (86400 * 7)
+
+class GraphQLClient:
+    def __init__(self, url, token=None):
+        self.url = url
+        self.headers = {
+            "Content-Type": "application/json",
+            "User-Agent": "CloverCraft/1.0.0"
+        }
+        if token:
+            self.headers["Authorization"] = f"Bearer {token}"
+
+    def execute(self, query: str, variables: dict = None):
+        payload = json.dumps({"query": query, "variables": variables or {}}).encode("utf-8")
+        req = urllib.request.Request(self.url, data=payload, headers=self.headers, method="POST")
+        
+        try:
+            with urllib.request.urlopen(req) as response:
+                return json.loads(response.read().decode())
+        except urllib.error.HTTPError as e:
+            print(f"HTTP Error {e.code}: {e.read().decode()}")
+            return None
+        except Exception as e:
+            print(f"Network Error: {e}")
+            return None
+
+
+GET_PAGE_QUERY = """
+query GetPageByPath($path: String!) {
+  pages {
+    search(query: $path) {
+      results {
+        id
+        path
+      }
+    }
+  }
+}
+"""
+
+GET_ALL_PAGES_QUERY = """
+query ListModPages {
+  pages {
+    list(orderBy: TITLE) {
+      id
+      path
+      title
+    }
+  }
+}
+"""
+
+UPDATE_MUTATION = """
+mutation UpdatePage($id: Int!, $content: String!, $description: String!, $title: String!) {
+  pages {
+    update(
+      id: $id
+      content: $content
+      description: $description
+      editor: "markdown"
+      isPublished: true
+      isPrivate: false
+      locale: "en"
+      tags: ["modpack"]
+      title: $title
+      scriptCss: "table thead { display: none !important; }"
+    ) {
+      responseResult {
+        succeeded
+        message
+      }
+    }
+  }
+}
+"""
+
+CREATE_MUTATION = """
+mutation CreatePage($content: String!, $description: String!, $path: String!, $title: String!) {
+  pages {
+    create(
+      content: $content
+      description: $description
+      editor: "markdown"
+      isPublished: true
+      isPrivate: false
+      locale: "en"
+      path: $path
+      tags: ["modpack"]
+      title: $title
+      scriptCss: "table thead { display: none !important; }"
+    ) {
+      responseResult {
+        succeeded
+        message
+      }
+    }
+  }
+}
+"""
+
+def fetch_existing_wiki_pages(client):
+    if not client or not WIKIJS_API_TOKEN:
+        return {}
+    res = client.execute(GET_ALL_PAGES_QUERY)
+    existing = {}
+    if res and "data" in res and "pages" in res["data"]:
+        for page in res["data"]["pages"].get("list", []):
+            path = page.get("path", "")
+            existing[path.lower()] = path
+    return existing
 
 def fetch_modrinth_details(project_id):
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache_file = CACHE_DIR / f"{project_id}.json"
+
+    if cache_file.exists() and CACHE_EXPIRY_SECONDS > 0:
+        file_age = time.time() - cache_file.stat().st_mtime
+        if file_age < CACHE_EXPIRY_SECONDS:
+            try:
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+
     url = f"https://api.modrinth.com/v2/project/{project_id}"
     req = urllib.request.Request(
         url,
         headers={"User-Agent": "CloverCraft/1.0.0"}
     )
+
     try:
         with urllib.request.urlopen(req) as response:
             if response.status == 200:
-                return json.loads(response.read().decode())
+                data = json.loads(response.read().decode())
+                with open(cache_file, "w", encoding="utf-8") as f:
+                    json.dump(data, f)
+                return data
     except Exception as e:
         print(f"Failed to fetch Modrinth data for {project_id}: {e}")
+
+        if cache_file.exists():
+            print(f"Using stale cache for {project_id} to prevent workflow failure.")
+            try:
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
     return None
 
 
@@ -35,11 +175,21 @@ def parse_packwiz_mods():
         print(f"Directory {MODS_DIR} not found.")
         return mods_list
 
+    client_count = 0
+    server_count = 0
+    shared_count = 0
+
     for file_path in MODS_DIR.glob("*.pw.toml"):
         with open(file_path, "rb") as f:
             parsed = tomllib.load(f)
 
         side = parsed.get("side", "both").lower()
+        if side == "client":
+            client_count += 1
+        elif side == "server":
+            server_count += 1
+        else:
+            shared_count += 1
 
         update_info = parsed.get("update", {})
         mod_info = update_info.get("modrinth", {})
@@ -54,245 +204,279 @@ def parse_packwiz_mods():
             "icon": "https://cdn.modrinth.com/assets/unknown_server.png",
             "link": "#",
             "categories": [],
-            "downloads": None
+            "additional_categories": [],
+            "downloads": None,
+            "source": None,
+            "issues": None,
+            "wiki": None,
+            "discord": None,
+            "game_versions": [],
+            "environment": [],
+            "loaders": [],
         }
+
+        print("Attempting to fetch {} ({})".format(modrinth_mod_id, mod_data["name"]))
 
         if modrinth_mod_id:
             data = fetch_modrinth_details(modrinth_mod_id)
             if data:
+                print("Fetched {} ({})!".format(modrinth_mod_id, data.get("title", mod_data["name"])))
                 mod_data["name"] = data.get("title", mod_data["name"])
                 mod_data["description"] = data.get("description", mod_data["description"])
                 mod_data["icon"] = data.get("icon_url") or mod_data["icon"]
                 mod_data["link"] = f"https://modrinth.com/mod/{data.get('slug', modrinth_mod_id)}/version/{modrinth_mod_version}"
                 mod_data["categories"] = data.get("categories", [])
+                mod_data["additional_categories"] = data.get("additional_categories", [])
                 mod_data["downloads"] = data.get("downloads")
+                mod_data["source"] = data.get("source_url")
+                mod_data["issues"] = data.get("issues_url")
+                mod_data["wiki"] = data.get("wiki_url")
+                mod_data["discord"] = data.get("discord_url")
+                mod_data["game_versions"] = data.get("game_versions", [])
+
+                # Allowed values: client_and_server client_only client_only_server_optional singleplayer_only server_only server_only_client_optional dedicated_server_only client_or_server client_or_server_prefers_both unknown 
+                mod_data["environment"] = data.get("environment", [])
+                mod_data["loaders"] = data.get("loaders", [])
 
         mods_list.append(mod_data)
 
+    print("Fetched a total of {} mods ({} Client, {} Server, {} Shared).".format(len(mods_list), client_count, server_count, shared_count))
+
     return sorted(mods_list, key=lambda x: x["name"].lower())
 
+def slugify(text):
+    slug = text.lower().replace("|", "").replace("/", "-").replace(" ", "-")
+    slug = re.sub(r'[^a-z0-9\-]', '', slug)
+    slug = re.sub(r'-+', '-', slug)
+    return slug.strip('-')
 
-def generate_html_cards(mods):
-    card_elements = []
+def format_side(side_str):
+    s = str(side_str).lower()
+    if s == "client":
+        return "Client"
+    elif s == "server":
+        return "Server"
+    return "Both"
 
+def format_environment(env_list):
+    if not env_list:
+        return None
+    env_map = {
+        "client_and_server": "Client & Server",
+        "client_only": "Client Only",
+        "client_only_server_optional": "Client Only (Server Optional)",
+        "singleplayer_only": "Singleplayer Only",
+        "server_only": "Server Only",
+        "server_only_client_optional": "Server Only (Client Optional)",
+        "dedicated_server_only": "Dedicated Server Only",
+        "client_or_server": "Client or Server",
+        "client_or_server_prefers_both": "Client or Server (Prefers Both)"
+    }
+    return ", ".join([env_map.get(e, e.replace("_", " ").title()) for e in env_list])
+
+def escape_markdown_table_cell(text):
+    if not text:
+        return ""
+    return str(text).replace("|", "&#124;")
+
+def generate_wikijs_markdown(mods, existing_wiki_pages=None):
+    if existing_wiki_pages is None:
+        existing_wiki_pages = {}
+
+    categorized_mods = {}
     for mod in mods:
-        side = mod["side"]
-        if side == "client":
-            side_label, side_class = "Client", "side-client"
-        elif side == "server":
-            side_label, side_class = "Server", "side-server"
-        else:
-            side_label, side_class = "Both", "side-both"
+        categories = mod.get("categories", [])
+        primary_cat = categories[0].replace("-", " ").title() if categories else "Uncategorized"
+        categorized_mods.setdefault(primary_cat, []).append(mod)
 
-        side_badge = f'<span class="mod-side-badge {side_class}">{side_label}</span>'
+    sorted_categories = sorted(categorized_mods.keys())
 
-        categories_html = "".join([
-            f'<span class="mod-tag">{cat}</span>' for cat in mod["categories"]
-        ])
+    markdown = [
+        '<style>',
+        'table thead { display: none !important; }',
+        '</style>',
+        '<center>',
+        '  <span style="font-size:30px;">CloverCraft Mods List</span>',
+        '</center>',
+        '',
+        '> Mods are separated by client side, server side or both - you\'ll want to keep this in mind when doing anything with pack testing in singleplayer. For more info about how the CloverCraft\'s Modpack works see [here](https://github.com/CloverCraftSMP/Season4).',
+        '{.is-info}',
+        '',
+        '---',
+        '',
+        '# Table of Content {.tabset}',
+        ''
+    ]
 
-        downloads_html = (
-            f'<span class="mod-downloads">{mod["downloads"]:,} DLs</span>'
-            if mod["downloads"] is not None else ""
-        )
+    GRID_COLUMNS = 4
 
-        card_html = f"""
-        <div class="mod-card">
-          <div class="mod-card-header">
-            <img src="{mod['icon']}" alt="{mod['name']} Icon" class="mod-icon" loading="lazy" />
-            <div class="mod-title-area">
-              <div class="mod-title-row">
-                <h3 class="mod-title">{mod['name']}</h3>
-                {side_badge}
-              </div>
-              {downloads_html}
-            </div>
-          </div>
-          <p class="mod-description">{mod['description']}</p>
-          <div class="mod-card-footer">
-            <div class="mod-tags">{categories_html}</div>
-            <a href="{mod['link']}" target="_blank" rel="noopener noreferrer" class="mod-button">
-              View on Modrinth
-            </a>
-          </div>
-        </div>
-        """
-        card_elements.append(card_html)
+    for category in sorted_categories:
+        cat_mods = categorized_mods[category]
+        markdown.append(f'<div style="font-size:15px;">\n')
+        markdown.append(f'## {category}')
+        markdown.append('</div>\n')
 
-    cards_joined = "\n".join(card_elements)
+        markdown.append(f'*Total of {len(cat_mods)} {category.lower()} mods.*')
 
-    return f"""
-<style>
-  .mod-grid {{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.25rem;
-    margin-top: 1.5rem;
-  }}
-  .mod-card {{
-    background-color: var(--v-background-base, #1e1e24);
-    border: 1px solid var(--v-border-base, rgba(255, 255, 255, 0.1));
-    border-radius: 12px;
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  }}
-  .mod-card:hover {{
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    border-color: #1bd96a;
-  }}
-  .mod-card-header {{ display: flex; align-items: flex-start; gap: 0.85rem; margin-bottom: 0.75rem; }}
-  .mod-icon {{ width: 48px; height: 48px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }}
-  .mod-title-area {{ display: flex; flex-direction: column; flex-grow: 1; }}
-  .mod-title-row {{ display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }}
-  .mod-title {{ margin: 0 !important; font-size: 1.05rem !important; font-weight: 600; line-height: 1.2; }}
-  .mod-side-badge {{ font-size: 0.65rem; font-weight: 700; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.5px; flex-shrink: 0; }}
-  .side-both {{ background-color: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }}
-  .side-client {{ background-color: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }}
-  .side-server {{ background-color: rgba(249, 115, 22, 0.2); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.3); }}
-  .mod-downloads {{ font-size: 0.75rem; opacity: 0.7; margin-top: 0.25rem; }}
-  .mod-description {{ font-size: 0.88rem; opacity: 0.85; line-height: 1.4; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }}
-  .mod-card-footer {{ display: flex; flex-direction: column; gap: 0.75rem; }}
-  .mod-tags {{ display: flex; flex-wrap: wrap; gap: 0.35rem; min-height: 24px; }}
-  .mod-tag {{ font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; background: rgba(255, 255, 255, 0.08); text-transform: capitalize; opacity: 0.8; }}
-  .mod-button {{ display: inline-block; text-align: center; background-color: #1bd96a; color: #0d0d0d !important; font-weight: 600; font-size: 0.85rem; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none !important; transition: background-color 0.2s ease; }}
-  .mod-button:hover {{ background-color: #15b054; }}
-</style>
+        markdown.append('| ' + ' | '.join([' '] * GRID_COLUMNS) + ' |')
+        markdown.append('| ' + ' | '.join(['---'] * GRID_COLUMNS) + ' |')
 
-<h1>{WIKI_PAGE_TITLE}</h1>
-<p><em>Auto-generated list of {len(mods)} mods.</em></p>
+        for i in range(0, len(cat_mods), GRID_COLUMNS):
+            row_mods = cat_mods[i:i + GRID_COLUMNS]
+            row_cells = []
+            for mod in row_mods:
+                mod_anchor = slugify(mod["name"])
+                icon_url = mod.get("icon") or "https://cdn.modrinth.com/assets/unknown_server.png"
+                safe_name = escape_markdown_table_cell(mod["name"])
 
-<div class="mod-grid">
-  {cards_joined}
-</div>
-"""
+                cell_content = (
+                    f'<a href="#{mod_anchor}" style="display:flex; align-items:center; gap:8px; text-decoration:none;">'
+                    f'<img src="{icon_url}" width="24" height="24" style="border-radius:4px; object-fit:contain; flex-shrink:0;" />'
+                    f'<span>{safe_name}</span>'
+                    f'</a>'
+                )
+
+                row_cells.append(cell_content)
+            
+            while len(row_cells) < GRID_COLUMNS:
+                row_cells.append(' ')
+
+            markdown.append('| ' + ' | '.join(row_cells) + ' |')
+
+        # for mod in cat_mods:
+        #     mod_anchor = slugify(mod["name"])
+        #     markdown.append(f'- [{mod["name"]}](#{mod_anchor})')
+
+    markdown.append('---')
+    markdown.append('')
+    markdown.append('# Mods {.tabset}')
+    markdown.append('')
+
+    for category in sorted_categories:
+        cat_mods = categorized_mods[category]
+        markdown.append(f'## {category} {"{.tabset}"}')
+
+        for mod in cat_mods:
+            mod_slug = slugify(mod["name"])
+            icon_url = mod.get("icon") or "https://cdn.modrinth.com/assets/unknown_server.png"
+            
+            markdown.append(f'### <img src="{icon_url}" width="32" height="32" style="vertical-align:middle; margin-right:8px; border-radius:6px; object-fit:contain;" /> {mod["name"]}')
+
+            side_text = format_side(mod.get("side", "both"))
+            env_formatted = format_environment(mod.get("environment")) or "N/A"
+            loaders_str = ", ".join([l.title() for l in mod["loaders"]]) if mod.get("loaders") else "N/A"
+
+            if mod.get("game_versions"):
+                versions = mod["game_versions"]
+                if len(versions) > 3:
+                    version_display = f"{versions[0]} - {versions[-1]} ({len(versions)} versions)"
+                else:
+                    version_display = ", ".join(versions)
+            else:
+                version_display = "N/A"
+
+            markdown.append(f'{mod["description"]}\n')
+
+            expected_wiki_path = f"seasons/season4/mods/{mod_slug}"
+            has_wiki_page = expected_wiki_path.lower() in existing_wiki_pages
+
+            if has_wiki_page:
+                wiki_indicator = f"[View Dedicated Wiki Page](/{expected_wiki_path})"
+            else:
+                wiki_indicator = "*No dedicated wiki page available*"
+
+            markdown.append('| Property | Value |')
+            markdown.append('| --- | --- |')
+            markdown.append(f'| **Side** | {side_text} |')
+            markdown.append(f'| **Environment** | {env_formatted} |')
+            markdown.append(f'| **Loaders** | {loaders_str} |')
+            markdown.append(f'| **Game Versions** | {version_display} |')
+            markdown.append(f'| **Local Documentation** | {wiki_indicator} |')
+
+            markdown.append('')
+            markdown.append('')
+
+            links = []
+            if mod.get("link") and mod["link"] != "#":
+                links.append(f"[Modrinth]({mod['link']})")
+            if mod.get("source"):
+                links.append(f"[GitHub]({mod['source']})")
+            if mod.get("issues"):
+                links.append(f"[Issues]({mod['issues']})")
+            if mod.get("wiki"):
+                links.append(f"[Wiki]({mod['wiki']})")
+            if mod.get("discord"):
+                links.append(f"[Discord]({mod['discord']})")
+
+            links_str = " | ".join(links) if links else "No external links available"
+            markdown.append(f'**Links:** {links_str}')
+
+            markdown.append(f'> [Jump back to Table of Contents](#table-of-content)')
+            markdown.append('{.is-info}')
+            markdown.append('')
+            markdown.append('<br>')
+            markdown.append('')
+
+    return "\n".join(markdown)
 
 
 def update_wiki_page(content):
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {WIKIJS_API_TOKEN}"
-    }
+    client = GraphQLClient(WIKIJS_GRAPHQL_URL, token=WIKIJS_API_TOKEN)
 
-    get_page_query = """
-    query ($path: String!, $locale: String!) {
-      pages {
-        single(path: $path, locale: $locale) {
-          id
-        }
-      }
-    }
-    """
-    
-    page_req = urllib.request.Request(
-        WIKIJS_GRAPHQL_URL,
-        data=json.dumps({
-            "query": get_page_query,
-            "variables": {"path": WIKI_PAGE_PATH, "locale": "en"}
-        }).encode("utf-8"),
-        headers=headers,
-        method="POST"
-    )
-
+    search_res = client.execute(GET_PAGE_QUERY, {"path": WIKI_PAGE_PATH})
     page_id = None
-    try:
-        with urllib.request.urlopen(page_req) as resp:
-            data = json.loads(resp.read().decode())
-            page_id = data.get("data", {}).get("pages", {}).get("single", {}).get("id")
-    except Exception as e:
-        print(f"Could not check existing page status: {e}")
 
+    if search_res and "data" in search_res:
+        results = search_res["data"].get("pages", {}).get("search", {}).get("results", [])
+        for item in results:
+            if item.get("path") == WIKI_PAGE_PATH:
+                page_id = item.get("id")
+                break
+    
     if page_id:
-        print(f"Page exists (ID: {page_id}). Updating...")
-        mutation = """
-        mutation ($id: Int!, $content: String!, $description: String!, $title: String!) {
-          pages {
-            update(
-              id: $id
-              content: $content
-              description: $description
-              editor: "code"
-              isPublished: true
-              isPrivate: false
-              locale: "en"
-              tags: ["modpack"]
-              title: $title
-            ) {
-              responseResult {
-                succeeded
-                message
-              }
-            }
-          }
-        }
-        """
-        variables = {
-            "id": page_id,
+        print(f"Found existing Wiki.js page (ID: {page_id}). Updating...")
+        res = client.execute(UPDATE_MUTATION, {
+            "id": int(page_id),
             "content": content,
-            "description": "Card view of mods",
+            "description": "List of mods",
             "title": WIKI_PAGE_TITLE
-        }
+        })
+        action = "update"
     else:
-        print("Page does not exist. Creating...")
-        mutation = """
-        mutation ($content: String!, $description: String!, $path: String!, $title: String!) {
-          pages {
-            create(
-              content: $content
-              description: $description
-              editor: "code"
-              isPublished: true
-              isPrivate: false
-              locale: "en"
-              path: $path
-              tags: ["modpack"]
-              title: $title
-            ) {
-              responseResult {
-                succeeded
-                message
-              }
-            }
-          }
-        }
-        """
-        variables = {
+        print(f"Page not found at '{WIKI_PAGE_PATH}'. Creating new page...")
+        res = client.execute(CREATE_MUTATION, {
             "content": content,
-            "description": "Card view of mods",
+            "description": "List of mods",
             "path": WIKI_PAGE_PATH,
             "title": WIKI_PAGE_TITLE
-        }
+        })
+        action = "create"
 
-    payload = json.dumps({"query": mutation, "variables": variables}).encode("utf-8")
-    req = urllib.request.Request(
-        WIKIJS_GRAPHQL_URL,
-        data=payload,
-        headers=headers,
-        method="POST"
-    )
-
-    try:
-        with urllib.request.urlopen(req) as response:
-            result = json.loads(response.read().decode())
-            print("Wiki.js Response:", json.dumps(result, indent=2))
-    except Exception as e:
-        print("Failed to update Wiki.js:", e)
-
+    if res and "data" in res:
+        result_data = res["data"].get("pages", {}).get(action, {}).get("responseResult", {})
+        if result_data.get("succeeded"):
+            print("Wiki.js page synchronized successfully!")
+        else:
+            print("Wiki.js sync failed:", result_data.get("message"))
+    elif res and "errors" in res:
+        print("GraphQL Error:", json.dumps(res["errors"], indent=2))
 
 if __name__ == "__main__":
     print("Parsing Packwiz TOML files...")
     mods = parse_packwiz_mods()
-    print(f"Found {len(mods)} mods. Generating HTML Cards...")
-    html_content = generate_html_cards(mods)
+    print(f"Found {len(mods)} mods.")
+
+    client = GraphQLClient(WIKIJS_GRAPHQL_URL, token=WIKIJS_API_TOKEN) if WIKIJS_API_TOKEN else None
+    existing_pages = fetch_existing_wiki_pages(client) if client else {}
+
+    print("Generating Markdown content...")
+    md_content = generate_wikijs_markdown(mods, existing_wiki_pages=existing_pages)
     
     if WIKIJS_API_TOKEN:
         print("Updating Wiki.js...")
-        update_wiki_page(html_content)
+        update_wiki_page(md_content)
         print("Done!")
     else:
-        with open("preview.html", "w", encoding="utf-8") as f:
-            f.write(html_content)
-        print("No WIKIJS_API_TOKEN found. Output saved locally to preview.html")
+        with open("preview.md", "w", encoding="utf-8") as f:
+            f.write(md_content)
+        print("No WIKIJS_API_TOKEN found. Output saved locally to preview.md")

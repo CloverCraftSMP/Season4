@@ -5,3 +5,7 @@
 # mise and cache
 .mise/*
 !.mise/tasks/
+
+*.env
+preview.md
+.cache/

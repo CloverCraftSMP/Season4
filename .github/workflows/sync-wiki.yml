@@ -19,6 +19,14 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Cache Modrinth API responses
+        uses: actions/cache@v6
+        with:
+          path: .cache/modrinth
+          key: modrinth-api-${{ runner.os }}-${{ hashFiles('mods/*.pw.toml') }}
+          restore-keys: |
+            modrinth-api-${{ runner.os }}-
+
       - name: Run Wiki Sync Script
         env:
           WIKIJS_URL: ${{ secrets.WIKIJS_URL }}
