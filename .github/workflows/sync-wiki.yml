@@ -3,6 +3,8 @@ name: Sync Modpack to Wiki.js
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     paths:
       - 'mods/**'
 
