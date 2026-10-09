@@ -1704,6 +1704,11 @@ hash = "43bdce478a1b421f2fe0718b2b5aea0624833340970c9621ff56ed00b0fc44c0"
 metafile = true
 
 [[files]]
+file = "mods/speed-happy-ghast.pw.toml"
+hash = "57c662fa1a41bef1e32a924b6954fce049699143cc541ab4f8e897cbf42c775d"
+metafile = true
+
+[[files]]
 file = "mods/squaremap.pw.toml"
 hash = "4973f35098bfe756a638bcded9ea32306de960e9abfe64732a2dd908056451da"
 metafile = true
