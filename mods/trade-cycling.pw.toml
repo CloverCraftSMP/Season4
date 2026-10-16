@@ -1,13 +1,13 @@
 name = "Trade Cycling"
-filename = "trade-cycling-fabric-1.0.22+26.1.2.jar"
+filename = "trade-cycling-fabric-1.0.23+26.1.2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/qpPoAL6m/versions/s3io3eO5/trade-cycling-fabric-1.0.22%2B26.1.2.jar"
+url = "https://cdn.modrinth.com/data/qpPoAL6m/versions/xWYUI8bE/trade-cycling-fabric-1.0.23%2B26.1.2.jar"
 hash-format = "sha512"
-hash = "d1e1c0208cd81f4f71ff2941ee68717df167b2f87f97e20141c08427c6ce9f5f2cb86998bddffc8b6b29e2c3901b66eaa3ec7b178824dcabd2bed1efd90fbffa"
+hash = "0782ead740def69a019690e3412d22133d723343d0326637016599f50a7414a1e526839211684d86443035863751101a740dd265d16eb570faef55272827ab89"
 
 [update]
 [update.modrinth]
 mod-id = "qpPoAL6m"
-version = "s3io3eO5"
+version = "xWYUI8bE"
