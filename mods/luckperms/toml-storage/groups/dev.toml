@@ -1,0 +1,13 @@
+name = "dev"
+
+[[meta]]
+    key = "discord-role-id"
+    value = "1361352890379272407"
+
+[[permissions]]
+    permission = "displayname.Developer"
+    value = true
+
+[[permissions]]
+    permission = "luckperms.autoop"
+    value = true
