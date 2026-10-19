@@ -1,0 +1,14 @@
+name = "Drops Backport"
+filename = "drops-backport-26.1-r2.3-fabric.jar"
+side = "both"
+pin = true # TODO: remove this
+
+[download]
+url = "https://cdn.modrinth.com/data/dSuQn00p/versions/ISzAtPjx/drops-backport-26.1-r2.3-fabric.jar"
+hash-format = "sha512"
+hash = "6b5f82686db9b2e124e3728bd2b1e97338cd0bfd9d710a1fb77897b09054441a690f17514e57e0d98aa6444d31aa10c7262246977c93c9861f76fe292f107a1d"
+
+[update]
+[update.modrinth]
+mod-id = "dSuQn00p"
+version = "ISzAtPjx"

@@ -1,0 +1,13 @@
+name = "Clover"
+filename = "clover-4.0.0+26.1.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/SnT761HH/versions/jOgBkKu4/clover-4.0.0%2B26.1.2.jar"
+hash-format = "sha512"
+hash = "267c091ec97fc04c39a3ad93e9e84f376c2990c8c651c43b6eab4eed24385394dda2ae8abb5b595867d31c587c25028e4802b117e661507733ef24f77f02ac3f"
+
+[update]
+[update.modrinth]
+mod-id = "SnT761HH"
+version = "jOgBkKu4"
