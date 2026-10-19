@@ -918,7 +918,7 @@ metafile = true
 
 [[files]]
 file = "mods/asyncparticles.pw.toml"
-hash = "8a231d9ed9455e85119c9f937868e2bfdf2646f669819afa8ecc6b28073dc570"
+hash = "010f37726ade197d1af4030927d67f56fb2823834750cf33a3651392bb098928"
 metafile = true
 
 [[files]]
@@ -928,7 +928,7 @@ metafile = true
 
 [[files]]
 file = "mods/axiom.pw.toml"
-hash = "a3a5acfa020ab532997bd339f8a4d4e2967747111d708c479edc433d6dd22629"
+hash = "9be57e69cd11e721058b3d5298adf82454d562b9af83460d953eaf9f27821ffa"
 metafile = true
 
 [[files]]
@@ -988,7 +988,7 @@ metafile = true
 
 [[files]]
 file = "mods/blur-plus.pw.toml"
-hash = "26c33ba58b54cac7de9ce7948f21af30e94c7941ee6e252da66442496076d9df"
+hash = "20021cfab41832a25846677714a4a3b7ff2ea9e00bd76f85467821a4f03ba0c6"
 metafile = true
 
 [[files]]
@@ -1088,7 +1088,7 @@ metafile = true
 
 [[files]]
 file = "mods/crops-love-rain.pw.toml"
-hash = "0fd256b27b9baaa240af790376b852efbced1d357ea8b4bc324aa835d6dcbc58"
+hash = "4276514e7728b59dd598c137609657285768ab383db0526472210f5bb600f80e"
 metafile = true
 
 [[files]]
@@ -1183,7 +1183,7 @@ metafile = true
 
 [[files]]
 file = "mods/falldropbackport.pw.toml"
-hash = "c70bef7089f4f2ec7eda8f8721157ea17fa5fb4ce86a2302aabf64f82f808b14"
+hash = "ac9fd1f8994b5d645ae239eac8c19c009a78f6ac0e222778d187c219727dda4f"
 metafile = true
 
 [[files]]
@@ -1213,7 +1213,7 @@ metafile = true
 
 [[files]]
 file = "mods/flashback.pw.toml"
-hash = "d544837beccae40e595291bb3d28e1bf29dba2bd97d2178fee36f41fb0d7e628"
+hash = "df3920bee5fcb246528270e3b29ea82bd7e1d7863857a7c504229bda0adc924a"
 metafile = true
 
 [[files]]
@@ -1243,7 +1243,7 @@ metafile = true
 
 [[files]]
 file = "mods/fzzy-config.pw.toml"
-hash = "de954e56216772900768426c541731ec91d0c7bd1c5037ad2f6cc5552f87c635"
+hash = "4bf67b07b8a2f4f56689900cb85f645fe15130aba819e79d9e9b3ef651a1d2e6"
 metafile = true
 
 [[files]]
@@ -1323,7 +1323,7 @@ metafile = true
 
 [[files]]
 file = "mods/ixeris.pw.toml"
-hash = "84a36110de4f0f7c1b6fd2596ebd24b49ec5b96827004537105f769d190a95b8"
+hash = "56b5950d236f68a2cbb86a3a37db1db8b29c8cf1c6a9f60e3d47ad72fdc8519f"
 metafile = true
 
 [[files]]
@@ -1485,7 +1485,7 @@ metafile = true
 
 [[files]]
 file = "mods/neruina.pw.toml"
-hash = "2ba268be4810d236cdb430071d76de0836dd9116c8512099cc56a702ef99d800"
+hash = "0511f30844c115ca6cffbd8643d2c7da95fc206dbafb0a27a3bd68822ee71f15"
 metafile = true
 
 [[files]]
@@ -1520,7 +1520,7 @@ metafile = true
 
 [[files]]
 file = "mods/open-parties-and-claims.pw.toml"
-hash = "137afa12ae299400fba8dcc1e3cd108090a9ce316d02940d054ccd132aeeb1ee"
+hash = "bc6840eb29632fdaf57d07dcea24b664695755fcfacec5658df775c981defe9b"
 metafile = true
 
 [[files]]
@@ -1580,7 +1580,7 @@ metafile = true
 
 [[files]]
 file = "mods/punchy-fpa.pw.toml"
-hash = "d865fefaaedac80cd90432ed299d960613338033076561cdb931ac25a15c511f"
+hash = "b46c703022c40a0c2565a05d90024f8bd8fa526a69738e1a2cad8e5979b46452"
 metafile = true
 
 [[files]]
@@ -1685,7 +1685,7 @@ metafile = true
 
 [[files]]
 file = "mods/sodium.pw.toml"
-hash = "626f5984826fcebdcaab0ba4e8b21568d7b32fe5233039e3884c3c9ea2058c6b"
+hash = "865b19b985f8c14cd63529f8414619822645e9d2654fa81f43c7eda7ecfaf0bd"
 metafile = true
 
 [[files]]
@@ -1710,7 +1710,7 @@ metafile = true
 
 [[files]]
 file = "mods/squaremap.pw.toml"
-hash = "52918fea581251b634940d1ee00a58d2a76cb3fadda90930c8e90a6eec43f648"
+hash = "907ecc2e079ab85f13949cf2c128de81f209915c7344961be96bc44a07c6378b"
 metafile = true
 
 [[files]]
@@ -1730,7 +1730,7 @@ metafile = true
 
 [[files]]
 file = "mods/streams-reflowing.pw.toml"
-hash = "8d9eb41be1f380d6bf2bb2687918f3aa1d8242144e1329a395f6839b8668def2"
+hash = "28503866cc4a3ab93484d7f7288a1b18d8a474f2aff85fff3fb654a2c795145b"
 metafile = true
 
 [[files]]
