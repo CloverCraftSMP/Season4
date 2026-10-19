@@ -1,7 +1,6 @@
 name = "Drops Backport"
 filename = "drops-backport-26.1-r2.3-fabric.jar"
 side = "both"
-pin = true # TODO: remove this
 
 [download]
 url = "https://cdn.modrinth.com/data/dSuQn00p/versions/ISzAtPjx/drops-backport-26.1-r2.3-fabric.jar"
