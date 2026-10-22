@@ -1118,7 +1118,7 @@ metafile = true
 
 [[files]]
 file = "mods/drops-backport.pw.toml"
-hash = "9d99122fa560cd89610f4c1bfad7b0e73e4972e97ab750b3b742583f6b940c2f"
+hash = "e0b5d5f79baa564b547921a9054b2f8da272bebb257b5140c463ddd4baee9690"
 metafile = true
 
 [[files]]
@@ -1198,7 +1198,7 @@ metafile = true
 
 [[files]]
 file = "mods/fallingtree.pw.toml"
-hash = "b1baa744204940671c7501296ae56e97da705f57b9d58bfdb522f87aa30d7d81"
+hash = "8a22a17472348943a75e8a5c7b6963b2998127ccfa07ee7e34fe90bf2cb6abb0"
 metafile = true
 
 [[files]]
@@ -1223,7 +1223,7 @@ metafile = true
 
 [[files]]
 file = "mods/footprintparticle.pw.toml"
-hash = "51a264043d56430dfe9ffddce73dfc589c49ac4fdf1532bedcece1616a453378"
+hash = "4bf8055a6ce19a97c48b7b99add215838855006e3fdf7f02bd3b93fe93bf9779"
 metafile = true
 
 [[files]]
@@ -1233,7 +1233,7 @@ metafile = true
 
 [[files]]
 file = "mods/freecam.pw.toml"
-hash = "f0010c8de5c418a49f8d9adc8d433733a8dc4ae3e6dc19977519af387d0d7762"
+hash = "39fb797f5baa574c71661d6b822a889037a4fcbe4d20b360941be57a4008aaea"
 metafile = true
 
 [[files]]
@@ -1328,7 +1328,7 @@ metafile = true
 
 [[files]]
 file = "mods/ixeris.pw.toml"
-hash = "56b5950d236f68a2cbb86a3a37db1db8b29c8cf1c6a9f60e3d47ad72fdc8519f"
+hash = "68cb5f761cdd7f5e71092fdb4800bee2aef40dfcc49689933f6429c0e2cfb6e1"
 metafile = true
 
 [[files]]
@@ -1695,7 +1695,7 @@ metafile = true
 
 [[files]]
 file = "mods/sound-physics-remastered.pw.toml"
-hash = "9c635a504d0014944363649b447c692adaa2096e5ef0417914e688c1b43aa7f3"
+hash = "c10da3c7d320f6e74847ccb93af6fee76eea87199131a5644efcea240b1c4f4a"
 metafile = true
 
 [[files]]
@@ -1795,7 +1795,7 @@ metafile = true
 
 [[files]]
 file = "mods/unified-api.pw.toml"
-hash = "e6dcbc27755bd33cd759b4b2b2af2378ee46276de05dcb8f74dcb03c9f64422f"
+hash = "8b60ff4164110e19a4dc53acd433ff93b59f4d23094ec2fd4ab2296dcbf14bb2"
 metafile = true
 
 [[files]]
@@ -1850,12 +1850,12 @@ metafile = true
 
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
-hash = "b5a197fbefddb6093f4d409aee45913c3fbc95cac59e76c5d3a702b74ed022f6"
+hash = "7db6314de05ed9a0106c21b56348b2359014b348dcc6bea052107ff49cf16002"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-world-map.pw.toml"
-hash = "b6d9c07b5fafaa81384f05befc0bba711f16e7b211e728d57c33f2e5c567a512"
+hash = "b9568a05030e74d07f6cc8a457aec71ac8ceccdc778b1f12b9f4095dded99b39"
 metafile = true
 
 [[files]]
@@ -1870,7 +1870,7 @@ metafile = true
 
 [[files]]
 file = "mods/zannaghs-armor-hider.pw.toml"
-hash = "f41188f3b238b851b21e69f90f2ce2607120c907c4d34ea365f67f7adb509aa8"
+hash = "e4def0bf571f0f814d30d0141d94fe3712f71595906d2e9fc95f569fd7ee4ac1"
 metafile = true
 
 [[files]]
@@ -1910,7 +1910,7 @@ metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
-hash = "d9fe57736e862db4420a6481eda6b41f65d0466c36cb92de31cb4b9822121ff7"
+hash = "435a3f840613486ed00c68c6eea16324083b9a5a745503b22942d6b53c06b5ed"
 metafile = true
 
 [[files]]

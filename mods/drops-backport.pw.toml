@@ -1,13 +1,13 @@
 name = "Drops Backport"
-filename = "drops-backport-26.1-r2.3-fabric.jar"
+filename = "drops-backport-26.1-r2.4-fabric.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/dSuQn00p/versions/ISzAtPjx/drops-backport-26.1-r2.3-fabric.jar"
+url = "https://cdn.modrinth.com/data/dSuQn00p/versions/tKUaCuse/drops-backport-26.1-r2.4-fabric.jar"
 hash-format = "sha512"
-hash = "6b5f82686db9b2e124e3728bd2b1e97338cd0bfd9d710a1fb77897b09054441a690f17514e57e0d98aa6444d31aa10c7262246977c93c9861f76fe292f107a1d"
+hash = "685fb0c39ccb56ada6d8ab9ef4509c2386f3786062abe867c0917832bfa553faddfe1dfded98305825e5e66ca4493a13c494f8639bffb892f685d836a1ce086a"
 
 [update]
 [update.modrinth]
 mod-id = "dSuQn00p"
-version = "ISzAtPjx"
+version = "tKUaCuse"

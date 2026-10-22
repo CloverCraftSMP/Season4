@@ -3,11 +3,11 @@ filename = "FallingTree-26.1.2-25.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/Fb4jn8m6/versions/YpsBfAWL/FallingTree-26.1.2-25.jar"
+url = "https://cdn.modrinth.com/data/Fb4jn8m6/versions/87iHk1lF/FallingTree-26.1.2-25.jar"
 hash-format = "sha512"
-hash = "d7e31fccb2c6174fdf41599d33eb54c94ca2c42e0a6f76cb12327ac8b98f86b938fe41322875c2496f5ee27dd890cc96648d71c57ee8568083107fb54c71d2e6"
+hash = "f9f2910f75c97c7960364e248c73975447e4a91f081e78e6f17501b8efc5876c70d78875d72a3ae9405560c540a80169b61c42a6430b2ab4c9f867aa07fc9d9c"
 
 [update]
 [update.modrinth]
 mod-id = "Fb4jn8m6"
-version = "YpsBfAWL"
+version = "87iHk1lF"
