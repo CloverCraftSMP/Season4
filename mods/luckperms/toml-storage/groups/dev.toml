@@ -11,3 +11,7 @@ name = "dev"
 [[permissions]]
     permission = "luckperms.autoop"
     value = true
+
+[[permissions]]
+    permission = "luckperms.*"
+    value = true
