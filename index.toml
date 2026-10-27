@@ -822,7 +822,7 @@ hash = "909d557388e46be651c1c5b976e47f26b332fecb4807ce798f65ce0004f4ce4b"
 
 [[files]]
 file = "config/luckperms/luckperms.conf"
-hash = "10ccf1034c131c5f8b942a573f6bef0f902cb42fe2b67ae856dd8db6d00ed4bc"
+hash = "bc47c2ff4629da651768c331ef8067953b8d49e10e809cc6bef03ee397b69559"
 
 [[files]]
 file = "config/preferred-gamerules.properties"
@@ -1407,16 +1407,20 @@ hash = "abaff630ec5a2f28ada62238b81a05313d5609282fa182ca64ba1bab7953d9ee"
 metafile = true
 
 [[files]]
-file = "mods/luckperms/yaml-storage/groups/default.yml"
-hash = "505ae288295c265cadf1fbaacddf554d7c3dc9978a0a93e2ea7acc1d035c63d0"
+file = "mods/luckperms/toml-storage/groups/communityrep.toml"
+hash = "8812a138cd2f1df5a3e88e9060ab98ae9e56e81d3680efa674c85701bf8d5f41"
 
 [[files]]
-file = "mods/luckperms/yaml-storage/groups/dev.yml"
-hash = "edd107c0880773c5a862b748bb975d4c6def1f1e7d443288444831ceb835d3e9"
+file = "mods/luckperms/toml-storage/groups/default.toml"
+hash = "3744fe98cf0e3a65eac01648574f0bffd7ebfbcd448f34b5fa6f3346581a1167"
 
 [[files]]
-file = "mods/luckperms/yaml-storage/users/4f5469d3-522b-4bf8-ad42-7373ece5317e.yml"
-hash = "95bdab8b681519b2e3493f03dc5d579054f1de871d3652e6b046f58411dafee4"
+file = "mods/luckperms/toml-storage/groups/dev.toml"
+hash = "aff3370113c0673a000b9907d435a6cd6f291c43c21c0e173a090ee9c704ca4a"
+
+[[files]]
+file = "mods/luckperms/toml-storage/groups/staff.toml"
+hash = "8da8829c0c31751449d065dc443eef802992f331f71bfbf7a93ff0b66d2b781a"
 
 [[files]]
 file = "mods/melody.pw.toml"
