@@ -8,3 +8,5 @@ mise.toml
 
 # md files
 /*.md
+
+.env
