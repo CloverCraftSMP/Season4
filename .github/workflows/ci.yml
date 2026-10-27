@@ -1,0 +1,113 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pack.toml'
+      - 'index.toml'
+      - 'unsup.toml'
+      - 'unsup.ini'
+      - 'fabric-server.pw.toml'
+      - 'mods/**'
+      - 'config/**'
+      - 'resourcepacks/**'
+      - '.gitattributes'
+      - '.mise/tasks/**'
+      - '.github/workflows/**'
+      - '.github/scripts/**'
+      - '.github/actions/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'pack.toml'
+      - 'index.toml'
+      - 'unsup.toml'
+      - 'unsup.ini'
+      - 'fabric-server.pw.toml'
+      - 'mods/**'
+      - 'config/**'
+      - 'resourcepacks/**'
+      - '.gitattributes'
+      - '.mise/tasks/**'
+      - '.github/workflows/**'
+      - '.github/scripts/**'
+      - '.github/actions/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  pack:
+    name: Pack Integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Environment (Mise)
+        uses: jdx/mise-action@v4
+
+      - name: Check the release placeholder is intact
+        run: |
+          set -euo pipefail
+          if ! grep -q '^version = "@modpack_version@"$' pack.toml; then
+            echo '::error::pack.toml must keep the @modpack_version@ placeholder - releases substitute it'
+            exit 1
+          fi
+
+      - name: Check the server jar matches pack.toml
+        run: |
+          set -euo pipefail
+          mc=$(grep -E '^\s*minecraft\s*=' pack.toml | cut -d'"' -f2)
+          fabric=$(grep -E '^\s*fabric\s*=' pack.toml | cut -d'"' -f2)
+          expected="https://meta.fabricmc.net/v2/versions/loader/${mc}/${fabric}/1.0.1/server/jar"
+          if ! grep -q "^url = \"${expected}\"$" fabric-server.pw.toml; then
+            echo "::error::fabric-server.pw.toml is pinned to a different Minecraft/Fabric version than pack.toml (${mc} / ${fabric})"
+            echo "::error::run 'mise run packwiz:refresh' and commit the result"
+            exit 1
+          fi
+
+      - name: Check the packwiz index is up to date
+        run: |
+          set -euo pipefail
+          packwiz refresh
+          if ! git diff --quiet; then
+            echo '::error::packwiz index.toml is out of date'
+            echo '::error::run "mise run packwiz:refresh" and commit the result'
+            git --no-pager diff --stat
+            exit 1
+          fi
+
+  test:
+    name: Server Boot Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Setup Environment (Mise)
+        uses: jdx/mise-action@v4
+
+      - name: Run pipeline
+        run: mise run ci:run
+
+      - name: Save Server Logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: server-logs-${{ github.run_id }}
+          path: |
+            .ci/server/logs/
+            .ci/server/crash-reports/
+          if-no-files-found: ignore
+          retention-days: 14

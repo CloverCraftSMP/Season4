@@ -1,0 +1,68 @@
+name: Build Clients
+
+# Manually build the client artifacts for a ref without deploying anything.
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch or tag to build (defaults to the ref the workflow was started from)'
+        required: false
+        default: ''
+      channel:
+        description: 'Which pack branch the clients should bootstrap from'
+        required: true
+        type: choice
+        default: staging
+        options:
+          - staging
+          - prod
+          - local
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-clients-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Clients
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.ref || github.ref }}
+          persist-credentials: false
+
+      - name: Resolve version
+        id: version
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME//\//-}"
+          if [[ "$version" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+(-.+)?$ ]]; then
+            version="${version#v}"
+          else
+            version="$version-$(git rev-parse --short HEAD)"
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Environment (Mise)
+        uses: jdx/mise-action@v4
+
+      - name: Build Clients
+        run: |
+          mise run build:clients \
+            "${{ steps.version.outputs.version }}" \
+            "${{ inputs.channel }}" \
+            build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: Season4-${{ inputs.channel }}-${{ steps.version.outputs.version }}
+          path: build/
+          if-no-files-found: error
+          retention-days: 14

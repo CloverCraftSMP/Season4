@@ -1,42 +1,111 @@
 name: 'Deploy Pack'
-description: 'Prepares target branch, restarts Pterodactyl server, and builds .mrpack'
+description: 'Renders the pack onto a release branch, pushes it, and updates the Pterodactyl server'
 
 inputs:
   target_branch:
+    description: 'Release branch to render onto (e.g. staging or prod)'
     required: true
   version_name:
+    description: 'Value substituted for the @modpack_version@ placeholder'
     required: true
   server_id:
+    description: 'Pterodactyl server identifier'
     required: true
   ptero_panel_url:
+    description: 'Pterodactyl panel base URL'
     required: true
   ptero_api_key:
+    description: 'Pterodactyl client API key'
     required: true
+  sync_unsup_ini:
+    description: "Rewrite the `source=` line of the server's own unsup.ini before restarting"
+    required: false
+    default: 'false'
+  restart:
+    description: 'Restart the server after the branch has been pushed'
+    required: false
+    default: 'true'
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - uses: jdx/mise-action@v4
 
-    - name: Prepare Branch
+    - name: Resolve pack URL
       shell: bash
       run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git checkout -B ${{ inputs.target_branch }}
-        find pack.toml config -type f -exec sed -i "s/@modpack_version@/${{ inputs.version_name }}/g" {} +
-        TARGET_URL="https://raw.githubusercontent.com/CloverCraftSMP/Season4/${{ inputs.target_branch }}/pack.toml"
-        sed -i "s|^source=.*|source=${TARGET_URL}|" unsup.ini
-        packwiz refresh
-        git add .
-        git commit -m "deploy: ${{ inputs.version_name }}" || true
-        git push -f origin ${{ inputs.target_branch }}
+        echo "PACK_URL=https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${{ inputs.target_branch }}/pack.toml" >> "$GITHUB_ENV"
 
-    - name: Restart Server
+    - name: Render ${{ inputs.target_branch }}
       shell: bash
       run: |
-        curl -X POST "${{ inputs.ptero_panel_url }}/api/client/servers/${{ inputs.server_id }}/power" \
-          -H "Authorization: Bearer ${{ inputs.ptero_api_key }}" \
-          -H "Content-Type: application/json" \
-          -H "Accept: application/json" \
-          -d '{"signal": "restart"}'
+        set -euo pipefail
+
+        git config user.name 'github-actions[bot]'
+        git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+        git checkout -B "${{ inputs.target_branch }}"
+
+        find pack.toml config -type f -exec sed -i "s|@modpack_version@|${{ inputs.version_name }}|g" {} +
+        if grep -q '^source=' unsup.ini; then
+          sed -i "s|^source=.*|source=${PACK_URL}|" unsup.ini
+        else
+          printf 'source=%s\n' "$PACK_URL" >> unsup.ini
+        fi
+
+        # The sed above invalidates the hashes packwiz tracks for those files.
+        packwiz refresh
+
+        git add --all
+        if git diff --cached --quiet; then
+          echo "::notice::${{ inputs.target_branch }} already matches ${{ inputs.version_name }}, nothing to push"
+        else
+          echo "::group::Files changed on ${{ inputs.target_branch }}"
+          git diff --cached --stat
+          echo "::endgroup::"
+
+          git commit -m 'deploy: ${{ inputs.version_name }}'
+          git push --force-with-lease origin "${{ inputs.target_branch }}"
+        fi
+
+    - name: Sync server unsup.ini
+      if: inputs.sync_unsup_ini == 'true'
+      shell: bash
+      env:
+        PTERO_PANEL_URL: ${{ inputs.ptero_panel_url }}
+        PTERO_API_KEY: ${{ inputs.ptero_api_key }}
+        PTERO_SERVER_ID: ${{ inputs.server_id }}
+      run: |
+        set -euo pipefail
+
+        # Fetch the live config so hand-tuned settings survive; only the source line is ever rewritten.
+        if .github/scripts/ptero.sh file-get '/unsup.ini' live-unsup.ini; then
+          if grep -q '^source=' live-unsup.ini; then
+            sed -i "s|^source=.*|source=${PACK_URL}|" live-unsup.ini
+          else
+            printf 'source=%s\n' "$PACK_URL" >> live-unsup.ini
+          fi
+        else
+          echo "::notice::server has no unsup.ini yet, using the one from the branch"
+          cp unsup.ini live-unsup.ini
+        fi
+
+        .github/scripts/ptero.sh file-put '/unsup.ini' live-unsup.ini
+
+    - name: Flush server
+      if: inputs.restart == 'true'
+      shell: bash
+      env:
+        PTERO_PANEL_URL: ${{ inputs.ptero_panel_url }}
+        PTERO_API_KEY: ${{ inputs.ptero_api_key }}
+        PTERO_SERVER_ID: ${{ inputs.server_id }}
+      run: .github/scripts/ptero.sh command 'save-all flush'
+      continue-on-error: true
+
+    - name: Restart server
+      if: inputs.restart == 'true'
+      shell: bash
+      env:
+        PTERO_PANEL_URL: ${{ inputs.ptero_panel_url }}
+        PTERO_API_KEY: ${{ inputs.ptero_api_key }}
+        PTERO_SERVER_ID: ${{ inputs.server_id }}
+      run: .github/scripts/ptero.sh power restart

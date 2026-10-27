@@ -1,24 +1,46 @@
 #!/usr/bin/env bash
 #MISE description="Builds both .mrpack and Prism Instance .zip with Unsup"
+#MISE usage="[version] [channel] [output-dir]"
 set -euo pipefail
 
 source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
 load_pack_versions
 
 VERSION=${1:-dev}
-ORIG_DIR=$(pwd)
+CHANNEL=${2:-}
+OUTPUT_DIR=${3:-.}
 
-if [[ "$VERSION" == v* || "$VERSION" == "prod" ]]; then
-    BOOTSTRAP_URL="${REPO_BASE_RAW}/prod/pack.toml"
-elif [[ "$VERSION" == staging* ]]; then
-    BOOTSTRAP_URL="${REPO_BASE_RAW}/staging/pack.toml"
-else
-    BOOTSTRAP_URL="http://localhost:8080/pack.toml"
+if [[ -z "$CHANNEL" ]]; then
+    case "$VERSION" in
+        staging-*) CHANNEL=staging ;;
+        v* | [0-9]*.[0-9]*) CHANNEL=prod ;;
+        *) CHANNEL=local ;;
+    esac
 fi
 
-echo "Building clients for: $VERSION..."
+case "$CHANNEL" in
+    prod) BOOTSTRAP_URL="${REPO_BASE_RAW}/prod/pack.toml" ;;
+    staging) BOOTSTRAP_URL="${REPO_BASE_RAW}/staging/pack.toml" ;;
+    local) BOOTSTRAP_URL="http://localhost:8080/pack.toml" ;;
+    *)
+        echo "Error: unknown channel '$CHANNEL' (expected prod, staging or local)." >&2
+        exit 1
+        ;;
+esac
+
+mkdir -p "$OUTPUT_DIR"
+OUTPUT_DIR=$(cd "$OUTPUT_DIR" && pwd)
+ORIG_DIR=$(pwd)
+
+echo "Building clients for: $VERSION (channel: $CHANNEL)"
 BUILD_DIR=$(mktemp -d)
-cp -r . "$BUILD_DIR"
+trap 'rm -rf "$BUILD_DIR"' EXIT
+
+if command -v rsync > /dev/null; then
+    rsync -a --exclude '.git' --exclude '.ci' --exclude '.mise' --exclude 'build' ./ "$BUILD_DIR"/
+else
+    cp -r ./. "$BUILD_DIR"/
+fi
 
 find "$BUILD_DIR/pack.toml" "$BUILD_DIR/config" -type f -exec sed -i "s/@modpack_version@/${VERSION}/g" {} +
 sed -i "s|^source=.*|source=${BOOTSTRAP_URL}|" "$BUILD_DIR/unsup.ini"
@@ -107,12 +129,9 @@ zip -r "../$PRISM_NAME" . > /dev/null
 cd ..
 
 cd "$ORIG_DIR"
-mv "$BUILD_DIR/$MRPACK_REGULAR" ./
-mv "$BUILD_DIR/$MRPACK_UNSUP" ./
-mv "$BUILD_DIR/$PRISM_NAME" ./
-rm -rf "$BUILD_DIR"
+mv -f "$BUILD_DIR/$MRPACK_REGULAR" "$BUILD_DIR/$MRPACK_UNSUP" "$BUILD_DIR/$PRISM_NAME" "$OUTPUT_DIR/"
 
 echo "Built:"
-echo " - $MRPACK_REGULAR"
-echo " - $MRPACK_UNSUP"
-echo " - $PRISM_NAME"
+echo " - $OUTPUT_DIR/$MRPACK_REGULAR"
+echo " - $OUTPUT_DIR/$MRPACK_UNSUP"
+echo " - $OUTPUT_DIR/$PRISM_NAME"

@@ -1,23 +1,40 @@
-name: Deploy Staging Server
+name: Deploy Staging
 
+# Pushes the selected ref to the rendered `staging` branch and restarts the staging server so it picks the new pack up through unsup.
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: staging-deploy
+  cancel-in-progress: false
+
 jobs:
-  deploy-staging:
+  deploy:
+    name: Deploy Staging Server
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          persist-credentials: false
 
-      - name: Get Short SHA
-        run: echo "SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Resolve version
+        id: version
+        run: echo "sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
-      - uses: ./.github/actions/deploy-pack
+      - name: Deploy pack
+        uses: ./.github/actions/deploy-pack
         with:
           target_branch: staging
-          version_name: "staging-${{ env.SHA }}"
+          version_name: staging-${{ steps.version.outputs.sha }}
           server_id: ${{ secrets.PTERO_STAGING_SERVER_ID }}
           ptero_panel_url: ${{ secrets.PTERO_PANEL_URL }}
           ptero_api_key: ${{ secrets.PTERO_API_KEY }}
+          sync_unsup_ini: 'true'

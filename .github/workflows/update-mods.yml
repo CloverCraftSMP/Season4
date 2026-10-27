@@ -1,0 +1,77 @@
+name: Update Mods
+
+# Runs packwiz's updater on a schedule and opens (or refreshes) a PR with the result.
+on:
+  schedule:
+    - cron: '30 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-mods
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Check for Mod Updates
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Generate Bot Token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Get GitHub App User ID
+        id: get-user-id
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+
+      - name: Build Committer
+        id: committer
+        run: |
+          echo "string=${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Setup Environment (Mise)
+        uses: jdx/mise-action@v4
+
+      - name: Run Packwiz Update
+        run: mise run ci:generate-pr
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          author: ${{ steps.committer.outputs.string }}
+          committer: ${{ steps.committer.outputs.string }}
+          commit-message: 'chore(mods): update mod versions via packwiz'
+          title: 'Automated Mod Updates'
+          body-path: .ci/pr_body.md
+          branch: auto-update-mods
+          base: main
+          labels: dependencies
+          delete-branch: true
+
+      - name: Summarise
+        if: always()
+        run: |
+          if [ -f .ci/pr_body.md ]; then
+            {
+              echo '## Automated Mod Updates'
+              echo
+              cat .ci/pr_body.md
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'The updater failed before it could write a summary.' >> "$GITHUB_STEP_SUMMARY"
+          fi
