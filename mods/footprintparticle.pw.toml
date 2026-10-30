@@ -1,16 +1,16 @@
 name = "FootprintParticle"
-filename = "footprintparticle-0.6.0+26.1-neobric.jar"
+filename = "footprintparticle-0.7.1+26.1-neobric.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/xZQOoOaY/versions/iBepEGbX/footprintparticle-0.6.0%2B26.1-neobric.jar"
+url = "https://cdn.modrinth.com/data/xZQOoOaY/versions/K0dgic5N/footprintparticle-0.7.1%2B26.1-neobric.jar"
 hash-format = "sha512"
-hash = "4e1611128f67a9d22ebce256c72cd44ef04e5d01e01e7ee7f65c739b019a7c3091b73fd4defc2802bc307622ded431e65061698d2dd33f707b8d1033533b7415"
+hash = "e0e30a310f761b43d363ced23844d401f9756429b849c8a51b33e2ca4526946b8e6e4623310288afa51272520dec68a961494337ce25505af6541425014f054b"
 
 [update]
 [update.modrinth]
 mod-id = "xZQOoOaY"
-version = "iBepEGbX"
+version = "K0dgic5N"
 
 [option]
 optional = true

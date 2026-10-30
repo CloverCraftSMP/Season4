@@ -106,7 +106,7 @@ metafile = true
 
 [[files]]
 file = "mods/animaticarefabricated.pw.toml"
-hash = "66a322590d0f4600a1db707ecbb5d249c6768b57c4e1cc906004603bc47e88b8"
+hash = "2b8c7c45011fe8b5559560ac9efdf21a0cf5c5b26331b190ba5b4728dc66ef4a"
 metafile = true
 
 [[files]]
@@ -246,7 +246,7 @@ metafile = true
 
 [[files]]
 file = "mods/collective.pw.toml"
-hash = "52f27d7c1acedaddd53f88038f83148230de4a37728bdd0e361c3d9505da7f2e"
+hash = "c98dd5aa4813c0800e5708bbc7a19b52611aa8b0c36464ff5fc7b1e4942f84ee"
 metafile = true
 
 [[files]]
@@ -306,7 +306,7 @@ metafile = true
 
 [[files]]
 file = "mods/cubes-without-borders.pw.toml"
-hash = "0ce45d33b7d9469f5fba9047a34daaee2d36ace08b4652ba1e32bb3e8c436d71"
+hash = "eda1d045482f2f78dc45b0471bf4960411328e78e97c8e8604679a68c93e1d79"
 metafile = true
 
 [[files]]
@@ -321,12 +321,12 @@ metafile = true
 
 [[files]]
 file = "mods/double-doors.pw.toml"
-hash = "17b8ecedbf3560b2ccdee03527f394c19c182bde4b778f679c5f22b55c179287"
+hash = "4c6cc917db99639710da3c94ed5a18507feac9f3dbb6b6d2a8f0043ac2061465"
 metafile = true
 
 [[files]]
 file = "mods/drops-backport.pw.toml"
-hash = "9d99122fa560cd89610f4c1bfad7b0e73e4972e97ab750b3b742583f6b940c2f"
+hash = "778af5aed700ec234b13de927043a4cc93f6c96582490ccd79da82df68f5dc31"
 metafile = true
 
 [[files]]
@@ -371,7 +371,7 @@ metafile = true
 
 [[files]]
 file = "mods/eunomia.pw.toml"
-hash = "39d49fad5f249602cfdd8d5aaf4adafed49e73bdc1a17d6e5136448b6c2c4143"
+hash = "084cc84e9e4dd4ee90958a7d368caa702b2e0bd0a7f6ec76199b25251518bcba"
 metafile = true
 
 [[files]]
@@ -406,7 +406,7 @@ metafile = true
 
 [[files]]
 file = "mods/fallingtree.pw.toml"
-hash = "b1baa744204940671c7501296ae56e97da705f57b9d58bfdb522f87aa30d7d81"
+hash = "8a22a17472348943a75e8a5c7b6963b2998127ccfa07ee7e34fe90bf2cb6abb0"
 metafile = true
 
 [[files]]
@@ -431,7 +431,7 @@ metafile = true
 
 [[files]]
 file = "mods/footprintparticle.pw.toml"
-hash = "51a264043d56430dfe9ffddce73dfc589c49ac4fdf1532bedcece1616a453378"
+hash = "479a9ae5dd50fca443c195710bf19a0c462baf125ebc92e3885596ba8a5a4f2a"
 metafile = true
 
 [[files]]
@@ -441,7 +441,7 @@ metafile = true
 
 [[files]]
 file = "mods/freecam.pw.toml"
-hash = "f0010c8de5c418a49f8d9adc8d433733a8dc4ae3e6dc19977519af387d0d7762"
+hash = "39fb797f5baa574c71661d6b822a889037a4fcbe4d20b360941be57a4008aaea"
 metafile = true
 
 [[files]]
@@ -451,7 +451,7 @@ metafile = true
 
 [[files]]
 file = "mods/fsit.pw.toml"
-hash = "822fb2481dc711ff1935a34d16da2871a1ba538f837a6e2eb45896403e546973"
+hash = "689a1db226c4e582f496ba4dd26936cb9bd387f02cf1d66996d43180f0b68714"
 metafile = true
 
 [[files]]
@@ -531,12 +531,12 @@ metafile = true
 
 [[files]]
 file = "mods/itemstats.pw.toml"
-hash = "eb9c9fc1f8de05b694db3d78abdd716cf84f55ebd27fd03fb763452c5c442c1d"
+hash = "08a696d4d31f7b976e0b350eb410ea04dd3beaf252d8546ecd8248048c8f72d9"
 metafile = true
 
 [[files]]
 file = "mods/ixeris.pw.toml"
-hash = "56b5950d236f68a2cbb86a3a37db1db8b29c8cf1c6a9f60e3d47ad72fdc8519f"
+hash = "68cb5f761cdd7f5e71092fdb4800bee2aef40dfcc49689933f6429c0e2cfb6e1"
 metafile = true
 
 [[files]]
@@ -687,7 +687,7 @@ metafile = true
 
 [[files]]
 file = "mods/music-notification.pw.toml"
-hash = "ff7ef074c46f719ceb6f1c92aa04b2bae4c4f9aa89caef6d4e9ab03a646bce32"
+hash = "b1fdbc9a76971efdcd28e3aba527dd8358b9d5c4f314246472c34d9faf3a6bf5"
 metafile = true
 
 [[files]]
@@ -712,7 +712,7 @@ metafile = true
 
 [[files]]
 file = "mods/no-animal-tempt-delay.pw.toml"
-hash = "ab32087c7ba9b1d99b1614b3ca60cdcd37e479b4658a22b242d2918c40148b93"
+hash = "40b32999a7df8c6d93efc398fb29756547105820671eceadfc7d000122260464"
 metafile = true
 
 [[files]]
@@ -797,7 +797,7 @@ metafile = true
 
 [[files]]
 file = "mods/punchy-fpa.pw.toml"
-hash = "b46c703022c40a0c2565a05d90024f8bd8fa526a69738e1a2cad8e5979b46452"
+hash = "daceb9faa6720656085d58e0fdda762ec3e34bc760ef69fe82e85944ddc8068f"
 metafile = true
 
 [[files]]
@@ -882,7 +882,7 @@ metafile = true
 
 [[files]]
 file = "mods/simple-voice-chat.pw.toml"
-hash = "6b68ddb23f1306e5f73e89d48e7bea8bf97eb136721b9b6cd57f235dac01e97b"
+hash = "bbaa85c3c6df3ae26e1416a92f3ecf9ff18850f479611299b67a828048edf466"
 metafile = true
 
 [[files]]
@@ -907,7 +907,7 @@ metafile = true
 
 [[files]]
 file = "mods/sound-physics-remastered.pw.toml"
-hash = "9c635a504d0014944363649b447c692adaa2096e5ef0417914e688c1b43aa7f3"
+hash = "c10da3c7d320f6e74847ccb93af6fee76eea87199131a5644efcea240b1c4f4a"
 metafile = true
 
 [[files]]
@@ -947,7 +947,7 @@ metafile = true
 
 [[files]]
 file = "mods/streams-reflowing.pw.toml"
-hash = "28503866cc4a3ab93484d7f7288a1b18d8a474f2aff85fff3fb654a2c795145b"
+hash = "72d64c1827e307e4291ede9167ea1a626f71f401ffa10338f752fe05240fd6b1"
 metafile = true
 
 [[files]]
@@ -1007,7 +1007,7 @@ metafile = true
 
 [[files]]
 file = "mods/unified-api.pw.toml"
-hash = "e6dcbc27755bd33cd759b4b2b2af2378ee46276de05dcb8f74dcb03c9f64422f"
+hash = "5456050136df0daa48e652c845e74008efd0a875fc6f773e2bf10fcc61925414"
 metafile = true
 
 [[files]]
@@ -1022,7 +1022,7 @@ metafile = true
 
 [[files]]
 file = "mods/villager-names-serilum.pw.toml"
-hash = "b7bf8851e0bc6b7477470d624e26f74fadfe30dd8fb21ba404946b6360f80c8b"
+hash = "57f2ea8e10b4f957aa816604357f406cf6e5a1b57def470c9fe73f48e5f9916e"
 metafile = true
 
 [[files]]
@@ -1062,12 +1062,12 @@ metafile = true
 
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
-hash = "b5a197fbefddb6093f4d409aee45913c3fbc95cac59e76c5d3a702b74ed022f6"
+hash = "2c259e6cd6c5cf079f60bc19b1502429049f43b620fe47d09f60f7cfd258d2e7"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-world-map.pw.toml"
-hash = "b6d9c07b5fafaa81384f05befc0bba711f16e7b211e728d57c33f2e5c567a512"
+hash = "273c3ad8fc33ebc3e2540df8e89f95161a3f6b23479364e3587ede5620fef010"
 metafile = true
 
 [[files]]
@@ -1082,7 +1082,7 @@ metafile = true
 
 [[files]]
 file = "mods/zannaghs-armor-hider.pw.toml"
-hash = "f41188f3b238b851b21e69f90f2ce2607120c907c4d34ea365f67f7adb509aa8"
+hash = "35d797875e289318e44bb61fa46055b1ca3d07f1563e71cbc5b3d5a544046f15"
 metafile = true
 
 [[files]]
@@ -1122,7 +1122,7 @@ metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
-hash = "d9fe57736e862db4420a6481eda6b41f65d0466c36cb92de31cb4b9822121ff7"
+hash = "435a3f840613486ed00c68c6eea16324083b9a5a745503b22942d6b53c06b5ed"
 metafile = true
 
 [[files]]
