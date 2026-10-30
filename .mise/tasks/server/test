@@ -6,11 +6,11 @@ set -euo pipefail
 
 cd .ci/server
 
-if < /dev/tcp/127.0.0.1/25565 2>/dev/null; then
-    echo "========================================="
-    echo "FAILURE: Port 25565 is already in use!"
-    echo "========================================="
-    exit 1
+if </dev/tcp/127.0.0.1/25565 2>/dev/null; then
+	echo "========================================="
+	echo "FAILURE: Port 25565 is already in use!"
+	echo "========================================="
+	exit 1
 fi
 
 echo "Starting test server..."
@@ -22,24 +22,24 @@ TIMEOUT=240
 ELAPSED=0
 INTERVAL=5
 
-while ! < /dev/tcp/127.0.0.1/25565 2>/dev/null; do
-    if ! kill -0 $SERVER_PID 2>/dev/null; then
-        echo "========================================="
-        echo "FAILURE: Server process crashed during boot!"
-        echo "========================================="
-        exit 1
-    fi
+while ! </dev/tcp/127.0.0.1/25565 2>/dev/null; do
+	if ! kill -0 $SERVER_PID 2>/dev/null; then
+		echo "========================================="
+		echo "FAILURE: Server process crashed during boot!"
+		echo "========================================="
+		exit 1
+	fi
 
-    if [ $ELAPSED -ge $TIMEOUT ]; then
-        echo "========================================="
-        echo "FAILURE: Server failed to start within 4 minutes."
-        echo "========================================="
-        kill $SERVER_PID
-        exit 1
-    fi
-    
-    sleep $INTERVAL
-    ELAPSED=$((ELAPSED + INTERVAL))
+	if [ $ELAPSED -ge $TIMEOUT ]; then
+		echo "========================================="
+		echo "FAILURE: Server failed to start within 4 minutes."
+		echo "========================================="
+		kill $SERVER_PID
+		exit 1
+	fi
+
+	sleep $INTERVAL
+	ELAPSED=$((ELAPSED + INTERVAL))
 done
 
 echo "========================================="

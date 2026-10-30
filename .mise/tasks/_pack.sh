@@ -11,7 +11,7 @@ load_fabric_server_toml() {
     TMP_FS_URL=$(grep -E '^\s*url\s*=' fabric-server.pw.toml | cut -d'"' -f2 || true)
     TMP_FS_HASH=$(grep -E '^\s*hash\s*=' fabric-server.pw.toml | cut -d'"' -f2 || true)
 
-    if [ -z "$TMP_FS_URL" ] || [ -z "$TMP_FS_HASH" ]; then
+    if [ "$TMP_FS_URL" = "" ] || [ "$TMP_FS_HASH" = "" ]; then
         echo "Error: Could not parse URL or has from fabric-server.pw.toml." >&2
         exit 1
     fi

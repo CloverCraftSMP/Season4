@@ -1,8 +1,8 @@
 name = "dev"
 
 [[permissions]]
-    permission = "displayname.Developer"
-    value = true
+permission = "displayname.Developer"
+value = true
 
 [[permissions]]
 permission = "luckperms.*"

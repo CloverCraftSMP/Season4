@@ -10,4 +10,5 @@ build/
 # md files
 /*.md
 
-.env
+*.env
+*.pkl

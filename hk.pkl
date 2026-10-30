@@ -2,14 +2,38 @@ amends "package://github.com/jdx/hk/releases/download/v2.10.0/hk@2.10.0#/Config.
 import "package://github.com/jdx/hk/releases/download/v2.10.0/hk@2.10.0#/Builtins.pkl"
 // Using a coding agent? See https://hk.jdx.dev/agents
 
-local linters = new Mapping {
+local basic_checks = new Mapping<String, Step> {
     ["trailing_whitespace"] = Builtins.trailing_whitespace
     ["newlines"] = Builtins.newlines
-    ["actionlint"] = Builtins.actionlint
-    ["shellcheck"] = Builtins.shellcheck
-    ["shellharden"] = Builtins.shellharden
-    ["shfmt"] = Builtins.shfmt
-    ["zizmor"] = Builtins.zizmor
 }
 
-steps = linters
+local linters = new Mapping<String, Step> {
+    ["shebangs"] = Builtins.check_executables_have_shebangs
+    ["tombi"] = Builtins.tombi
+    ["tombi-format"] = (Builtins.tombi_format) {
+        depends = "tombi"
+    }
+    ["packwiz-refresh"] {
+        glob = List("mise.toml", "index.toml")
+        fix = "mise run packwiz:refresh"
+    }
+}
+
+local msg = new Mapping<String, Step> {
+    ["conventional-commit"] = Builtins.check_conventional_commit
+}
+
+hooks {
+  ["check"] {
+    steps = basic_checks
+  }
+  ["commit-msg"] {
+    steps = msg
+  }
+  ["pre-commit"] {
+    fix = true
+    stage = true
+    stash = "git"
+    steps = linters
+  }
+}
