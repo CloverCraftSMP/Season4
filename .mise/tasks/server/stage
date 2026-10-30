@@ -11,7 +11,7 @@ ensure_server_running
 mkdir -p "$SERVER_BASE_DIR"
 
 echo "Accepting EULA..."
-echo "eula=true" > "$SERVER_BASE_DIR/eula.txt"
+echo "eula=true" >"$SERVER_BASE_DIR/eula.txt"
 
 load_pack_versions
 
@@ -20,7 +20,7 @@ cp ".mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar" "$SERVER_BASE_DIR/f
 fetch_unsup "$SERVER_BASE_DIR/unsup.jar"
 
 echo "Configuring unsup to look at local packwiz server..."
-cat << EOF > "$SERVER_BASE_DIR/unsup.ini"
+cat <<EOF >"$SERVER_BASE_DIR/unsup.ini"
 version=1
 preset=minecraft
 

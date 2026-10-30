@@ -14,8 +14,8 @@ NEW_HASH=$(curl -sL "$TMP_FS_URL" | sha256sum | awk '{print $1}')
 echo "Computed Hash:   $NEW_HASH"
 
 if [ "$TMP_FS_HASH" = "$NEW_HASH" ]; then
-    echo "Hash already up to date"
-    exit 0
+	echo "Hash already up to date"
+	exit 0
 fi
 
 sed -i -E "s/(hash\s*=\s*\")[^\"]*(\")/\1${NEW_HASH}\2/" fabric-server.pw.toml

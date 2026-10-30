@@ -10,11 +10,7 @@
 name = "Graphics and Effects"
 description = "Choose the profile that best matches your computer's specs."
 side = "client"
-choices = [
-    { id = "ultra", name = "Ultra", description = "For high-end PCs. Shader support, advanced physics, and all visual effects." },
-    { id = "standard", name = "Standard", description = "Balanced performance and visuals. Includes shader support and QoL enhancements." },
-    { id = "lite", name = "Lite", description = "Maximum performance for low-end laptops and older PCs. Disables shaders, heavy particles, and ambient physics." }
-]
+choices = [{ id = "ultra", name = "Ultra", description = "For high-end PCs. Shader support, advanced physics, and all visual effects." }, { id = "standard", name = "Standard", description = "Balanced performance and visuals. Includes shader support and QoL enhancements." }, { id = "lite", name = "Lite", description = "Maximum performance for low-end laptops and older PCs. Disables shaders, heavy particles, and ambient physics." }]
 
 # ===================
 #        LOD
@@ -24,11 +20,7 @@ choices = [
 name = "Distant Rendering (LODs)"
 description = "Render chunks extremely far away. Highly performance-intensive!"
 side = "client"
-choices = [
-    { id = "lod_none", name = "None", description = "Standard Minecraft render distance. Best for performance and stability." },
-    { id = "voxy", name = "Voxy", description = "An advanced, highly performant voxel-based LOD renderer. Great for vanilla-like rendering, but experimental." },
-    { id = "dh", name = "Distant Horizons", description = "The classic LOD renderer." }
-]
+choices = [{ id = "lod_none", name = "None", description = "Standard Minecraft render distance. Best for performance and stability." }, { id = "voxy", name = "Voxy", description = "An advanced, highly performant voxel-based LOD renderer. Great for vanilla-like rendering, but experimental." }, { id = "dh", name = "Distant Horizons", description = "The classic LOD renderer." }]
 
 # ===================
 #      CREATOR
@@ -38,10 +30,7 @@ choices = [
 name = "Content Creator mods"
 description = "Mods that are more suited for content creators, includes things like Flashback and Axiom."
 side = "client"
-choices = [
-    { id = "creator_none", name = "None", description = "None of that creator nonsense." },
-    { id = "creator", name = "Content Creator", description = "ME I'M A CREATOR, ME ME!" }
-]
+choices = [{ id = "creator_none", name = "None", description = "None of that creator nonsense." }, { id = "creator", name = "Content Creator", description = "ME I'M A CREATOR, ME ME!" }]
 
 # ===========
 #    MAPS
@@ -50,12 +39,7 @@ choices = [
 name = "Map mods"
 description = "Better see and experience the world around you."
 side = "client"
-choices = [
-    { id = "map_none", name = "None", description = "None." },
-    { id = "xaeros-minimap", name = "Xaero's Minimap", description = "Xaero's worldmap and minimap" },
-    { id = "xaeros", name = "Xaero's Worldmap", description = "Xaero's worldmap ONLY" },
-    { id = "hoofprint", name = "Hoofprint", description = "Alternative to Xaero's that's much simpler but also less feature complete." }
-]
+choices = [{ id = "map_none", name = "None", description = "None." }, { id = "xaeros-minimap", name = "Xaero's Minimap", description = "Xaero's worldmap and minimap" }, { id = "xaeros", name = "Xaero's Worldmap", description = "Xaero's worldmap ONLY" }, { id = "hoofprint", name = "Hoofprint", description = "Alternative to Xaero's that's much simpler but also less feature complete." }]
 
 [metafile]
 # =================

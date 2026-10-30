@@ -1,9 +1,9 @@
 name = "staff"
 
 [[meta]]
-    key = "discord-role-id"
-    value = "1365339783919829012"
+key = "discord-role-id"
+value = "1365339783919829012"
 
 [[prefixes]]
-  prefix = "&c★ "
-  priority = 10
+prefix = "&c★ "
+priority = 10

@@ -11,21 +11,21 @@ CHANNEL=${2:-}
 OUTPUT_DIR=${3:-.}
 
 if [[ -z "$CHANNEL" ]]; then
-    case "$VERSION" in
-        staging-*) CHANNEL=staging ;;
-        v* | [0-9]*.[0-9]*) CHANNEL=prod ;;
-        *) CHANNEL=local ;;
-    esac
+	case "$VERSION" in
+	staging-*) CHANNEL=staging ;;
+	v* | [0-9]*.[0-9]*) CHANNEL=prod ;;
+	*) CHANNEL=local ;;
+	esac
 fi
 
 case "$CHANNEL" in
-    prod) BOOTSTRAP_URL="${REPO_BASE_RAW}/prod/pack.toml" ;;
-    staging) BOOTSTRAP_URL="${REPO_BASE_RAW}/staging/pack.toml" ;;
-    local) BOOTSTRAP_URL="http://localhost:8080/pack.toml" ;;
-    *)
-        echo "Error: unknown channel '$CHANNEL' (expected prod, staging or local)." >&2
-        exit 1
-        ;;
+prod) BOOTSTRAP_URL="${REPO_BASE_RAW}/prod/pack.toml" ;;
+staging) BOOTSTRAP_URL="${REPO_BASE_RAW}/staging/pack.toml" ;;
+local) BOOTSTRAP_URL="http://localhost:8080/pack.toml" ;;
+*)
+	echo "Error: unknown channel '$CHANNEL' (expected prod, staging or local)." >&2
+	exit 1
+	;;
 esac
 
 mkdir -p "$OUTPUT_DIR"
@@ -36,10 +36,10 @@ echo "Building clients for: $VERSION (channel: $CHANNEL)"
 BUILD_DIR=$(mktemp -d)
 trap 'rm -rf "$BUILD_DIR"' EXIT
 
-if command -v rsync > /dev/null; then
-    rsync -a --exclude '.git' --exclude '.ci' --exclude '.mise' --exclude 'build' ./ "$BUILD_DIR"/
+if command -v rsync >/dev/null; then
+	rsync -a --exclude '.git' --exclude '.ci' --exclude '.mise' --exclude 'build' ./ "$BUILD_DIR"/
 else
-    cp -r ./. "$BUILD_DIR"/
+	cp -r ./. "$BUILD_DIR"/
 fi
 
 find "$BUILD_DIR/pack.toml" "$BUILD_DIR/config" -type f -exec sed -i "s/@modpack_version@/${VERSION}/g" {} +
@@ -61,7 +61,7 @@ MRPACK_UNSUP="Season4-${VERSION}-Unsup.mrpack"
 mkdir -p unsup_mrpack/overrides
 cp unsup.jar unsup.ini unsup_mrpack/overrides/
 
-cat << EOF > unsup_mrpack/modrinth.index.json
+cat <<EOF >unsup_mrpack/modrinth.index.json
 {
   "formatVersion": 1,
   "game": "minecraft",
@@ -76,7 +76,7 @@ cat << EOF > unsup_mrpack/modrinth.index.json
 EOF
 
 cd unsup_mrpack
-zip -r "../$MRPACK_UNSUP" . > /dev/null
+zip -r "../$MRPACK_UNSUP" . >/dev/null
 cd ..
 
 # PRISM ZIP GENERATION (automatically includes JVM args)
@@ -89,7 +89,7 @@ cp unsup.ini "$PRISM_DIR/.minecraft/"
 
 mkdir -p "$PRISM_DIR/patches"
 
-cat << EOF > "$PRISM_DIR/patches/com.unascribed.unsup.json"
+cat <<EOF >"$PRISM_DIR/patches/com.unascribed.unsup.json"
 {
 	"formatVersion": 1,
 	"name": "unsup",
@@ -104,7 +104,7 @@ cat << EOF > "$PRISM_DIR/patches/com.unascribed.unsup.json"
 }
 EOF
 
-cat << EOF > "$PRISM_DIR/mmc-pack.json"
+cat <<EOF >"$PRISM_DIR/mmc-pack.json"
 {
     "components": [
         { "important": true, "uid": "net.minecraft", "version": "${MC_VERSION}" },
@@ -119,13 +119,13 @@ cat << EOF > "$PRISM_DIR/mmc-pack.json"
 }
 EOF
 
-cat << EOF > "$PRISM_DIR/instance.cfg"
+cat <<EOF >"$PRISM_DIR/instance.cfg"
 [General]
 InstanceType=OneSix
 EOF
 
 cd "$PRISM_DIR"
-zip -r "../$PRISM_NAME" . > /dev/null
+zip -r "../$PRISM_NAME" . >/dev/null
 cd ..
 
 cd "$ORIG_DIR"

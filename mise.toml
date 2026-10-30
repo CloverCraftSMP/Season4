@@ -8,13 +8,17 @@ jq = "latest"
 shellcheck = "latest"
 shellharden = "latest"
 shfmt = "latest"
+tombi = "latest"
 zizmor = "latest"
 
 [env]
-_.file = '.env'
+_.file = ".env"
 MODPACK_WIKIJS_URL = "https://wiki.clovercraftsmp.com"
 UNSUP_VERSION = "1.3.0"
 MINECRAFT_VERSION = "26.1.2"
 FABRIC_LOADER = "0.20.1"
 
 MISE_TASKS_ROOT = "{{config_root}}/.mise/tasks"
+
+[tasks.pre-commit]
+run = "hk run pre-commit"

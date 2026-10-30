@@ -17,7 +17,7 @@ load_pack_versions() {
     MC_VERSION=$(grep -E '^\s*minecraft\s*=' pack.toml | cut -d'"' -f2 || true)
     FABRIC_VERSION=$(grep -E '^\s*fabric\s*=' pack.toml | cut -d'"' -f2 || true)
 
-    if [ -z "$MC_VERSION" ] || [ -z "$FABRIC_VERSION" ]; then
+    if [ "$MC_VERSION" = "" ] || [ "$FABRIC_VERSION" = "" ]; then
         echo "Error: Could not parse Minecraft or Fabric versions from pack.toml." >&2
         exit 1
     fi
