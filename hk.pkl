@@ -14,8 +14,8 @@ local linters = new Mapping<String, Step> {
         depends = "tombi"
     }
     ["packwiz-refresh"] {
-        glob = List("mise.toml", "index.toml")
-        fix = "mise run packwiz:refresh"
+        glob = List("index.toml")
+        fix = "packwiz refresh"
     }
 }
 
