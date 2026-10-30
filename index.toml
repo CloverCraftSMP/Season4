@@ -106,7 +106,7 @@ metafile = true
 
 [[files]]
 file = "mods/animaticarefabricated.pw.toml"
-hash = "b67df6fe439173002c50327fe569998f6e7d21e1d8d790ee6cdeb5ba071f9e6c"
+hash = "2b8c7c45011fe8b5559560ac9efdf21a0cf5c5b26331b190ba5b4728dc66ef4a"
 metafile = true
 
 [[files]]
@@ -907,7 +907,7 @@ metafile = true
 
 [[files]]
 file = "mods/sound-physics-remastered.pw.toml"
-hash = "24b56ede89f09187f0cbb3f4cb7001da587c2d16ca62e1edb9c1bb801ffc4c78"
+hash = "c10da3c7d320f6e74847ccb93af6fee76eea87199131a5644efcea240b1c4f4a"
 metafile = true
 
 [[files]]
