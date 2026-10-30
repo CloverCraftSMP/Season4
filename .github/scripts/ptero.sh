@@ -179,7 +179,7 @@ cmd_file_put() {
     [[ -f "$local_file" ]] || die "$local_file does not exist"
     content=$(base64 <"$local_file" | tr -d '\n')
 
-    api_call PUT /files/write \
+    api_call POST /files/write \
         "$(jq -nc --arg path "$remote" --arg content "$content" \
             '{path: $path, content: $content, encoding: "base64"}')"
     api_ok || die "writing $remote failed: $(api_error)"
