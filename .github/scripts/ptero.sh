@@ -9,6 +9,7 @@
 #   backup <name> [output-dir]           Create, wait for and download a backup
 #   prune [keep]                         Delete stale, pipeline-owned backups
 #   file-get <remote path> <local file>  Download a file from the server
+#                                        (exit 1 if it is missing/unreadable)
 #   file-put <remote path> <local file>  Upload a file to the server
 #
 #   PTERO_BACKUP_KEEP      Backups created by this pipeline to keep (default 5)
@@ -28,28 +29,35 @@ BACKUP_TIMEOUT="${PTERO_BACKUP_TIMEOUT:-1800}"
 log() { printf 'ptero: %s\n' "$*" >&2; }
 die() { printf 'ptero: error: %s\n' "$*" >&2; exit 1; }
 
+api_request() {
+    local method="$1" path="$2" out="$3"
+    shift 3
+
+    API_STATUS=$(curl \
+        --silent --show-error \
+        --request "$method" \
+        --output "$out" \
+        --write-out '%{http_code}' \
+        --header "Authorization: Bearer ${PTERO_API_KEY}" \
+        --header "Accept: Application/vnd.pterodactyl.v1+json" \
+        "$@" \
+        "${API_BASE}${path}") || {
+        rm -f "$out"
+        die "network error while calling ${method} ${path}"
+    }
+}
+
 api_call() {
     local method="$1" path="$2" body="${3:-}"
     local file
-    local -a args
+    local -a extra=(--header "Content-Type: application/json")
+
+    if [[ -n "$body" ]]; then
+        extra+=(--data "$body")
+    fi
 
     file=$(mktemp)
-    args=(
-        --silent --show-error
-        --request "$method"
-        "${API_BASE}${path}"
-        --output "$file"
-        --write-out '%{http_code}'
-        --header "Authorization: Bearer ${PTERO_API_KEY}"
-        --header "Accept: Application/vnd.pterodactyl.v1+json"
-        --header "Content-Type: application/json"
-    )
-    [[ -n "$body" ]] && args+=(--data "$body")
-
-    API_STATUS=$(curl "${args[@]}") || {
-        rm -f "$file"
-        die "network error while calling ${method} ${path}"
-    }
+    api_request "$method" "$path" "$file" "${extra[@]}"
     API_BODY=$(cat "$file")
     rm -f "$file"
 }
@@ -59,6 +67,8 @@ api_ok() { ((API_STATUS < 400)); }
 api_error() {
     jq -c '.errors // .' <<<"$API_BODY" 2>/dev/null || printf '%s' "$API_BODY"
 }
+
+urlencode() { jq -rn --arg x "$1" '$x | @uri'; }
 
 prune_backups() {
     local keep="${1:-$BACKUP_KEEP}" victims uuid
@@ -154,19 +164,28 @@ cmd_file_get() {
     local local_file="${2:?local file is required}"
     local tmp
 
-    api_call GET "/files/contents?file=$remote"
-    ((API_STATUS == 404)) && return 1
-    api_ok || die "reading $remote failed: $(api_error)"
-
     tmp=$(mktemp)
-    if ! jq -r '.attributes.content // empty' <<<"$API_BODY" | base64 -d >"$tmp" 2>/dev/null; then
+    api_request GET "/files/contents?file=$(urlencode "$remote")" "$tmp"
+
+    if ((API_STATUS == 404)); then
         rm -f "$tmp"
-        die "$remote could not be decoded (is it binary?)"
+        log "$remote does not exist on the server"
+        return 1
     fi
+
+    if ! api_ok; then
+        API_BODY=$(head -c 2000 "$tmp")
+        rm -f "$tmp"
+        log "warning: reading $remote failed with status $API_STATUS: $(api_error)"
+        return 1
+    fi
+
     if [[ ! -s "$tmp" ]]; then
         rm -f "$tmp"
-        die "$remote came back empty"
+        log "warning: $remote came back empty"
+        return 1
     fi
+
     mv "$tmp" "$local_file"
     log "read $remote -> $local_file"
 }
@@ -174,14 +193,17 @@ cmd_file_get() {
 cmd_file_put() {
     local remote="${1:?remote path is required}"
     local local_file="${2:?local file is required}"
-    local content
+    local out
 
     [[ -f "$local_file" ]] || die "$local_file does not exist"
-    content=$(base64 <"$local_file" | tr -d '\n')
 
-    api_call PUT /files/write \
-        "$(jq -nc --arg path "$remote" --arg content "$content" \
-            '{path: $path, content: $content, encoding: "base64"}')"
+    out=$(mktemp)
+    api_request POST "/files/write?file=$(urlencode "$remote")" "$out" \
+        --header "Content-Type: text/plain" \
+        --data-binary "@${local_file}"
+    API_BODY=$(cat "$out")
+    rm -f "$out"
+
     api_ok || die "writing $remote failed: $(api_error)"
     log "wrote $remote (from $local_file)"
 }
