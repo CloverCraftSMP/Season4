@@ -3,6 +3,6 @@ filename = "fabric-server.jar"
 side = "server"
 
 [download]
-url = "https://meta.fabricmc.net/v2/versions/loader/26.1.2/0.19.5/1.0.1/server/jar"
+url = "https://meta.fabricmc.net/v2/versions/loader/26.1.2/0.20.1/1.0.1/server/jar"
 hash-format = "sha256"
-hash = "541fcc505d3c25ff1370130c5a0387aebb0e02c6555de446ced39c65c7aee625"
+hash = "6ce9c95db8bdc43e24cec29133a89d639f7701855fc36b63acba9e0083f29df1"

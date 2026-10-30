@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#MISE description="Updates file hashes in fabric-server.pw.toml after updating the fabric loader version in mise.toml"
+set -euo pipefail
+
+source "$MISE_TASKS_ROOT/_common.sh"
+
+load_fabric_server_toml
+
+echo "Fabric Server URL: $TMP_FS_URL"
+echo "Current Hash (TOML): $TMP_FS_HASH"
+
+echo "Downloading and calculating new hash..."
+NEW_HASH=$(curl -sL "$TMP_FS_URL" | sha256sum | awk '{print $1}')
+echo "Computed Hash:   $NEW_HASH"
+
+if [ "$TMP_FS_HASH" = "$NEW_HASH" ]; then
+    echo "Hash already up to date"
+    exit 0
+fi
+
+sed -i -E "s/(hash\s*=\s*\")[^\"]*(\")/\1${NEW_HASH}\2/" fabric-server.pw.toml
+
+echo "Updated fabric-server.pw.toml with new hash"
