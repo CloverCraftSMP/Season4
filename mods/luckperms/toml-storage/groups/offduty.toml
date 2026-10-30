@@ -1,0 +1,9 @@
+name = "offduty"
+
+# [[meta]]
+# key = "discord-role-id"
+# value = ""
+
+[[permissions]]
+permission = "weight.100"
+value = true

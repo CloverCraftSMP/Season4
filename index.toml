@@ -370,6 +370,11 @@ hash = "455286c56edfbce43a74a6faaaa13609bac43c8da0210fca089c8fdc502fa0dd"
 metafile = true
 
 [[files]]
+file = "mods/essential-commands.pw.toml"
+hash = "5f3716f1cd416f0ba0660abcb7907fc965d5f1cad74d023cc07ed324d39105d0"
+metafile = true
+
+[[files]]
 file = "mods/eunomia.pw.toml"
 hash = "084cc84e9e4dd4ee90958a7d368caa702b2e0bd0a7f6ec76199b25251518bcba"
 metafile = true
@@ -616,7 +621,7 @@ metafile = true
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/communityrep.toml"
-hash = "8812a138cd2f1df5a3e88e9060ab98ae9e56e81d3680efa674c85701bf8d5f41"
+hash = "58efe988da75acc40f75f469f9e29194d316ee1a8e340bb596d0f11669c490fb"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/default.toml"
@@ -624,11 +629,15 @@ hash = "3744fe98cf0e3a65eac01648574f0bffd7ebfbcd448f34b5fa6f3346581a1167"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/dev.toml"
-hash = "aff3370113c0673a000b9907d435a6cd6f291c43c21c0e173a090ee9c704ca4a"
+hash = "e2387b890654276040d0b2ce8dfdb789e8ef54ceb4542f9d74c53dfe9f271cf7"
+
+[[files]]
+file = "mods/luckperms/toml-storage/groups/offduty.toml"
+hash = "1b52af1c9adc5c1e6fb3ebb2d68a7bd276a5b4e7276aa0adac72d23b16dcc473"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/staff.toml"
-hash = "8da8829c0c31751449d065dc443eef802992f331f71bfbf7a93ff0b66d2b781a"
+hash = "e5def64995c0403122406379a45228af6ba5ffec4a90292ec2f01f78aaa1e95e"
 
 [[files]]
 file = "mods/melody.pw.toml"
@@ -1154,4 +1163,4 @@ hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
 
 [[files]]
 file = "unsup.toml"
-hash = "909abb31687c016a9430db0ce2d9542945bfeb455f91ece39bee99f9ad539c3c"
+hash = "4a7a19465f6a96efa3d6bc4159f874828dff36a4da40b41ac8c3e69671c5c416"
