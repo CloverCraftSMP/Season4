@@ -1,0 +1,13 @@
+name = "Essential Commands"
+filename = "essential_commands-0.39.0-mc26.1.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/6VdDUivB/versions/NRYcpTlo/essential_commands-0.39.0-mc26.1.1.jar"
+hash-format = "sha512"
+hash = "3b1cbf8e965c2d732e57648a08c0c80b98d776f214f8541f677e5546c34720e1c3b3efb1ce602e28cbdf3d9921da6da98ad95a83593a6ddfee46fee276f3d800"
+
+[update]
+[update.modrinth]
+mod-id = "6VdDUivB"
+version = "NRYcpTlo"

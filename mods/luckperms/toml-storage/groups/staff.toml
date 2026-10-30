@@ -1,9 +1,16 @@
 name = "staff"
 
-[[meta]]
-key = "discord-role-id"
-value = "1365339783919829012"
+[[permissions]]
+permission = "minecraft.*"
+value = true
+
+[[parents]]
+group = "communityrep"
 
 [[prefixes]]
 prefix = "&c★ "
 priority = 10
+
+[[meta]]
+key = "discord-role-id"
+value = "1365339783919829012"

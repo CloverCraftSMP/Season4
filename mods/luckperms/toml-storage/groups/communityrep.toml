@@ -1,5 +1,20 @@
 name = "communityrep"
 
+[[permissions]]
+permission = "minecraft.command.teleport"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.teleport.targets"
+value = true
+
+[[parents]]
+group = "default"
+
+[[prefixes]]
+prefix = "&e❄"
+priority = 0
+
 [[meta]]
 key = "discord-role-id"
 value = "1368667363322626160"

@@ -1,17 +1,24 @@
 name = "dev"
 
-[[meta]]
-key = "discord-role-id"
-value = "1361352890379272407"
-
 [[permissions]]
 permission = "displayname.Developer"
+value = true
+
+[[permissions]]
+permission = "luckperms.*"
+value = true
+
+[[permissions]]
+permission = "*"
 value = true
 
 [[permissions]]
 permission = "luckperms.autoop"
 value = true
 
-[[permissions]]
-permission = "luckperms.*"
-value = true
+[[parents]]
+group = "staff"
+
+[[meta]]
+key = "discord-role-id"
+value = "1361352890379272407"

@@ -94,7 +94,7 @@ distanthorizons = { flavors = ["dh"] }
 #     CREATOR
 # =================
 flashback = { flavors = ["creator"] }
-axiom = { flavors = ["creator"] }
+axiom = { flavors = ["creator", "server"] }
 
 # =================
 #      MAPS
