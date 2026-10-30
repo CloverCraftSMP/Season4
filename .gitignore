@@ -7,5 +7,6 @@
 !.mise/tasks/
 
 *.env
+!example.env
 preview.md
 .cache/

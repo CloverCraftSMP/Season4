@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Builds both .mrpack and Prism Instance .zip with Unsup"
-#MISE usage="[version] [channel] [output-dir]"
+##### MISE usage="[version] [channel] [output-dir]"
 set -euo pipefail
 
 source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"

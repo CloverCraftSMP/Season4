@@ -2,17 +2,11 @@
 #MISE hide=true
 set -euo pipefail
 
-SERVER_BASE_DIR="$MISE_PROJECT_ROOT/.ci/server"
+source "$MISE_TASKS_ROOT/_constants.sh"
 
-REMOTE_URL=$(git remote get-url origin 2>/dev/null || true)
-REPO_SLUG=$(printf '%s' "$REMOTE_URL" \
-    | sed -E 's#^(git@github\.com:|https://github\.com/)##; s#\.git$##')
-
-if [ -z "$REPO_SLUG" ] || [ "$REPO_SLUG" = "$REMOTE_URL" ]; then
-    REPO_SLUG="CloverCraftSMP/Season4"
-fi
-
-REPO_BASE_RAW="https://raw.githubusercontent.com/$REPO_SLUG"
+source_functions() {
+    source "$MISE_TASKS_ROOT/_pack.sh"
+}
 
 load_pack_versions() {
     if [ ! -f pack.toml ]; then
@@ -35,7 +29,7 @@ fetch_unsup() {
     local target_path="$1"
     mkdir -p "$(dirname "$target_path")"
     echo "Downloading latest unsup.jar..."
-    curl -sSL -o "$target_path" "https://git.sleeping.town/exa/unsup/releases/download/v1.2.7/unsup-1.2.7.jar"
+    curl -sSL -o "$target_path" "https://git.sleeping.town/exa/unsup/releases/download/v1.3.0/unsup-1.3.0.jar"
 }
 
 package_dir() {
@@ -56,3 +50,5 @@ ensure_server_running() {
         exit 1
     fi
 }
+
+source_functions
