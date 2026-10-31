@@ -160,6 +160,11 @@ hash = "6ca9484dcfa28762f68768bca2c7e26373554c1ec8dd9abe6dca07ac05bb27ee"
 metafile = true
 
 [[files]]
+file = "mods/better-clouds.pw.toml"
+hash = "68b63a52850b54e36332be1cf559372a754ed72993c9f54575a6c0e44cd1e16e"
+metafile = true
+
+[[files]]
 file = "mods/better-compatibility-checker.pw.toml"
 hash = "54eb5098a4c48d99cdd57d9c5ab69f5029e6276701f313019dc95cdb0ef1642c"
 metafile = true
@@ -331,7 +336,7 @@ metafile = true
 
 [[files]]
 file = "mods/ears.pw.toml"
-hash = "d4c56c6c91fc4c5c4ea57a078b8ac0c864f569212183f16f63fdde16bbab42a2"
+hash = "1a35740e5266247af5d670c3cd171d54d69eb784b101a48116027bf8b5442940"
 metafile = true
 
 [[files]]
@@ -638,6 +643,11 @@ hash = "1b52af1c9adc5c1e6fb3ebb2d68a7bd276a5b4e7276aa0adac72d23b16dcc473"
 [[files]]
 file = "mods/luckperms/toml-storage/groups/staff.toml"
 hash = "e5def64995c0403122406379a45228af6ba5ffec4a90292ec2f01f78aaa1e95e"
+
+[[files]]
+file = "mods/mastercutter.pw.toml"
+hash = "0a6cc7d172304d1749149951f9b9238ff05d5db59251d433dbc1286130cabbf2"
+metafile = true
 
 [[files]]
 file = "mods/melody.pw.toml"
@@ -1163,4 +1173,4 @@ hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
 
 [[files]]
 file = "unsup.toml"
-hash = "4a7a19465f6a96efa3d6bc4159f874828dff36a4da40b41ac8c3e69671c5c416"
+hash = "8e12778b0a829503f18407a49a41a7e45f20eef9fc153a095a023279bf588dcd"
