@@ -6,7 +6,7 @@
     ]
   },
   "modpackVersion": {
-    "value": "@modpack_version@",
+    "value": "staging-d7352ec",
     "comments": [
       "The version of the modpack"
     ]
