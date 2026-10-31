@@ -160,6 +160,11 @@ hash = "6ca9484dcfa28762f68768bca2c7e26373554c1ec8dd9abe6dca07ac05bb27ee"
 metafile = true
 
 [[files]]
+file = "mods/better-clouds.pw.toml"
+hash = "c8a51a3ddee8b1ff8e22aa9089dd27dfdd69c778ea7fbb76a26945520e301745"
+metafile = true
+
+[[files]]
 file = "mods/better-compatibility-checker.pw.toml"
 hash = "54eb5098a4c48d99cdd57d9c5ab69f5029e6276701f313019dc95cdb0ef1642c"
 metafile = true
@@ -331,7 +336,7 @@ metafile = true
 
 [[files]]
 file = "mods/ears.pw.toml"
-hash = "d4c56c6c91fc4c5c4ea57a078b8ac0c864f569212183f16f63fdde16bbab42a2"
+hash = "09a10fa46f61908b8741520a512ad60c9f0f388cfdc76e90b6c8bd39fb6dc1a8"
 metafile = true
 
 [[files]]
@@ -621,7 +626,7 @@ metafile = true
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/communityrep.toml"
-hash = "c138ff12ec7b256ee55ab5b3e105345fce2d2d1ed4c3d4e650e44b3dafdea05b"
+hash = "cba5b767efd2baa0232bab0bbb27d0ff3a1577250a85550225789aef55d4e9a5"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/default.toml"
@@ -629,15 +634,20 @@ hash = "3744fe98cf0e3a65eac01648574f0bffd7ebfbcd448f34b5fa6f3346581a1167"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/dev.toml"
-hash = "29c68b0d0030e070404fd6c3646d3c413d8be326bab3c7f7a547d74463232539"
+hash = "d4182f2f564cc8fcf6200550a5e5642a8cc8f11bbfa2cac272363b081894e242"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/offduty.toml"
-hash = "eca5d3ede55d8bde1a6ea07517f6aa7def251663d8a84a187095ebc685928637"
+hash = "1b52af1c9adc5c1e6fb3ebb2d68a7bd276a5b4e7276aa0adac72d23b16dcc473"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/staff.toml"
-hash = "aed4ba44f1db56876c1051178fb1c6dab44400c825d69eed552e39571328ec57"
+hash = "e5def64995c0403122406379a45228af6ba5ffec4a90292ec2f01f78aaa1e95e"
+
+[[files]]
+file = "mods/mastercutter.pw.toml"
+hash = "0a6cc7d172304d1749149951f9b9238ff05d5db59251d433dbc1286130cabbf2"
+metafile = true
 
 [[files]]
 file = "mods/melody.pw.toml"
@@ -1163,4 +1173,4 @@ hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
 
 [[files]]
 file = "unsup.toml"
-hash = "6b07b64731be7641b873441e1c89674dab6afe444d514b1b988b1850d0fca5b0"
+hash = "055cd82a0cf7cb2e2cd078ba8ab68c4d68b609c8a152adc6d9f65ebc9a524988"

@@ -73,6 +73,7 @@ animaticarefabricated = { flavors = ["ultra", "standard"] }
 cit-resewn-continuation = { flavors = ["ultra", "standard"] }
 ears = { flavors = ["ultra", "standard"] }
 music-notification = { flavors = ["ultra", "standard"] }
+better-clouds = { flavours = ["ultra", "standard"] }
 
 # =================
 #       LITE
