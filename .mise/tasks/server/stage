@@ -30,4 +30,4 @@ EOF
 
 echo "Syncing server mods..."
 cd "$SERVER_BASE_DIR"
-java -jar unsup.jar server
+java -Dunsup.flavor.creator=creator -jar unsup.jar server
