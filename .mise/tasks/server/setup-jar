@@ -2,9 +2,12 @@
 #MISE description="Downloads and caches the Fabric server jar matching pack.toml"
 set -o pipefail
 
-source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
+source "$MISE_LIB/toml.helper.sh"
 
-load_pack_versions
+load_toml_vars "pack.toml" \
+    "MC_VERSION:minecraft" \
+    "FABRIC_VERSION:fabric"
+log_debug "Loaded in variables from toml" "Minecraft Version: $MC_VERSION" "Fabric Version: $FABRIC_VERSION"
 
 INSTALLER_VERSION="1.0.1"
 SERVER_JAR_CACHE=".mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar"

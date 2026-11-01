@@ -3,5 +3,6 @@ build/
 run/
 
 *.env
+!*.pkdev.env
 !example.env
 preview.md
