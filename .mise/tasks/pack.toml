@@ -1,0 +1,2 @@
+[pack]
+depends = ["pack:mrpack", "pack:unsup-universal", "pack:unsup-prism"]

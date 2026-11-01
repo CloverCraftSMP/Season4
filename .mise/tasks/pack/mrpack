@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$MISE_LIB/client-build.helper.sh"
+
+build
+
+packwiz modrinth export -o "$PACKDEV_BUILD_ROOT/modpack-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.mrpack"
+
+cleanup
