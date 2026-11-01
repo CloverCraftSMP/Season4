@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$MISE_LIB/toml.helper.sh"
+source "$MISE_LIB/client-build.helper.sh"
+
+build
+
+load_toml_vars "pack.toml" \
+    "MC_VERSION:minecraft" \
+    "FABRIC_VERSION:fabric"
+log_debug "Loaded in variables from toml" "Minecraft Version: $MC_VERSION" "Fabric Version: $FABRIC_VERSION"
+
+fetch_unsup "unsup.jar"
+
+mkdir -p build/tmp/overrides
+log_debug "Created temp dir for building mrpack manually in"
+cp unsup.jar unsup.ini build/tmp/overrides/
+log_debug "Copied across unsup jar and ini"
+
+cat <<EOF >build/tmp/modrinth.index.json
+{
+  "formatVersion": 1,
+  "game": "minecraft",
+  "versionId": "${PACKDEV_VERSION}",
+  "name": "Season 4",
+  "dependencies": {
+    "minecraft": "${MC_VERSION}",
+    "fabric-loader": "${FABRIC_VERSION}"
+  },
+  "files": []
+}
+EOF
+log_debug "Wrote modrinth index for mrpack [PACK VERSION: $PACKDEV_VERSION, MINECRAFT: $MC_VERSION, FABRIC: $FABRIC_VERSION]"
+
+cd build/tmp
+zip -r "$PACKDEV_BUILD_ROOT/unsup-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.mrpack" . >/dev/null
+log_debug "Generated mrpack for channel $PACKDEV_CHANNEL"
+
+cleanup
