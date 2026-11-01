@@ -1,12 +1,7 @@
-# ci and artifacts
-.ci/
-/build/
-
-# mise and cache
-.mise/*
-!.mise/tasks/
+# packdev
+build/
+run/
 
 *.env
 !example.env
 preview.md
-.cache/
