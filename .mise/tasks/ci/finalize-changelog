@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#MISE description="Moves CHANGELOG.md's [Unreleased] entries under a new [<version>] heading. No-op if that section already exists."
+set -euo pipefail
+
+source "$MISE_LIB/changelog.helper.sh"
+
+version="${1:?usage: mise run ci:finalize-changelog <version> [expected-notes-file]}"
+expected="${2:-}"
+
+if changelog_has_section "$version"; then
+    log_info "CHANGELOG.md already has a [$version] section, nothing to do"
+    exit 0
+fi
+
+unreleased="$(changelog_section Unreleased)"
+[[ -n "$unreleased" ]] || log_fatal "CHANGELOG.md has nothing under [Unreleased] to release as $version"
+
+# The release was cut from a tag; if [Unreleased] has gained entries since then, moving all of it
+# would claim those for this version too. Leave that for a human.
+if [[ -n "$expected" && "$unreleased" != "$(cat "$expected")" ]]; then
+    log_fatal "[Unreleased] has changed since $version was tagged; move its entries under [$version] by hand"
+fi
+
+heading="## [$version] - $(date -u +%F)"
+awk -v heading="$heading" '
+    !done && /^## \[Unreleased\]/ { print; print ""; print heading; done = 1; next }
+    { print }
+' "$CHANGELOG" >"$CHANGELOG.tmp"
+mv "$CHANGELOG.tmp" "$CHANGELOG"
+
+log_info "Released [Unreleased] as $heading"

@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
-#MISE description="Prints the CHANGELOG.md section for a version (empty if there is none)"
+#MISE description="Prints the release notes for a version: its CHANGELOG.md section, or [Unreleased] if it has none yet. Fails if both are empty."
 set -euo pipefail
+
+source "$MISE_LIB/changelog.helper.sh"
 
 version="${1:?usage: mise run ci:release-notes <version>}"
 
-awk -v version="$version" '
-    /^## \[/ {
-        if (found) exit
-        found = index($0, "[" version "]") > 0
-        next
-    }
-    found
-' "$MISE_PROJECT_ROOT/CHANGELOG.md"
+notes="$(changelog_section "$version")"
+if [[ -z "$notes" ]]; then
+    notes="$(changelog_section Unreleased)"
+fi
+
+if [[ -z "$notes" ]]; then
+    log_fatal "CHANGELOG.md has nothing under [Unreleased] (or [$version]); write the changelog before tagging"
+fi
+
+printf '%s\n' "$notes"

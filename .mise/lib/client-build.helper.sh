@@ -2,6 +2,7 @@
 set -euo pipefail
 
 source "$MISE_LIB/logger.sh"
+source "$MISE_LIB/crash-assistant.helper.sh"
 
 # Resolves PACKDEV_CHANNEL and PACKDEV_VERSION. Values set by the caller win;
 # anything left empty is derived from git: an exact tag is prod, a tagged
@@ -36,7 +37,8 @@ pack_source_url() {
 }
 
 # Renders a pack checkout in place: injects the version, points unsup.ini at
-# the channel's source and refreshes the packwiz hashes the edits invalidated.
+# the channel's source, generates Crash Assistant's modlist.json and refreshes
+# the packwiz hashes the edits invalidated.
 render_pack() {
     local dir="$1" version="$2" source_url="$3"
 
@@ -50,7 +52,7 @@ render_pack() {
     fi
     log_debug "Pointed unsup at $source_url"
 
-    # TODO: update crash assistant config forcefully?
+    write_crash_assistant_modlist "$dir"
 
     (cd "$dir" && packwiz refresh)
 }
@@ -69,7 +71,7 @@ build() {
     export BUILD_DIR
 
     tar -C "$MISE_PROJECT_ROOT" \
-        --exclude=./.git --exclude=./build --exclude=./run --exclude=./.ci \
+        --exclude=./.git --exclude=./build --exclude=./run --exclude=./.ci --exclude=./.mise/cache \
         -cf - . | tar -C "$BUILD_DIR" -xf -
     log_debug "Copied source to $BUILD_DIR"
 

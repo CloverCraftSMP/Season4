@@ -46,7 +46,7 @@ runs:
         PTERO_API_KEY: ${{ inputs.api-key }}
         PTERO_SERVER_ID: ${{ inputs.server-id }}
         BACKUP_NAME: ${{ inputs.backup }}
-      run: '"$GITHUB_ACTION_PATH/ptero.sh" backup "$BACKUP_NAME" "$RUNNER_TEMP/backups"'
+      run: '"$GITHUB_ACTION_PATH/ptero.sh" backup "$BACKUP_NAME"'
 
     - name: Point unsup.ini at the pack
       if: inputs.sync-unsup-ini == 'true'

@@ -1,16 +1,12 @@
 hash-format = "sha256"
 
 [[files]]
+file = ".pteroignore"
+hash = "c84fbfb72951d63261db3ec3a4398da921dddfa08ef8df13433b7f1e07d7525d"
+
+[[files]]
 file = "config/MiniMOTD/main.conf"
 hash = "7c6ad7549d8dd48b8ccc1f5e1d2184f2d100594089f1ba7ba674f047f0d95733"
-
-[[files]]
-file = "config/MiniMOTD/motd.sh"
-hash = "fec140ccf16e74ed6ca7c557c7a07d519c02fb6cb125fc36651b19cb0ed69089"
-
-[[files]]
-file = "config/MiniMOTD/quotes.txt"
-hash = "1c5fffe9183b936d9fae4567467ba2be66b4e88b95eae48b6733ccdf621e8551"
 
 [[files]]
 file = "config/bcc-common.json"
@@ -22,7 +18,7 @@ hash = "8b0264ad5e93d5208cbcef951db431b58ddcfa0c96d0a54955aa217ff382e215"
 
 [[files]]
 file = "config/crash_assistant/config.toml"
-hash = "4af4a022ea92d15525866f25aac96677aef6f0b8a6115cf7425c3b961a5cefab"
+hash = "58aa55a8a7d0b9bf3fc6941de10cd6b53037d0c2f77ec27d479f51ac088ab3c7"
 
 [[files]]
 file = "config/enhancedgroups/enhancedgroups.properties"

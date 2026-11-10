@@ -6,7 +6,7 @@
 #
 #   power <start|stop|restart|kill>       Send a power signal
 #   command <console command>            Run a console command (e.g. "save-all flush")
-#   backup <name> [output-dir]           Create, wait for and download a backup
+#   backup <name>                        Create a backup on the panel and wait for it to finish
 #   prune [keep]                         Delete stale, pipeline-owned backups
 #   file-get <remote path> <local file>  Download a file from the server
 #                                        (exit 1 if it is missing/unreadable)
@@ -106,10 +106,8 @@ prune_backups() {
 
 cmd_backup() {
 	local name="${1:?backup name is required}"
-	local out_dir="${2:-.}"
-	local payload uuid url dest state deadline
+	local payload uuid deadline
 
-	mkdir -p "$out_dir"
 	prune_backups
 
 	payload=$(jq -nc --arg name "$name" '{name: $name, is_locked: false}')
@@ -132,26 +130,17 @@ cmd_backup() {
 		api_call GET "/backups/$uuid"
 		api_ok || die "checking backup $uuid failed: $(api_error)"
 
-		state=$(jq -r '.attributes.is_successful' <<<"$API_BODY")
-		case "$state" in
-		true) break ;;
-		false) die "backup $uuid failed on the panel: $(api_error)" ;;
-		esac
+		# is_successful only means something once completed_at is set.
+		if [[ -n "$(jq -r '.attributes.completed_at // empty' <<<"$API_BODY")" ]]; then
+			[[ "$(jq -r '.attributes.is_successful' <<<"$API_BODY")" == true ]] ||
+				die "backup $uuid failed on the panel: $(api_error)"
+			log "backup $uuid finished ($(jq -r '.attributes.bytes' <<<"$API_BODY") bytes)"
+			break
+		fi
 
 		((SECONDS < deadline)) || die "timed out after ${BACKUP_TIMEOUT}s waiting for backup $uuid"
 		sleep 10
 	done
-
-	api_call GET "/backups/$uuid/download"
-	api_ok || die "requesting a download url failed: $(api_error)"
-
-	url=$(jq -r '.attributes.url // empty' <<<"$API_BODY")
-	[[ "$url" == http* ]] || die "panel did not return a download url"
-
-	dest="$out_dir/$name.tar.zst"
-	curl --silent --show-error --fail --location --retry 3 --output "$dest" "$url" ||
-		die "downloading the backup failed"
-	log "downloaded $dest ($(du -h "$dest" | cut -f1))"
 }
 
 cmd_command() {

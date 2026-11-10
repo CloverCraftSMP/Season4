@@ -42,11 +42,11 @@ Run `mise run packwiz:serve`. This spins up the local packwiz server so the clie
 
 **Do not manually edit version numbers or hashes** in config files. We use placeholders (e.g. `@modpack_version@`) which are automatically injected during release.
 
-To trigger a new release, simply push a new Git tag:
+Add your changes under `## [Unreleased]` in `CHANGELOG.md` as you go. To trigger a new release, push a new Git tag:
 
 ```sh
 git tag v1.0.0
 git push origin v1.0.0
 ```
 
-The Release workflow validates the tagged commit, builds the clients, backs up and deploys the production server, and publishes a GitHub release using the matching `CHANGELOG.md` section as its notes.
+The Release workflow validates the tagged commit and refuses to release if `[Unreleased]` is empty. It then builds the clients, backs up and deploys the production server, publishes a GitHub release with the `[Unreleased]` entries as its notes, announces it on Discord, and commits `CHANGELOG.md` to `main` with those entries moved under `## [X.Y.Z] - <date>`. Pull afterwards before editing the changelog again.

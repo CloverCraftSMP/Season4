@@ -1,11 +1,11 @@
 <a id="readme-top"></a>
 
 <div align="center">
-  <!-- <a href="https://github.com/CloverCraftSMP/Season">
+  <!-- <a href="https://github.com/CloverCraftSMP/Season4">
     <img src="server-icon.png" alt="Logo" width="150" height="150">
   </a> -->
 
-  <h1 align="center">CloverCraft Season 4</h3>
+  <h1 align="center">CloverCraft Season 4</h1>
 
   <p align="center">
     A highly optimised, feature-rich Minecraft modpack designed for performance, flexibility, and stability.

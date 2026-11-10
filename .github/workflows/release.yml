@@ -1,7 +1,8 @@
 name: Release
 
-# Pushing a vX.Y.Z tag validates the tagged commit, builds the prod clients, backs up and deploys prod,
-# then publishes a GitHub release with the clients attached.
+# Pushing a vX.Y.Z tag validates the tagged commit, checks CHANGELOG.md has release notes, builds the
+# prod clients, backs up and deploys prod, publishes a GitHub release with the clients attached and
+# announces it, then files the [Unreleased] changelog entries under the new version on main.
 on:
   push:
     tags: ['v[0-9]+.[0-9]+.[0-9]+*']
@@ -17,6 +18,35 @@ jobs:
   validate:
     uses: ./.github/workflows/validate.yml
 
+  # Fails the release before anything is deployed if there's nothing to announce.
+  changelog:
+    name: Release Notes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      version: ${{ steps.notes.outputs.version }}
+      notes: ${{ steps.notes.outputs.notes }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Read release notes
+        id: notes
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME#v}"
+          notes="$(mise run --quiet ci:release-notes "$version")"
+          {
+            echo "version=$version"
+            echo 'notes<<RELEASE_NOTES_EOF'
+            printf '%s\n' "$notes"
+            echo 'RELEASE_NOTES_EOF'
+          } >> "$GITHUB_OUTPUT"
+          { echo "## Release notes for $version"; echo; printf '%s\n' "$notes"; } >> "$GITHUB_STEP_SUMMARY"
+
   build:
     needs: validate
     uses: ./.github/workflows/build.yml
@@ -25,7 +55,7 @@ jobs:
 
   deploy:
     name: Deploy Production
-    needs: build
+    needs: [build, changelog]
     runs-on: ubuntu-latest
     timeout-minutes: 45
     environment: production
@@ -77,7 +107,7 @@ jobs:
 
   release:
     name: Publish Release
-    needs: [build, deploy]
+    needs: [build, changelog, deploy]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -87,8 +117,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ./.github/actions/setup-environment
-
       - name: Download clients
         uses: actions/download-artifact@v8
         with:
@@ -96,28 +124,11 @@ jobs:
           path: build/
 
       - name: Create release
-        id: release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
-          VERSION: ${{ needs.deploy.outputs.version }}
-        run: |
-          set -euo pipefail
-          notes="$(mise run --quiet ci:release-notes "$VERSION")"
-          args=(--verify-tag --title "$TAG")
-          if [[ -n "$notes" ]]; then
-            args+=(--notes "$notes")
-          else
-            args+=(--generate-notes)
-          fi
-          gh release create "$TAG" "${args[@]}" build/*
-
-          # Read the body back so auto-generated notes are announced too.
-          {
-            echo 'notes<<RELEASE_NOTES_EOF'
-            gh release view "$TAG" --json body --jq .body
-            echo 'RELEASE_NOTES_EOF'
-          } >> "$GITHUB_OUTPUT"
+          NOTES: ${{ needs.changelog.outputs.notes }}
+        run: gh release create "$TAG" --verify-tag --title "$TAG" --notes "$NOTES" build/*
 
       - name: Announce release
         uses: ./.github/actions/discord-notify
@@ -127,16 +138,62 @@ jobs:
           status: success
           title: Season 4 ${{ github.ref_name }} is out!
           url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}
-          description: ${{ steps.release.outputs.notes }}
+          description: ${{ needs.changelog.outputs.notes }}
           fields: |
             Modrinth App|[unsup-prod.mrpack](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/unsup-prod.mrpack)
             Prism Launcher|[prism-unsup-prod.zip](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/prism-unsup-prod.zip)
             Standalone|[modpack-prod.mrpack](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/modpack-prod.mrpack)
 
-  # Deploy reports its own result; this covers validate, build and release failing.
+  # Files this release's [Unreleased] entries under its version on main. Uses the bot app (as in
+  # mod-updater) so the push can get past branch protection; add the app to the bypass list if needed.
+  update-changelog:
+    name: Update Changelog
+    needs: [changelog, release]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Generate bot token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-contents: write
+
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          token: ${{ steps.app-token.outputs.token }}
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Release [Unreleased] as ${{ needs.changelog.outputs.version }}
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          SLUG: ${{ steps.app-token.outputs.app-slug }}
+          VERSION: ${{ needs.changelog.outputs.version }}
+          NOTES: ${{ needs.changelog.outputs.notes }}
+        run: |
+          set -euo pipefail
+          expected="$RUNNER_TEMP/release-notes.md"
+          printf '%s\n' "$NOTES" > "$expected"
+          mise run ci:finalize-changelog "$VERSION" "$expected"
+
+          if git diff --quiet -- CHANGELOG.md; then
+            echo "::notice::CHANGELOG.md already lists $VERSION"
+            exit 0
+          fi
+
+          id="$(gh api "/users/${SLUG}[bot]" --jq .id)"
+          git config user.name "${SLUG}[bot]"
+          git config user.email "${id}+${SLUG}[bot]@users.noreply.github.com"
+          git commit --quiet -m "docs(changelog): release $VERSION" -- CHANGELOG.md
+          git push origin HEAD:main
+
+  # Deploy reports its own result; this covers everything else failing.
   notify-failure:
     name: Notify Failure
-    needs: [validate, build, deploy, release]
+    needs: [validate, changelog, build, deploy, release, update-changelog]
     if: failure() && needs.deploy.result != 'failure'
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -151,9 +208,11 @@ jobs:
           status: failure
           title: Release ${{ github.ref_name }} failed
           description: >-
-            ${{ needs.deploy.result == 'success' && 'Production was deployed, but publishing the GitHub release failed. The public announcement was not sent.' || 'Production was not touched.' }}
+            ${{ needs.release.result == 'success' && format('The release went out, but CHANGELOG.md on main still lists these changes under [Unreleased]. Move them under [{0}] by hand.', needs.changelog.outputs.version) || needs.deploy.result == 'success' && 'Production was deployed, but publishing the GitHub release failed. The public announcement was not sent.' || needs.changelog.result == 'failure' && 'CHANGELOG.md has nothing under [Unreleased]. Write the release notes, then delete and re-push the tag. Production was not touched.' || 'Production was not touched.' }}
           fields: |
             Validate|${{ needs.validate.result }}
+            Changelog|${{ needs.changelog.result }}
             Build|${{ needs.build.result }}
             Deploy|${{ needs.deploy.result }}
             Release|${{ needs.release.result }}
+            Changelog push|${{ needs.update-changelog.result }}

@@ -1,5 +1,5 @@
 name: Setup environment
-description: Installs the mise toolchain. Check the repository out first.
+description: Installs the mise toolchain and restores the mod jar cache. Check the repository out first.
 
 runs:
   using: composite
@@ -8,3 +8,11 @@ runs:
       uses: jdx/mise-action@v5
       with:
         cache: true
+
+    # Mod jars downloaded when rendering the pack (Crash Assistant's modlist.json), keyed by sha512.
+    - name: Cache mod jars
+      uses: actions/cache@v6
+      with:
+        path: .mise/cache/mods
+        key: mod-jars-${{ hashFiles('mods/*.pw.toml') }}
+        restore-keys: mod-jars-
