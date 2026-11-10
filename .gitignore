@@ -1,6 +1,7 @@
 # packdev
 build/
 run/
+.mise/cache/
 
 *.env
 !*.pkdev.env

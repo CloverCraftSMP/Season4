@@ -8,14 +8,18 @@ tombi = "latest"
 
 [env]
 # constants
-_.file = [".env", ".mise/packdev/*.pkdev.env", "config.pkdev.env"]
+_.file = [".env", "config.pkdev.env"]
 MISE_ROOT = "{{config_root}}/.mise"
 MISE_TASKS_ROOT = "$MISE_ROOT/tasks"
 MISE_LIB = "$MISE_ROOT/lib"
 
 # packdev
-PACKDEV_CHANNEL = "dev"  # dev | staging | prod
-PACKDEV_REPO_SLUG = "CloverCraft/Season4"
+# local | staging | prod; left empty, the channel and version are derived from git tags (see .mise/lib/client-build.helper.sh)
+PACKDEV_CHANNEL = "{{ get_env(name='PACKDEV_CHANNEL', default='') }}"
+PACKDEV_VERSION = "{{ get_env(name='PACKDEV_VERSION', default='') }}"
+PACKDEV_REPO_SLUG = "CloverCraftSMP/Season4"
+PACKDEV_REPO_URL = "https://github.com/{{ env.PACKDEV_REPO_SLUG }}"
+PACKDEV_REPO_RAW = "https://raw.githubusercontent.com/{{ env.PACKDEV_REPO_SLUG }}"
 
 PACKDEV_BUILD_ROOT = "{{config_root}}/build"
 PACKDEV_RUN_ROOT = "{{config_root}}/run"

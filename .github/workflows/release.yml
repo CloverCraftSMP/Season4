@@ -1,1 +1,92 @@
+name: Release
 
+# Pushing a vX.Y.Z tag validates the tagged commit, builds the prod clients, backs up and deploys prod,
+# then publishes a GitHub release with the clients attached.
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    uses: ./.github/workflows/validate.yml
+
+  build:
+    needs: validate
+    uses: ./.github/workflows/build.yml
+    with:
+      channel: prod
+
+  deploy:
+    name: Deploy Production
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment: production
+    permissions:
+      contents: write
+    outputs:
+      version: ${{ steps.publish.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # --force-with-lease needs the remote prod branch
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Publish pack
+        id: publish
+        uses: ./.github/actions/publish-pack
+        with:
+          channel: prod
+
+      - name: Deploy server
+        uses: ./.github/actions/deploy-server
+        with:
+          panel-url: ${{ secrets.PTERO_PANEL_URL }}
+          api-key: ${{ secrets.PTERO_API_KEY }}
+          server-id: ${{ secrets.PTERO_PROD_SERVER_ID }}
+          pack-url: ${{ steps.publish.outputs.pack-url }}
+          backup: pre-release-${{ steps.publish.outputs.version }}
+
+  release:
+    name: Publish Release
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Download clients
+        uses: actions/download-artifact@v7
+        with:
+          name: ${{ needs.build.outputs.artifact }}
+          path: build/
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          VERSION: ${{ needs.deploy.outputs.version }}
+        run: |
+          set -euo pipefail
+          notes="$(mise run --quiet ci:release-notes "$VERSION")"
+          args=(--verify-tag --title "$TAG")
+          if [[ -n "$notes" ]]; then
+            args+=(--notes "$notes")
+          else
+            args+=(--generate-notes)
+          fi
+          gh release create "$TAG" "${args[@]}" build/*

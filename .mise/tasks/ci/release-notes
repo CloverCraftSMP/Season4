@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#MISE description="Prints the CHANGELOG.md section for a version (empty if there is none)"
+set -euo pipefail
+
+version="${1:?usage: mise run ci:release-notes <version>}"
+
+awk -v version="$version" '
+    /^## \[/ {
+        if (found) exit
+        found = index($0, "[" version "]") > 0
+        next
+    }
+    found
+' "$MISE_PROJECT_ROOT/CHANGELOG.md"

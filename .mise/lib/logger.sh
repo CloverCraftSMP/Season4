@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+[[ -n "${_LOGGER_LOADED:-}" ]] && return 0
+_LOGGER_LOADED=1
+
 LOG_LEVEL="${LOG_LEVEL:-INFO}" # DEBUG, INFO, WARN, ERROR, FATAL
 LOG_FILE="${LOG_FILE:-}"
 LOG_USE_COLOR="${LOG_USE_COLOR:-true}"

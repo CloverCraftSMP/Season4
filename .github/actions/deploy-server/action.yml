@@ -1,0 +1,83 @@
+name: Deploy server
+description: >-
+  Rolls a Pterodactyl server onto a published pack: flushes the world, optionally backs it up and
+  repoints its unsup.ini, then restarts it so unsup syncs the new pack on boot.
+
+inputs:
+  panel-url:
+    description: Pterodactyl panel base URL
+    required: true
+  api-key:
+    description: Pterodactyl client API key
+    required: true
+  server-id:
+    description: Pterodactyl server identifier
+    required: true
+  pack-url:
+    description: pack.toml URL the server should sync from (publish-pack's pack-url output)
+    required: true
+  backup:
+    description: Name of a backup to take before restarting. Empty skips the backup.
+    required: false
+    default: ''
+  sync-unsup-ini:
+    description: Rewrite the source= line of the server's unsup.ini to pack-url, keeping everything else
+    required: false
+    default: 'true'
+
+runs:
+  using: composite
+  steps:
+    # ptero.sh documents its subcommands in its header.
+    - name: Flush world
+      shell: bash
+      continue-on-error: true
+      env:
+        PTERO_PANEL_URL: ${{ inputs.panel-url }}
+        PTERO_API_KEY: ${{ inputs.api-key }}
+        PTERO_SERVER_ID: ${{ inputs.server-id }}
+      run: '"$GITHUB_ACTION_PATH/ptero.sh" command "save-all flush"'
+
+    - name: Back up world
+      if: inputs.backup != ''
+      shell: bash
+      env:
+        PTERO_PANEL_URL: ${{ inputs.panel-url }}
+        PTERO_API_KEY: ${{ inputs.api-key }}
+        PTERO_SERVER_ID: ${{ inputs.server-id }}
+        BACKUP_NAME: ${{ inputs.backup }}
+      run: '"$GITHUB_ACTION_PATH/ptero.sh" backup "$BACKUP_NAME" "$RUNNER_TEMP/backups"'
+
+    - name: Point unsup.ini at the pack
+      if: inputs.sync-unsup-ini == 'true'
+      shell: bash
+      env:
+        PTERO_PANEL_URL: ${{ inputs.panel-url }}
+        PTERO_API_KEY: ${{ inputs.api-key }}
+        PTERO_SERVER_ID: ${{ inputs.server-id }}
+        PACK_URL: ${{ inputs.pack-url }}
+      run: |
+        set -euo pipefail
+        ini="$RUNNER_TEMP/unsup.ini"
+
+        # Start from the live file so hand-tuned settings survive; only source= is rewritten.
+        if ! "$GITHUB_ACTION_PATH/ptero.sh" file-get /unsup.ini "$ini"; then
+          echo "::notice::server has no readable unsup.ini, using the repository's"
+          cp unsup.ini "$ini"
+        fi
+
+        if grep -q '^source=' "$ini"; then
+          sed -i "s|^source=.*|source=${PACK_URL}|" "$ini"
+        else
+          printf 'source=%s\n' "$PACK_URL" >> "$ini"
+        fi
+
+        "$GITHUB_ACTION_PATH/ptero.sh" file-put /unsup.ini "$ini"
+
+    - name: Restart server
+      shell: bash
+      env:
+        PTERO_PANEL_URL: ${{ inputs.panel-url }}
+        PTERO_API_KEY: ${{ inputs.api-key }}
+        PTERO_SERVER_ID: ${{ inputs.server-id }}
+      run: '"$GITHUB_ACTION_PATH/ptero.sh" power restart'

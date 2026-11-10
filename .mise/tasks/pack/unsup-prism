@@ -1,27 +1,23 @@
 #!/usr/bin/env bash
+#MISE description="Builds a Prism Launcher instance zip with unsup as a Java agent"
 set -euo pipefail
 
 source "$MISE_LIB/toml.helper.sh"
 source "$MISE_LIB/client-build.helper.sh"
+trap cleanup EXIT
 
 build
 
 load_toml_vars "pack.toml" \
     "MC_VERSION:minecraft" \
     "FABRIC_VERSION:fabric"
-log_debug "Loaded in variables from toml" "Minecraft Version: $MC_VERSION" "Fabric Version: $FABRIC_VERSION"
 
-fetch_unsup "unsup.jar"
+STAGE="$BUILD_DIR/.stage"
+mkdir -p "$STAGE/.minecraft" "$STAGE/patches"
 
-BUILD_TEMP="build/tmp"
-BUILD_MINECRAFT="$BUILD_TEMP/.minecraft"
-BUILD_PATCHES="$BUILD_TEMP/patches"
+cp unsup.ini "$STAGE/.minecraft/"
 
-mkdir -p "$BUILD_MINECRAFT" "$BUILD_PATCHES"
-
-cp unsup.ini "$BUILD_MINECRAFT"
-
-cat <<EOF >"$BUILD_PATCHES/com.unascribed.unsup.json"
+cat <<JSON >"$STAGE/patches/com.unascribed.unsup.json"
 {
 	"formatVersion": 1,
 	"name": "unsup",
@@ -34,9 +30,9 @@ cat <<EOF >"$BUILD_PATCHES/com.unascribed.unsup.json"
 		}
 	]
 }
-EOF
+JSON
 
-cat <<EOF >"$BUILD_TEMP/mmc-pack.json"
+cat <<JSON >"$STAGE/mmc-pack.json"
 {
     "components": [
         { "important": true, "uid": "net.minecraft", "version": "${MC_VERSION}" },
@@ -49,16 +45,13 @@ cat <<EOF >"$BUILD_TEMP/mmc-pack.json"
     ],
     "formatVersion": 1
 }
-EOF
-log_debug "Generated mmc-pack [unsup: $UNSUP_VERSION, Minecraft: $MC_VERSION, Fabric: $FABRIC_VERSION]"
+JSON
 
-cat <<EOF >"$BUILD_TEMP/instance.cfg"
+cat <<CFG >"$STAGE/instance.cfg"
 [General]
 InstanceType=OneSix
-EOF
+CFG
 
-cd "$BUILD_TEMP"
-zip -r "$PACKDEV_BUILD_ROOT/prism-unsup-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.zip" . >/dev/null
-log_debug "Generated mrpack for channel $PACKDEV_CHANNEL"
-
-cleanup
+OUT="$PACKDEV_BUILD_ROOT/prism-unsup-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.zip"
+(cd "$STAGE" && zip -r "$OUT" . >/dev/null)
+log_info "Wrote $OUT"

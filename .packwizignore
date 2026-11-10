@@ -6,6 +6,8 @@ mise.toml
 .github
 .ci
 build/
+run/
+.cache/
 
 # md files
 /*.md

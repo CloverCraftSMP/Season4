@@ -1,23 +1,32 @@
-name: Sync Modpack to Wiki.js
+name: Sync Wiki
 
+# Publishes the mod list to the Wiki.js "Season 4 Mods" page.
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - 'mods/**'
+      - mods/**
+      - .github/scripts/sync_wiki.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-wiki
+  cancel-in-progress: true
 
 jobs:
   sync:
+    name: Sync Mod List
     runs-on: ubuntu-latest
-
+    timeout-minutes: 15
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
-      - name: Setup Python
-        uses: actions/setup-python@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
@@ -26,10 +35,9 @@ jobs:
         with:
           path: .cache/modrinth
           key: modrinth-api-${{ runner.os }}-${{ hashFiles('mods/*.pw.toml') }}
-          restore-keys: |
-            modrinth-api-${{ runner.os }}-
+          restore-keys: modrinth-api-${{ runner.os }}-
 
-      - name: Run Wiki Sync Script
+      - name: Sync to Wiki.js
         env:
           WIKIJS_URL: ${{ secrets.WIKIJS_URL }}
           WIKIJS_API_TOKEN: ${{ secrets.WIKIJS_API_TOKEN }}

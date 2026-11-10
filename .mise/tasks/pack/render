@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#MISE description="Renders the working tree in place for a channel (used by deploys, not for local use)"
+set -euo pipefail
+
+source "$MISE_LIB/client-build.helper.sh"
+
+resolve_release
+source_url="$(pack_source_url "$PACKDEV_CHANNEL")"
+render_pack "$MISE_PROJECT_ROOT" "$PACKDEV_VERSION" "$source_url"
+log_info "Rendered $PACKDEV_VERSION for $PACKDEV_CHANNEL"

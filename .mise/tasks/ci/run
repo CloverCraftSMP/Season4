@@ -1,28 +1,18 @@
 #!/usr/bin/env bash
-#MISE description="Runs the full pipeline in one shot with background packwiz"
+#MISE description="Serves the pack in the background and runs the server boot test against it"
 set -euo pipefail
 
-echo "[CI] Starting local packwiz server in the background..."
+source "$MISE_LIB/server.helper.sh"
+
 cd "$MISE_PROJECT_ROOT"
 packwiz serve >/dev/null 2>&1 &
 PACKWIZ_PID=$!
+trap 'kill "$PACKWIZ_PID" 2>/dev/null || true' EXIT
 
-trap "echo -e '\n[CI] Shutting down packwiz...'; kill $PACKWIZ_PID 2>/dev/null || true" EXIT
-
-echo "[CI] Waiting for packwiz server to accept connections..."
-MAX_RETRIES=10
-for ((i = 1; i <= MAX_RETRIES; i++)); do
-	if curl -s --head http://localhost:8080/pack.toml >/dev/null; then
-		echo "[CI] Packwiz server is online!"
-		break
-	fi
-	if [ "$i" -eq "$MAX_RETRIES" ]; then
-		echo "[CI] Packwiz server failed to start within time limit."
-		exit 1
-	fi
-	sleep 1
+for _ in {1..10}; do
+    packwiz_is_serving && break
+    sleep 1
 done
-
-echo "[CI] Starting the test pipeline..."
+require_packwiz_serving
 
 mise run server:test

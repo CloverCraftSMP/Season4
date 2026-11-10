@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE description="Prints the channel and version a build would use as key=value lines"
+set -euo pipefail
+
+source "$MISE_LIB/client-build.helper.sh"
+
+resolve_release
+echo "channel=$PACKDEV_CHANNEL"
+echo "version=$PACKDEV_VERSION"

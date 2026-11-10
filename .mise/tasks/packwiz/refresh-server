@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#MISE description="Re-hashes fabric-server.pw.toml after its download URL changes"
 set -euo pipefail
 
 source "$MISE_LIB/toml.helper.sh"

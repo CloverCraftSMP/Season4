@@ -1,2 +1,3 @@
 [pack]
+description = "Builds every client artifact into build/"
 depends = ["pack:mrpack", "pack:unsup-universal", "pack:unsup-prism"]

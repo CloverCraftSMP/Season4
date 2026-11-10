@@ -1,68 +1,68 @@
 name: Build Clients
 
-# Manually build the client artifacts for a ref without deploying anything.
+# Builds the client artifacts (see `mise run pack`) without deploying anything. Also called by release.
 on:
   workflow_dispatch:
     inputs:
       ref:
-        description: 'Branch or tag to build (defaults to the ref the workflow was started from)'
+        description: Branch or tag to build (defaults to the ref the workflow was started from)
         required: false
         default: ''
       channel:
-        description: 'Which pack branch the clients should bootstrap from'
+        description: Pack branch the clients bootstrap from
         required: true
         type: choice
         default: staging
-        options:
-          - staging
-          - prod
-          - local
+        options: [staging, prod, local]
+  workflow_call:
+    inputs:
+      channel:
+        type: string
+        required: true
+      version:
+        description: Version to stamp into the pack (derived from git tags when empty)
+        type: string
+        default: ''
+    outputs:
+      artifact:
+        description: Name of the uploaded artifact holding build/
+        value: ${{ jobs.build.outputs.artifact }}
 
 permissions:
   contents: read
-
-concurrency:
-  group: build-clients-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   build:
     name: Build Clients
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      artifact: clients-${{ steps.info.outputs.channel }}-${{ steps.info.outputs.version }}
+    env:
+      PACKDEV_CHANNEL: ${{ inputs.channel }}
+      PACKDEV_VERSION: ${{ inputs.version }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
-          ref: ${{ inputs.ref || github.ref }}
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0 # git describe needs tags to derive a version
           persist-credentials: false
 
+      - uses: ./.github/actions/setup-environment
+
       - name: Resolve version
-        id: version
-        run: |
-          set -euo pipefail
-          version="${GITHUB_REF_NAME//\//-}"
-          if [[ "$version" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+(-.+)?$ ]]; then
-            version="${version#v}"
-          else
-            version="$version-$(git rev-parse --short HEAD)"
-          fi
-          echo "version=$version" >> "$GITHUB_OUTPUT"
+        id: info
+        run: mise run --quiet pack:info | tee -a "$GITHUB_OUTPUT"
 
-      - name: Setup Environment (Mise)
-        uses: jdx/mise-action@v4
+      - name: Build clients
+        env:
+          PACKDEV_VERSION: ${{ steps.info.outputs.version }}
+        run: mise run pack
 
-      - name: Build Clients
-        run: |
-          mise run build:clients \
-            "${{ steps.version.outputs.version }}" \
-            "${{ inputs.channel }}" \
-            build
-
-      - name: Upload artifacts
+      - name: Upload clients
         uses: actions/upload-artifact@v7
         with:
-          name: Season4-${{ inputs.channel }}-${{ steps.version.outputs.version }}
+          name: clients-${{ steps.info.outputs.channel }}-${{ steps.info.outputs.version }}
           path: build/
           if-no-files-found: error
           retention-days: 14

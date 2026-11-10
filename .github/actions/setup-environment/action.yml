@@ -1,21 +1,10 @@
-name: 'Setup environment'
-description: 'Configures the action to use mise'
+name: Setup environment
+description: Installs the mise toolchain. Check the repository out first.
 
 runs:
-  using: 'composite'
+  using: composite
   steps:
-    - name: Pull repository
-      uses: actions/checkout@v7
-
-    - name: Setup mise
+    - name: Install mise tools
       uses: jdx/mise-action@v5
-
-    - name: Cache mise environment
-      uses: actions/cache@v6
       with:
-        path: |
-          ~/.local/share/mise
-          ~/.cache/mise
-        key: ${{ runner.os }}-mise-${{ hashFiles('mise.toml') }}
-        restore-keys: |
-          ${{ runner.os }}-mise-
+        cache: true
