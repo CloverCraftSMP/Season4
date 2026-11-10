@@ -2,7 +2,15 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/MiniMOTD/main.conf"
-hash = "858b8b41a660334ca17c5c3c9c2e92e9e4b91b64a3ab4eed9688e020e3a5bce3"
+hash = "7c6ad7549d8dd48b8ccc1f5e1d2184f2d100594089f1ba7ba674f047f0d95733"
+
+[[files]]
+file = "config/MiniMOTD/motd.sh"
+hash = "fec140ccf16e74ed6ca7c557c7a07d519c02fb6cb125fc36651b19cb0ed69089"
+
+[[files]]
+file = "config/MiniMOTD/quotes.txt"
+hash = "1c5fffe9183b936d9fae4567467ba2be66b4e88b95eae48b6733ccdf621e8551"
 
 [[files]]
 file = "config/bcc-common.json"
@@ -982,11 +990,6 @@ metafile = true
 [[files]]
 file = "mods/subtle-effects.pw.toml"
 hash = "5862e7315b5cd731d45fe9219285fc0ce568fa5546c4fae32a240b769896b2da"
-metafile = true
-
-[[files]]
-file = "mods/superb-steeds.pw.toml"
-hash = "248ff6f4c4dd76d67e34658f857f078bf61a90538de8ce8768581ecd37fa2df3"
 metafile = true
 
 [[files]]
