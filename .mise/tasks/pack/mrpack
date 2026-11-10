@@ -7,4 +7,4 @@ trap cleanup EXIT
 
 build
 
-packwiz modrinth export -o "$PACKDEV_BUILD_ROOT/modpack-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.mrpack"
+packwiz modrinth export -o "$PACKDEV_BUILD_ROOT/modpack-${PACKDEV_CHANNEL}.mrpack"

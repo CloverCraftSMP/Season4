@@ -50,6 +50,8 @@ render_pack() {
     fi
     log_debug "Pointed unsup at $source_url"
 
+    # TODO: update crash assistant config forcefully?
+
     (cd "$dir" && packwiz refresh)
 }
 

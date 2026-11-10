@@ -32,6 +32,6 @@ cat <<JSON >"$STAGE/modrinth.index.json"
 }
 JSON
 
-OUT="$PACKDEV_BUILD_ROOT/unsup-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.mrpack"
+OUT="$PACKDEV_BUILD_ROOT/unsup-${PACKDEV_CHANNEL}.mrpack"
 (cd "$STAGE" && zip -r "$OUT" . >/dev/null)
 log_info "Wrote $OUT"

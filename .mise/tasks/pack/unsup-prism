@@ -52,6 +52,6 @@ cat <<CFG >"$STAGE/instance.cfg"
 InstanceType=OneSix
 CFG
 
-OUT="$PACKDEV_BUILD_ROOT/prism-unsup-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.zip"
+OUT="$PACKDEV_BUILD_ROOT/prism-unsup-${PACKDEV_CHANNEL}.zip"
 (cd "$STAGE" && zip -r "$OUT" . >/dev/null)
 log_info "Wrote $OUT"

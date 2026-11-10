@@ -46,6 +46,13 @@ jobs:
         with:
           channel: prod
 
+      - name: Notify staff
+        uses: ./.github/actions/discord-notify
+        with:
+          webhook-url: ${{ secrets.DISCORD_STAFF_WEBHOOK }}
+          title: Production deploy started
+          description: Backing up and restarting the production server onto `${{ steps.publish.outputs.version }}`.
+
       - name: Deploy server
         uses: ./.github/actions/deploy-server
         with:
@@ -54,6 +61,19 @@ jobs:
           server-id: ${{ secrets.PTERO_PROD_SERVER_ID }}
           pack-url: ${{ steps.publish.outputs.pack-url }}
           backup: pre-release-${{ steps.publish.outputs.version }}
+
+      - name: Notify staff of result
+        if: always()
+        uses: ./.github/actions/discord-notify
+        with:
+          webhook-url: ${{ secrets.DISCORD_STAFF_WEBHOOK }}
+          status: ${{ job.status }}
+          title: Production deploy ${{ job.status == 'success' && 'finished' || job.status }}
+          description: >-
+            ${{ job.status == 'success' && 'Production is restarting on the new pack. The GitHub release and public announcement are next.' || 'Check the workflow run. The pre-release backup is in the panel if prod needs rolling back.' }}
+          fields: |
+            Version|`${{ steps.publish.outputs.version || 'unknown' }}`
+            Backup|`pre-release-${{ steps.publish.outputs.version || 'unknown' }}`
 
   release:
     name: Publish Release
@@ -76,6 +96,7 @@ jobs:
           path: build/
 
       - name: Create release
+        id: release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
@@ -90,3 +111,49 @@ jobs:
             args+=(--generate-notes)
           fi
           gh release create "$TAG" "${args[@]}" build/*
+
+          # Read the body back so auto-generated notes are announced too.
+          {
+            echo 'notes<<RELEASE_NOTES_EOF'
+            gh release view "$TAG" --json body --jq .body
+            echo 'RELEASE_NOTES_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Announce release
+        uses: ./.github/actions/discord-notify
+        with:
+          webhook-url: ${{ secrets.DISCORD_ANNOUNCE_WEBHOOK }}
+          content: ${{ vars.DISCORD_ANNOUNCE_ROLE_ID && format('<@&{0}>', vars.DISCORD_ANNOUNCE_ROLE_ID) || '' }}
+          status: success
+          title: Season 4 ${{ github.ref_name }} is out!
+          url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}
+          description: ${{ steps.release.outputs.notes }}
+          fields: |
+            Modrinth App|[unsup-prod.mrpack](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/unsup-prod.mrpack)
+            Prism Launcher|[prism-unsup-prod.zip](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/prism-unsup-prod.zip)
+            Standalone|[modpack-prod.mrpack](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/modpack-prod.mrpack)
+
+  # Deploy reports its own result; this covers validate, build and release failing.
+  notify-failure:
+    name: Notify Failure
+    needs: [validate, build, deploy, release]
+    if: failure() && needs.deploy.result != 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/discord-notify
+        with:
+          webhook-url: ${{ secrets.DISCORD_STAFF_WEBHOOK }}
+          status: failure
+          title: Release ${{ github.ref_name }} failed
+          description: >-
+            ${{ needs.deploy.result == 'success' && 'Production was deployed, but publishing the GitHub release failed. The public announcement was not sent.' || 'Production was not touched.' }}
+          fields: |
+            Validate|${{ needs.validate.result }}
+            Build|${{ needs.build.result }}
+            Deploy|${{ needs.deploy.result }}
+            Release|${{ needs.release.result }}

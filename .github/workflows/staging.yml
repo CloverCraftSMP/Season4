@@ -36,6 +36,13 @@ jobs:
         with:
           channel: staging
 
+      - name: Notify staff
+        uses: ./.github/actions/discord-notify
+        with:
+          webhook-url: ${{ secrets.DISCORD_STAFF_WEBHOOK }}
+          title: Staging deploy started
+          description: Restarting the staging server onto `${{ steps.publish.outputs.version }}`. Players will be disconnected briefly.
+
       - name: Deploy server
         uses: ./.github/actions/deploy-server
         with:
@@ -43,3 +50,35 @@ jobs:
           api-key: ${{ secrets.PTERO_API_KEY }}
           server-id: ${{ secrets.PTERO_STAGING_SERVER_ID }}
           pack-url: ${{ steps.publish.outputs.pack-url }}
+
+      - name: Notify staff of result
+        if: always()
+        uses: ./.github/actions/discord-notify
+        with:
+          webhook-url: ${{ secrets.DISCORD_STAFF_WEBHOOK }}
+          status: ${{ job.status }}
+          title: Staging deploy ${{ job.status == 'success' && 'finished' || job.status }}
+          description: >-
+            ${{ job.status == 'success' && 'Staging is up to date, give it a minute to finish booting.' || 'Check the workflow run for details.' }}
+          fields: |
+            Version|`${{ steps.publish.outputs.version || 'unknown' }}`
+            Pack|${{ steps.publish.outputs.pack-url || 'not published' }}
+
+  # Deploy reports its own result; this covers validation failing before anything was touched.
+  notify-failure:
+    name: Notify Failure
+    needs: [validate, deploy]
+    if: failure() && needs.deploy.result != 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/discord-notify
+        with:
+          webhook-url: ${{ secrets.DISCORD_STAFF_WEBHOOK }}
+          status: failure
+          title: Staging deploy failed validation
+          description: Nothing was published and the staging server was not touched.

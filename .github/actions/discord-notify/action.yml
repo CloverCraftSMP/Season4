@@ -1,0 +1,99 @@
+name: Discord notify
+description: >-
+  Posts an embed to a Discord webhook. Skips silently when webhook-url is empty (secret not
+  configured, forks) and only warns if Discord rejects the message, so it never fails a deploy.
+
+inputs:
+  webhook-url:
+    description: Discord webhook URL. Empty skips the notification.
+    required: false
+    default: ''
+  title:
+    description: Embed title (links to `url`)
+    required: true
+  description:
+    description: Embed body, Discord markdown. Truncated to fit Discord's 4096 character limit.
+    required: false
+    default: ''
+  status:
+    description: Sets the embed colour. One of info, success, failure, cancelled, warning.
+    required: false
+    default: info
+  url:
+    description: Link for the title. Defaults to the workflow run.
+    required: false
+    default: ''
+  fields:
+    description: One inline field per line, written as `Name|value`
+    required: false
+    default: ''
+  content:
+    description: Plain message text above the embed, e.g. a role ping like <@&123>. Only role mentions are allowed.
+    required: false
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    - name: Post to Discord
+      shell: bash
+      env:
+        WEBHOOK_URL: ${{ inputs.webhook-url }}
+        TITLE: ${{ inputs.title }}
+        DESCRIPTION: ${{ inputs.description }}
+        STATUS: ${{ inputs.status }}
+        URL: ${{ inputs.url || format('{0}/{1}/actions/runs/{2}', github.server_url, github.repository, github.run_id) }}
+        FIELDS: ${{ inputs.fields }}
+        CONTENT: ${{ inputs.content }}
+        FOOTER: ${{ github.repository }} · ${{ github.ref_name }} · ${{ github.actor }}
+      run: |
+        set -euo pipefail
+
+        if [[ -z "$WEBHOOK_URL" ]]; then
+          echo "::notice::No Discord webhook configured, skipping '$TITLE'"
+          exit 0
+        fi
+
+        case "$STATUS" in
+          success) color=3066993 ;;            # green
+          failure) color=15158332 ;;           # red
+          cancelled | warning) color=15844367 ;; # yellow
+          *) color=3447003 ;;                  # blue
+        esac
+
+        if (( ${#DESCRIPTION} > 4000 )); then
+          DESCRIPTION="${DESCRIPTION:0:3900}"$'\n\n'"…truncated, see the full notes at the link above."
+        fi
+
+        payload=$(jq -n \
+          --arg content "$CONTENT" \
+          --arg title "${TITLE:0:256}" \
+          --arg description "$DESCRIPTION" \
+          --arg url "$URL" \
+          --argjson color "$color" \
+          --arg fields "$FIELDS" \
+          --arg footer "$FOOTER · ${GITHUB_SHA::7}" '
+          {
+            content: $content,
+            allowed_mentions: { parse: ["roles"] },
+            embeds: [{
+              title: $title,
+              description: $description,
+              url: $url,
+              color: $color,
+              fields: [
+                $fields | split("\n")[] | select(contains("|"))
+                | split("|") as $p
+                | { name: $p[0], value: ($p[1:] | join("|")), inline: true }
+              ],
+              footer: { text: $footer },
+              timestamp: (now | todate)
+            }]
+          }
+          | del(.. | select(. == "" or . == []))')
+
+        if ! curl --silent --show-error --fail-with-body --retry 3 \
+          --header 'Content-Type: application/json' \
+          --data "$payload" "$WEBHOOK_URL"; then
+          echo "::warning::Discord notification '$TITLE' failed"
+        fi
