@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+#MISE description="Builds a Prism Launcher instance zip with unsup as a Java agent"
+set -euo pipefail
+
+source "$MISE_LIB/toml.helper.sh"
+source "$MISE_LIB/client-build.helper.sh"
+trap cleanup EXIT
+
+build
+
+load_toml_vars "pack.toml" \
+    "MC_VERSION:minecraft" \
+    "FABRIC_VERSION:fabric"
+
+STAGE="$BUILD_DIR/.stage"
+mkdir -p "$STAGE/.minecraft" "$STAGE/patches"
+
+cp unsup.ini "$STAGE/.minecraft/"
+
+cat <<JSON >"$STAGE/patches/com.unascribed.unsup.json"
+{
+	"formatVersion": 1,
+	"name": "unsup",
+	"uid": "com.unascribed.unsup",
+	"version": "${UNSUP_VERSION}",
+	"+agents": [
+		{
+			"name": "com.unascribed:unsup:${UNSUP_VERSION}",
+			"url": "https://repo.sleeping.town"
+		}
+	]
+}
+JSON
+
+cat <<JSON >"$STAGE/mmc-pack.json"
+{
+    "components": [
+        { "important": true, "uid": "net.minecraft", "version": "${MC_VERSION}" },
+        { "uid": "net.fabricmc.fabric-loader", "version": "${FABRIC_VERSION}" },
+        {
+            "cachedName": "unsup",
+            "cachedVersion": "${UNSUP_VERSION}",
+            "uid": "com.unascribed.unsup"
+        }
+    ],
+    "formatVersion": 1
+}
+JSON
+
+cat <<CFG >"$STAGE/instance.cfg"
+[General]
+InstanceType=OneSix
+CFG
+
+OUT="$PACKDEV_BUILD_ROOT/prism-unsup-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.zip"
+(cd "$STAGE" && zip -r "$OUT" . >/dev/null)
+log_info "Wrote $OUT"

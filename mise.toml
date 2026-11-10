@@ -1,8 +1,29 @@
 [tools]
 go = "latest"
 "go:github.com/packwiz/packwiz" = "latest"
+hk = { version = "latest", workflow = "release.yml" }
 java = "temurin-25"
 jq = "latest"
+tombi = "latest"
 
 [env]
-_.file = '.env'
+# constants
+_.file = [".env", "config.pkdev.env"]
+MISE_ROOT = "{{config_root}}/.mise"
+MISE_TASKS_ROOT = "$MISE_ROOT/tasks"
+MISE_LIB = "$MISE_ROOT/lib"
+
+# packdev
+# local | staging | prod; left empty, the channel and version are derived from git tags (see .mise/lib/client-build.helper.sh)
+PACKDEV_CHANNEL = "{{ get_env(name='PACKDEV_CHANNEL', default='') }}"
+PACKDEV_VERSION = "{{ get_env(name='PACKDEV_VERSION', default='') }}"
+PACKDEV_REPO_SLUG = "CloverCraftSMP/Season4"
+PACKDEV_REPO_URL = "https://github.com/{{ env.PACKDEV_REPO_SLUG }}"
+PACKDEV_REPO_RAW = "https://raw.githubusercontent.com/{{ env.PACKDEV_REPO_SLUG }}"
+
+PACKDEV_BUILD_ROOT = "{{config_root}}/build"
+PACKDEV_RUN_ROOT = "{{config_root}}/run"
+PACKDEV_SERVER_ROOT = "$PACKDEV_RUN_ROOT/server"
+
+[tasks.pre-commit]
+run = "hk run pre-commit"

@@ -1,0 +1,45 @@
+name: Deploy Staging
+
+# Validates the selected ref, publishes it to the `staging` branch and rolls the staging server onto it.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    uses: ./.github/workflows/validate.yml
+
+  deploy:
+    name: Deploy Staging
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: staging
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # --force-with-lease needs the remote staging branch
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Publish pack
+        id: publish
+        uses: ./.github/actions/publish-pack
+        with:
+          channel: staging
+
+      - name: Deploy server
+        uses: ./.github/actions/deploy-server
+        with:
+          panel-url: ${{ secrets.PTERO_PANEL_URL }}
+          api-key: ${{ secrets.PTERO_API_KEY }}
+          server-id: ${{ secrets.PTERO_STAGING_SERVER_ID }}
+          pack-url: ${{ steps.publish.outputs.pack-url }}

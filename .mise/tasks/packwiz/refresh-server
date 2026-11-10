@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#MISE description="Re-hashes fabric-server.pw.toml after its download URL changes"
+set -euo pipefail
+
+source "$MISE_LIB/toml.helper.sh"
+source "$MISE_LIB/logger.sh"
+
+load_toml_vars "fabric-server.pw.toml" \
+    "SERVER_JAR_URL:url" \
+    "SERVER_JAR_HASH:hash"
+log_debug "Loaded in variables from toml" "URL: $SERVER_JAR_URL" "Hash: $SERVER_JAR_HASH"
+
+log_info "Downloading and calculating new hash..."
+NEW_HASH=$(curl -sL "$SERVER_JAR_URL" | sha256sum | awk '{print $1}')
+log_debug "Computed Hash:   $NEW_HASH"
+
+if [ "$SERVER_JAR_HASH" = "$NEW_HASH" ]; then
+	log_info "Hash already up to date"
+	exit 0
+fi
+
+sed -i -E "s/(hash\s*=\s*\")[^\"]*(\")/\1${NEW_HASH}\2/" fabric-server.pw.toml
+log_debug "Updated fabric-server.pw.toml with new hash"

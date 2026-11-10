@@ -1,0 +1,12 @@
+["packwiz:refresh"]
+description = "Runs 'packwiz refresh' to update file hashes"
+run = "packwiz refresh"
+
+["packwiz:update-mods"]
+description = "Updates all projects (mods/resourcepacks/datapacks/etc) using 'packwiz update'"
+run = "packwiz update -y --all"
+sources = ["mods/*.toml"]
+
+["packwiz:serve"]
+description = "Runs local HTTP server for dev"
+run = "packwiz serve"

@@ -1,49 +1,29 @@
 #!/usr/bin/env bash
-#MISE description="Boots the Fabric server and waits for it to become healthy"
+#MISE description="Stages the server, boots it and waits for it to accept connections"
 #MISE depends=["server:stage"]
-#MISE wait_for=["server:stage"]
 set -euo pipefail
 
-cd .ci/server
+source "$MISE_LIB/server.helper.sh"
 
-if < /dev/tcp/127.0.0.1/25565 2>/dev/null; then
-    echo "========================================="
-    echo "FAILURE: Port 25565 is already in use!"
-    echo "========================================="
-    exit 1
-fi
-
-echo "Starting test server..."
-java -Xmx2G -Djava.awt.headless=true -jar fabric-server.jar nogui &
-SERVER_PID=$!
-
-echo "Waiting for server to become healthy (Timeout: 4 minutes)..."
-TIMEOUT=240
-ELAPSED=0
+TIMEOUT="${SERVER_BOOT_TIMEOUT:-240}"
 INTERVAL=5
 
-while ! < /dev/tcp/127.0.0.1/25565 2>/dev/null; do
-    if ! kill -0 $SERVER_PID 2>/dev/null; then
-        echo "========================================="
-        echo "FAILURE: Server process crashed during boot!"
-        echo "========================================="
-        exit 1
-    fi
+require_port_free
 
-    if [ $ELAPSED -ge $TIMEOUT ]; then
-        echo "========================================="
-        echo "FAILURE: Server failed to start within 4 minutes."
-        echo "========================================="
-        kill $SERVER_PID
-        exit 1
+cd "$PACKDEV_SERVER_ROOT"
+log_info "Starting test server..."
+java -Xmx2G -Djava.awt.headless=true -jar fabric-server.jar nogui </dev/null &
+SERVER_PID=$!
+trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+
+log_info "Waiting up to ${TIMEOUT}s for the server to accept connections..."
+for ((elapsed = 0; elapsed < TIMEOUT; elapsed += INTERVAL)); do
+    if minecraft_port_open; then
+        log_info "Server booted and is accepting connections"
+        exit 0
     fi
-    
-    sleep $INTERVAL
-    ELAPSED=$((ELAPSED + INTERVAL))
+    kill -0 "$SERVER_PID" 2>/dev/null || log_fatal "Server process exited during boot"
+    sleep "$INTERVAL"
 done
 
-echo "========================================="
-echo "SUCCESS: Server booted and is responding!"
-echo "========================================="
-kill $SERVER_PID
-exit 0
+log_fatal "Server did not accept connections within ${TIMEOUT}s"

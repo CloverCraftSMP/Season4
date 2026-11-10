@@ -1,33 +1,32 @@
 #!/usr/bin/env bash
-#MISE description="Stages the Minecraft server environment for boot"
-#MISE depends=["clean", "server:setup-jar"]
-#MISE wait_for=["clean", "server:setup-jar"]
-set -o pipefail
+#MISE description="Stages a fresh server in run/server, syncing mods from the local packwiz server"
+#MISE depends=["clean:server", "server:setup-jar"]
+set -euo pipefail
 
-source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
+source "$MISE_LIB/toml.helper.sh"
+source "$MISE_LIB/server.helper.sh"
+source "$MISE_LIB/client-build.helper.sh"
 
-ensure_server_running
+require_packwiz_serving
 
-mkdir -p "$SERVER_BASE_DIR"
+load_toml_vars "pack.toml" \
+    "MC_VERSION:minecraft" \
+    "FABRIC_VERSION:fabric"
 
-echo "Accepting EULA..."
-echo "eula=true" > "$SERVER_BASE_DIR/eula.txt"
+mkdir -p "$PACKDEV_SERVER_ROOT"
+echo "eula=true" >"$PACKDEV_SERVER_ROOT/eula.txt"
 
-load_pack_versions
+cp "$MISE_ROOT/cache/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar" "$PACKDEV_SERVER_ROOT/fabric-server.jar"
+fetch_unsup "$PACKDEV_SERVER_ROOT/unsup.jar"
 
-cp ".mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar" "$SERVER_BASE_DIR/fabric-server.jar"
-
-fetch_unsup "$SERVER_BASE_DIR/unsup.jar"
-
-echo "Configuring unsup to look at local packwiz server..."
-cat << EOF > "$SERVER_BASE_DIR/unsup.ini"
+cat <<INI >"$PACKDEV_SERVER_ROOT/unsup.ini"
 version=1
 preset=minecraft
 
 source_format=packwiz
-source=http://localhost:8080/pack.toml
-EOF
+source=${PACKWIZ_LOCAL_URL}
+INI
 
-echo "Syncing server mods..."
-cd "$SERVER_BASE_DIR"
+log_info "Syncing server mods..."
+cd "$PACKDEV_SERVER_ROOT"
 java -Dunsup.flavor.creator=creator -jar unsup.jar server

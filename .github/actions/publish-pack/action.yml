@@ -1,0 +1,59 @@
+name: Publish pack
+description: >-
+  Renders the checked-out pack for a channel and force-pushes it to the branch of the same name,
+  which unsup clients and servers on that channel bootstrap from. Needs a full-history checkout
+  and setup-environment.
+
+inputs:
+  channel:
+    description: Channel to publish (staging or prod). Also the branch that gets pushed.
+    required: true
+  version:
+    description: Value substituted for the @modpack_version@ placeholder (derived from git tags when empty)
+    required: false
+    default: ''
+
+outputs:
+  version:
+    description: Version that was published
+    value: ${{ steps.render.outputs.version }}
+  pack-url:
+    description: URL of the published pack.toml
+    value: ${{ steps.render.outputs.pack-url }}
+
+runs:
+  using: composite
+  steps:
+    - name: Render ${{ inputs.channel }}
+      id: render
+      shell: bash
+      env:
+        PACKDEV_CHANNEL: ${{ inputs.channel }}
+        PACKDEV_VERSION: ${{ inputs.version }}
+      run: |
+        mise run pack:render
+        mise run --quiet pack:info | grep '^version=' >> "$GITHUB_OUTPUT"
+        echo "pack-url=$(sed -n 's/^source=//p' unsup.ini)" >> "$GITHUB_OUTPUT"
+
+    - name: Push ${{ inputs.channel }}
+      shell: bash
+      env:
+        CHANNEL: ${{ inputs.channel }}
+        VERSION: ${{ steps.render.outputs.version }}
+      run: |
+        set -euo pipefail
+
+        git config user.name 'github-actions[bot]'
+        git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+        git checkout -B "$CHANNEL"
+        git add --all
+
+        if git rev-parse --verify --quiet "origin/$CHANNEL" >/dev/null &&
+          git diff --cached --quiet "origin/$CHANNEL"; then
+          echo "::notice::$CHANNEL already matches $VERSION, nothing to push"
+          exit 0
+        fi
+
+        git commit --quiet -m "deploy: $VERSION"
+        git --no-pager show --stat --format='Publishing %s' HEAD
+        git push --force-with-lease origin "$CHANNEL"

@@ -1,0 +1,68 @@
+name: Build Clients
+
+# Builds the client artifacts (see `mise run pack`) without deploying anything. Also called by release.
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch or tag to build (defaults to the ref the workflow was started from)
+        required: false
+        default: ''
+      channel:
+        description: Pack branch the clients bootstrap from
+        required: true
+        type: choice
+        default: staging
+        options: [staging, prod, local]
+  workflow_call:
+    inputs:
+      channel:
+        type: string
+        required: true
+      version:
+        description: Version to stamp into the pack (derived from git tags when empty)
+        type: string
+        default: ''
+    outputs:
+      artifact:
+        description: Name of the uploaded artifact holding build/
+        value: ${{ jobs.build.outputs.artifact }}
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Clients
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      artifact: clients-${{ steps.info.outputs.channel }}-${{ steps.info.outputs.version }}
+    env:
+      PACKDEV_CHANNEL: ${{ inputs.channel }}
+      PACKDEV_VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0 # git describe needs tags to derive a version
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Resolve version
+        id: info
+        run: mise run --quiet pack:info | tee -a "$GITHUB_OUTPUT"
+
+      - name: Build clients
+        env:
+          PACKDEV_VERSION: ${{ steps.info.outputs.version }}
+        run: mise run pack
+
+      - name: Upload clients
+        uses: actions/upload-artifact@v7
+        with:
+          name: clients-${{ steps.info.outputs.channel }}-${{ steps.info.outputs.version }}
+          path: build/
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#MISE description="Builds a bootstrap .mrpack that installs and updates the pack through unsup"
+set -euo pipefail
+
+source "$MISE_LIB/toml.helper.sh"
+source "$MISE_LIB/client-build.helper.sh"
+trap cleanup EXIT
+
+build
+
+load_toml_vars "pack.toml" \
+    "MC_VERSION:minecraft" \
+    "FABRIC_VERSION:fabric"
+
+STAGE="$BUILD_DIR/.stage"
+mkdir -p "$STAGE/overrides"
+
+fetch_unsup "$STAGE/overrides/unsup.jar"
+cp unsup.ini "$STAGE/overrides/"
+
+cat <<JSON >"$STAGE/modrinth.index.json"
+{
+  "formatVersion": 1,
+  "game": "minecraft",
+  "versionId": "${PACKDEV_VERSION}",
+  "name": "Season 4",
+  "dependencies": {
+    "minecraft": "${MC_VERSION}",
+    "fabric-loader": "${FABRIC_VERSION}"
+  },
+  "files": []
+}
+JSON
+
+OUT="$PACKDEV_BUILD_ROOT/unsup-${PACKDEV_VERSION}-${PACKDEV_CHANNEL}.mrpack"
+(cd "$STAGE" && zip -r "$OUT" . >/dev/null)
+log_info "Wrote $OUT"

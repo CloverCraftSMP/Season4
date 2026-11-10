@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 #MISE description="Downloads and caches the Fabric server jar matching pack.toml"
-set -o pipefail
+set -euo pipefail
 
-source "$MISE_PROJECT_ROOT/.mise/tasks/_common.sh"
+source "$MISE_LIB/toml.helper.sh"
+source "$MISE_LIB/logger.sh"
 
-load_pack_versions
+load_toml_vars "pack.toml" \
+    "MC_VERSION:minecraft" \
+    "FABRIC_VERSION:fabric"
 
 INSTALLER_VERSION="1.0.1"
-SERVER_JAR_CACHE=".mise/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar"
- 
-if [ ! -f "$SERVER_JAR_CACHE" ]; then
-    echo "Downloading Fabric Server $FABRIC_VERSION for MC $MC_VERSION..."
-    mkdir -p .mise
-    curl -sLo "$SERVER_JAR_CACHE" "https://meta.fabricmc.net/v2/versions/loader/${MC_VERSION}/${FABRIC_VERSION}/${INSTALLER_VERSION}/server/jar"
-else
-    echo "Fabric server jar already cached at $SERVER_JAR_CACHE"
+JAR="$MISE_ROOT/cache/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar"
+
+if [[ -f "$JAR" ]]; then
+    log_info "Fabric server jar already cached at $JAR"
+    exit 0
 fi
+
+log_info "Downloading Fabric server $FABRIC_VERSION for Minecraft $MC_VERSION..."
+mkdir -p "$(dirname "$JAR")"
+curl -sSfL -o "$JAR.part" "https://meta.fabricmc.net/v2/versions/loader/${MC_VERSION}/${FABRIC_VERSION}/${INSTALLER_VERSION}/server/jar"
+mv "$JAR.part" "$JAR"

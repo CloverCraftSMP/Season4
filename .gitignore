@@ -1,11 +1,9 @@
-# ci and artifacts
-.ci/
-/build/
-
-# mise and cache
-.mise/*
-!.mise/tasks/
+# packdev
+build/
+run/
+.mise/cache/
 
 *.env
+!*.pkdev.env
+!example.env
 preview.md
-.cache/

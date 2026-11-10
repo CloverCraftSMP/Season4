@@ -1,0 +1,7 @@
+["clean:server"]
+description = "Clean server resource"
+run = 'rm -rf "$PACKDEV_SERVER_ROOT"'
+
+[clean]
+description = "Cleans all resources"
+depends = ["clean:server"]

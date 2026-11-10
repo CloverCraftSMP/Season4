@@ -1,0 +1,74 @@
+name: Validate
+
+# Pack integrity checks plus a real server boot against the pack. Also called by staging and release.
+on:
+  push:
+    branches: [main]
+    paths: &pack-paths
+      - pack.toml
+      - index.toml
+      - unsup.toml
+      - unsup.ini
+      - fabric-server.pw.toml
+      - mods/**
+      - config/**
+      - resourcepacks/**
+      - mise.toml
+      - config.pkdev.env
+      - .mise/**
+      - .gitattributes
+      - .github/workflows/validate.yml
+      - .github/actions/setup-environment/**
+  pull_request:
+    branches: [main]
+    paths: *pack-paths
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  # github.workflow resolves to the caller when called, so namespace it to avoid deadlocking the caller's group.
+  group: validate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    name: Pack Integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Check pack
+        run: mise run ci:check
+
+  boot:
+    name: Server Boot
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Boot server
+        run: mise run ci:run
+
+      - name: Upload server logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: server-logs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            run/server/logs/
+            run/server/crash-reports/
+          if-no-files-found: ignore
+          retention-days: 14

@@ -1,0 +1,10 @@
+name: Setup environment
+description: Installs the mise toolchain. Check the repository out first.
+
+runs:
+  using: composite
+  steps:
+    - name: Install mise tools
+      uses: jdx/mise-action@v5
+      with:
+        cache: true
