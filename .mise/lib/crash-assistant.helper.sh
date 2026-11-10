@@ -19,21 +19,25 @@ source "$MISE_LIB/toml.helper.sh"
 MOD_CACHE_DIR="${PACKDEV_MOD_CACHE:-$MISE_PROJECT_ROOT/.mise/cache/mods}"
 
 # Downloads a jar into the cache (keyed by its sha512) unless it is already there, and prints its path.
+# `mise run pack` renders several builds in parallel against the same cache, so a per-jar lock makes
+# the first build download each jar while the others wait and reuse it.
 _cached_jar() {
     local url="$1" sha512="$2"
     local jar="$MOD_CACHE_DIR/$sha512.jar"
 
     if [[ ! -f "$jar" ]]; then
-        local tmp="$jar.part"
-        curl -sSfL --retry 3 -o "$tmp" "$url" || {
-            rm -f "$tmp"
-            log_fatal "downloading $url failed"
-        }
-        if [[ "$(sha512sum "$tmp" | cut -d' ' -f1)" != "$sha512" ]]; then
-            rm -f "$tmp"
-            log_fatal "$url does not match the sha512 in its .pw.toml"
-        fi
-        mv "$tmp" "$jar"
+        (
+            flock 9
+            [[ -f "$jar" ]] && exit 0
+
+            tmp="$(mktemp "$jar.XXXXXX.part")"
+            trap 'rm -f "$tmp"' EXIT
+            curl -sSfL --retry 3 -o "$tmp" "$url" || log_fatal "downloading $url failed"
+            if [[ "$(sha512sum "$tmp" | cut -d' ' -f1)" != "$sha512" ]]; then
+                log_fatal "$url does not match the sha512 in its .pw.toml"
+            fi
+            mv -f "$tmp" "$jar"
+        ) 9>"$jar.lock"
     fi
     printf '%s\n' "$jar"
 }
