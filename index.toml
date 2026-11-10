@@ -211,7 +211,7 @@ metafile = true
 
 [[files]]
 file = "mods/c2me-fabric.pw.toml"
-hash = "40af534010e45b8161eee489c5e4e714f46d901aea61101eff69ef11ffe139ca"
+hash = "0a8b96a3ea6debe643708231177466419521599c24d17c7f208afc4b01acb760"
 metafile = true
 
 [[files]]
@@ -226,7 +226,7 @@ metafile = true
 
 [[files]]
 file = "mods/chunky.pw.toml"
-hash = "c3e4fe1c4469a4cbad5fc201fe7083166b6bf3cab7edb23398a317b4c29bd727"
+hash = "2d7010a930dfc1963611d271fecd79efb2171074ed3af75ad6c4d84225a1241f"
 metafile = true
 
 [[files]]
@@ -251,7 +251,7 @@ metafile = true
 
 [[files]]
 file = "mods/collective.pw.toml"
-hash = "c98dd5aa4813c0800e5708bbc7a19b52611aa8b0c36464ff5fc7b1e4942f84ee"
+hash = "b5f77950960cfc5c60ed5a6a31392881cef0983c975ddd597806ba44527bfc63"
 metafile = true
 
 [[files]]
@@ -281,7 +281,7 @@ metafile = true
 
 [[files]]
 file = "mods/crafting-tweaks.pw.toml"
-hash = "430dcf3df4989d6668308f83702da06fe8d632ea891d3b31c9f4cc595ec8d460"
+hash = "04849f49b00d134b010baef79c32712c6439a9d0972ba5289e1fc1254017d2c2"
 metafile = true
 
 [[files]]
@@ -351,7 +351,7 @@ metafile = true
 
 [[files]]
 file = "mods/elytra-trims.pw.toml"
-hash = "d634b7edd1747b4c19ef85aad5f9be8098982ab800f14d23b8468649dea6f1a3"
+hash = "0511689c863c89a06daf50c0128ccef379cf974805b212a9094afe58e39db491"
 metafile = true
 
 [[files]]
@@ -371,7 +371,7 @@ metafile = true
 
 [[files]]
 file = "mods/entitytexturefeatures.pw.toml"
-hash = "455286c56edfbce43a74a6faaaa13609bac43c8da0210fca089c8fdc502fa0dd"
+hash = "688d1f35971279a5284779beb1d1ad8d8c10a786116a4f1f0ed5f919de71247d"
 metafile = true
 
 [[files]]
@@ -421,7 +421,7 @@ metafile = true
 
 [[files]]
 file = "mods/fancymenu.pw.toml"
-hash = "21b3af02e06d1a98bacff1c3365e6d0517472ff022a2975fb20d73163eee5427"
+hash = "2039dc2422d0ce546e3eefde2e56052d4b448ac3bc3f3555cc3e352d4b335c9a"
 metafile = true
 
 [[files]]
@@ -461,7 +461,7 @@ metafile = true
 
 [[files]]
 file = "mods/fsit.pw.toml"
-hash = "689a1db226c4e582f496ba4dd26936cb9bd387f02cf1d66996d43180f0b68714"
+hash = "7bcb6719cd5ba205e86825e713b750f42860422404934167646e90d6f48edfbc"
 metafile = true
 
 [[files]]
@@ -481,7 +481,7 @@ metafile = true
 
 [[files]]
 file = "mods/gnetum.pw.toml"
-hash = "b5fd2eca3a0bbaebc7a4d147638441f7d0d53abb886f65e8a08ae7fb7bf6ea69"
+hash = "b7e0924c1e8a72e278d23baaceaf7273cca70d3ed75915d74b072f24e6d3aba6"
 metafile = true
 
 [[files]]
@@ -546,7 +546,7 @@ metafile = true
 
 [[files]]
 file = "mods/ixeris.pw.toml"
-hash = "68cb5f761cdd7f5e71092fdb4800bee2aef40dfcc49689933f6429c0e2cfb6e1"
+hash = "a497456ed4eb0c8b6b2641c48fbf830d92b0c26f7d72256f7d22c6c78bde4081"
 metafile = true
 
 [[files]]
@@ -686,7 +686,7 @@ metafile = true
 
 [[files]]
 file = "mods/moreculling.pw.toml"
-hash = "4603970fb0070655b89ebd9dfcb0959e04701c140a9e53c6ff0ee1f4144320c6"
+hash = "26bfdcea77eeaf9466b16d36b7134c69f46cd8825c0f1c6dafe4bb28c6e8f9e6"
 metafile = true
 
 [[files]]
@@ -761,7 +761,7 @@ metafile = true
 
 [[files]]
 file = "mods/optigui.pw.toml"
-hash = "460aa9c8aaed3845f1c4f31e997991bcc92fafe4d5c25f79255f1e0ddec82eac"
+hash = "4266c458e024c6f836a6379cf3e9ed57bad057d77e58adf4288e789dd144fbce"
 metafile = true
 
 [[files]]
@@ -796,7 +796,7 @@ metafile = true
 
 [[files]]
 file = "mods/peek.pw.toml"
-hash = "79096f408696ff9db10afe2f16085a7ea7ed64aed6812ccff3051e1a2004b337"
+hash = "a34fdb8524f359481705dee22288192d961e132b5d63cefb592c1c52d000b39e"
 metafile = true
 
 [[files]]
@@ -816,7 +816,7 @@ metafile = true
 
 [[files]]
 file = "mods/punchy-fpa.pw.toml"
-hash = "daceb9faa6720656085d58e0fdda762ec3e34bc760ef69fe82e85944ddc8068f"
+hash = "a913d666eb149c209346e2e1f92b7737e6cd2e87a93fec996b5991fa5ea40fa5"
 metafile = true
 
 [[files]]
@@ -966,7 +966,7 @@ metafile = true
 
 [[files]]
 file = "mods/streams-reflowing.pw.toml"
-hash = "72d64c1827e307e4291ede9167ea1a626f71f401ffa10338f752fe05240fd6b1"
+hash = "da1f1c347fc1961242a5d3ed9a4c9fc60408e60eb89f4b4ebca6bd59286d0e8f"
 metafile = true
 
 [[files]]
@@ -1016,7 +1016,7 @@ metafile = true
 
 [[files]]
 file = "mods/trashslot.pw.toml"
-hash = "1e20f2f017b4f043161649c07fa8ca5137a63106ae71b296715571db7e176cc5"
+hash = "557e15406e0af077618633fba5427801904d3b5e1084b4de89ff3587c46e005c"
 metafile = true
 
 [[files]]
@@ -1041,7 +1041,7 @@ metafile = true
 
 [[files]]
 file = "mods/villager-names-serilum.pw.toml"
-hash = "57f2ea8e10b4f957aa816604357f406cf6e5a1b57def470c9fe73f48e5f9916e"
+hash = "c7a3ec16d9844ec8cadd64d0d4f0f7179d24f6141cfc026c72052d8656f7f22c"
 metafile = true
 
 [[files]]
@@ -1141,7 +1141,7 @@ metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
-hash = "435a3f840613486ed00c68c6eea16324083b9a5a745503b22942d6b53c06b5ed"
+hash = "817c682d213e4d8ef43a4b1c674c17970b2368dee45b793f53e009f4f4a95384"
 metafile = true
 
 [[files]]
