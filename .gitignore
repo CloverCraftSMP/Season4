@@ -9,3 +9,4 @@ run/
 preview.md
 
 .idea/
+.cache/

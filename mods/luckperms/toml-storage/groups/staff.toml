@@ -1,7 +1,207 @@
+# Ladder: default -> communityrep -> staff -> dev. Each group inherits everything below it.
+# After changing communityrep, staff or dev, run 'mise run perms:offduty' to update offduty.toml.
+
 name = "staff"
 
+# Weight
+[[permissions]]
+permission = "weight.20"
+value = true
+
+# All vanilla commands (via Vanilla Permissions) ...
 [[permissions]]
 permission = "minecraft.*"
+value = true
+
+# ... except ones that can take the server down or bypass LuckPerms. Devs get these through *.
+[[permissions]]
+permission = "minecraft.command.op"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.deop"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.stop"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.reload"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.save-off"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.save-on"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.datapack"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.debug"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.jfr"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.perf"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.publish"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.setidletimeout"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.tick"
+value = false
+
+[[permissions]]
+permission = "minecraft.command.transfer"
+value = false
+
+# Ledger: full access including rollbacks (purge is dev-only)
+[[permissions]]
+permission = "ledger.commands.*"
+value = true
+
+[[permissions]]
+permission = "ledger.commands.purge"
+value = false
+
+# Inventories: open and edit
+[[permissions]]
+permission = "invview.command.*"
+value = true
+
+[[permissions]]
+permission = "invview.can_modify"
+value = true
+
+# Essential Commands: homes (up to 5, see home_limit in EssentialCommands.properties), travel and staff tools
+[[permissions]]
+permission = "essentialcommands.home.set"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.home.tp"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.home.delete"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.home.limit.5"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.spawn.tp"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.warp.tp"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.warp.set"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.warp.delete"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.back"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.fly.self"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.invuln.self"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.heal.self"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.feed.self"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.near.self"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.near.others"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.home_tp_others"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.admin.lastpos"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.bypass.teleport_delay"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.bypass.allow_teleport_between_dimensions"
+value = true
+
+# Open Parties and Claims: moderator mode and teleporting to claims
+[[permissions]]
+permission = "xaero.pac_claims_moderator_mode"
+value = true
+
+[[permissions]]
+permission = "xaero.pac_claims_teleport"
+value = true
+
+# Diagnostics: spark profiler, ServerCore status
+[[permissions]]
+permission = "spark"
+value = true
+
+[[permissions]]
+permission = "spark.*"
+value = true
+
+[[permissions]]
+permission = "servercore.command.root"
+value = true
+
+[[permissions]]
+permission = "servercore.command.status"
+value = true
+
+[[permissions]]
+permission = "servercore.command.mobcaps"
+value = true
+
+[[permissions]]
+permission = "servercore.command.statistics"
+value = true
+
+# TAB: show in the staff section
+[[permissions]]
+permission = "tab.staff"
 value = true
 
 [[parents]]

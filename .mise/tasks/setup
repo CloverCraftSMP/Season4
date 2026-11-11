@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#MISE description="First-time setup: installs all tools and the git hooks. Run this once after cloning."
+#MISE raw=true
+set -euo pipefail
+
+source "$MISE_LIB/logger.sh"
+
+cd "$MISE_PROJECT_ROOT"
+
+log_info "Installing tools (Java, packwiz, hk, tombi, jq)..."
+mise install
+
+log_info "Installing git hooks (formatting, packwiz refresh, commit message check)..."
+hk install
+
+log_info "All set! Run 'mise tasks' to see what you can do, or read CONTRIBUTING.md."

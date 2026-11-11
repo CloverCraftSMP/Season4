@@ -1,0 +1,43 @@
+name: Report a problem
+description: A crash, broken mod, or something not working as expected
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What were you doing, and what went wrong?
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where did it happen?
+      options:
+        - My game (client)
+        - On the server
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Pack version
+      description: Shown on the title screen, e.g. 4.0.2
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Graphics profile
+      options:
+        - Ultra
+        - Standard
+        - Lite
+        - Not sure
+  - type: textarea
+    id: logs
+    attributes:
+      label: Crash report or log
+      description: |
+        If the game crashed, the Crash Assistant window can upload your logs for you. Paste the link it gives you here.
+        Otherwise, drag in `logs/latest.log` from your instance folder.

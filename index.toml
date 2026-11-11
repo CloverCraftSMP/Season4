@@ -5,6 +5,10 @@ file = ".pteroignore"
 hash = "c84fbfb72951d63261db3ec3a4398da921dddfa08ef8df13433b7f1e07d7525d"
 
 [[files]]
+file = "config/EssentialCommands.properties"
+hash = "5657d073d75c9aea2a0bd8ee5cc5e299039d990aa1242eebc52f7b2ede2fe0af"
+
+[[files]]
 file = "config/MiniMOTD/main.conf"
 hash = "7c6ad7549d8dd48b8ccc1f5e1d2184f2d100594089f1ba7ba674f047f0d95733"
 
@@ -37,6 +41,10 @@ file = "config/luckperms/luckperms.conf"
 hash = "bc47c2ff4629da651768c331ef8067953b8d49e10e809cc6bef03ee397b69559"
 
 [[files]]
+file = "config/openpartiesandclaims-server.toml"
+hash = "85b979f59c365889060692cf17c556e7712a345d9bb465928131d9bca47be603"
+
+[[files]]
 file = "config/preferred-gamerules.properties"
 hash = "5fceb93c18d11fdff73a7844cc092b47afbda5cf8126958e101d1bc5d9ff2dfa"
 
@@ -62,7 +70,7 @@ hash = "465daa18cc9855919ea8ce9ea8f91b923be485082a81d73071f890919d23fcd1"
 
 [[files]]
 file = "config/tab/config.yml"
-hash = "235896e66b79b67a6b3aa49c815677bcef66c790e6ad9c7161b1316991717336"
+hash = "a8aa2bf1b4242a665f6497a48487d55c399e8e5ea79d90e686c2bc78b4409153"
 
 [[files]]
 file = "config/voicechat/voicechat-server.properties"
@@ -638,23 +646,23 @@ metafile = true
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/communityrep.toml"
-hash = "93d6ff097bccf710f44889862888dbe37a1479cd0b530d7e67f08fb572598172"
+hash = "2f8e607201506acb557cf66dea547904b269fcec68cbff2824630a03995fb0f1"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/default.toml"
-hash = "3744fe98cf0e3a65eac01648574f0bffd7ebfbcd448f34b5fa6f3346581a1167"
+hash = "6692dfa27ba8df3015350ab34393c3341e554bdc904125ae60eda57e9c519c4b"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/dev.toml"
-hash = "d4182f2f564cc8fcf6200550a5e5642a8cc8f11bbfa2cac272363b081894e242"
+hash = "df807c55cb4a7f25d99d2e7a4626c87adf90885df76641629a61abc495a8ae7e"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/offduty.toml"
-hash = "1b52af1c9adc5c1e6fb3ebb2d68a7bd276a5b4e7276aa0adac72d23b16dcc473"
+hash = "c67e0c32483393921c906dbe7e694f426d3a4fbd43b981bc20d29734dd3713db"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/staff.toml"
-hash = "e5def64995c0403122406379a45228af6ba5ffec4a90292ec2f01f78aaa1e95e"
+hash = "9a8dcec51226ce1586070cf9aae096f46827e2a2d0ea73e500c3a4ee2f944254"
 
 [[files]]
 file = "mods/mastercutter.pw.toml"

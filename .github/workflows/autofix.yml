@@ -1,0 +1,77 @@
+name: Autofix
+
+# Formats TOML, regenerates the LuckPerms offduty group and refreshes index.toml on PR branches,
+# then pushes the result back. Lets people edit configs in the GitHub web editor without running
+# packwiz/tombi themselves. Only runs for branches in this repo; forks can't be pushed to, so they
+# still need to fix things locally.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - pack.toml
+      - index.toml
+      - unsup.toml
+      - fabric-server.pw.toml
+      - mods/**
+      - config/**
+      - resourcepacks/**
+
+permissions:
+  contents: read
+
+concurrency:
+  group: autofix-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  fix:
+    name: Format and refresh
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # A GitHub App token (rather than GITHUB_TOKEN) so the pushed commit re-triggers Validate.
+      - name: Generate bot token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-contents: write
+
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ steps.app-token.outputs.token }}
+
+      - uses: ./.github/actions/setup-environment
+
+      - name: Format TOML
+        run: tombi format
+
+      - name: Regenerate LuckPerms offduty group
+        run: mise run perms:offduty
+
+      - name: Refresh packwiz index
+        run: packwiz refresh
+
+      - name: Push fixes
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          SLUG: ${{ steps.app-token.outputs.app-slug }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "Nothing to fix"
+            exit 0
+          fi
+          id="$(gh api "/users/${SLUG}[bot]" --jq .id)"
+          git config user.name "${SLUG}[bot]"
+          git config user.email "${id}+${SLUG}[bot]@users.noreply.github.com"
+          git commit --quiet -am "chore: autofix formatting, offduty group and packwiz index"
+          git push origin "HEAD:${GITHUB_HEAD_REF}"
+          {
+            echo '## Autofix pushed a commit'
+            echo
+            git show --stat --format= HEAD
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,54 @@
+name: Suggest a mod
+description: Suggest a mod, resource pack or shader for the pack
+title: "[Mod] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! Please check the [mod list](https://wiki.clovercraftsmp.com/seasons/season4/mods) first so we don't get duplicates.
+  - type: input
+    id: link
+    attributes:
+      label: Modrinth link
+      description: We can only add mods that are on Modrinth.
+      placeholder: https://modrinth.com/mod/...
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should we add it?
+      description: What does it add, and why would it be good for the server?
+    validations:
+      required: true
+  - type: dropdown
+    id: side
+    attributes:
+      label: Who needs it installed?
+      description: Check the mod page's "Client side" / "Server side" info if you're not sure.
+      options:
+        - Players only (visuals, HUD, sounds, minimaps)
+        - Server only (admin tools, server performance)
+        - Both (new blocks, items, mobs or gameplay changes)
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: profile
+    attributes:
+      label: How heavy is it on performance?
+      description: Heavy visual mods only go to players on the higher graphics profiles.
+      options:
+        - Light, everyone can have it
+        - Medium, skip it on Lite
+        - Heavy, Ultra only
+        - Content creator tool
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Known conflicts, config changes it needs, alternatives you considered.

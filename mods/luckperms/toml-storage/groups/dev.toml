@@ -1,19 +1,227 @@
+# Ladder: default -> communityrep -> staff -> dev. Each group inherits everything below it.
+# After changing communityrep, staff or dev, run 'mise run perms:offduty' to update offduty.toml.
+
+# No '*' here on purpose: offduty can't switch off '*' without breaking mods that allow things by
+# default (voice chat etc). Devs are op through luckperms.autoop, which covers anything not listed.
+
 name = "dev"
 
+# Weight
 [[permissions]]
-permission = "displayname.Developer"
+permission = "weight.30"
 value = true
 
+# Op status (auto-op = true in luckperms.conf)
+[[permissions]]
+permission = "luckperms.autoop"
+value = true
+
+# Staff denies these, and an exact node inherited from staff beats a wildcard, so grant them back
+[[permissions]]
+permission = "minecraft.command.op"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.deop"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.stop"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.reload"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.save-off"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.save-on"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.datapack"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.debug"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.jfr"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.perf"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.publish"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.setidletimeout"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.tick"
+value = true
+
+[[permissions]]
+permission = "minecraft.command.transfer"
+value = true
+
+[[permissions]]
+permission = "ledger.commands.purge"
+value = true
+
+# Admin nodes for mods with permissions. Only use a wildcard (x.*) if the mod has no player-level
+# nodes: offduty negates it, so e.g. voicechat.* would mute anyone going off duty.
 [[permissions]]
 permission = "luckperms.*"
 value = true
 
 [[permissions]]
-permission = "*"
+permission = "essentialcommands.*"
 value = true
 
 [[permissions]]
-permission = "luckperms.autoop"
+permission = "ledger.commands.*"
+value = true
+
+[[permissions]]
+permission = "invview.*"
+value = true
+
+[[permissions]]
+permission = "spark"
+value = true
+
+[[permissions]]
+permission = "spark.*"
+value = true
+
+[[permissions]]
+permission = "chunky.*"
+value = true
+
+[[permissions]]
+permission = "squaremap.command.fullrender"
+value = true
+
+[[permissions]]
+permission = "squaremap.command.radiusrender"
+value = true
+
+[[permissions]]
+permission = "squaremap.command.cancelrender"
+value = true
+
+[[permissions]]
+permission = "squaremap.command.pauserender"
+value = true
+
+[[permissions]]
+permission = "squaremap.command.resetmap"
+value = true
+
+[[permissions]]
+permission = "squaremap.command.reload"
+value = true
+
+[[permissions]]
+permission = "squaremap.command.hide.others"
+value = true
+
+[[permissions]]
+permission = "squaremap.command.show.others"
+value = true
+
+[[permissions]]
+permission = "servercore.*"
+value = true
+
+[[permissions]]
+permission = "tab.admin"
+value = true
+
+[[permissions]]
+permission = "tab.reload"
+value = true
+
+[[permissions]]
+permission = "tab.debug"
+value = true
+
+[[permissions]]
+permission = "tab.cpu"
+value = true
+
+[[permissions]]
+permission = "tab.parse"
+value = true
+
+[[permissions]]
+permission = "tab.dump"
+value = true
+
+[[permissions]]
+permission = "tab.groupinfo"
+value = true
+
+[[permissions]]
+permission = "tab.grouplist"
+value = true
+
+[[permissions]]
+permission = "tab.testpermission"
+value = true
+
+[[permissions]]
+permission = "sdlink.reloadbot"
+value = true
+
+[[permissions]]
+permission = "sdlink.reloadembeds"
+value = true
+
+[[permissions]]
+permission = "sdlink.configeditor"
+value = true
+
+[[permissions]]
+permission = "eunomia.admin"
+value = true
+
+[[permissions]]
+permission = "armorhider.admin"
+value = true
+
+[[permissions]]
+permission = "xaero.pac_server_claims"
+value = true
+
+[[permissions]]
+permission = "xaero.pac_claims_admin_mode"
+value = true
+
+[[permissions]]
+permission = "xaero.pac_parties_admin_mode"
+value = true
+
+[[permissions]]
+permission = "xaero.pac_claims_impersonation"
+value = true
+
+[[permissions]]
+permission = "xaero.pac_parties_impersonation"
+value = true
+
+# Styled Nicknames display name
+[[permissions]]
+permission = "displayname.Developer"
 value = true
 
 [[parents]]

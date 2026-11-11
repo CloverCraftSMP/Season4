@@ -1,1 +1,12 @@
+# Ladder: default -> communityrep -> staff -> dev. Each group inherits everything below it.
+# After changing communityrep, staff or dev, run 'mise run perms:offduty' to update offduty.toml.
+
 name = "default"
+
+[[permissions]]
+permission = "weight.0"
+value = true
+
+[[permissions]]
+permission = "essentialcommands.rules"
+value = true

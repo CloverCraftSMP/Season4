@@ -1,5 +1,19 @@
+# Ladder: default -> communityrep -> staff -> dev. Each group inherits everything below it.
+# After changing communityrep, staff or dev, run 'mise run perms:offduty' to update offduty.toml.
+
 name = "communityrep"
 
+# Weight
+[[permissions]]
+permission = "weight.10"
+value = true
+
+# Can join while maintenance mode is on (Clover Core)
+[[permissions]]
+permission = "clover.maintenance"
+value = true
+
+# Teleport to players to help them
 [[permissions]]
 permission = "minecraft.command.teleport"
 value = true
@@ -8,8 +22,54 @@ value = true
 permission = "minecraft.command.teleport.targets"
 value = true
 
+# Moderation: kick and mute
 [[permissions]]
-permission = "clover.maintenance"
+permission = "minecraft.command.kick"
+value = true
+
+[[permissions]]
+permission = "sdlink.muteplayer"
+value = true
+
+[[permissions]]
+permission = "sdlink.unmuteplayer"
+value = true
+
+[[permissions]]
+permission = "sdlink.whois"
+value = true
+
+# Investigating grief: Ledger lookups (no rollbacks), view inventories (read-only)
+[[permissions]]
+permission = "ledger.commands.root"
+value = true
+
+[[permissions]]
+permission = "ledger.commands.inspect"
+value = true
+
+[[permissions]]
+permission = "ledger.commands.search"
+value = true
+
+[[permissions]]
+permission = "ledger.commands.player"
+value = true
+
+[[permissions]]
+permission = "ledger.commands.tp"
+value = true
+
+[[permissions]]
+permission = "invview.command.root"
+value = true
+
+[[permissions]]
+permission = "invview.command.inv"
+value = true
+
+[[permissions]]
+permission = "invview.command.echest"
 value = true
 
 [[parents]]

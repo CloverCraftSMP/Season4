@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+#MISE description="Guided mod install: adds a Modrinth mod, sets its side, flavor and changelog entry"
+#MISE raw=true
+#USAGE arg "[mod]" help="Modrinth slug or URL, e.g. 'sodium' or 'https://modrinth.com/mod/sodium'. Asked for if left out."
+set -euo pipefail
+
+source "$MISE_LIB/logger.sh"
+
+cd "$MISE_PROJECT_ROOT"
+
+ask() { # ask <prompt> <default> -> echoes the answer
+    local answer
+    read -rp "$1 [$2]: " answer
+    echo "${answer:-$2}"
+}
+
+list_meta() {
+    { find mods resourcepacks shaderpacks -name '*.pw.toml' 2>/dev/null || true; } | sort
+}
+
+mod="${usage_mod:-${1:-}}"
+if [[ -z "$mod" ]]; then
+    read -rp "Modrinth slug or link (e.g. sodium or https://modrinth.com/mod/sodium): " mod
+fi
+[[ -n "$mod" ]] || log_fatal "No mod given"
+
+before="$(list_meta)"
+packwiz modrinth add "$mod"
+mapfile -t added < <(comm -13 <(echo "$before") <(list_meta))
+
+if ((${#added[@]} == 0)); then
+    log_warn "No new files were added. The mod is probably already in the pack, or the search was cancelled."
+    exit 0
+fi
+
+# packwiz names files after the Modrinth slug; prefer the one matching what was typed, else the first.
+main="${added[0]}"
+want="$(basename "${mod%/}")"
+for f in "${added[@]}"; do
+    [[ "$(basename "$f" .pw.toml)" == "$want" ]] && main="$f"
+done
+slug="$(basename "$main" .pw.toml)"
+name="$(sed -n 's/^name = "\(.*\)"$/\1/p' "$main")"
+
+echo
+log_info "Added $name ($main)"
+for f in "${added[@]}"; do
+    [[ "$f" == "$main" ]] && continue
+    log_info "  plus dependency $(basename "$f" .pw.toml) ($(sed -n 's/^side = //p' "$f"))"
+done
+
+# ---- Side ----
+current_side="$(sed -n 's/^side = "\(.*\)"$/\1/p' "$main")"
+echo
+echo "Where does $name need to be installed?"
+echo "  client = players only (visuals, HUD, minimaps, shaders, sounds)"
+echo "  server = server only (admin tools, server performance)"
+echo "  both   = players and server (new blocks, items, mobs, gameplay)"
+while true; do
+    side="$(ask "Side" "${current_side:-both}")"
+    case "$side" in
+        client | server | both) break ;;
+        *) echo "Please type client, server or both." ;;
+    esac
+done
+if [[ "$side" != "$current_side" ]]; then
+    sed -i "s/^side = \".*\"$/side = \"$side\"/" "$main"
+    log_info "Set side = \"$side\""
+fi
+
+# ---- Flavor ----
+if [[ "$side" != "server" ]]; then
+    echo
+    echo "Who should get $name? (players pick these options in the launcher)"
+    echo "  1) Everyone (most mods)"
+    echo "  2) Ultra profile only (very heavy visuals)"
+    echo "  3) Ultra and Standard profiles (visuals that low-end PCs should skip)"
+    echo "  4) All graphics profiles (Ultra, Standard and Lite)"
+    echo "  5) Content creators only"
+    echo "  For LOD or map mods, pick 1 and edit unsup.toml by hand (see CONTRIBUTING.md)."
+    while true; do
+        choice="$(ask "Choice" "1")"
+        case "$choice" in
+            1) section="" ;;
+            2) section="ULTRA" flavors='["ultra"]' ;;
+            3) section="STANDARD" flavors='["ultra", "standard"]' ;;
+            4) section="LITE" flavors='["ultra", "standard", "lite"]' ;;
+            5) section="CREATOR" flavors='["creator"]' ;;
+            *) echo "Please type a number from 1 to 5." && continue ;;
+        esac
+        break
+    done
+
+    if [[ -n "$section" ]]; then
+        if grep -q "^$slug = " unsup.toml; then
+            log_warn "$slug is already in unsup.toml, leaving it alone"
+        else
+            # Insert just below the section's banner (the "# ===" line after "#   ULTRA").
+            awk -v section="$section" -v line="$slug = { flavors = $flavors }" '
+                { print }
+                $0 ~ "^#[[:space:]]+" section "[[:space:]]*$" { found = 1; next }
+                found == 1 && /^# =+/ { print line; found = 2 }
+            ' unsup.toml >unsup.toml.tmp
+            if grep -qF "$slug = { flavors" unsup.toml.tmp; then
+                mv unsup.toml.tmp unsup.toml
+                log_info "Added $slug to the $section section of unsup.toml"
+            else
+                rm -f unsup.toml.tmp
+                log_error "Couldn't find the $section section in unsup.toml, add this line under [metafile] by hand:"
+                echo "  $slug = { flavors = $flavors }"
+            fi
+        fi
+    fi
+fi
+
+# ---- Changelog ----
+echo
+entry="$(ask "Changelog line (leave as-is or type your own, '-' to skip)" "Added $name")"
+if [[ "$entry" != "-" ]]; then
+    awk -v entry="- $entry" '
+        { print }
+        /^## \[Unreleased\]/ { in_unreleased = 1; next }
+        in_unreleased && /^## \[/ { in_unreleased = 0 }
+        in_unreleased && /^### Added/ && !done { print entry; done = 1 }
+    ' CHANGELOG.md >CHANGELOG.md.tmp
+    if ! grep -qF -- "- $entry" CHANGELOG.md.tmp; then
+        # No "### Added" heading under [Unreleased] yet, create one.
+        awk -v entry="- $entry" '
+            { print }
+            /^## \[Unreleased\]/ && !done { print ""; print "### Added"; print entry; done = 1 }
+        ' CHANGELOG.md >CHANGELOG.md.tmp
+    fi
+    mv CHANGELOG.md.tmp CHANGELOG.md
+    log_info "Added '- $entry' to CHANGELOG.md"
+fi
+
+packwiz refresh >/dev/null
+echo
+log_info "Done! Test it with 'mise run packwiz:serve' + 'mise run server:run', then commit and open a PR."

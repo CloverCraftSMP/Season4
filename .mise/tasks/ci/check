@@ -24,6 +24,17 @@ if [[ "$SERVER_JAR_URL" != *"/loader/${MC_VERSION}/${FABRIC_VERSION}/"* ]]; then
         "Update its url, then run 'mise run packwiz:refresh-server' and 'mise run packwiz:refresh'"
 fi
 
+# A typo'd [metafile] key is silently ignored by unsup, which then installs that mod for everyone.
+while read -r slug; do
+    if [[ ! -f "mods/$slug.pw.toml" && ! -f "resourcepacks/$slug.pw.toml" ]]; then
+        fail "unsup.toml [metafile] lists '$slug', but there is no mods/$slug.pw.toml or resourcepacks/$slug.pw.toml"
+    fi
+done < <(awk '/^\[/ { in_meta = ($0 == "[metafile]"); next } in_meta && /^[A-Za-z0-9_-]+[[:space:]]*=/ { sub(/[[:space:]]*=.*/, ""); print }' unsup.toml)
+
+if ! mise run --quiet perms:offduty --check; then
+    failed=1
+fi
+
 before="$(sha256sum index.toml pack.toml)"
 packwiz refresh >/dev/null
 if [[ "$(sha256sum index.toml pack.toml)" != "$before" ]]; then

@@ -1,0 +1,3 @@
+[serverConfig]
+# Use LuckPerms for claim/party permissions (see mods/luckperms/toml-storage/groups/)
+permissionSystem = "luck_perms"
