@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+- Issue forms for suggesting mods and reporting problems.
+- Contributor tooling: `mise run setup` for first-time setup, and `mise run mod:add` to add a mod with its side, flavor and changelog entry.
+- A bot that fixes TOML formatting and `index.toml` on pull requests, so configs can be edited straight from GitHub.
+- `ci:check` now catches typos in `unsup.toml` and an out-of-date offduty group.
+
+### Changed
+- Reworked server permissions. Essential Commands and Open Parties and Claims now follow LuckPerms ranks.
+- The `offduty` rank now removes all staff, community rep and developer powers.
+- Players are sorted in the tab list by rank.
+
 ## [4.0.2] - 2026-11-11
 
 ### Changed
