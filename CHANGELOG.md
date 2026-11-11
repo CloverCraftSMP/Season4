@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [4.0.3] - 2026-11-11
+
 ### Added
 - Hoofprint is now available as a map option.
 - Chunksmith pregenerates the world and sends its LOD data to players using Voxy or Distant Horizons, so distant terrain shows without exploring it first.
