@@ -1,0 +1,14 @@
+dynamic:
+  enabled: true
+  target-mspt: 35
+
+breeding-cap:
+  enabled: true
+
+activation-range:
+  enabled: true
+  excluded-entity-types:
+    - 'minecraft:hopper_minecart'
+    - 'minecraft:ghast'
+    - 'minecraft:warden'
+    - 'minecraft:ender_pearl'

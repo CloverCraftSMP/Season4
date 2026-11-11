@@ -1,6 +1,14 @@
 hash-format = "sha256"
 
 [[files]]
+file = ".idea/vcs.xml"
+hash = "6323e12648862a0a96fc0d7877672817d6cd91e2c2a3c3d78f1090db23c6e88e"
+
+[[files]]
+file = ".idea/workspace.xml"
+hash = "ce0ba3a9652349418f7eeacda01face4357d3a746e44a4d65c641a8142a47bd0"
+
+[[files]]
 file = ".pteroignore"
 hash = "c84fbfb72951d63261db3ec3a4398da921dddfa08ef8df13433b7f1e07d7525d"
 
@@ -45,12 +53,24 @@ file = "config/scholar-common.toml"
 hash = "e24bfdb63b53e5b1de3339609415f0c0aa5a4e491e6a6be9b5ec08ecc618076c"
 
 [[files]]
+file = "config/servercore/config.yml"
+hash = "d4390c5732fde09d7269f5f8c06c228261b43671875df54e0c7ddecde62e3a45"
+
+[[files]]
+file = "config/servercore/optimizations.yml"
+hash = "41c1256f82436085a0d8fd8b5bd89bdf95007883ee4a637a165970c02f99d93f"
+
+[[files]]
 file = "config/simple-discord-link/simple-discord-link.toml"
 hash = "d6e9c3f6e1a1a045a5b30c293f4888382968c5e73afa1eb52502db1d67dbbc60"
 
 [[files]]
 file = "config/streamsreflowing.properties"
 hash = "465daa18cc9855919ea8ce9ea8f91b923be485082a81d73071f890919d23fcd1"
+
+[[files]]
+file = "config/tab/config.yml"
+hash = "235896e66b79b67a6b3aa49c815677bcef66c790e6ad9c7161b1316991717336"
 
 [[files]]
 file = "config/voicechat/voicechat-server.properties"
