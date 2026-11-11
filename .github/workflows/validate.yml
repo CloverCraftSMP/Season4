@@ -10,6 +10,10 @@ on:
       - unsup.toml
       - unsup.ini
       - fabric-server.pw.toml
+      - server.properties
+      - server-icon.png
+      - .pteroignore
+      - .packwizignore
       - mods/**
       - config/**
       - resourcepacks/**

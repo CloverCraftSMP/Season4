@@ -10,7 +10,7 @@ hash = "5657d073d75c9aea2a0bd8ee5cc5e299039d990aa1242eebc52f7b2ede2fe0af"
 
 [[files]]
 file = "config/MiniMOTD/main.conf"
-hash = "d447d1645af37792c0b3e9a72dacacfa45adb542fdfe18b087ef69995ae9dc10"
+hash = "63b2fbc761cffe5403bbaebe86fb7cda8846aaf624bc37e685ee0e64c5050eff"
 
 [[files]]
 file = "config/bcc-common.json"
@@ -102,7 +102,11 @@ hash = "e49b770923a567cc5459f5d409f823975507c3d6a976e1c9212268db615fdb70"
 
 [[files]]
 file = "config/yosbr/options.txt"
-hash = "8a5f90a3a1713b790428bc669b2bc49f966689b84b61f1420448706120fb9d9e"
+hash = "f732619a515adbd26e395db8e10a115f279b67a2b69638aae1f10a153ff2edff"
+
+[[files]]
+file = "config/yosbr/servers.dat"
+hash = "8e5b144cdb6bee0415280f8c0b3d7f41b4e4887bc95adeeb824217a7e52dde14"
 
 [[files]]
 file = "fabric-server.pw.toml"
@@ -515,6 +519,11 @@ hash = "62b4398ba178efecba4aced610039b1003a8cc82ce5931e3fe0f6541f69a6870"
 metafile = true
 
 [[files]]
+file = "mods/hoofprint.pw.toml"
+hash = "542b952643e8a1bdc66bbc2312338228e21223ca7caceb9fb0c42d35ddb6def6"
+metafile = true
+
+[[files]]
 file = "mods/iceberg.pw.toml"
 hash = "d0b61d29a9cc983b5bf028f5d28edad503109c8c364d55b985ace71052bc49b3"
 metafile = true
@@ -667,6 +676,11 @@ hash = "9a8dcec51226ce1586070cf9aae096f46827e2a2d0ea73e500c3a4ee2f944254"
 [[files]]
 file = "mods/mastercutter.pw.toml"
 hash = "0a6cc7d172304d1749149951f9b9238ff05d5db59251d433dbc1286130cabbf2"
+metafile = true
+
+[[files]]
+file = "mods/mcqoy.pw.toml"
+hash = "059fc87f91cf83afea523d7dc4fa630067a0768330f71d49eaae30dc7c3d7131"
 metafile = true
 
 [[files]]
@@ -1005,6 +1019,11 @@ hash = "5862e7315b5cd731d45fe9219285fc0ce568fa5546c4fae32a240b769896b2da"
 metafile = true
 
 [[files]]
+file = "mods/surveyor.pw.toml"
+hash = "88a50768b5566179181a819265dd0b76ca6c04e7ddd16a6a69c3abdd782cba14"
+metafile = true
+
+[[files]]
 file = "mods/tab-was-taken.pw.toml"
 hash = "877fa3c32d7770efee9678ddc95ed51f937ab95c7acef1d2b9e0f32394fa3c0b"
 metafile = true
@@ -1188,4 +1207,4 @@ hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
 
 [[files]]
 file = "unsup.toml"
-hash = "881188ccb4062d81be15ad3bae00a88b2219eb21cb2fb629b794f3d49d33832b"
+hash = "016a1cc32e2be481b0f0ecf9e2f11cb9abb9ac588aacf5a5df92b2949a098dc8"

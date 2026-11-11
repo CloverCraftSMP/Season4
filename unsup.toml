@@ -102,3 +102,6 @@ axiom = { flavors = ["creator"] }
 # =================
 xaeros-minimap = { flavors = ["xaeros-minimap"] }
 xaeros-world-map = { flavors = ["xaeros-minimap", "xaeros"] }
+hoofprint = { flavors = ["hoofprint"] }
+surveyor = { flavors = ["hoofprint"] }
+mcqoy = { flavors = ["hoofprint"] }

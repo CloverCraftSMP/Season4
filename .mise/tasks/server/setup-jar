@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="Downloads and caches the Fabric server jar matching pack.toml"
+#MISE description="Downloads and caches the Fabric server jar pinned in fabric-server.pw.toml"
 set -euo pipefail
 
 source "$MISE_LIB/toml.helper.sh"
@@ -9,15 +9,31 @@ load_toml_vars "pack.toml" \
     "MC_VERSION:minecraft" \
     "FABRIC_VERSION:fabric"
 
-INSTALLER_VERSION="1.0.1"
+# fabric-server.pw.toml is the single source for the download URL and its hash (ci:check keeps it
+# pinned to the versions in pack.toml), so the local server runs exactly the jar players' server does.
+load_toml_vars "fabric-server.pw.toml" \
+    "SERVER_JAR_URL:url" \
+    "SERVER_JAR_HASH:hash"
+
 JAR="$MISE_ROOT/cache/fabric-server-${MC_VERSION}-${FABRIC_VERSION}.jar"
 
+jar_matches() {
+    [[ "$(sha256sum "$1" | cut -d' ' -f1)" == "$SERVER_JAR_HASH" ]]
+}
+
 if [[ -f "$JAR" ]]; then
-    log_info "Fabric server jar already cached at $JAR"
-    exit 0
+    if jar_matches "$JAR"; then
+        log_info "Fabric server jar already cached at $JAR"
+        exit 0
+    fi
+    log_warn "Cached $JAR doesn't match the hash in fabric-server.pw.toml, downloading it again"
 fi
 
 log_info "Downloading Fabric server $FABRIC_VERSION for Minecraft $MC_VERSION..."
 mkdir -p "$(dirname "$JAR")"
-curl -sSfL -o "$JAR.part" "https://meta.fabricmc.net/v2/versions/loader/${MC_VERSION}/${FABRIC_VERSION}/${INSTALLER_VERSION}/server/jar"
+curl -sSfL -o "$JAR.part" "$SERVER_JAR_URL"
+if ! jar_matches "$JAR.part"; then
+    rm -f "$JAR.part"
+    log_fatal "Downloaded server jar doesn't match the hash in fabric-server.pw.toml. Run 'mise run packwiz:refresh-server' if its url changed"
+fi
 mv "$JAR.part" "$JAR"

@@ -70,18 +70,33 @@ jobs:
 
       - uses: ./.github/actions/setup-environment
 
-      - name: Publish pack
-        id: publish
-        uses: ./.github/actions/publish-pack
-        with:
-          channel: prod
-
       - name: Notify staff
         uses: ./.github/actions/discord-notify
         with:
           webhook-url: ${{ secrets.DISCORD_STAFF_WEBHOOK }}
           title: Production deploy started
-          description: Backing up and restarting the production server onto `${{ steps.publish.outputs.version }}`.
+          description: Backing up and restarting the production server onto `${{ needs.changelog.outputs.version }}`.
+
+      # Back up before publishing: once the prod branch moves, players' launchers update to the new
+      # pack, so a backup failing after that would leave them ahead of a server that never restarted.
+      - name: Back up server
+        id: backup
+        env:
+          PTERO_PANEL_URL: ${{ secrets.PTERO_PANEL_URL }}
+          PTERO_API_KEY: ${{ secrets.PTERO_API_KEY }}
+          PTERO_SERVER_ID: ${{ secrets.PTERO_PROD_SERVER_ID }}
+          BACKUP_NAME: pre-release-${{ needs.changelog.outputs.version }}
+        run: |
+          set -euo pipefail
+          ptero=.github/actions/deploy-server/ptero.sh
+          "$ptero" command "save-all flush" || echo "::warning::save-all flush failed, backing up anyway"
+          "$ptero" backup "$BACKUP_NAME"
+
+      - name: Publish pack
+        id: publish
+        uses: ./.github/actions/publish-pack
+        with:
+          channel: prod
 
       - name: Deploy server
         uses: ./.github/actions/deploy-server
@@ -90,7 +105,6 @@ jobs:
           api-key: ${{ secrets.PTERO_API_KEY }}
           server-id: ${{ secrets.PTERO_PROD_SERVER_ID }}
           pack-url: ${{ steps.publish.outputs.pack-url }}
-          backup: pre-release-${{ steps.publish.outputs.version }}
 
       - name: Notify staff of result
         if: always()
@@ -100,10 +114,10 @@ jobs:
           status: ${{ job.status }}
           title: Production deploy ${{ job.status == 'success' && 'finished' || job.status }}
           description: >-
-            ${{ job.status == 'success' && 'Production is restarting on the new pack. The GitHub release and public announcement are next.' || 'Check the workflow run. The pre-release backup is in the panel if prod needs rolling back.' }}
+            ${{ job.status == 'success' && 'Production is restarting on the new pack. The GitHub release and public announcement are next.' || steps.backup.outcome != 'success' && 'The backup failed, so nothing was published and prod was not touched. Check the workflow run.' || 'Check the workflow run. The pre-release backup is in the panel if prod needs rolling back.' }}
           fields: |
-            Version|`${{ steps.publish.outputs.version || 'unknown' }}`
-            Backup|`pre-release-${{ steps.publish.outputs.version || 'unknown' }}`
+            Version|`${{ needs.changelog.outputs.version }}`
+            Backup|`pre-release-${{ needs.changelog.outputs.version }}`
 
   release:
     name: Publish Release

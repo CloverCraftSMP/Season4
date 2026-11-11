@@ -16,10 +16,30 @@ java -Xmx2G -Djava.awt.headless=true -jar fabric-server.jar nogui </dev/null &
 SERVER_PID=$!
 trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
 
+# A server can open its port with broken mods: a failed mixin only logs an error, and the mod then
+# misbehaves in game. Fail on those; list every other ERROR line as a warning, since a modded boot
+# always has some harmless ones (data fixers, missing optional compat).
+check_log() {
+    local log="logs/latest.log" errors
+    [[ -f "$log" ]] || return 0
+
+    if grep -qE 'Mixin apply (for mod .* )?failed|Critical injection failure|InvalidInjectionException|MixinTransformerError' "$log"; then
+        grep -E 'Mixin apply (for mod .* )?failed|Critical injection failure|InvalidInjectionException|MixinTransformerError' "$log" | head -20 >&2
+        log_fatal "Mixins failed to apply (see above and $PACKDEV_SERVER_ROOT/$log)"
+    fi
+
+    errors="$(grep -cE '/ERROR\]' "$log" || true)"
+    if ((errors > 0)); then
+        log_warn "The server logged $errors ERROR lines during boot:"
+        grep -E '/ERROR\]' "$log" | sed -E 's/^\[[0-9:]+\] \[[^]]*\]: //' | cut -c1-200 | sort | uniq -c | sort -rn >&2
+    fi
+}
+
 log_info "Waiting up to ${TIMEOUT}s for the server to accept connections..."
 for ((elapsed = 0; elapsed < TIMEOUT; elapsed += INTERVAL)); do
     if minecraft_port_open; then
         log_info "Server booted and is accepting connections"
+        check_log
         exit 0
     fi
     kill -0 "$SERVER_PID" 2>/dev/null || log_fatal "Server process exited during boot"

@@ -7,6 +7,7 @@ on:
     paths:
       - mods/**
       - .github/scripts/sync_wiki.py
+      - config.pkdev.env
   workflow_dispatch:
 
 permissions:
@@ -37,8 +38,15 @@ jobs:
           key: modrinth-api-${{ runner.os }}-${{ hashFiles('mods/*.pw.toml') }}
           restore-keys: modrinth-api-${{ runner.os }}-
 
+      # The wiki URL lives in config.pkdev.env next to the other pack settings; only the token is secret.
+      - name: Read wiki URL
+        run: |
+          set -euo pipefail
+          url="$(sed -n 's/^WIKIJS_URL *= *"\(.*\)"$/\1/p' config.pkdev.env)"
+          [[ -n "$url" ]] || { echo "::error::WIKIJS_URL is missing from config.pkdev.env"; exit 1; }
+          echo "WIKIJS_URL=$url" >> "$GITHUB_ENV"
+
       - name: Sync to Wiki.js
         env:
-          WIKIJS_URL: ${{ secrets.WIKIJS_URL }}
           WIKIJS_API_TOKEN: ${{ secrets.WIKIJS_API_TOKEN }}
         run: python .github/scripts/sync_wiki.py

@@ -13,7 +13,7 @@ tutorialStep:none
 joinedFirstServer:true
 soundCategory_master:0.5
 soundCategory_music:0.2
-lastServer:localhost
+lastServer:clovercraftsmp.com
 resourcePacks:["file/Recolourful Containers DARK.zip"]
 
 key_key.itemstats.show_stats:key.keyboard.unknown

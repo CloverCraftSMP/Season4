@@ -11,7 +11,7 @@ load_toml_vars "fabric-server.pw.toml" \
 log_debug "Loaded in variables from toml" "URL: $SERVER_JAR_URL" "Hash: $SERVER_JAR_HASH"
 
 log_info "Downloading and calculating new hash..."
-NEW_HASH=$(curl -sL "$SERVER_JAR_URL" | sha256sum | awk '{print $1}')
+NEW_HASH=$(curl -sSfL "$SERVER_JAR_URL" | sha256sum | awk '{print $1}')
 log_debug "Computed Hash:   $NEW_HASH"
 
 if [ "$SERVER_JAR_HASH" = "$NEW_HASH" ]; then
