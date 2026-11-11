@@ -14,7 +14,7 @@ hash = "63b2fbc761cffe5403bbaebe86fb7cda8846aaf624bc37e685ee0e64c5050eff"
 
 [[files]]
 file = "config/bcc-common.json"
-hash = "e54492b89612f5978098f738339b90999955290554fd34491d7b6cca34c5fa22"
+hash = "5be119f1c3e2be39debf4d4503dbcb2c033684f4c1b11aaf52108c1f787788e9"
 
 [[files]]
 file = "config/betterarcheology.jsonc"
@@ -27,6 +27,10 @@ hash = "b0751863faf735896965a2f3bd214e3e067784445de9af5a8e524f5b5a3089ae"
 [[files]]
 file = "config/crash_assistant/config.toml"
 hash = "58aa55a8a7d0b9bf3fc6941de10cd6b53037d0c2f77ec27d479f51ac088ab3c7"
+
+[[files]]
+file = "config/crash_assistant/modlist.json"
+hash = "8e3f32ca41f7e216d637749d152fcace6272115f1ee449eef4cf8db1ad53fa82"
 
 [[files]]
 file = "config/enhancedgroups/enhancedgroups.properties"
@@ -1222,7 +1226,7 @@ hash = "9b518732615e32ffec70b8e8949df9408e0a05f14b994e2ca92d9b952928204a"
 
 [[files]]
 file = "unsup.ini"
-hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
+hash = "a8b11cb81c928628ddc3335892ce4c8aa17fea47e235f7d2b06bcceaea53287a"
 
 [[files]]
 file = "unsup.toml"
