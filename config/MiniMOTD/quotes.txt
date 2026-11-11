@@ -1,3 +1,7 @@
+# One MOTD per line, shown under the CloverCraft header in the server list.
+# MiniMessage tags work (e.g. <red><3</red>). Lines starting with # are ignored.
+# Run `mise run motd:generate` after editing (CI autofix does it for you on PRs).
+
 Blame Dei
 where is maple?
 GET THAT WOOD
@@ -34,5 +38,5 @@ auri fought a dinosaur once
 don't ask blackleaf whats below his yard
 send corolla to the scrapyard
 BauBauBau!
-lashes out with unnecessary anger and borderline violence
+unnecessary anger and borderline violence
 LET'S GO KIMI!!!

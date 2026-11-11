@@ -10,7 +10,7 @@ hash = "5657d073d75c9aea2a0bd8ee5cc5e299039d990aa1242eebc52f7b2ede2fe0af"
 
 [[files]]
 file = "config/MiniMOTD/main.conf"
-hash = "7c6ad7549d8dd48b8ccc1f5e1d2184f2d100594089f1ba7ba674f047f0d95733"
+hash = "d447d1645af37792c0b3e9a72dacacfa45adb542fdfe18b087ef69995ae9dc10"
 
 [[files]]
 file = "config/bcc-common.json"

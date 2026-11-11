@@ -61,6 +61,9 @@ jobs:
       - name: Regenerate LuckPerms offduty group
         run: mise run perms:offduty
 
+      - name: Regenerate MiniMOTD config
+        run: mise run motd:generate
+
       - name: Refresh packwiz index
         run: packwiz refresh
 

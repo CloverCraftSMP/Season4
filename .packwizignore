@@ -14,8 +14,6 @@ run/
 
 *.env
 *.pkl
-# tooling that generates config/MiniMOTD/main.conf
-config/MiniMOTD/motd.sh
 config/MiniMOTD/quotes.txt
 
 .idea/

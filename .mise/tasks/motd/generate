@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#MISE description="Regenerates config/MiniMOTD/main.conf from config/MiniMOTD/quotes.txt. Pass --check to only verify it's up to date."
+set -euo pipefail
+
+cd "$MISE_PROJECT_ROOT/config/MiniMOTD"
+
+exec java -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 "$MISE_LIB/MotdGen.java" quotes.txt main.conf "$@"
