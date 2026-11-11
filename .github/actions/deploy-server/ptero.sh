@@ -146,7 +146,7 @@ cmd_backup() {
 cmd_command() {
 	local command="$*"
 	[[ -n "$command" ]] || die "a console command is required"
-	api_call POST /commands "$(jq -nc --arg command "$command" '{command: $command}')"
+	api_call POST /command "$(jq -nc --arg command "$command" '{command: $command}')"
 	api_ok || die "sending the console command failed: $(api_error)"
 	log "ran console command: $command"
 }
