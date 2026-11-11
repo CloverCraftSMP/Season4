@@ -1,14 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = ".idea/vcs.xml"
-hash = "6323e12648862a0a96fc0d7877672817d6cd91e2c2a3c3d78f1090db23c6e88e"
-
-[[files]]
-file = ".idea/workspace.xml"
-hash = "ce0ba3a9652349418f7eeacda01face4357d3a746e44a4d65c641a8142a47bd0"
-
-[[files]]
 file = ".pteroignore"
 hash = "c84fbfb72951d63261db3ec3a4398da921dddfa08ef8df13433b7f1e07d7525d"
 

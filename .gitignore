@@ -7,3 +7,5 @@ run/
 !*.pkdev.env
 !example.env
 preview.md
+
+.idea/
