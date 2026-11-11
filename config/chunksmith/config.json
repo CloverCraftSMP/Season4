@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "continueOnRestart": true,
+  "throttleTargetMspt": 54.0,
+  "autoPauseOnOverload": true,
+  "lodEnabled": "auto",
+  "lodFromExploredChunks": true,
+  "lodBackgroundSend": true,
+  "lodBackchannelPort": 0,
+  "lodIndexBudgetMb": 2048,
+  "worldEnterPregen": false
+}

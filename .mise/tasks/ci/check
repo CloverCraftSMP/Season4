@@ -31,6 +31,20 @@ while read -r slug; do
     fi
 done < <(awk '/^\[/ { in_meta = ($0 == "[metafile]"); next } in_meta && /^[A-Za-z0-9_-]+[[:space:]]*=/ { sub(/[[:space:]]*=.*/, ""); print }' unsup.toml)
 
+# Some mods ship as two metafiles of the same Modrinth project, e.g. chunksmith (server, always) and
+# chunksmith-client (client, LOD flavors only), because unsup drops flavor-gated files on the server.
+# Updating only one of them would put different versions on the two sides.
+while read -r mod_id files; do
+    fail "Modrinth project $mod_id is pinned to different versions in: $files. Update them together"
+done < <(
+    for pw in mods/*.pw.toml; do
+        id="$(_get_toml_val "$pw" mod-id)"
+        [[ -n "$id" ]] && printf '%s %s %s\n' "$id" "$(_get_toml_val "$pw" version)" "$pw"
+    done | sort | awk '
+        { files[$1] = files[$1] " " $3; if (!($1 in ver)) ver[$1] = $2; else if (ver[$1] != $2) bad[$1] = 1 }
+        END { for (id in bad) print id files[id] }'
+)
+
 if ! mise run --quiet perms:offduty --check; then
     failed=1
 fi

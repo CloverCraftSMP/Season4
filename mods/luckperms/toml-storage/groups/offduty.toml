@@ -20,7 +20,7 @@ permission = "armorhider.admin"
 value = false
 
 [[permissions]]
-permission = "chunky.*"
+permission = "chunksmith.command"
 value = false
 
 [[permissions]]

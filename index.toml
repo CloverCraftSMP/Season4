@@ -21,6 +21,10 @@ file = "config/betterarcheology.jsonc"
 hash = "8b0264ad5e93d5208cbcef951db431b58ddcfa0c96d0a54955aa217ff382e215"
 
 [[files]]
+file = "config/chunksmith/config.json"
+hash = "b0751863faf735896965a2f3bd214e3e067784445de9af5a8e524f5b5a3089ae"
+
+[[files]]
 file = "config/crash_assistant/config.toml"
 hash = "58aa55a8a7d0b9bf3fc6941de10cd6b53037d0c2f77ec27d479f51ac088ab3c7"
 
@@ -249,8 +253,13 @@ hash = "cbcc1fee52838e0f9610594542fa6686a3593fae908365b2e01c217a83921169"
 metafile = true
 
 [[files]]
-file = "mods/chunky.pw.toml"
-hash = "2d7010a930dfc1963611d271fecd79efb2171074ed3af75ad6c4d84225a1241f"
+file = "mods/chunksmith-client.pw.toml"
+hash = "5598dce7a12e0f407ebf08601b9dfa8253e868f01dc497fb270eee96c0245df6"
+metafile = true
+
+[[files]]
+file = "mods/chunksmith.pw.toml"
+hash = "0b13628223fcad2c195993ebc514b41b3ac2bc4cb7095d22ace2143bba133c27"
 metafile = true
 
 [[files]]
@@ -345,7 +354,7 @@ metafile = true
 
 [[files]]
 file = "mods/distanthorizons.pw.toml"
-hash = "b392bd197ee1902aeaac59ec35ab6f3c1305652e5b3b773eba92fd57cafd525e"
+hash = "3d4f3e8dc07ebebd07a2d51af6a5b55035a5069480839f11b1dc040329916091"
 metafile = true
 
 [[files]]
@@ -663,11 +672,11 @@ hash = "bfebf7cb25aa98b5f7e686518566c54b0f0d1ac731b8bed3807260b22136b7ff"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/dev.toml"
-hash = "df807c55cb4a7f25d99d2e7a4626c87adf90885df76641629a61abc495a8ae7e"
+hash = "bb6a01a9975b4a529534ca5f280bd61fb1fd81cd3cfb03bbd5d8b4af7a6e30ca"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/offduty.toml"
-hash = "c67e0c32483393921c906dbe7e694f426d3a4fbd43b981bc20d29734dd3713db"
+hash = "42e4c6de547721b6022f29ee95475c90784c3f1e4993b997af670b3b0908eaa6"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/staff.toml"
@@ -696,6 +705,11 @@ metafile = true
 [[files]]
 file = "mods/minimotd.pw.toml"
 hash = "0f24464243415b4407c26e16b1c340642b3069faa2382649ad24c9b1cb7bf552"
+metafile = true
+
+[[files]]
+file = "mods/mixintrace-reborn.pw.toml"
+hash = "a13fa8f7221af527247ba4d9e1a13b85b98d65f210fbe1f7be5441980e02ae19"
 metafile = true
 
 [[files]]
@@ -1194,6 +1208,11 @@ hash = "a8c77ef0a7e1abff041d5346a81d973f21f7640423d934e484d5763e2e7cd59b"
 metafile = true
 
 [[files]]
+file = "resourcepacks/redstone-tweaks.pw.toml"
+hash = "784770b9d54a6ab880c0b3905c64ccff0adfa07a7b152fc1a057bfdcfaad706a"
+metafile = true
+
+[[files]]
 file = "server-icon.png"
 hash = "f9f8ba07ad01a3cd703a6521baf68e3fac66a3886238a6b042f84c7cac9f655c"
 
@@ -1207,4 +1226,4 @@ hash = "4484f61a70d22a2ec34e6eb7c48d4b915f2e2433f0b095d4064738f514c23a17"
 
 [[files]]
 file = "unsup.toml"
-hash = "016a1cc32e2be481b0f0ecf9e2f11cb9abb9ac588aacf5a5df92b2949a098dc8"
+hash = "c02485dc60bdf8b5e2db17524eccfa0ff78299be907fc572264ddbcbf4013ad8"

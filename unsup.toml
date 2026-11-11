@@ -92,6 +92,13 @@ voxy-extra = { flavors = ["voxy"] }
 distanthorizons = { flavors = ["dh"] }
 
 # =================
+#  LOD (CHUNKSMITH)
+# =================
+# The server always runs Chunksmith (mods/chunksmith.pw.toml). Clients only need it to receive the
+# server's pregenerated LOD data, so it ships to them only with a LOD renderer.
+chunksmith-client = { flavors = ["voxy", "dh"] }
+
+# =================
 #     CREATOR
 # =================
 flashback = { flavors = ["creator"] }

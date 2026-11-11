@@ -104,7 +104,7 @@ permission = "spark.*"
 value = true
 
 [[permissions]]
-permission = "chunky.*"
+permission = "chunksmith.command"
 value = true
 
 [[permissions]]

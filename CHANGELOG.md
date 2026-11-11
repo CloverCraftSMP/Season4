@@ -7,12 +7,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 - Hoofprint is now available as a map option.
+- Chunksmith pregenerates the world and sends its LOD data to players using Voxy or Distant Horizons, so distant terrain shows without exploring it first.
+- MixinTrace Reborn, which lists the mixins involved in a crash report.
+- Redstone Tweaks resource pack.
 - New installs have the CloverCraft server in their server list.
 - Issue forms for suggesting mods and reporting problems.
 - Contributor tooling: `mise run setup` for first-time setup, and `mise run mod:add` to add a mod with its side, flavor and changelog entry.
 - A bot that fixes TOML formatting and `index.toml` on pull requests, so configs can be edited straight from GitHub.
 - `ci:check` now catches typos in `unsup.toml` and an out-of-date offduty group.
 - `mise run motd:generate` builds the server list MOTDs from `config/MiniMOTD/quotes.txt`, centred to the pixel and checked to fit.
+
+### Removed
+- Chunky, replaced by Chunksmith (`/chunky` still works as an alias).
 
 ### Changed
 - Reworked server permissions. Essential Commands and Open Parties and Claims now follow LuckPerms ranks.
