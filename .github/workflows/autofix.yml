@@ -4,10 +4,14 @@ name: Autofix
 # then pushes the result back. Lets people edit configs in the GitHub web editor without running
 # packwiz/tombi themselves. Only runs for branches in this repo; forks can't be pushed to, so they
 # still need to fix things locally.
+#
+# Also runs on pushes to main as a safety net for anything that lands there unfixed. Pushing to main
+# needs the bot app on the branch protection bypass list (as for the release changelog commit).
+# The bot's own commit re-triggers this workflow, which then finds nothing to fix and stops.
 on:
-  pull_request:
+  push:
     branches: [main]
-    paths:
+    paths: &fix-paths
       - pack.toml
       - index.toml
       - unsup.toml
@@ -15,20 +19,25 @@ on:
       - mods/**
       - config/**
       - resourcepacks/**
+  pull_request:
+    branches: [main]
+    paths: *fix-paths
 
 permissions:
   contents: read
 
 concurrency:
-  group: autofix-${{ github.head_ref }}
+  group: autofix-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
   fix:
     name: Format and refresh
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      BRANCH: ${{ github.head_ref || github.ref_name }}
     steps:
       # A GitHub App token (rather than GITHUB_TOKEN) so the pushed commit re-triggers Validate.
       - name: Generate bot token
@@ -41,7 +50,7 @@ jobs:
 
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ env.BRANCH }}
           token: ${{ steps.app-token.outputs.token }}
 
       - uses: ./.github/actions/setup-environment
@@ -69,7 +78,7 @@ jobs:
           git config user.name "${SLUG}[bot]"
           git config user.email "${id}+${SLUG}[bot]@users.noreply.github.com"
           git commit --quiet -am "chore: autofix formatting, offduty group and packwiz index"
-          git push origin "HEAD:${GITHUB_HEAD_REF}"
+          git push origin "HEAD:${BRANCH}"
           {
             echo '## Autofix pushed a commit'
             echo

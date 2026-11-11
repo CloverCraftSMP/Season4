@@ -650,7 +650,7 @@ hash = "2f8e607201506acb557cf66dea547904b269fcec68cbff2824630a03995fb0f1"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/default.toml"
-hash = "6692dfa27ba8df3015350ab34393c3341e554bdc904125ae60eda57e9c519c4b"
+hash = "bfebf7cb25aa98b5f7e686518566c54b0f0d1ac731b8bed3807260b22136b7ff"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/dev.toml"
