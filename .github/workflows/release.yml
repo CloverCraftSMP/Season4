@@ -140,9 +140,8 @@ jobs:
           url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}
           description: ${{ needs.changelog.outputs.notes }}
           fields: |
-            Modrinth App|[unsup-prod.mrpack](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/unsup-prod.mrpack)
-            Prism Launcher|[prism-unsup-prod.zip](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/prism-unsup-prod.zip)
-            Standalone|[modpack-prod.mrpack](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/modpack-prod.mrpack)
+            Prism|[prism.zip](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/prism-unsup-prod.zip)
+            Universal|[universal.mrpack](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/unsup-prod.mrpack)
 
   # Files this release's [Unreleased] entries under its version on main. Uses the bot app (as in
   # mod-updater) so the push can get past branch protection; add the app to the bypass list if needed.
