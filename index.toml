@@ -45,10 +45,6 @@ file = "config/scholar-common.toml"
 hash = "e24bfdb63b53e5b1de3339609415f0c0aa5a4e491e6a6be9b5ec08ecc618076c"
 
 [[files]]
-file = "config/simple-discord-link/simple-discord-compat.toml"
-hash = "98b7574051588b4f1b896ad6ae94959a3263950f102fc67dcd255fa3e2942aa5"
-
-[[files]]
 file = "config/simple-discord-link/simple-discord-link.toml"
 hash = "d6e9c3f6e1a1a045a5b30c293f4888382968c5e73afa1eb52502db1d67dbbc60"
 
@@ -630,7 +626,7 @@ metafile = true
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/communityrep.toml"
-hash = "cba5b767efd2baa0232bab0bbb27d0ff3a1577250a85550225789aef55d4e9a5"
+hash = "93d6ff097bccf710f44889862888dbe37a1479cd0b530d7e67f08fb572598172"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/default.toml"

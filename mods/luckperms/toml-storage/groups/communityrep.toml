@@ -8,6 +8,10 @@ value = true
 permission = "minecraft.command.teleport.targets"
 value = true
 
+[[permissions]]
+permission = "clover.maintenance"
+value = true
+
 [[parents]]
 group = "default"
 
