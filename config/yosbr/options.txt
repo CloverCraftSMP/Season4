@@ -5,7 +5,6 @@ guiScale:2
 maxFps:165
 toggleSprint:true
 darkMojangStudiosBackground:true
-highContrastBlockOutline:true
 skipMultiplayerWarning:true
 onboardAccessibility:false
 narrator:0

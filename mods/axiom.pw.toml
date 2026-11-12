@@ -1,6 +1,6 @@
 name = "Axiom"
 filename = "Axiom-6.1.3-for-MC26.1.jar"
-side = "both"
+side = "server"
 pin = true  # TODO: remove this
 
 [download]

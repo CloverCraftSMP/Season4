@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+- Builders option in the installer: Litematica, Syncmatica (share schematics on the server) and Axiom.
+- Redstoners option in the installer: MiniHUD, Litematica and Syncmatica.
+- Tweakeroo as its own optional toggle in the installer.
+- New installs also list the auth server (`auth.clovercraftsmp.com`), used to link a Discord account to a Minecraft account.
+- The installer now preselects sensible options on first launch: Standard graphics, no LODs, Xaero's Minimap, and no creator, builder or redstone tools.
+
+### Changed
+- High contrast block outline is now off by default for new installs.
+
 ## [4.0.3] - 2026-11-11
 
 ### Added

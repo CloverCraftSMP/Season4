@@ -29,4 +29,4 @@ INI
 
 log_info "Syncing server mods..."
 cd "$PACKDEV_SERVER_ROOT"
-java -Dunsup.flavor.creator=creator -jar unsup.jar server
+java -jar unsup.jar server
