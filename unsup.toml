@@ -128,12 +128,9 @@ axiom-client = { flavors = ["creator", "builder"] }
 # =================
 # BUILDERS / REDSTONERS
 # =================
-# Syncmatica and Redstone Multimeter always run on the server (syncmatica.pw.toml,
-# redstone-multimeter.pw.toml); clients get them only with the matching flavor.
 litematica = { flavors = ["builder", "redstoner"] }
 syncmatica-client = { flavors = ["builder", "redstoner"] }
 minihud = { flavors = ["redstoner"] }
-redstone-multimeter-client = { flavors = ["redstoner"] }
 # Shared library for Litematica, MiniHUD and the optional Tweakeroo toggle (packwiz [option] in
 # tweakeroo.pw.toml, which unsup shows as its own On/Off choice with flavor id tweakeroo_on).
 malilib = { flavors = ["builder", "redstoner", "tweakeroo_on"] }

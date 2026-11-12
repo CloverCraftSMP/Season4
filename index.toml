@@ -1256,9 +1256,13 @@ file = "server.properties"
 hash = "9b518732615e32ffec70b8e8949df9408e0a05f14b994e2ca92d9b952928204a"
 
 [[files]]
+file = "squaremap/config.yml"
+hash = "0777c4a2b482a3c78a097b2f4c5512fd3ecc99ad97c2fd973727778ebf34b02c"
+
+[[files]]
 file = "unsup.ini"
 hash = "905dc2397e7aa2a0f0045a177ff56317ce0ed4d85ff28748c0a863f502d25d1d"
 
 [[files]]
 file = "unsup.toml"
-hash = "f9458ea005d96a5d68f5389c075e91d144dbfc86f2bf0edb764c53a91f6231e2"
+hash = "587e96a411453dc247f23f050340623a30375e94433a091afbac23cb34c41c2e"
