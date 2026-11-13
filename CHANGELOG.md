@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [4.0.4] - 2026-11-13
+
 ### Added
 - Builders option in the installer: Litematica, Syncmatica (share schematics on the server) and Axiom.
 - Redstoners option in the installer: MiniHUD, Litematica and Syncmatica.
