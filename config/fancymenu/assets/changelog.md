@@ -1,6 +1,11 @@
 ## What's new
 
-@changelog@
+### Added
+- Fancymenu title screen
+- Nether and end blocking
+
+### Changed
+- Players are now hidden from squaremap web viewer
 
 ---
 

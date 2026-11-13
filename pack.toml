@@ -1,12 +1,12 @@
 name = "CloverCraft Season 4"
 author = "CloverCraft Team, Syfe, Colonel"
-version = "@modpack_version@"
+version = "4.1.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "fc731489bb9c62a1c94488439eb5ae914c3d7a1ad78709e22cc825708eea7703"
+hash = "bef6256168d84922d26cd9abc640bd9a6ca90143393298a5ffd556243780a494"
 
 [versions]
 fabric = "0.20.1"

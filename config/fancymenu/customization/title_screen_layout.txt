@@ -91,7 +91,7 @@ element {
 }
 
 element {
-  source = §fCloverCraft Season 4 §7v@modpack_version@
+  source = §fCloverCraft Season 4 §7v4.1.0
   shadow = true
   enable_scrolling = false
   interactable = true
@@ -215,7 +215,7 @@ element {
   should_be_affected_by_decoration_overlays = false
   element_loading_requirement_container_identifier = fb361dda-995a-4093-af2b-429a45077ecf-1794518112746
   [loading_requirement_container_meta:fb361dda-995a-4093-af2b-429a45077ecf-1794518112746] = [groups:][instances:b12c54c0-fd1e-4789-b05f-df7119957565-1794518112746;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:b12c54c0-fd1e-4789-b05f-df7119957565-1794518112746] = cc_changelog_seen:@modpack_version@
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:b12c54c0-fd1e-4789-b05f-df7119957565-1794518112746] = cc_changelog_seen:4.1.0
   advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-220)*{"placeholder":"guiheight"}/540","decimal":"false"}}
   advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-180)*{"placeholder":"guiheight"}/540","decimal":"false"}}
   advanced_width = {"placeholder":"calc","values":{"expression":"440*{"placeholder":"guiheight"}/540","decimal":"false"}}
@@ -240,7 +240,7 @@ element {
   should_be_affected_by_decoration_overlays = false
   element_loading_requirement_container_identifier = 83a12a48-388d-4f1c-a89b-205c957fecb0-1794518112746
   [loading_requirement_container_meta:83a12a48-388d-4f1c-a89b-205c957fecb0-1794518112746] = [groups:][instances:f7f22f33-af8d-4a16-8207-c6353ee868da-1794518112746;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:f7f22f33-af8d-4a16-8207-c6353ee868da-1794518112746] = cc_changelog_seen:@modpack_version@
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:f7f22f33-af8d-4a16-8207-c6353ee868da-1794518112746] = cc_changelog_seen:4.1.0
   advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-216)*{"placeholder":"guiheight"}/540","decimal":"false"}}
   advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-178)*{"placeholder":"guiheight"}/540","decimal":"false"}}
   advanced_width = {"placeholder":"calc","values":{"expression":"432*{"placeholder":"guiheight"}/540","decimal":"false"}}
@@ -250,7 +250,7 @@ element {
 
 element {
   button_element_executable_block_identifier = e5d58cb1-7af4-4516-b079-8963f719aad4-1794518112746
-  [executable_action_instance:eb81ea0b-71f0-40b0-8eef-4d9e246f77f6-1794518112746][action_type:set_variable] = cc_changelog_seen:@modpack_version@
+  [executable_action_instance:eb81ea0b-71f0-40b0-8eef-4d9e246f77f6-1794518112746][action_type:set_variable] = cc_changelog_seen:4.1.0
   [executable_block:e5d58cb1-7af4-4516-b079-8963f719aad4-1794518112746][type:generic] = [executables:eb81ea0b-71f0-40b0-8eef-4d9e246f77f6-1794518112746;]
   label = Got it
   element_type = custom_button
@@ -262,7 +262,7 @@ element {
   height = 14
   element_loading_requirement_container_identifier = 15a14692-f25b-4859-9156-ca4a6b90f1af-1794518112746
   [loading_requirement_container_meta:15a14692-f25b-4859-9156-ca4a6b90f1af-1794518112746] = [groups:][instances:db738568-55db-4452-a1b4-bfa87c4ed8e5-1794518112746;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:db738568-55db-4452-a1b4-bfa87c4ed8e5-1794518112746] = cc_changelog_seen:@modpack_version@
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:db738568-55db-4452-a1b4-bfa87c4ed8e5-1794518112746] = cc_changelog_seen:4.1.0
   advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(160)*{"placeholder":"guiheight"}/540","decimal":"false"}}
   advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-86)*{"placeholder":"guiheight"}/540","decimal":"false"}}
   advanced_width = {"placeholder":"calc","values":{"expression":"56*{"placeholder":"guiheight"}/540","decimal":"false"}}
