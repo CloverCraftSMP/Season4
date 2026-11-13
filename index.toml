@@ -74,7 +74,7 @@ hash = "465daa18cc9855919ea8ce9ea8f91b923be485082a81d73071f890919d23fcd1"
 
 [[files]]
 file = "config/surveyor.toml"
-hash = "fdb9d43e051bca689f0a66b74439ae122df3a6879900fe3a86a5951c8e285833"
+hash = "066c35cdc1da51e963761864cb999d57e76ef92ee681da51cbce647f975b4989"
 
 [[files]]
 file = "config/tab/config.yml"
