@@ -154,8 +154,8 @@ jobs:
           url: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ github.ref_name }}
           description: ${{ needs.changelog.outputs.notes }}
           fields: |
-            Prism|[prism.zip](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/prism-unsup-prod.zip)
-            Universal|[universal.mrpack](${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.ref_name }}/unsup-prod.mrpack)
+            How to install the pack?|[See our install guide!](https://wiki.clovercraftsmp.com/guides/joining)
+            How do I update?| If you're using Prism simply start the modpack!
 
   # Files this release's [Unreleased] entries under its version on main. Uses the bot app (as in
   # mod-updater) so the push can get past branch protection; add the app to the bypass list if needed.
