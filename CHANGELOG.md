@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Changed
 - High contrast block outline is now off by default for new installs.
 
+### Fixed
+- Surveyor and Clover now properly generates structures and loot
+
 ## [4.0.3] - 2026-11-11
 
 ### Added
