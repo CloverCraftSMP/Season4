@@ -1,0 +1,23 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = %fancymenu:universal_layout%
+  render_custom_elements_behind_vanilla = true
+  is_enabled = true
+  universal_layout_blacklist = net.minecraft.client.gui.screens.TitleScreen;
+}
+
+element {
+  color = #00000080
+  blur_enabled = true
+  element_type = shape
+  instance_identifier = e5056a88-6828-4090-bbde-522d30bc2451-1794518122916
+  anchor_point = top-left
+  x = 0
+  y = 0
+  width = 1
+  height = 1
+  stretch_x = true
+  stretch_y = true
+  should_be_affected_by_decoration_overlays = false
+}

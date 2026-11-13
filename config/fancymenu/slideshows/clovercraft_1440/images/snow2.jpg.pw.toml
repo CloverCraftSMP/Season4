@@ -1,0 +1,8 @@
+name = "snow2.jpg"
+filename = "snow2.jpg"
+side = "client"
+
+[download]
+url = "https://cdn.clovercraftsmp.com/fancymenu-assets/1440/images/snow2.jpg"
+hash-format = "sha256"
+hash = "8fd6d7b5c5d34b2d6f5e90f6083341d7c8baca5cf073b49c2b002f6b9d73acc6"

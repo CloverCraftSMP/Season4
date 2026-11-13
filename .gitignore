@@ -10,3 +10,10 @@ preview.md
 
 .idea/
 .cache/
+
+config/fancymenu/**/*.png
+config/fancymenu/**/*.jpg
+config/fancymenu/**/*.jpeg
+config/fancymenu/**/*.ogg
+config/fancymenu/**/*.gif
+config/fancymenu/**/*.webp

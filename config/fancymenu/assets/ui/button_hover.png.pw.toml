@@ -1,0 +1,8 @@
+name = "button_hover.png"
+filename = "button_hover.png"
+side = "client"
+
+[download]
+url = "https://cdn.clovercraftsmp.com/fancymenu-assets/ui/button_hover.png"
+hash-format = "sha256"
+hash = "2be0366efdff8e527ffcb7225157d1fc7117d71fb8a6504a0a92302d8c8f2a44"

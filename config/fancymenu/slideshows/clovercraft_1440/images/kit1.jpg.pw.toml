@@ -1,0 +1,8 @@
+name = "kit1.jpg"
+filename = "kit1.jpg"
+side = "client"
+
+[download]
+url = "https://cdn.clovercraftsmp.com/fancymenu-assets/1440/images/kit1.jpg"
+hash-format = "sha256"
+hash = "9c9bb70f5eeb176388ec273a27b2b724f062934a2f44a3e5d91ce24eb6fbb8b7"

@@ -2,6 +2,36 @@
 
 B:show_welcome_screen = 'false';
 
+
+##[general]
+
+B:play_vanilla_menu_music = 'false';
+
+
 ##[customization]
 
 B:modpack_mode = 'true';
+
+
+##[layout_editor]
+
+I:layout_editor_grid_size = '50';
+
+
+##[ui]
+
+B:enable_ui_blur = 'true';
+F:ui_blur_intensity = '1.0';
+
+
+##[global_customizations]
+
+S:global_menu_music_tracks = '[source:local]/config/fancymenu/assets/menu_music.ogg%!source_end!%';
+S:global_button_background_normal = '[source:local]/config/fancymenu/assets/ui/button_normal.png';
+S:global_button_background_hover = '[source:local]/config/fancymenu/assets/ui/button_hover.png';
+S:global_button_background_inactive = '[source:local]/config/fancymenu/assets/ui/button_inactive.png';
+B:global_button_background_nine_slice = 'true';
+I:global_button_background_nine_slice_border_top = '3';
+I:global_button_background_nine_slice_border_right = '3';
+I:global_button_background_nine_slice_border_bottom = '3';
+I:global_button_background_nine_slice_border_left = '3';

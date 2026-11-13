@@ -99,7 +99,7 @@ world-settings:
             -   type: world-border
                 enabled: 'false'
         player-tracker:
-            enabled: true
+            enabled: false
             update-interval-seconds: 1
             show-controls: true
             default-hidden: false

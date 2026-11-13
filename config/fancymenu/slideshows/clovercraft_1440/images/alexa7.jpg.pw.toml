@@ -1,0 +1,8 @@
+name = "alexa7.jpg"
+filename = "alexa7.jpg"
+side = "client"
+
+[download]
+url = "https://cdn.clovercraftsmp.com/fancymenu-assets/1440/images/alexa7.jpg"
+hash-format = "sha256"
+hash = "281c425ee79dec910439b2fa2c5a4b717ae2c13d59396b95538f44b3120e69a7"

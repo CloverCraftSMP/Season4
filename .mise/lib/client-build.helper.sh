@@ -3,6 +3,7 @@ set -euo pipefail
 
 source "$MISE_LIB/logger.sh"
 source "$MISE_LIB/crash-assistant.helper.sh"
+source "$MISE_LIB/changelog.helper.sh"
 
 # Resolves PACKDEV_CHANNEL and PACKDEV_VERSION. Values set by the caller win;
 # anything left empty is derived from git: an exact tag is prod, a tagged
@@ -36,11 +37,24 @@ pack_source_url() {
     esac
 }
 
+# Fills the @changelog@ line of the title screen's changelog window with this version's notes from
+# CHANGELOG.md. Backticks are stripped so code-formatted names read as plain text.
+write_fancymenu_changelog() {
+    local file="$1" version="$2" notes
+    notes="$(changelog_notes_for "$version" | tr -d '`')"
+    [[ -z "$notes" ]] && notes="No changes listed for this version."
+    NOTES="$notes" awk '$0 == "@changelog@" { print ENVIRON["NOTES"]; next } { print }' "$file" >"$file.tmp"
+    mv "$file.tmp" "$file"
+    log_debug "Wrote changelog for $version into $file"
+}
+
 # Renders a pack checkout in place: injects the version, points unsup.ini at
 # the channel's source, generates Crash Assistant's modlist.json and refreshes
 # the packwiz hashes the edits invalidated.
 render_pack() {
     local dir="$1" version="$2" source_url="$3"
+
+    write_fancymenu_changelog "$dir/config/fancymenu/assets/changelog.md" "$version"
 
     find "$dir/pack.toml" "$dir/config" -type f -exec sed -i "s|@modpack_version@|${version}|g" {} +
     log_debug "Injected version $version"

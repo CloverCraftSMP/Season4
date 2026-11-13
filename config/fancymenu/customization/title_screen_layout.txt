@@ -1,0 +1,516 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = title_screen
+  render_custom_elements_behind_vanilla = true
+  last_edited_time = 1792692801755
+  is_enabled = true
+  randommode = false
+  randomgroup = 1
+  randomonlyfirsttime = false
+  layout_index = 0
+  [loading_requirement_container_meta:60ecd35a-40e8-4423-bcd4-4f68d9c517a7-1792692754905] = [groups:][instances:]
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = true
+}
+
+scroll_list_customization {
+  preserve_scroll_list_header_footer_aspect_ratio = true
+  render_scroll_list_header_shadow = true
+  render_scroll_list_footer_shadow = true
+  show_scroll_list_header_footer_preview_in_editor = false
+  repeat_scroll_list_header_texture = false
+  repeat_scroll_list_footer_texture = false
+  show_screen_background_overlay_on_custom_background = false
+  apply_vanilla_background_blur = false
+}
+
+layout_action_executable_blocks {
+}
+
+element {
+  color = #00000047
+  element_type = shape
+  instance_identifier = cfe7eafe-0841-45e2-ad1b-7f04cd54d0f9-1794519536597
+  anchor_point = top-left
+  x = 0
+  y = 0
+  width = 1
+  height = 1
+  stretch_x = true
+  stretch_y = true
+  should_be_affected_by_decoration_overlays = false
+}
+
+element {
+  button_element_executable_block_identifier = db5fa07d-7a88-4d51-9d5a-e7a4001e52b8-1792691006854
+  [executable_action_instance:f475b35c-7aeb-4cf4-94e9-7a8023709326-1792691559569][action_type:joinserver] = clovercraftsmp.com
+  [executable_block:db5fa07d-7a88-4d51-9d5a-e7a4001e52b8-1792691006854][type:generic] = [executables:f475b35c-7aeb-4cf4-94e9-7a8023709326-1792691559569;]
+  label = Join CloverCraft SMP
+  description = Click to join CloverCraft SMP%n%{"placeholder":"serverstatus","values":{"ip":"clovercraftsmp.com"}} §7· §f{"placeholder":"serverplayercount","values":{"ip":"clovercraftsmp.com"}} §7players online
+  element_type = custom_button
+  instance_identifier = 9e43d70a-7639-4a97-8aea-82cf917871e0-1792691006853
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = element
+  anchor_point_element = 2d1574ef-2c36-47ef-a959-5eee7045a9d3-1792691826636
+  x = 4
+  y = 17
+  width = 409
+  height = 59
+  in_editor_color = #FFC800FF
+  base_opacity = 0.0
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-209)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/2+(-160)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"409*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"59*{"placeholder":"guiheight"}/540","decimal":"false"}}
+}
+
+element {
+  color = #0000008C
+  corner_radius_top_left = 4.0
+  corner_radius_top_right = 4.0
+  corner_radius_bottom_right = 4.0
+  corner_radius_bottom_left = 4.0
+  element_type = shape
+  instance_identifier = 8dd5d8ba-68a3-4742-9e19-5cdf063b4c8f-1794519536597
+  anchor_point = bottom-left
+  x = 4
+  y = -64
+  width = 316
+  height = 60
+  should_be_affected_by_decoration_overlays = false
+  advanced_posx = {"placeholder":"calc","values":{"expression":"0+(4)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-64)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"316*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"60*{"placeholder":"guiheight"}/720","decimal":"false"}}
+}
+
+element {
+  source = §fCloverCraft Season 4 §7v@modpack_version@
+  shadow = true
+  enable_scrolling = false
+  interactable = true
+  auto_line_wrapping = false
+  parse_markdown = true
+  element_type = text_v2
+  instance_identifier = d61b576c-d65a-46d6-9bd6-c02237017103-1794519536597
+  anchor_point = bottom-left
+  x = 8
+  y = -62
+  width = 232
+  height = 14
+  should_be_affected_by_decoration_overlays = false
+  advanced_posx = {"placeholder":"calc","values":{"expression":"0+(8)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-62)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"232*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"14*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  scale = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/720","decimal":"true"}}
+}
+
+element {
+  button_element_executable_block_identifier = a3ffef6f-8626-4e1e-b4d4-2c6f0a65d075-1794519536597
+  [executable_action_instance:df7a4c3f-1392-4604-9179-cd19e2736773-1794519536597][action_type:set_variable] = cc_changelog_seen:none
+  [executable_block:a3ffef6f-8626-4e1e-b4d4-2c6f0a65d075-1794519536597][type:generic] = [executables:df7a4c3f-1392-4604-9179-cd19e2736773-1794519536597;]
+  label = §eWhat's new
+  description = Show the changelog for this version
+  transparent_background = true
+  underline_label_on_hover = true
+  element_type = custom_button
+  instance_identifier = 7159f3f6-0bd2-4290-883b-b10e308e1625-1794519536597
+  anchor_point = bottom-left
+  x = 244
+  y = -60
+  width = 72
+  height = 11
+  advanced_posx = {"placeholder":"calc","values":{"expression":"0+(244)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-60)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"72*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"11*{"placeholder":"guiheight"}/720","decimal":"false"}}
+}
+
+element {
+  source = {"placeholder":"serverstatus","values":{"ip":"clovercraftsmp.com"}} §7· §f{"placeholder":"serverplayercount","values":{"ip":"clovercraftsmp.com"}} §7players on clovercraftsmp.com
+  shadow = true
+  enable_scrolling = false
+  interactable = true
+  auto_line_wrapping = false
+  parse_markdown = true
+  element_type = text_v2
+  instance_identifier = 08db8bef-3120-41fe-8a47-d383b5fa9da5-1794519536597
+  anchor_point = bottom-left
+  x = 8
+  y = -48
+  width = 308
+  height = 14
+  should_be_affected_by_decoration_overlays = false
+  advanced_posx = {"placeholder":"calc","values":{"expression":"0+(8)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-48)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"308*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"14*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  scale = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/720","decimal":"true"}}
+}
+
+element {
+  source = [Wiki](https://wiki.clovercraftsmp.com) §7· [Map](https://map.clovercraftsmp.com) §7· [Ko-fi](https://ko-fi.com/clovercraftteam)
+  shadow = true
+  enable_scrolling = false
+  interactable = true
+  auto_line_wrapping = false
+  parse_markdown = true
+  element_type = text_v2
+  instance_identifier = 86e2f815-cd50-4e9b-a9a1-b7ebf376ba0e-1794519536597
+  anchor_point = bottom-left
+  x = 8
+  y = -34
+  width = 308
+  height = 14
+  should_be_affected_by_decoration_overlays = false
+  advanced_posx = {"placeholder":"calc","values":{"expression":"0+(8)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-34)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"308*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"14*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  scale = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/720","decimal":"true"}}
+}
+
+element {
+  element_type = image
+  instance_identifier = 2d1574ef-2c36-47ef-a959-5eee7045a9d3-1792691826636
+  fade_in_v2 = first_time
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = -213
+  y = -177
+  width = 425
+  height = 87
+  should_be_affected_by_decoration_overlays = false
+  in_editor_color = #FFC800FF
+  source = [source:local]/config/fancymenu/assets/clovercraft_logo.png
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-213)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/2+(-177)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"425*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"87*{"placeholder":"guiheight"}/540","decimal":"false"}}
+}
+
+element {
+  color = #000000B4
+  corner_radius_top_left = 4.0
+  corner_radius_top_right = 4.0
+  corner_radius_bottom_right = 4.0
+  corner_radius_bottom_left = 4.0
+  blur_enabled = true
+  element_type = shape
+  instance_identifier = 6a34b1d4-0a75-4cc7-b639-3872f3ad5114-1794518112746
+  anchor_point = bottom-centered
+  x = -220
+  y = -180
+  width = 440
+  height = 112
+  should_be_affected_by_decoration_overlays = false
+  element_loading_requirement_container_identifier = fb361dda-995a-4093-af2b-429a45077ecf-1794518112746
+  [loading_requirement_container_meta:fb361dda-995a-4093-af2b-429a45077ecf-1794518112746] = [groups:][instances:b12c54c0-fd1e-4789-b05f-df7119957565-1794518112746;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:b12c54c0-fd1e-4789-b05f-df7119957565-1794518112746] = cc_changelog_seen:@modpack_version@
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-220)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-180)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"440*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"112*{"placeholder":"guiheight"}/540","decimal":"false"}}
+}
+
+element {
+  source = [source:local]/config/fancymenu/assets/changelog.md
+  shadow = true
+  interactable = true
+  auto_line_wrapping = true
+  parse_markdown = true
+  source_mode = resource
+  enable_scrolling = true
+  element_type = text_v2
+  instance_identifier = 6b858039-7a64-45b8-8f14-032d97d919e7-1794518112746
+  anchor_point = bottom-centered
+  x = -216
+  y = -178
+  width = 432
+  height = 88
+  should_be_affected_by_decoration_overlays = false
+  element_loading_requirement_container_identifier = 83a12a48-388d-4f1c-a89b-205c957fecb0-1794518112746
+  [loading_requirement_container_meta:83a12a48-388d-4f1c-a89b-205c957fecb0-1794518112746] = [groups:][instances:f7f22f33-af8d-4a16-8207-c6353ee868da-1794518112746;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:f7f22f33-af8d-4a16-8207-c6353ee868da-1794518112746] = cc_changelog_seen:@modpack_version@
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-216)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-178)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"432*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"88*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  scale = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/720","decimal":"true"}}
+}
+
+element {
+  button_element_executable_block_identifier = e5d58cb1-7af4-4516-b079-8963f719aad4-1794518112746
+  [executable_action_instance:eb81ea0b-71f0-40b0-8eef-4d9e246f77f6-1794518112746][action_type:set_variable] = cc_changelog_seen:@modpack_version@
+  [executable_block:e5d58cb1-7af4-4516-b079-8963f719aad4-1794518112746][type:generic] = [executables:eb81ea0b-71f0-40b0-8eef-4d9e246f77f6-1794518112746;]
+  label = Got it
+  element_type = custom_button
+  instance_identifier = 01731acb-48ef-4c99-875a-1a0c60cf52d0-1794518112746
+  anchor_point = bottom-centered
+  x = 160
+  y = -86
+  width = 56
+  height = 14
+  element_loading_requirement_container_identifier = 15a14692-f25b-4859-9156-ca4a6b90f1af-1794518112746
+  [loading_requirement_container_meta:15a14692-f25b-4859-9156-ca4a6b90f1af-1794518112746] = [groups:][instances:db738568-55db-4452-a1b4-bfa87c4ed8e5-1794518112746;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if_not][req_id:db738568-55db-4452-a1b4-bfa87c4ed8e5-1794518112746] = cc_changelog_seen:@modpack_version@
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(160)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-86)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"56*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"14*{"placeholder":"guiheight"}/540","decimal":"false"}}
+}
+
+element {
+  source = §8Minecraft {"placeholder":"mcversion"} · {"placeholder":"loadername"} {"placeholder":"loaderver"}
+  shadow = true
+  enable_scrolling = false
+  interactable = false
+  auto_line_wrapping = false
+  parse_markdown = true
+  element_type = text_v2
+  instance_identifier = 44ffec8f-a3a9-4fbb-9fea-d7ef11ac130e-1794522829634
+  anchor_point = bottom-left
+  x = 8
+  y = -20
+  width = 308
+  height = 14
+  should_be_affected_by_decoration_overlays = false
+  advanced_posx = {"placeholder":"calc","values":{"expression":"0+(8)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}+(-20)*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"308*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"14*{"placeholder":"guiheight"}/720","decimal":"false"}}
+  scale = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/720","decimal":"true"}}
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_singleplayer_button
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = -100
+  y = -60
+  width = 200
+  height = 20
+  in_editor_color = #FFC800FF
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-100)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/2+(-60)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"200*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"20*{"placeholder":"guiheight"}/540","decimal":"false"}}
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_quit_button
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = 2
+  y = -10
+  width = 98
+  height = 20
+  in_editor_color = #FFC800FF
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(2)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/2+(-10)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"98*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"20*{"placeholder":"guiheight"}/540","decimal":"false"}}
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = 1224
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = -125
+  y = 25
+  width = 20
+  height = 20
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_realms_button
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = -100
+  y = -96
+  width = 200
+  height = 20
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = minecraft_splash_widget
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = element
+  anchor_point_element = 2d1574ef-2c36-47ef-a959-5eee7045a9d3-1792691826636
+  x = 338
+  y = 32
+  width = 150
+  height = 60
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = minecraft_branding_widget
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = element
+  anchor_point_element = title_screen_copyright_button
+  x = 0
+  y = -8
+  width = 127
+  height = 10
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = 604358
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = 105
+  y = 25
+  width = 20
+  height = 20
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_options_button
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = -100
+  y = -10
+  width = 98
+  height = 20
+  in_editor_color = #FFC800FF
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-100)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/2+(-10)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"98*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"20*{"placeholder":"guiheight"}/540","decimal":"false"}}
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = 376394
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = -125
+  y = 25
+  width = 20
+  height = 20
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = minecraft_logo_widget
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = top-centered
+  x = 290
+  y = 549
+  width = 251
+  height = 51
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_multiplayer_button
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = -100
+  y = -35
+  width = 200
+  height = 20
+  in_editor_color = #FFC800FF
+  advanced_posx = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiwidth"}/2+(-100)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_posy = {"placeholder":"calc","values":{"expression":"{"placeholder":"guiheight"}/2+(-35)*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_width = {"placeholder":"calc","values":{"expression":"200*{"placeholder":"guiheight"}/540","decimal":"false"}}
+  advanced_height = {"placeholder":"calc","values":{"expression":"20*{"placeholder":"guiheight"}/540","decimal":"false"}}
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = 604394
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = 105
+  y = 50
+  width = 20
+  height = 20
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = minecraft_realms_notification_icons_widget
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = 32
+  y = 25
+  width = 62
+  height = 18
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = modmenu_titlescreen_mods_button
+  auto_sizing_base_screen_width = 2560
+  auto_sizing_base_screen_height = 1440
+  auto_sizing_base_gui_scale = 2
+  anchor_point = mid-centered
+  x = -100
+  y = 25
+  width = 200
+  height = 20
+  in_editor_color = #FFC800FF
+  is_hidden = true
+}

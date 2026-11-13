@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+#MISE description="Regenerates the .pw.toml metafiles for FancyMenu assets hosted on the CDN"
+#USAGE flag "--check" help="Fail instead of writing if any metafile is missing or stale"
+set -euo pipefail
+
+source "$MISE_LIB/logger.sh"
+
+cd "$MISE_PROJECT_ROOT"
+
+CDN_BASE="https://cdn.clovercraftsmp.com/fancymenu-assets"
+CHECK="${usage_check:-false}"
+
+declare -A DEST=(
+    ["1080/images/"]="config/fancymenu/slideshows/clovercraft_1080/images/"
+    ["1440/images/"]="config/fancymenu/slideshows/clovercraft_1440/images/"
+    ["ui/"]="config/fancymenu/assets/ui/"
+)
+ROOT_DEST="config/fancymenu/assets/"
+ASSET_RE='\.(png|jpe?g|ogg|gif|webp)$'
+
+crawl() {
+    local dir="$1" href
+    while read -r href; do
+        case "$href" in
+        ../ | /* | *://*) ;;
+        */) crawl "$dir$href" ;;
+        *) printf '%s\n' "$dir$href" ;;
+        esac
+    done < <(curl -fsS "$CDN_BASE/$dir" | grep -o 'href="[^"]*"' | sed 's/^href="//; s/"$//')
+}
+
+dest_for() {
+    local path="$1" dir="${1%/*}/"
+    if [[ "$path" != */* ]]; then
+        printf '%s%s\n' "$ROOT_DEST" "$path"
+    elif [[ -n "${DEST[$dir]:-}" ]]; then
+        printf '%s%s\n' "${DEST[$dir]}" "${path##*/}"
+    fi
+}
+
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
+
+declare -A wanted=()
+stale=0
+while read -r path; do
+    [[ "$path" =~ $ASSET_RE ]] || continue
+    target="$(dest_for "$path")"
+    if [[ -z "$target" ]]; then
+        log_warn "Skipping $path: no destination mapped for it in DEST"
+        continue
+    fi
+    meta="$target.pw.toml"
+    wanted["$meta"]=1
+    name="$(basename "$target")"
+    url="$CDN_BASE/$(printf '%s' "$path" | jq -sRr @uri | sed 's/%2F/\//g')"
+    hash="$(curl -fsS "$url" | sha256sum | cut -d' ' -f1)"
+    cat >"$tmp/meta" <<EOF
+name = "$name"
+filename = "$name"
+side = "client"
+
+[download]
+url = "$url"
+hash-format = "sha256"
+hash = "$hash"
+EOF
+    if [[ -f "$meta" ]] && cmp -s "$tmp/meta" "$meta"; then
+        continue
+    fi
+    stale=1
+    if [[ "$CHECK" == "true" ]]; then
+        log_error "$meta is missing or out of date"
+    else
+        mkdir -p "$(dirname "$meta")"
+        cp "$tmp/meta" "$meta"
+        log_info "Wrote $meta"
+    fi
+done < <(crawl "")
+
+while read -r meta; do
+    [[ -n "${wanted[$meta]:-}" ]] && continue
+    stale=1
+    if [[ "$CHECK" == "true" ]]; then
+        log_error "$meta points at a file that is no longer on the CDN"
+    else
+        rm "$meta"
+        log_info "Removed $meta"
+    fi
+done < <(find config/fancymenu -name '*.pw.toml' | sort)
+
+if [[ "$CHECK" == "true" && "$stale" == 1 ]]; then
+    log_error "Run 'mise run assets:sync' and commit the result"
+    exit 1
+fi
+if [[ "$CHECK" != "true" && "$stale" == 1 ]]; then
+    mise run --quiet packwiz:refresh
+fi
+log_info "FancyMenu asset metafiles are up to date"

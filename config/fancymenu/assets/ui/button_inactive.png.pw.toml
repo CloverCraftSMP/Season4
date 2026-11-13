@@ -1,0 +1,8 @@
+name = "button_inactive.png"
+filename = "button_inactive.png"
+side = "client"
+
+[download]
+url = "https://cdn.clovercraftsmp.com/fancymenu-assets/ui/button_inactive.png"
+hash-format = "sha256"
+hash = "447e486177d83a0f1241620929762444abd77b357bfacab7fd90a0d078908ca7"

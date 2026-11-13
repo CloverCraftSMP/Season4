@@ -1,0 +1,8 @@
+name = "quinn4.jpg"
+filename = "quinn4.jpg"
+side = "client"
+
+[download]
+url = "https://cdn.clovercraftsmp.com/fancymenu-assets/1440/images/quinn4.jpg"
+hash-format = "sha256"
+hash = "f7535df39e4d0cfa1d51471a39607b0cf45d79c3504a49fd1df283f8fba80848"

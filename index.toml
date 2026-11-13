@@ -33,8 +33,301 @@ file = "config/enhancedgroups/enhancedgroups.properties"
 hash = "bb3cf8404575ecac9196d2e311d923ea5521d5c0d5cc80973db953eb4bd39002"
 
 [[files]]
+file = "config/fancymenu/assets/changelog.md"
+hash = "7de86303552f7e82fcddb48f544fda261840cebab209b61e769393d6ec7e0c20"
+
+[[files]]
+file = "config/fancymenu/assets/clovercraft_logo.png.pw.toml"
+hash = "9dc84c1f7065053aeeeb320d0da5bf20238b093e18b24236a6be6e018dd4bde6"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/assets/menu_music.ogg.pw.toml"
+hash = "487ff24eb242ab4d5800acdde868fff1bbdc0e614df44b310617d3e50bcffc16"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/assets/ui/button_hover.png.pw.toml"
+hash = "b4efb69cf285a1a350ee92f6cb973cab15a24502ce2e7efce5e018ea2b30c667"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/assets/ui/button_inactive.png.pw.toml"
+hash = "d8662b175d48936ca1ba75a6e7555b8ed30283b89d2f011b137baf530176ba20"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/assets/ui/button_normal.png.pw.toml"
+hash = "60dfc744fecf73eeb630053aff8ca3095c2711d99b1e0c578a6e48c0201e6942"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/custom_gui_screens.txt"
+hash = "ff492043eaf454c46e949d5eef32ece90cc5a19feb50a161dd29a43b5732c880"
+
+[[files]]
+file = "config/fancymenu/customizablemenus.txt"
+hash = "6979f758f552c195103cdfc5708fb93ba1fdd4418f8a172717d96f870c0a8968"
+
+[[files]]
+file = "config/fancymenu/customization/backgrounds_1080.txt"
+hash = "ee5f28befa5d3c73a3209127da7c743be7755d6d021e2775607d6b3c35e7bad5"
+
+[[files]]
+file = "config/fancymenu/customization/backgrounds_1440.txt"
+hash = "49b3d8524c9c1cdd5405ae296e02172925685020a02bee7df248ade1d901acd0"
+
+[[files]]
+file = "config/fancymenu/customization/dim_menu_screens.txt"
+hash = "cf7eb30e92f32797bb20e2c08cf116f4811ee71b42e57012ecb85587d2f707f6"
+
+[[files]]
+file = "config/fancymenu/customization/title_screen_layout.txt"
+hash = "7495c9baa1c2dd2fb2435ed0c53076b0570bbc270702a6722c93323dca1e135d"
+
+[[files]]
+file = "config/fancymenu/layout_editor/widgets/element_layer_control.lewidget"
+hash = "051d700ea7ff1bd626063d60f9a9cd65a0af1fed5903706d1e70fce20bcb2495"
+
+[[files]]
+file = "config/fancymenu/legacy_checklist.txt"
+hash = "9a25d3dc708e43eabafce5479a13c02dae15bc7f673afb2745b8b2ba48a97dc0"
+
+[[files]]
 file = "config/fancymenu/options.txt"
-hash = "cec4b194848d9b74cc4951867271b56215531de0ff1fdbe75f3cb9c5b526843b"
+hash = "7eab45379989699fa985064037078cd9f9925ffd03ddc1d206bafbaf6837f58d"
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa1.jpg.pw.toml"
+hash = "5cb4cf0641a855119817296496505eab7e9f4fada6925e9fa96cef8f9071d191"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa10.jpg.pw.toml"
+hash = "e18d95c2c1efaa74e6aad9b6d432e013cb6ba1a862e42869423ecaf364355dbe"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa11.jpg.pw.toml"
+hash = "e1851aaf029bcc9c156aa551e5e006fb5e0c0c7f1b2a490d076b8bdf4be901af"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa12.jpg.pw.toml"
+hash = "629ad38b872335caa5a3e47578e725d6e8bc53a04a3834b437d90e2d571dfeb1"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa2.jpg.pw.toml"
+hash = "27985193bea618ba15f810b7de6bddef8c6aa410080d3cac2162278d5a7270af"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa3.jpg.pw.toml"
+hash = "866f7e33e0b86a5772427ff6a35c523b0393d1e38f6e01bdca5575a11b74fec5"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa4.jpg.pw.toml"
+hash = "d5f88c61379cac1e95b56e86649caa06c8047b05cea6f9209fbc1f8021b682e8"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa5.jpg.pw.toml"
+hash = "7b2a2dda875a02d822f38f7a6b2210cd565e85426fbaf4a1ee19776c01d7555b"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa6.jpg.pw.toml"
+hash = "f039c2cf922804b988aed3d2240433a73c541a84d7e4966a93e513342e7be5ae"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa7.jpg.pw.toml"
+hash = "56e06788c7f62eb332523e679e4a37327dd3eabdf669d0c8d319da4aeeab9686"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa8.jpg.pw.toml"
+hash = "e0c75b856f5504b9e6dce00615756a8477997891498fa0d574a1eefd28b8c8a0"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/alexa9.jpg.pw.toml"
+hash = "8e84f1e1182128e5b002b569bc5db2ccbdf44817a0f87f56e5effea3ceec6e71"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/kit1.jpg.pw.toml"
+hash = "9d245ed234b0b48ae06f7c67babd820a12fca77b74dbd8e4c88b06db18b4ec7c"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/quinn1.jpg.pw.toml"
+hash = "da93cb4ba7bcf3df06fab332eccd288a81832f78befb59aedc5f58bb7323398d"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/quinn3.jpg.pw.toml"
+hash = "c2a5316666a6a383ed3e04198f1120ae8ccfe89d7aecd7ad49b219b5b50ee66c"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/quinn4.jpg.pw.toml"
+hash = "db6ed97670c76ae3766702280666b81188926cb88298c06f0968d8c0f6ac3034"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/quinn5.jpg.pw.toml"
+hash = "8e51c700db829e96fb16e0ce3ae537200662a06e9ed704f7f69625dcaa6d7194"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/quinn6.jpg.pw.toml"
+hash = "736fdcca249889385bb75eb5fc69f777166dad60119a6cce6208f949866efdec"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/quinn7.jpg.pw.toml"
+hash = "3066ad227a1b16a98f311e1a469ad9df39ceeca3547162d0c2876d321edc01ea"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/quinn8.jpg.pw.toml"
+hash = "cf92cbba9b115be713f861e4fc4849899ad48a88236dbefe9318eb97566e2f61"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/snow2.jpg.pw.toml"
+hash = "05115cd4119cbe32da964327174bf6cef72ab19427d158eb10341599a7aeeaa7"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/images/unsure1.jpg.pw.toml"
+hash = "150f8a33000810e48166a81534dcb2defb820bd9fc7d2876ea11e4cc86b5a957"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1080/properties.txt"
+hash = "92091399d39d349897762bac56038bf5b1f0823e3a1d49f32f2359b25ac2ef6b"
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa1.jpg.pw.toml"
+hash = "6e8dbab162a31277dbd5afff3e242ea77f5a6039c3bee0b62621b2089a85d227"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa10.jpg.pw.toml"
+hash = "e25dffbbff1087d1dcf99d2088015b084b400ca69867dcc174564b40f1a17c67"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa11.jpg.pw.toml"
+hash = "e9ceb2c2bb485ab566508cd3c3159f1b53113ceb04e3f371d70a37055b512b3e"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa12.jpg.pw.toml"
+hash = "7d0a1444ba96bc9264ba723826d4e6f4d73e722712caa4a86a84d4773c02e7a6"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa2.jpg.pw.toml"
+hash = "7b1b6d1e86ce29ba977a5ca978c53ca9c62a97e44a5330f92428c226a55f27e7"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa3.jpg.pw.toml"
+hash = "bb0b7d6c8350f84d63457416fe619b536190920542989d040bd32d48454e3f72"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa4.jpg.pw.toml"
+hash = "b27a7c3d36ef5fdc8e158c37d9e919a19a36120cd37bf5f0d6ec8f55851bbbdc"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa5.jpg.pw.toml"
+hash = "2464140faded303e74d15ca7375db1aad7390d3fa6fc7447613f1090f410f1c3"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa6.jpg.pw.toml"
+hash = "bf1eb23fbfd8751a5b812bb79c28be3b4c88daafdda84ff315ab56da2ac2a357"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa7.jpg.pw.toml"
+hash = "8b27b71967b726cc2ba857ce75c8ccbf1b30bc2783922ac2c9ec0549430e6b59"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa8.jpg.pw.toml"
+hash = "a1d85e7340914563cae68fdcc55d5bec7a4242a56e0802774d09a4258a7048aa"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/alexa9.jpg.pw.toml"
+hash = "7cd22f154c656546f201f18898ff4975842df0f24fbf20cdbbf970802a502f01"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/kit1.jpg.pw.toml"
+hash = "da91da3ef783b00d3d866d0e7d7bf44f5d16489b2604a5a34475e3a0f2e554eb"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/quinn1.jpg.pw.toml"
+hash = "307df45f8885993739269a72bdb20eb91fd0575886dc9b266e32af0bb8313768"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/quinn3.jpg.pw.toml"
+hash = "0b737a2434c196e8318a088d236ddf418df0c0ad93b15b8f79bc1ddb85610293"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/quinn4.jpg.pw.toml"
+hash = "c1396b341892e692e99539d9caa364a320c4321bc364e1a922780d3db161a5cc"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/quinn5.jpg.pw.toml"
+hash = "08f3401298fe0cf2fded859bf168574a8238acc549ba9e1ebb3c5e9dd9a2f88c"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/quinn6.jpg.pw.toml"
+hash = "00569698747048a089560a259732948c18652e15ff9f886956808bbc908a20e9"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/quinn7.jpg.pw.toml"
+hash = "54182fd8abfaeaefe4cdc0d1b3d682530ff05ea027d2661a1ae0ad9e12fd94b7"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/quinn8.jpg.pw.toml"
+hash = "2b7417fae199a9250a3868990aa0a5b43da2dbf7c1852e9330d280dfb0cc4a00"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/snow2.jpg.pw.toml"
+hash = "5d0b89e63f80262f79ac5db3cf660da5e1d4668548ea9572e50868970af1741a"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/images/unsure1.jpg.pw.toml"
+hash = "a1a35e3c1d65d3f99075e8fd6c74401c1808c76f4d9a72b9ea8e9aca555c1b72"
+metafile = true
+
+[[files]]
+file = "config/fancymenu/slideshows/clovercraft_1440/properties.txt"
+hash = "acf35d5702c3af5356caaf73710611f716252ae19658ea8a56685ce7217a79d4"
+
+[[files]]
+file = "config/fancymenu/user_variables.db"
+hash = "3d7d4cda73d6bde134a568ccbe4e8d2e7fbe701570012b71fa45acdb2258c823"
 
 [[files]]
 file = "config/fsit.yml"
@@ -1266,7 +1559,7 @@ hash = "9b518732615e32ffec70b8e8949df9408e0a05f14b994e2ca92d9b952928204a"
 
 [[files]]
 file = "squaremap/config.yml"
-hash = "0777c4a2b482a3c78a097b2f4c5512fd3ecc99ad97c2fd973727778ebf34b02c"
+hash = "2a34409176894b25eea41aba34d75672ed9e915a27fe14d11b94b4ef5d087096"
 
 [[files]]
 file = "unsup.ini"

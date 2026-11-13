@@ -1,0 +1,107 @@
+type = customizablemenus
+
+net.minecraft.client.gui.screens.TitleScreen {
+}
+
+net.minecraft.client.gui.screens.worldselection.SelectWorldScreen {
+}
+
+net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen {
+}
+
+com.terraformersmc.modmenu.gui.ModsScreen {
+}
+
+com.mojang.realmsclient.gui.screens.RealmsClientOutdatedScreen {
+}
+
+net.irisshaders.iris.gui.screen.ShaderPackScreen {
+}
+
+net.minecraft.client.gui.screens.packs.PackSelectionScreen {
+}
+
+net.minecraft.client.gui.screens.ConfirmLinkScreen {
+}
+
+com.blamejared.controlling.client.NewKeyBindsScreen {
+}
+
+net.minecraft.client.gui.screens.options.controls.ControlsScreen {
+}
+
+net.minecraft.client.gui.screens.options.MouseSettingsScreen {
+}
+
+net.minecraft.client.gui.screens.options.SkinCustomizationScreen {
+}
+
+de.zannagh.armorhider.client.gui.screens.ArmorHiderOptionsScreen {
+}
+
+net.caffeinemc.mods.sodium.client.gui.VideoSettingsScreen {
+}
+
+net.minecraft.client.gui.screens.options.LanguageSelectScreen {
+}
+
+net.minecraft.client.gui.screens.options.ChatOptionsScreen {
+}
+
+io.github.fishstiz.packed_packs.gui.screens.PackedPacksScreen {
+}
+
+net.minecraft.client.gui.screens.options.AccessibilityOptionsScreen {
+}
+
+net.minecraft.client.gui.screens.CreditsAndAttributionScreen {
+}
+
+net.minecraft.client.gui.screens.options.OnlineOptionsScreen {
+}
+
+de.zannagh.eunomia.client.gui.screens.EunomiaSettingsScreen {
+}
+
+me.shedaniel.clothconfig2.gui.ClothConfigScreen {
+}
+
+team.creative.creativecore.client.ModMenuImpl$1 {
+}
+
+net.minecraft.client.gui.screens.worldselection.EditWorldScreen {
+}
+
+net.minecraft.client.gui.screens.worldselection.CreateWorldScreen {
+}
+
+net.minecraft.client.gui.screens.worldselection.WorldCreationGameRulesScreen {
+}
+
+net.minecraft.client.gui.screens.worldselection.ExperimentsScreen {
+}
+
+dev.dediamondpro.resourcify.gui.browsepage.BrowseScreen {
+}
+
+com.moulberry.flashback.screen.select_replay.SelectReplayScreen {
+}
+
+com.moulberry.flashback.screen.EditReplayScreen {
+}
+
+com.moulberry.lattice.LatticeConfigScreen {
+}
+
+net.kosmo.music.gui.JukeboxScreen {
+}
+
+net.minecraft.client.gui.screens.DisconnectedScreen {
+}
+
+net.minecraft.client.gui.screens.LevelLoadingScreen {
+}
+
+net.minecraft.client.gui.screens.options.OptionsScreen {
+}
+

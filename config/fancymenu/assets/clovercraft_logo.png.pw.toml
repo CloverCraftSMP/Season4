@@ -1,0 +1,8 @@
+name = "clovercraft_logo.png"
+filename = "clovercraft_logo.png"
+side = "client"
+
+[download]
+url = "https://cdn.clovercraftsmp.com/fancymenu-assets/clovercraft_logo.png"
+hash-format = "sha256"
+hash = "18873b509b2fe9655f6f2534c7bbbceb6731123e19028e989f2486ed00af99bc"

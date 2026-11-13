@@ -53,6 +53,10 @@ if ! mise run --quiet motd:generate --check; then
     failed=1
 fi
 
+if ! mise run --quiet assets:sync --check; then
+    failed=1
+fi
+
 before="$(sha256sum index.toml pack.toml)"
 packwiz refresh >/dev/null
 if [[ "$(sha256sum index.toml pack.toml)" != "$before" ]]; then

@@ -1,0 +1,20 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = %fancymenu:universal_layout%
+  is_enabled = true
+  [loading_requirement_container_meta:aa9abf5c-7c7e-48c1-8e5d-dc72be5ad889-1794520879889] = [groups:][instances:3297352d-b08d-49e5-b794-47a685788f1f-1794520879889;]
+  [loading_requirement:fancymenu_loading_requirement_is_window_height_bigger_than][requirement_mode:if_not][req_id:3297352d-b08d-49e5-b794-47a685788f1f-1794520879889] = 1299
+}
+
+menu_background {
+  instance_identifier = f01e5485-3f33-45f4-b4db-2542c7294497-1794520879889
+  background_type = slideshow
+  show_background = true
+  slideshow_name = clovercraft_1080
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = true
+}

@@ -1,0 +1,8 @@
+name = "menu_music.ogg"
+filename = "menu_music.ogg"
+side = "client"
+
+[download]
+url = "https://cdn.clovercraftsmp.com/fancymenu-assets/menu_music.ogg"
+hash-format = "sha256"
+hash = "83b7bc369dfc0a0eda48a3f1b0484d4feaf67234c2c9ea9ba0b31edcf5f4104f"

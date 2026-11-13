@@ -1,0 +1,8 @@
+type = slideshow
+
+slideshow-meta {
+  name = clovercraft_1440
+  duration = 30.0
+  fadespeed = 6.0
+  randomize = true
+}
