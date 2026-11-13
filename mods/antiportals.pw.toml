@@ -1,0 +1,13 @@
+name = "AntiPortals"
+filename = "antiportals-fabric-26.1.2-2.2.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/2IyQrutX/versions/oIdiG5Gc/antiportals-fabric-26.1.2-2.2.1.jar"
+hash-format = "sha512"
+hash = "ab2dadebe0d50cd99f95e23dae868be1dedf2d685cd566366e1aaad93af180acfa981f6b21f356acd0336a39f6b80cf233724d78a81141588843126b8912c72e"
+
+[update]
+[update.modrinth]
+mod-id = "2IyQrutX"
+version = "oIdiG5Gc"

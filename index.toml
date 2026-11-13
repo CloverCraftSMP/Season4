@@ -142,6 +142,11 @@ hash = "2b8c7c45011fe8b5559560ac9efdf21a0cf5c5b26331b190ba5b4728dc66ef4a"
 metafile = true
 
 [[files]]
+file = "mods/antiportals.pw.toml"
+hash = "6dc8e513f4306bf15f78bd77599473fdaa5744487c548f7141ad44a6d180d741"
+metafile = true
+
+[[files]]
 file = "mods/appleskin.pw.toml"
 hash = "785e74169e884a0535517140796a8448a831abf7f7dfa29cf6326b178c0dcf48"
 metafile = true
