@@ -358,10 +358,6 @@ file = "config/servercore/optimizations.yml"
 hash = "41c1256f82436085a0d8fd8b5bd89bdf95007883ee4a637a165970c02f99d93f"
 
 [[files]]
-file = "config/simple-discord-link/simple-discord-link.toml"
-hash = "d6e9c3f6e1a1a045a5b30c293f4888382968c5e73afa1eb52502db1d67dbbc60"
-
-[[files]]
 file = "config/streamsreflowing.properties"
 hash = "465daa18cc9855919ea8ce9ea8f91b923be485082a81d73071f890919d23fcd1"
 
