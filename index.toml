@@ -358,10 +358,6 @@ file = "config/servercore/optimizations.yml"
 hash = "41c1256f82436085a0d8fd8b5bd89bdf95007883ee4a637a165970c02f99d93f"
 
 [[files]]
-file = "config/simple-discord-link/simple-discord-link.toml"
-hash = "d6e9c3f6e1a1a045a5b30c293f4888382968c5e73afa1eb52502db1d67dbbc60"
-
-[[files]]
 file = "config/streamsreflowing.properties"
 hash = "465daa18cc9855919ea8ce9ea8f91b923be485082a81d73071f890919d23fcd1"
 
@@ -561,12 +557,12 @@ metafile = true
 
 [[files]]
 file = "mods/chunksmith-client.pw.toml"
-hash = "5598dce7a12e0f407ebf08601b9dfa8253e868f01dc497fb270eee96c0245df6"
+hash = "74a8064564e8e90ec78f3dbe3b3b10d133cf462642d54b77cf6a61065ef9a1dd"
 metafile = true
 
 [[files]]
 file = "mods/chunksmith.pw.toml"
-hash = "0b13628223fcad2c195993ebc514b41b3ac2bc4cb7095d22ace2143bba133c27"
+hash = "f72001d9b0cbe88317f556d7e3a7a48652e674ffc843898a3893c9b843029f1c"
 metafile = true
 
 [[files]]
@@ -1141,7 +1137,7 @@ metafile = true
 
 [[files]]
 file = "mods/packed-packs.pw.toml"
-hash = "0778d00822de4510f9b3ddcfbd3da9c92bff7e446cb02d4b1d681a77e4bc0549"
+hash = "17c2686763ab2b73750ce9da15ec975e5b8331591303496303f55fb87ba5d8c6"
 metafile = true
 
 [[files]]
@@ -1161,7 +1157,7 @@ metafile = true
 
 [[files]]
 file = "mods/particular-reforged.pw.toml"
-hash = "652f2968da4a8b382c24715093c828937511be936b59bb6db420a37adcb71a09"
+hash = "0daa563b8d261781eb595087042b871766f17b588c6f063e7e267fb8a4182ffc"
 metafile = true
 
 [[files]]
@@ -1336,7 +1332,7 @@ metafile = true
 
 [[files]]
 file = "mods/streams-reflowing.pw.toml"
-hash = "da1f1c347fc1961242a5d3ed9a4c9fc60408e60eb89f4b4ebca6bd59286d0e8f"
+hash = "c95cb5c9c8f2d039215871381854e6d5d15d86afda91ae9c067be55997c99434"
 metafile = true
 
 [[files]]
@@ -1351,7 +1347,7 @@ metafile = true
 
 [[files]]
 file = "mods/subtle-effects.pw.toml"
-hash = "5862e7315b5cd731d45fe9219285fc0ce568fa5546c4fae32a240b769896b2da"
+hash = "889ba5fc494c0319eabd3368f17410b6e5ecff3a4d128037fb0a16bf6f700d4d"
 metafile = true
 
 [[files]]

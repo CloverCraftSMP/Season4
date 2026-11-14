@@ -1,13 +1,13 @@
 name = "Chunksmith (client LOD)"
-filename = "chunksmith-4.8.0+26.1.jar"
+filename = "chunksmith-4.9.0+26.1.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/4BeAEBIb/versions/tnrTB4Q0/chunksmith-4.8.0%2B26.1.jar"
+url = "https://cdn.modrinth.com/data/4BeAEBIb/versions/QJUg5Chr/chunksmith-4.9.0%2B26.1.jar"
 hash-format = "sha512"
-hash = "b8f4a44542352b6f8372454cc09e940e924bc30fd8e3776050db9b9362602bf337f6750379d340d907c291377879277e7252480cdedcfb423f03f23bbd5ae238"
+hash = "15a4748fe6d1b660500683b31b013c29c0d74a16bd5c1ed51e0fe1295bda7d9987a0987c21719c51fb93ed010eaa51eede52a87e26c12d86ae55c557cdb3b30e"
 
 [update]
 [update.modrinth]
 mod-id = "4BeAEBIb"
-version = "tnrTB4Q0"
+version = "QJUg5Chr"
