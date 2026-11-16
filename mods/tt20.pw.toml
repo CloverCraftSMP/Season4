@@ -1,13 +1,13 @@
 name = "TT20 (TPS Fixer)"
-filename = "tt20-0.8.5+mc26.1.1-fabric.jar"
+filename = "tt20-0.9.1+mc26.1.1-fabric.jar"
 side = "server"
 
 [download]
-url = "https://cdn.modrinth.com/data/YS3ZignI/versions/dzGfhyWj/tt20-0.8.5%2Bmc26.1.1-fabric.jar"
+url = "https://cdn.modrinth.com/data/YS3ZignI/versions/nxlxljjC/tt20-0.9.1%2Bmc26.1.1-fabric.jar"
 hash-format = "sha512"
-hash = "e42314dd32c0ec1e7d93744a9a0f9dabc0bdd1bec0fcaa2ebf878a3555c1226d613b21a87de103862b7846be410e8497565d897303525445cd03f604c62c80dc"
+hash = "4f31b448009bbdef59a3ccac42bdf6c29f9e390b42e913d7d234aa2db4c57cb51e8074b5d209d7d13f6e4e4fa8d68ec98162c6be17d3bf5befa7f3cf080be580"
 
 [update]
 [update.modrinth]
 mod-id = "YS3ZignI"
-version = "dzGfhyWj"
+version = "nxlxljjC"
