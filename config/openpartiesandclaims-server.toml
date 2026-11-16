@@ -1,3 +1,14 @@
 [serverConfig]
 # Use LuckPerms for claim/party permissions (see mods/luckperms/toml-storage/groups/)
 permissionSystem = "luck_perms"
+
+playerConfigurablePlayerConfigOptions = [
+  "claims.name",
+  "claims.color",
+  "claims.forceload.enabled",
+  "parties.name",
+  "parties.shareLocationWithParty",
+  "parties.shareLocationWithMutualAllyParties",
+  "parties.receiveLocationsFromParty",
+  "parties.receiveLocationsFromMutualAllyParties",
+]

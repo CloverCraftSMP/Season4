@@ -1,0 +1,17 @@
+{
+	"nether": {
+		"enabled": true,
+		"teleport": true,
+		"create_portal": true
+	},
+	"end": {
+		"enabled": true,
+		"teleport": true,
+		"create_portal": true,
+		"disable_ender_eye": true
+	},
+	"general": {
+		"should_op_bypass": false,
+		"disabled_dimensions": ["minecraft:the_end", "minecraft:the_nether"]
+	}
+}

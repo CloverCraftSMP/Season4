@@ -13,6 +13,10 @@ file = "config/MiniMOTD/main.conf"
 hash = "63b2fbc761cffe5403bbaebe86fb7cda8846aaf624bc37e685ee0e64c5050eff"
 
 [[files]]
+file = "config/antiportals-config.json5"
+hash = "68b4afa08753be86888a17ab4214a4e3f4094a853b7504820d217f4253d8f15e"
+
+[[files]]
 file = "config/bcc-common.json"
 hash = "e54492b89612f5978098f738339b90999955290554fd34491d7b6cca34c5fa22"
 
@@ -335,11 +339,11 @@ hash = "909d557388e46be651c1c5b976e47f26b332fecb4807ce798f65ce0004f4ce4b"
 
 [[files]]
 file = "config/luckperms/luckperms.conf"
-hash = "bc47c2ff4629da651768c331ef8067953b8d49e10e809cc6bef03ee397b69559"
+hash = "ed8d0ab434fddead09884c3f37b9bdbe4e02f12a998f79f0f50d86921fc45f40"
 
 [[files]]
 file = "config/openpartiesandclaims-server.toml"
-hash = "85b979f59c365889060692cf17c556e7712a345d9bb465928131d9bca47be603"
+hash = "f1f55eb47fc96872addf2be3f4227b4e09acca6e756acea8c29245b0920f2d93"
 
 [[files]]
 file = "config/preferred-gamerules.properties"
@@ -356,10 +360,6 @@ hash = "d4390c5732fde09d7269f5f8c06c228261b43671875df54e0c7ddecde62e3a45"
 [[files]]
 file = "config/servercore/optimizations.yml"
 hash = "41c1256f82436085a0d8fd8b5bd89bdf95007883ee4a637a165970c02f99d93f"
-
-[[files]]
-file = "config/simple-discord-link/simple-discord-link.toml"
-hash = "d6e9c3f6e1a1a045a5b30c293f4888382968c5e73afa1eb52502db1d67dbbc60"
 
 [[files]]
 file = "config/streamsreflowing.properties"
@@ -976,7 +976,7 @@ metafile = true
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/communityrep.toml"
-hash = "2f8e607201506acb557cf66dea547904b269fcec68cbff2824630a03995fb0f1"
+hash = "a03bb36a1cfd74cdf62bcce743beb6bf1b213614cd7ab420e7a97ffb3e139084"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/default.toml"
@@ -988,7 +988,7 @@ hash = "bb6a01a9975b4a529534ca5f280bd61fb1fd81cd3cfb03bbd5d8b4af7a6e30ca"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/offduty.toml"
-hash = "42e4c6de547721b6022f29ee95475c90784c3f1e4993b997af670b3b0908eaa6"
+hash = "d6ef10cf7efdb96871c69e79ce33ec082fd29e2ca41b503eac06e368f83b7bee"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/staff.toml"

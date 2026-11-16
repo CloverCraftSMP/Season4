@@ -72,11 +72,35 @@ value = true
 permission = "invview.command.echest"
 value = true
 
+[[permissions]]
+permission = "luckperms.user.parent.add"
+value = true
+
+[[permissions]]
+permission = "luckperms.user.parent.add.offduty"
+value = true
+
+[[permissions]]
+permission = "luckperms.user.parent.remove"
+value = true
+
+[[permissions]]
+permission = "luckperms.user.parent.remove.offduty"
+value = true
+
+[[permissions]]
+permission = "luckperms.modify.user.self"
+value = true
+
+[[permissions]]
+permission = "luckperms.usecontext.global"
+value = true
+
 [[parents]]
 group = "default"
 
 [[prefixes]]
-prefix = "&e❄"
+prefix = "&e❄ "
 priority = 0
 
 [[meta]]
