@@ -1,0 +1,13 @@
+name = "SeeU"
+filename = "seeu-fabric-26.1.2-0.9.6.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/coyNPDey/versions/BPwMAn5S/seeu-fabric-26.1.2-0.9.6.jar"
+hash-format = "sha512"
+hash = "830c58acc9b36bf0bb540b11d9edfa530e76131152be87e39173900786a761e6fd23dfcd277d06b214b3cbe7ab9eec0768dc1d4d80934a5a5bfbac8151a8e603"
+
+[update]
+[update.modrinth]
+mod-id = "coyNPDey"
+version = "BPwMAn5S"

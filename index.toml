@@ -1250,6 +1250,11 @@ hash = "58ad6557713aee1971660e47d607f2ad64017d80357b1e9a986270de93162bc0"
 metafile = true
 
 [[files]]
+file = "mods/seeu.pw.toml"
+hash = "b582521040e570b9731ab60257929308eec9d06e96521a4f92745ca82b082b26"
+metafile = true
+
+[[files]]
 file = "mods/servercore.pw.toml"
 hash = "e2b6540e0f7c6a728d575235084f50c6398e23924f4a4fa4e8d5182aeffe803c"
 metafile = true
