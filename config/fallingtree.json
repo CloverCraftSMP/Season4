@@ -1,0 +1,41 @@
+{
+  "trees": {
+    "allowedLogs": [],
+    "deniedLogs": [],
+    "allowedLeaves": [],
+    "allowedNonDecayLeaves": [],
+    "deniedLeaves": [],
+    "breakMode": "INSTANTANEOUS",
+    "detectionMode": "ABOVE_CUT",
+    "detectionModeBiomeOverride": {},
+    "maxScanSize": 2000,
+    "minSize": 0,
+    "maxSize": 600,
+    "maxLeafDistanceFromLog": 12,
+    "maxSizeAction": "ABORT",
+    "breakOrder": "FURTHEST_FIRST",
+    "minimumLeavesAroundRequired": 3,
+    "includePersistentLeavesInRequiredCount": true,
+    "treeBreaking": true,
+    "leavesBreaking": true,
+    "leavesBreakingForceRadius": 2,
+    "allowMixedLogs": false,
+    "breakNetherTreeWarts": true,
+    "breakMangroveRoots": true,
+    "searchAreaRadius": -1,
+    "allowedAdjacentBlocks": [],
+    "adjacentStopMode": "STOP_ALL",
+    "spawnItemsAtBreakPoint": false,
+    "trunkLootPercentage": 1.0
+  },
+  "tools": {
+    "allowed": [],
+    "denied": [],
+    "durabilityMode": "NORMAL",
+    "ignoreTools": false,
+    "damageMultiplicand": 0.7,
+    "damageRounding": "ROUND_DOWN",
+    "speedMultiplicand": 0.1,
+    "forceToolUsage": false
+  }
+}

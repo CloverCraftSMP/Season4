@@ -37,6 +37,10 @@ file = "config/enhancedgroups/enhancedgroups.properties"
 hash = "bb3cf8404575ecac9196d2e311d923ea5521d5c0d5cc80973db953eb4bd39002"
 
 [[files]]
+file = "config/fallingtree.json"
+hash = "56a5c22be6bba8226d9673a98bfc1ef470015d0fdaeebd66f2769761c1a4dd6f"
+
+[[files]]
 file = "config/fancymenu/assets/changelog.md"
 hash = "7de86303552f7e82fcddb48f544fda261840cebab209b61e769393d6ec7e0c20"
 
