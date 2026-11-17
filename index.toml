@@ -18,7 +18,7 @@ hash = "68b4afa08753be86888a17ab4214a4e3f4094a853b7504820d217f4253d8f15e"
 
 [[files]]
 file = "config/bcc-common.json"
-hash = "e54492b89612f5978098f738339b90999955290554fd34491d7b6cca34c5fa22"
+hash = "005b2b85ddecdaca005c48601ab0aed9067d6a101306f395f44903114973b014"
 
 [[files]]
 file = "config/betterarcheology.jsonc"
@@ -33,6 +33,10 @@ file = "config/crash_assistant/config.toml"
 hash = "58aa55a8a7d0b9bf3fc6941de10cd6b53037d0c2f77ec27d479f51ac088ab3c7"
 
 [[files]]
+file = "config/crash_assistant/modlist.json"
+hash = "926d56457dfd462c5576a2865d01bddf4876dc002aadd99f07701b90c411787e"
+
+[[files]]
 file = "config/enhancedgroups/enhancedgroups.properties"
 hash = "bb3cf8404575ecac9196d2e311d923ea5521d5c0d5cc80973db953eb4bd39002"
 
@@ -42,7 +46,7 @@ hash = "56a5c22be6bba8226d9673a98bfc1ef470015d0fdaeebd66f2769761c1a4dd6f"
 
 [[files]]
 file = "config/fancymenu/assets/changelog.md"
-hash = "7de86303552f7e82fcddb48f544fda261840cebab209b61e769393d6ec7e0c20"
+hash = "a5b10452f679a4f6d2a6fa971c75ec20e8d1ff845e6d309966e3ce1a1300a41e"
 
 [[files]]
 file = "config/fancymenu/assets/clovercraft_logo.png.pw.toml"
@@ -91,7 +95,7 @@ hash = "cf7eb30e92f32797bb20e2c08cf116f4811ee71b42e57012ecb85587d2f707f6"
 
 [[files]]
 file = "config/fancymenu/customization/title_screen_layout.txt"
-hash = "7495c9baa1c2dd2fb2435ed0c53076b0570bbc270702a6722c93323dca1e135d"
+hash = "971620a1a19c3c04b1a70b2b7e56d747e25496a3b9e0b5ce6c5fadad15c4dfc1"
 
 [[files]]
 file = "config/fancymenu/layout_editor/widgets/element_layer_control.lewidget"
@@ -1577,7 +1581,7 @@ hash = "2a34409176894b25eea41aba34d75672ed9e915a27fe14d11b94b4ef5d087096"
 
 [[files]]
 file = "unsup.ini"
-hash = "905dc2397e7aa2a0f0045a177ff56317ce0ed4d85ff28748c0a863f502d25d1d"
+hash = "452adc1cf7f324e81fdfe12ae420052f64a3fa686aa57bb80cdea3f900cbc42d"
 
 [[files]]
 file = "unsup.toml"

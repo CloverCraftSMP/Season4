@@ -6,7 +6,7 @@
     ]
   },
   "modpackVersion": {
-    "value": "@modpack_version@",
+    "value": "4.1.0-8-g5350d7c",
     "comments": [
       "The version of the modpack"
     ]

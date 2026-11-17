@@ -1,6 +1,7 @@
 ## What's new
 
-@changelog@
+### Added
+- Staff can now go off duty in-game with /lp user <name> parent add offduty, and back on duty with parent remove offduty.
 
 ---
 
