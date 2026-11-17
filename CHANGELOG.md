@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Added
 - Staff can now go off duty in-game with `/lp user <name> parent add offduty`, and back on duty with `parent remove offduty`.
 
+### Changed
+- Streams reflowing waterways will no longer push players/mobs/boats
+- Streams reflowing wands are now disabled
+
 ## [4.1.0] - 2026-11-13
 
 ### Added
