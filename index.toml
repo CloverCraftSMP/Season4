@@ -839,6 +839,11 @@ hash = "62b4398ba178efecba4aced610039b1003a8cc82ce5931e3fe0f6541f69a6870"
 metafile = true
 
 [[files]]
+file = "mods/hey-wiki.pw.toml"
+hash = "8e548026e71728cdee85327f2513cef850bdfa5077836a032c9fa847d42a123e"
+metafile = true
+
+[[files]]
 file = "mods/hoofprint.pw.toml"
 hash = "542b952643e8a1bdc66bbc2312338228e21223ca7caceb9fb0c42d35ddb6def6"
 metafile = true
@@ -925,7 +930,7 @@ metafile = true
 
 [[files]]
 file = "mods/lambdynamiclights.pw.toml"
-hash = "6a34c0b44a9f0a4ebbb04ae8af6cf86c2fce28353935226852d439c14e635f33"
+hash = "66ca1e5abcb59d6fd5d17ed23e091617955e9b4e2c08a23a23ca0b615c465e20"
 metafile = true
 
 [[files]]

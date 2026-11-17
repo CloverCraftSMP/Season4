@@ -11,3 +11,7 @@ hash = "bd9f12a60b04f93420d23af9b3e17fb8c91c705273c0257debb044f9672f1e8bc2367b59
 [update.modrinth]
 mod-id = "yBW8D80W"
 version = "USlEyPPR"
+
+[option]
+optional = true
+description = "Adds in dynamic lights for lighting sources. *Note: This is separated out now as we've noticed that some users experience performance issues that seem to be fixed by removing this mod.*"
