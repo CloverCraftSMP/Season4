@@ -460,7 +460,7 @@ metafile = true
 
 [[files]]
 file = "mods/asyncparticles.pw.toml"
-hash = "010f37726ade197d1af4030927d67f56fb2823834750cf33a3651392bb098928"
+hash = "36e90ec225c8b5f72d14ff7cdbc94bf2cd76f0860745b0e15044265862611e26"
 metafile = true
 
 [[files]]
@@ -550,7 +550,7 @@ metafile = true
 
 [[files]]
 file = "mods/c2me-fabric.pw.toml"
-hash = "6f866b1144abe80fc54a0ff15527bd185d125340292aad0b46ebb40f3d2ef326"
+hash = "d84d1fb724ea48b2bcd4de4b1d05607c88b2e6340fc467be38bc2254c807be16"
 metafile = true
 
 [[files]]
@@ -590,7 +590,7 @@ metafile = true
 
 [[files]]
 file = "mods/clover-core.pw.toml"
-hash = "6c0bb75cf73475e841c87e5fc669ba3ccd306cf117e8004198995feee638d660"
+hash = "fc010c65b635661244274f2eb3562af99f304e6c923f9166bc590b0069d9706f"
 metafile = true
 
 [[files]]
@@ -675,7 +675,7 @@ metafile = true
 
 [[files]]
 file = "mods/drops-backport.pw.toml"
-hash = "778af5aed700ec234b13de927043a4cc93f6c96582490ccd79da82df68f5dc31"
+hash = "765f215b2d5715d0b0f25241988cdcba2b9645e84eac940149da5b46f60d1b8e"
 metafile = true
 
 [[files]]
@@ -695,7 +695,7 @@ metafile = true
 
 [[files]]
 file = "mods/elytra-trims.pw.toml"
-hash = "573de116f6236e183bf5ff02b80ab4677ff9e07016b7188408711ad720e976f9"
+hash = "5513bc36ad1a88d422111830511e361d1e5e8135497b16d7b2e534c43eb1b50f"
 metafile = true
 
 [[files]]
@@ -895,7 +895,7 @@ metafile = true
 
 [[files]]
 file = "mods/itemstats.pw.toml"
-hash = "08a696d4d31f7b976e0b350eb410ea04dd3beaf252d8546ecd8248048c8f72d9"
+hash = "bd628964b0e3b1cf7a9a60b0614cbdd81c1f9c42edd9d1a8a4647673a61491d4"
 metafile = true
 
 [[files]]
@@ -1115,12 +1115,12 @@ metafile = true
 
 [[files]]
 file = "mods/no-chat-reports.pw.toml"
-hash = "3db1b61528d0fdd908f1fe57685bbc49cdbe496bfe0e349a0280334444193c73"
+hash = "bbe0645912ed1594d24f311f36c7cb05dd385cd10162897092e624c377f72987"
 metafile = true
 
 [[files]]
 file = "mods/no-chat-restrictions.pw.toml"
-hash = "3c3282dc41c4cd1105d84789ae2a9347935e06cb2d2d8d93887fc56d11d1d64d"
+hash = "d61083ba0cc3a780d0d04bd0a82a8cbd314d375fe926f66e320d28324ae0e8c9"
 metafile = true
 
 [[files]]
@@ -1330,7 +1330,7 @@ metafile = true
 
 [[files]]
 file = "mods/squaremap.pw.toml"
-hash = "907ecc2e079ab85f13949cf2c128de81f209915c7344961be96bc44a07c6378b"
+hash = "b31c846e5a0e0eb5d4a3b86e12173bef2c46802af2bc4b6b5cf83ca2430256ea"
 metafile = true
 
 [[files]]
@@ -1365,7 +1365,7 @@ metafile = true
 
 [[files]]
 file = "mods/subtle-effects.pw.toml"
-hash = "889ba5fc494c0319eabd3368f17410b6e5ecff3a4d128037fb0a16bf6f700d4d"
+hash = "ec52864c1481de0e449dedf505747fb45253741ab319a6cbeaa596b733af30d4"
 metafile = true
 
 [[files]]
@@ -1415,7 +1415,7 @@ metafile = true
 
 [[files]]
 file = "mods/tt20.pw.toml"
-hash = "701e8da5c0b830c865deff9e252d8a9358434d7af06f204402b6f78adf22a11e"
+hash = "e560bf5896409f952d6a0f625842ba30f77330db0a780a76aed3ff59df497b1e"
 metafile = true
 
 [[files]]
@@ -1425,7 +1425,7 @@ metafile = true
 
 [[files]]
 file = "mods/unified-api.pw.toml"
-hash = "5456050136df0daa48e652c845e74008efd0a875fc6f773e2bf10fcc61925414"
+hash = "785fcf0a2940f940ab2d7ccec96a92e7cc6acbe2a2b0e34ff6fc2b0f89f7bce4"
 metafile = true
 
 [[files]]

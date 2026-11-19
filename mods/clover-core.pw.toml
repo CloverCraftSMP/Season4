@@ -1,13 +1,13 @@
 name = "Clover"
-filename = "clover-4.1.0+26.1.2.jar"
+filename = "clover-4.1.1+26.1.2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/SnT761HH/versions/ijVFmLOO/clover-4.1.0%2B26.1.2.jar"
+url = "https://cdn.modrinth.com/data/SnT761HH/versions/kNJEtaCV/clover-4.1.1%2B26.1.2.jar"
 hash-format = "sha512"
-hash = "c70af21b88de2bfbcf2f7c601e368292b17d39fad6669a16bc6d68157800b0d677377bba7faaae24ed3dd87c060ef31628b0d465d5416d940b1b838878cd82d5"
+hash = "035a2603d6084331108c55117cd3e21429a8873e22b3173dfa6a7f6a0051f8868c37aefad3b2e2686c0991fd7fa2524e2dfb1689b6cc28682cac52033a03dd7a"
 
 [update]
 [update.modrinth]
 mod-id = "SnT761HH"
-version = "ijVFmLOO"
+version = "kNJEtaCV"

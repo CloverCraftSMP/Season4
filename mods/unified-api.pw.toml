@@ -1,13 +1,13 @@
 name = "Unified API"
-filename = "unified-api-26.1-1.0-beta-23+fabric.jar"
+filename = "unified-api-26.1-1.0-beta-24+fabric.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/vWUn8M9s/versions/t6pp2bgJ/unified-api-26.1-1.0-beta-23%2Bfabric.jar"
+url = "https://cdn.modrinth.com/data/vWUn8M9s/versions/be3hpblG/unified-api-26.1-1.0-beta-24%2Bfabric.jar"
 hash-format = "sha512"
-hash = "d79c7e23e33184dbaba5fc6b36aea1570a6c67f4876841353495fe8508fa3fb0986cb7f763feac83eb3eebeaf72e3b5db5703ac4f3eeeb7ca89d0d6a17236e59"
+hash = "3c92c55e89a6eeec9d57d1ef4bda19d9ef8dd9fbe21358a726e9fe83946488a69691443d78335064c560bef6e1ee3ad10f0adc65bb0ddd83e9246f4888daa046"
 
 [update]
 [update.modrinth]
 mod-id = "vWUn8M9s"
-version = "t6pp2bgJ"
+version = "be3hpblG"
