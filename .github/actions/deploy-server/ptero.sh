@@ -6,7 +6,7 @@
 #
 #   power <start|stop|restart|kill>       Send a power signal
 #   command <console command>            Run a console command (e.g. "save-all flush")
-#   backup <name>                        Create a backup on the panel and wait for it to finish
+#   backup <name>                        Create a backup on the panel and wait for it to finish.
 #   prune [keep]                         Delete stale, pipeline-owned backups
 #   file-get <remote path> <local file>  Download a file from the server
 #                                        (exit 1 if it is missing/unreadable)
@@ -104,6 +104,29 @@ prune_backups() {
 	done <<<"$victims"
 }
 
+delete_oldest_backup() {
+	local uuid name
+
+	api_call GET "/backups?per_page=100"
+	api_ok || die "listing backups failed: $(api_error)"
+
+	read -r uuid name < <(jq -r '
+		[ .data[]?.attributes
+		  | select(.is_locked != true)
+		  | select(.completed_at != null)
+		]
+		| sort_by(.created_at)
+		| first // empty
+		| "\(.uuid) \(.name)"
+	' <<<"$API_BODY") || true
+
+	[[ -n "${uuid:-}" ]] || die "at the backup limit and no unlocked, finished backup to delete"
+
+	api_call DELETE "/backups/$uuid"
+	api_ok || die "could not delete backup $uuid: $(api_error)"
+	log "deleted oldest backup '$name' ($uuid) to make room"
+}
+
 cmd_backup() {
 	local name="${1:?backup name is required}"
 	local payload uuid deadline
@@ -114,11 +137,17 @@ cmd_backup() {
 	log "creating backup '$name'"
 	api_call POST /backups "$payload"
 
-	if ! api_ok && grep -q TooManyBackupsException <<<"$API_BODY"; then
-		log "server is at its backup limit - pruning down to the newest backup"
-		prune_backups 1
+	# Scheduled backups share the panel's limit, so make room by deleting the
+	# oldest backups of any name. Each pass frees one slot.
+	local attempt
+	for attempt in 1 2 3; do
+		if api_ok || ! grep -q TooManyBackupsException <<<"$API_BODY"; then
+			break
+		fi
+		log "server is at its backup limit - deleting the oldest backup (attempt $attempt)"
+		delete_oldest_backup
 		api_call POST /backups "$payload"
-	fi
+	done
 	api_ok || die "creating backup failed: $(api_error)"
 
 	uuid=$(jq -r '.attributes.uuid // empty' <<<"$API_BODY")
