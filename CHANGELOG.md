@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [4.2.0] - 2026-11-20
+
 ### Added
 - Staff can now go off duty in-game with `/lp user <name> parent add offduty`, and back on duty with `parent remove offduty`.
 - Hey Wiki, this mod is useful for finding the Minecraft Wiki page for anything in game easier (can be helpful when looking at game mechanics).
