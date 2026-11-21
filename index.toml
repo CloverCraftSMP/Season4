@@ -699,7 +699,7 @@ metafile = true
 
 [[files]]
 file = "mods/elytra-trims.pw.toml"
-hash = "5513bc36ad1a88d422111830511e361d1e5e8135497b16d7b2e534c43eb1b50f"
+hash = "8f1704b60f6f5388c7ebb7c79fd1a1efa2d1482cb3c9bea372214da4402a0d36"
 metafile = true
 
 [[files]]
@@ -864,7 +864,7 @@ metafile = true
 
 [[files]]
 file = "mods/inventory-particles.pw.toml"
-hash = "2c4e336d72eea8b2b3a950d18086726931855bc9f1c16c827ba113433a4fb9e2"
+hash = "545fabe58aca65077e185faddb31bcdb7d58315c333a6c9414e81da2e4c7d7d7"
 metafile = true
 
 [[files]]
@@ -1074,7 +1074,7 @@ metafile = true
 
 [[files]]
 file = "mods/mossylib.pw.toml"
-hash = "6dc039dd3b388a025e6bbd915e022d0f6feb943203d501fbbfe6109222fda2bd"
+hash = "275d4f3a5d1a2deae7c8d9bf11dc56e3cc1fa8f385d17de7d09a85d12db89d9a"
 metafile = true
 
 [[files]]
@@ -1119,7 +1119,7 @@ metafile = true
 
 [[files]]
 file = "mods/no-chat-reports.pw.toml"
-hash = "bbe0645912ed1594d24f311f36c7cb05dd385cd10162897092e624c377f72987"
+hash = "91ac6b2e95015c52f2e27252cec0a2b1d1160e3afc42e8c1b7dbd45c30c0f087"
 metafile = true
 
 [[files]]
@@ -1164,7 +1164,7 @@ metafile = true
 
 [[files]]
 file = "mods/particle-effects.pw.toml"
-hash = "ae83e3c8ab7078c230a272f7666954e1024043b98c14b8daaa8ecb729efa2cd6"
+hash = "ea8d41c8a277fd8c2786cbb3d80f76911173803b9e9dc6b081f3a411c3daa5a3"
 metafile = true
 
 [[files]]
@@ -1504,7 +1504,7 @@ metafile = true
 
 [[files]]
 file = "mods/zannaghs-armor-hider.pw.toml"
-hash = "35d797875e289318e44bb61fa46055b1ca3d07f1563e71cbc5b3d5a544046f15"
+hash = "36458e72f1a26ac60fbbc038a494c1e14b8598f2f7fa055cbb64387c0e37c6b3"
 metafile = true
 
 [[files]]
