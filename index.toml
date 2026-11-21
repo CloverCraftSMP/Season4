@@ -378,6 +378,10 @@ file = "config/tab/config.yml"
 hash = "a8aa2bf1b4242a665f6497a48487d55c399e8e5ea79d90e686c2bc78b4409153"
 
 [[files]]
+file = "config/tt20/config.json"
+hash = "a6471fb64411287ac2c3d42160fd24919c5a539b984d586dcda09ad9d35461a3"
+
+[[files]]
 file = "config/voicechat/voicechat-server.properties"
 hash = "e47a995268162140073056eb2c190a0f4eb6650e043caa4ad1f3d7f8924795a7"
 
