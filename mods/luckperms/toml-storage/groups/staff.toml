@@ -199,6 +199,10 @@ value = true
 permission = "servercore.command.statistics"
 value = true
 
+[[permissions]]
+permission = "axiom.all"
+value = true
+
 # TAB: show in the staff section
 [[permissions]]
 permission = "tab.staff"
