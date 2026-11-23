@@ -1001,11 +1001,11 @@ hash = "bb6a01a9975b4a529534ca5f280bd61fb1fd81cd3cfb03bbd5d8b4af7a6e30ca"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/offduty.toml"
-hash = "d6ef10cf7efdb96871c69e79ce33ec082fd29e2ca41b503eac06e368f83b7bee"
+hash = "1c274fc7339b076a2af97b00ae0fe13cd8dc4d1e362a9e4421a8d56f76ecf3f4"
 
 [[files]]
 file = "mods/luckperms/toml-storage/groups/staff.toml"
-hash = "9a8dcec51226ce1586070cf9aae096f46827e2a2d0ea73e500c3a4ee2f944254"
+hash = "ce01fbf4a81c6d096b39861d6aa27600f453c3ba6a078e5f2c9b75236ca6ca96"
 
 [[files]]
 file = "mods/malilib.pw.toml"

@@ -20,6 +20,10 @@ permission = "armorhider.admin"
 value = false
 
 [[permissions]]
+permission = "axiom.all"
+value = false
+
+[[permissions]]
 permission = "chunksmith.command"
 value = false
 
