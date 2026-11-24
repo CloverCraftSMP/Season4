@@ -454,7 +454,7 @@ metafile = true
 
 [[files]]
 file = "mods/architectury-api.pw.toml"
-hash = "9f6468e0826312b1fb6154b0324e63d629bbeabdd613035b6ff998a089f6ae97"
+hash = "36753b02c76e0a6f384b87419206cff87e872b03d631d09642dfe090329b4fdc"
 metafile = true
 
 [[files]]
@@ -594,7 +594,7 @@ metafile = true
 
 [[files]]
 file = "mods/clover-core.pw.toml"
-hash = "fc010c65b635661244274f2eb3562af99f304e6c923f9166bc590b0069d9706f"
+hash = "67557692b31d6e3b8a1f9f2c34b9a629f7e5d77470556614b31e0be8e8a67db7"
 metafile = true
 
 [[files]]
@@ -1013,11 +1013,6 @@ hash = "ec8c87c80cd326d2aba4ce2fd4870d497c4f5934c15ed1ff562c4e3ce90e55ef"
 metafile = true
 
 [[files]]
-file = "mods/mastercutter.pw.toml"
-hash = "0a6cc7d172304d1749149951f9b9238ff05d5db59251d433dbc1286130cabbf2"
-metafile = true
-
-[[files]]
 file = "mods/mcqoy.pw.toml"
 hash = "059fc87f91cf83afea523d7dc4fa630067a0768330f71d49eaae30dc7c3d7131"
 metafile = true
@@ -1099,7 +1094,7 @@ metafile = true
 
 [[files]]
 file = "mods/naturally-trimmed.pw.toml"
-hash = "732d962d5b3cf89bd82019807d9e176f977e06a1b8db73aa7d7b0abf95d0d4ac"
+hash = "966cf2398bbd1f63394cefc32e854a5ba32718f5280c04b27abbaddd805bf5e9"
 metafile = true
 
 [[files]]
