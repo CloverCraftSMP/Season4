@@ -1,16 +1,16 @@
 name = "Particle Effects"
-filename = "ParticleEffects-1.6.0+26.1+fabric.jar"
+filename = "ParticleEffects-1.7.0+26.1+fabric.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/PLAGcSFJ/versions/l5poK4Y6/ParticleEffects-1.6.0%2B26.1%2Bfabric.jar"
+url = "https://cdn.modrinth.com/data/PLAGcSFJ/versions/xkTC5VrG/ParticleEffects-1.7.0%2B26.1%2Bfabric.jar"
 hash-format = "sha512"
-hash = "c01cc6618ac7518e46ef2a72f38d52a389d1349367ed87682e62c3eda438b68acb06c1cafdb28b38dd3edb452a18ab4dbac2fae3b330ca577419baf65fabb344"
+hash = "ceabf2f2b37c4ba67794a5f2fda10fa20147b44ca036041ca0aea088d1deedcd38a49d219f14db36ef229c780b718e8f7914e1014e2bdc5e3561fa6284f2f684"
 
 [update]
 [update.modrinth]
 mod-id = "PLAGcSFJ"
-version = "l5poK4Y6"
+version = "xkTC5VrG"
 
 [option]
 optional = true
