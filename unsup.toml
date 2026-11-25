@@ -61,6 +61,15 @@ description = "Better see and experience the world around you."
 side = "client"
 choices = [{ id = "map_none", name = "None", description = "None." }, { id = "xaeros-minimap", name = "Xaero's Minimap", description = "Xaero's worldmap and minimap" }, { id = "xaeros", name = "Xaero's Worldmap", description = "Xaero's worldmap ONLY" }, { id = "hoofprint", name = "Hoofprint", description = "Alternative to Xaero's that's much simpler but also less feature complete." }]
 
+# =================
+#  RECIPE VIEWERS
+# =================
+[flavor_groups.recipe_viewer]
+name = "Recipe viewer"
+description = "Look up items, recipes and uses from your inventory."
+side = "client"
+choices = [{ id = "emi", name = "EMI", description = "Feature-rich recipe viewer with recipe trees and favorites. Recommended." }, { id = "rei", name = "REI", description = "Roughly Enough Items, a clean and customizable recipe viewer." }, { id = "jei", name = "JEI", description = "Just Enough Items, the classic recipe viewer." }]
+
 [metafile]
 # =================
 #      ULTRA
@@ -143,3 +152,14 @@ xaeros-world-map = { flavors = ["xaeros-minimap", "xaeros"] }
 hoofprint = { flavors = ["hoofprint"] }
 surveyor = { flavors = ["hoofprint"] }
 mcqoy = { flavors = ["hoofprint"] }
+
+# =================
+#  RECIPE VIEWERS
+# =================
+# The server always runs all three (mods/emi.pw.toml, mods/rei.pw.toml, mods/jei.pw.toml) so every
+# choice has server support. Clients only get the one they picked.
+emi-client = { flavors = ["emi"] }
+rei-client = { flavors = ["rei"] }
+jei-client = { flavors = ["jei"] }
+# Config library required by JEI.
+mezzconfig-client = { flavors = ["jei"] }

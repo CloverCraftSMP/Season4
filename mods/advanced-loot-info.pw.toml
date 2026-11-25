@@ -1,0 +1,13 @@
+name = "Advanced Loot Info (ALI)"
+filename = "AdvancedLootInfo-fabric-26.1.2-2.5.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/PEPVViac/versions/YnWWXzva/AdvancedLootInfo-fabric-26.1.2-2.5.0.jar"
+hash-format = "sha512"
+hash = "f35d869048c81ec67105e6bcca655c0b0eee26f70d735ec09bfc04350c2189b19cacbad3fe69f4de2ae6baa9c9a27ba4018314704e7ec85aea7c77856c9eba26"
+
+[update]
+[update.modrinth]
+mod-id = "PEPVViac"
+version = "YnWWXzva"

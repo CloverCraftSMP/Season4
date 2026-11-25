@@ -1,0 +1,9 @@
+name = "EMI (client)"
+filename = "emi-1.1.24-63e8aef+26.1.2+fabric.jar"
+side = "client"
+pin = true  # TODO: remove this
+
+[download]
+url = "https://github.com/link-fgfgui/emi/releases/download/60/emi-1.1.24-63e8aef+26.1.2+fabric.jar"
+hash-format = "sha512"
+hash = "8132f88d59d3de052f045716eb4e35a948548db2299a1e87b51f2856557926cc565ee108a7d27a098a40de3e1f8183594f593d164aed12091a0a22e48858ae78"

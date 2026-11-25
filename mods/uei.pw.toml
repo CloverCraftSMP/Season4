@@ -1,0 +1,13 @@
+name = "Universal Enchantment Info (JEI/REI/EMI/RRV)"
+filename = "uei-1.6.0-fabric+26.1.2.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/c39iXKSf/versions/CzzcLpyb/uei-1.6.0-fabric%2B26.1.2.jar"
+hash-format = "sha512"
+hash = "479868c58fa3cd865032278ee7ed8791f387af7814236ccf017a2bb8d9930d5022a6e9c0d01e71ba63ee32caa5020558deb3b5e8b6900f81bf4457af978a35e3"
+
+[update]
+[update.modrinth]
+mod-id = "c39iXKSf"
+version = "CzzcLpyb"

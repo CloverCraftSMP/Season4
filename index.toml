@@ -423,6 +423,16 @@ hash = "2b3c4a73136c3d81c597d1be7f651c9e58603965cce06f9b8d268203aa6c83ff"
 metafile = true
 
 [[files]]
+file = "mods/advanced-core-info.pw.toml"
+hash = "f1c01a7adeb8e0fbe416b8fca7d7e20d183eccd8df49fd0c50274a57248b68d8"
+metafile = true
+
+[[files]]
+file = "mods/advanced-loot-info.pw.toml"
+hash = "44b343f4efe4035a4cd5d448486b4ee7e73d8ba02c70faf7eb14d1e9db7c76d4"
+metafile = true
+
+[[files]]
 file = "mods/advancement-plaques.pw.toml"
 hash = "e71e6100ac4742ed60be7e32cbe09983f39e48f12193ac1aba5079e760898488"
 metafile = true
@@ -703,6 +713,16 @@ hash = "6cd3fe2d243503729519f80665bbf4eb30b67448e8398252beea4a01b3de4e26"
 metafile = true
 
 [[files]]
+file = "mods/emi-client.pw.toml"
+hash = "a110a2076c861dbeee4a3458b42f6b5958976709de3023cea45ec2a49686d9db"
+metafile = true
+
+[[files]]
+file = "mods/emi.pw.toml"
+hash = "28fb1081be127d370cad6ec13de289a5ed19966ecd735ca869e35bd75a9480e9"
+metafile = true
+
+[[files]]
 file = "mods/enhanced-groups.pw.toml"
 hash = "f58cc54721026966ec80c4849639ec73bd64d9b8600bd3390d95717a57e60635"
 metafile = true
@@ -918,6 +938,16 @@ hash = "4dd560016807528f7ed1d2fe6b5f4af200a3ce15b10e328e62bcb0cfc6531fec"
 metafile = true
 
 [[files]]
+file = "mods/jei-client.pw.toml"
+hash = "0344eff3082944901279a90c13c69d7df78ec32f2849e2896a2c1ebe3ee76ba9"
+metafile = true
+
+[[files]]
+file = "mods/jei.pw.toml"
+hash = "fbcfe8c145a116fe2ee71961a222d99a342b1d4a33e0ff652f03c88ec749305f"
+metafile = true
+
+[[files]]
 file = "mods/joy-of-painting.pw.toml"
 hash = "5a0e2d78899f9344e599750c7631b734aaeab366ad0d83fad2fed98c4cbf8fbc"
 metafile = true
@@ -1025,6 +1055,16 @@ metafile = true
 [[files]]
 file = "mods/metadatawildcard4fabric-permissions-api.pw.toml"
 hash = "6ca9faeacc543fa917c29503769bab95a7e16fc4836fbf2c095138b5c8644283"
+metafile = true
+
+[[files]]
+file = "mods/mezzconfig-client.pw.toml"
+hash = "bc9dfa54434ccd2b5905d00350e044e1280eec8bf29e4087471e4716b7610fe6"
+metafile = true
+
+[[files]]
+file = "mods/mezzconfig.pw.toml"
+hash = "54a7c1c6eba92d58f5e4609f5af3a89f14ea70a02a293591e2fca923ad2dae71"
 metafile = true
 
 [[files]]
@@ -1208,8 +1248,13 @@ hash = "3adc9ca1618411f8215ae3585e364895c39f8b40cc40ac13f492666b7d825aab"
 metafile = true
 
 [[files]]
+file = "mods/rei-client.pw.toml"
+hash = "ade1989861ca3e550194d2850d65497a3fb5a8a4db5ddf9d88f6dc2ca1d6b9bf"
+metafile = true
+
+[[files]]
 file = "mods/rei.pw.toml"
-hash = "48f2b92cfa53cf05268d977c6cae642549e97c5f460571f0f2718675706a7166"
+hash = "48013fa73ea003f4da99c2e6c5fd1c76f98e93220d1604f415373d9daf228be8"
 metafile = true
 
 [[files]]
@@ -1423,6 +1468,11 @@ hash = "d5a3c533542c6eb696233b75d1fa1ed6f7a9192f90c2ff18bd0e421a163f4fd2"
 metafile = true
 
 [[files]]
+file = "mods/uei.pw.toml"
+hash = "6aeb4f2b3f9441d66f8b188237fb927db23a069516f8c1fba963dfb3f8d6a774"
+metafile = true
+
+[[files]]
 file = "mods/unified-api.pw.toml"
 hash = "785fcf0a2940f940ab2d7ccec96a92e7cc6acbe2a2b0e34ff6fc2b0f89f7bce4"
 metafile = true
@@ -1576,8 +1626,8 @@ hash = "2a34409176894b25eea41aba34d75672ed9e915a27fe14d11b94b4ef5d087096"
 
 [[files]]
 file = "unsup.ini"
-hash = "905dc2397e7aa2a0f0045a177ff56317ce0ed4d85ff28748c0a863f502d25d1d"
+hash = "cdc0203f709154a8f5e12530ebb44b05b9db03d4cec243b69250b51037ebf59b"
 
 [[files]]
 file = "unsup.toml"
-hash = "587e96a411453dc247f23f050340623a30375e94433a091afbac23cb34c41c2e"
+hash = "748b53a0a278427d161ac87e593e1d200e793f856d50e4f71488c2bd949246e6"

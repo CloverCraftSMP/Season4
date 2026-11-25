@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+- Recipe viewer option in the installer: EMI (default), REI or JEI.
+
 ### Changed
 - Disabled a lag compensation setting to fix spear charging
 - Disabled spawn protection

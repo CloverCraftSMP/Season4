@@ -86,6 +86,7 @@ clover-mod = { flavors = ["ultra", "standard"] }
 | `ultra` / `standard` / `lite` | Graphics profiles. Heavy visuals go in `ultra` only; medium ones in `ultra` and `standard`. |
 | `voxy` / `dh` | Players who chose that LOD renderer. |
 | `xaeros-minimap` / `xaeros` / `hoofprint` | Players who chose that map option. |
+| `emi` / `rei` / `jei` | Players who chose that recipe viewer (EMI is the default). |
 | `creator` | Content creators (Flashback, Axiom). |
 
 `mise run ci:check` will complain if you mistype a mod name here.
