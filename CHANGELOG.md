@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [4.3.0] - 2026-11-25
+
 ### Added
 - Recipe viewer option in the installer: EMI (default), REI or JEI.
 - Logs can now be crafted directly into sticks
