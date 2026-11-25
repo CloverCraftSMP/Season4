@@ -1,6 +1,11 @@
 ## What's new
 
-@changelog@
+### Added
+- Recipe viewer option in the installer: EMI (default), REI or JEI.
+
+### Changed
+- Disabled a lag compensation setting to fix spear charging
+- Disabled spawn protection
 
 ---
 

@@ -6,7 +6,7 @@
     ]
   },
   "modpackVersion": {
-    "value": "@modpack_version@",
+    "value": "4.2.0-10-gcc64327",
     "comments": [
       "The version of the modpack"
     ]
