@@ -31,6 +31,10 @@ inputs:
     description: Plain message text above the embed, e.g. a role ping like <@&123>. Only role mentions are allowed.
     required: false
     default: ''
+  file:
+    description: Path of a file to attach. Skipped when empty or missing.
+    required: false
+    default: ''
 
 runs:
   using: composite
@@ -45,6 +49,7 @@ runs:
         URL: ${{ inputs.url || format('{0}/{1}/actions/runs/{2}', github.server_url, github.repository, github.run_id) }}
         FIELDS: ${{ inputs.fields }}
         CONTENT: ${{ inputs.content }}
+        FILE: ${{ inputs.file }}
         FOOTER: ${{ github.repository }} · ${{ github.ref_name }} · ${{ github.actor }}
       run: |
         set -euo pipefail
@@ -92,8 +97,12 @@ runs:
           }
           | del(.. | select(. == "" or . == []))')
 
-        if ! curl --silent --show-error --fail-with-body --retry 3 \
-          --header 'Content-Type: application/json' \
-          --data "$payload" "$WEBHOOK_URL"; then
+        if [[ -n "$FILE" && -f "$FILE" ]]; then
+          body=(--form-string "payload_json=$payload" --form "files[0]=@\"$FILE\"")
+        else
+          body=(--header 'Content-Type: application/json' --data "$payload")
+        fi
+
+        if ! curl --silent --show-error --fail-with-body --retry 3 "${body[@]}" "$WEBHOOK_URL"; then
           echo "::warning::Discord notification '$TITLE' failed"
         fi

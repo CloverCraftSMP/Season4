@@ -1,0 +1,156 @@
+#!/usr/bin/env bash
+#MISE description="Writes a staging test brief (changelog, mod and config changes since prod) to a directory"
+#USAGE arg "[dir]" help="Output directory, defaults to run/ci/staging-report"
+
+set -euo pipefail
+
+source "$MISE_LIB/toml.helper.sh"
+source "$MISE_LIB/changelog.helper.sh"
+
+cd "$MISE_PROJECT_ROOT"
+
+OUT="${usage_dir:-${1:-$PACKDEV_RUN_ROOT/ci/staging-report}}"
+mkdir -p "$OUT"
+TMP="$(mktemp -d)"
+trap 'rm -rf "$TMP"' EXIT
+
+CONFIG_PATHS=(. ':!*.pw.toml' ':!index.toml' ':!pack.toml' ':(exclude,glob)*.md' ':!.mise' ':!.github' ':!mise.toml'
+    ':!hk.pkl' ':!*.env' ':!.gitignore' ':!.gitattributes' ':!.packwizignore' ':!.pteroignore')
+
+channel_source() {
+    local ref="origin/$1"
+    git rev-parse --verify --quiet "$ref" >/dev/null || return 0
+    if [[ "$(git log -1 --format=%s "$ref")" == deploy:* ]]; then
+        git rev-parse "$ref^"
+    else
+        git rev-parse "$ref"
+    fi
+}
+
+# who gets a mod: its side, plus its unsup.toml flavors if it has any.
+audience() { # audience <slug> <file>
+    local side flavors
+    side="$(_get_toml_val "$2" side || true)"
+    flavors="$(sed -nE "s/^$1 = \{ flavors = \[(.*)\] \}.*/\1/p" unsup.toml | tr -d '" ' | sed 's/,/, /g')"
+    echo "${side:-both}${flavors:+: $flavors}"
+}
+
+version_change() {
+    awk -v a="${1%.*}" -v b="${2%.*}" 'BEGIN {
+        n = 0
+        for (i = 1; i <= length(a) && substr(a, i, 1) == substr(b, i, 1); i++)
+            if (substr(a, i, 1) ~ /[-_]/) n = i
+        a = substr(a, n + 1); b = substr(b, n + 1)
+        n = 0
+        for (i = 0; i < length(a) - 1 && i < length(b) - 1 && substr(a, length(a) - i, 1) == substr(b, length(b) - i, 1); i++)
+            if (substr(a, length(a) - i, 1) ~ /[-+_]/) n = i + 1
+        print "`" substr(a, 1, length(a) - n) "` -> `" substr(b, 1, length(b) - n) "`"
+    }'
+}
+
+mod_changes() { # mod_changes <from> <to>
+    local status path slug name old_file new_file old="$TMP/old.toml" new="$TMP/new.toml"
+    while IFS=$'\t' read -r status path; do
+        slug="$(basename "$path" .pw.toml)"
+        : >"$old"; : >"$new"
+        [[ "$status" == A ]] || git show "$1:$path" >"$old"
+        [[ "$status" == D ]] || git show "$2:$path" >"$new"
+        old_file="$(_get_toml_val "$old" filename)"
+        new_file="$(_get_toml_val "$new" filename)"
+        name="$(_get_toml_val "$([[ "$status" == D ]] && echo "$old" || echo "$new")" name)"
+        case "$status" in
+            A) echo "- Added **$name** \`${new_file%.*}\` ($(audience "$slug" "$new"))" ;;
+            D) echo "- Removed **$name**" ;;
+            *)
+                if [[ "$old_file" != "$new_file" ]]; then
+                    echo "- Updated **$name** $(version_change "$old_file" "$new_file") ($(audience "$slug" "$new"))"
+                elif [[ "$(_get_toml_val "$old" side)" != "$(_get_toml_val "$new" side)" ]]; then
+                    echo "- Changed **$name**, now $(audience "$slug" "$new")"
+                elif [[ "$(_get_toml_val "$old" hash)" != "$(_get_toml_val "$new" hash)" ]]; then
+                    echo "- Rebuilt **$name**, same file name ($(audience "$slug" "$new"))"
+                fi
+                ;;
+        esac
+    done < <(git diff --no-renames --name-status "$1" "$2" -- 'mods/*.pw.toml' 'resourcepacks/*.pw.toml' 'shaderpacks/*.pw.toml') | sort
+    local key
+    for key in minecraft fabric unsup; do
+        git show "$1:pack.toml" >"$old"
+        git show "$2:pack.toml" >"$new"
+        if [[ "$(_get_toml_val "$old" "$key")" != "$(_get_toml_val "$new" "$key")" ]]; then
+            echo "- Updated **$key** \`$(_get_toml_val "$old" "$key")\` → \`$(_get_toml_val "$new" "$key")\`"
+        fi
+    done
+}
+
+config_changes() {
+    git diff --no-renames --numstat "$1" "$2" -- "${CONFIG_PATHS[@]}" | awk -F'\t' '{
+        print "- `" $3 "` " ($1 == "-" ? "(binary)" : "+" $1 " -" $2)
+    }'
+}
+
+changelog_at() {
+    git show "$1:CHANGELOG.md" >"$TMP/CHANGELOG.md"
+    CHANGELOG="$TMP/CHANGELOG.md" changelog_section Unreleased
+}
+
+mark_new() { # mark_new <file>
+    awk -v known="$1" 'BEGIN { while ((getline l < known) > 0) seen[l] = 1 }
+        /^- / && !($0 in seen) { sub(/^- /, "- [ NEW ] ") } { print }'
+}
+
+shorten() { # shorten <max>
+    LC_ALL=C awk -v max="$1" '
+        !cut && used + length($0) + 1 <= max { print; used += length($0) + 1; next }
+        { cut = 1; if (/^- /) left++ }
+        END { if (left) print "*…and " left " more in the attached report*" }'
+}
+
+head="$(git rev-parse HEAD)"
+base="$(channel_source prod)"
+[[ -n "$base" ]] || log_fatal "No origin/prod to compare with, fetch it first"
+prev="$(channel_source staging)"
+
+changelog_at "$head" >"$TMP/changelog"
+mod_changes "$base" "$head" >"$TMP/mods"
+config_changes "$base" "$head" >"$TMP/config"
+
+if [[ -n "$prev" ]]; then
+    changelog_at "$prev" >"$TMP/known"
+    mark_new "$TMP/known" <"$TMP/changelog" >"$TMP/marked" && mv "$TMP/marked" "$TMP/changelog"
+    mod_changes "$base" "$prev" >"$TMP/known"
+    mark_new "$TMP/known" <"$TMP/mods" >"$TMP/marked"
+    { grep '^- [ NEW ]' "$TMP/marked" || true; grep -v '^- [ NEW ]' "$TMP/marked" || true; } >"$TMP/mods"
+    git diff --no-renames --name-only "$prev" "$head" -- "${CONFIG_PATHS[@]}" >"$TMP/touched"
+    awk -v touched="$TMP/touched" 'BEGIN { while ((getline l < touched) > 0) t["`" l "`"] = 1 }
+        match($0, /`.*`/) && (substr($0, RSTART, RLENGTH) in t) { sub(/^- /, "- [ NEW ] ") } { print }' \
+        "$TMP/config" >"$TMP/marked" && mv "$TMP/marked" "$TMP/config"
+fi
+
+section() { # section <title> <file> <max bytes>
+    echo "## $1"
+    if [[ -s "$2" ]]; then shorten "$3" <"$2"; else echo "*None*"; fi
+    echo
+}
+
+brief() { # brief <changelog max> <mods max> <config max>
+    section "Changelog" "$TMP/changelog" "$1"
+    section "Mods" "$TMP/mods" "$2"
+    section "Config" "$TMP/config" "$3"
+}
+
+{
+    echo "Compared with prod.${prev:+ [ NEW ] = new since the last staging deploy.}"
+    echo
+    brief 1400 1500 600
+} >"$OUT/summary.md"
+
+{
+    brief 1000000 1000000 1000000
+    echo "## Config diff"
+    echo
+    echo '````diff'
+    git diff --no-renames "$base" "$head" -- "${CONFIG_PATHS[@]}" | head -c 4000000
+    echo '````'
+} >"$OUT/staging-report.md"
+
+log_info "Wrote the staging report to $OUT"

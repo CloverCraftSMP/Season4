@@ -30,6 +30,21 @@ jobs:
 
       - uses: ./.github/actions/setup-environment
 
+      - name: Write test report
+        id: report
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          dir="$RUNNER_TEMP/staging-report"
+          mise run --quiet ci:staging-report "$dir"
+          {
+            echo "file=$dir/staging-report.md"
+            echo 'summary<<STAGING_REPORT_EOF'
+            cat "$dir/summary.md"
+            echo 'STAGING_REPORT_EOF'
+          } >> "$GITHUB_OUTPUT"
+          cat "$dir/summary.md" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Publish pack
         id: publish
         uses: ./.github/actions/publish-pack
@@ -63,6 +78,17 @@ jobs:
           fields: |
             Version|`${{ steps.publish.outputs.version || 'unknown' }}`
             Pack|${{ steps.publish.outputs.pack-url || 'not published' }}
+
+      - name: Ask staff to test
+        if: success() && steps.report.outcome == 'success'
+        uses: ./.github/actions/discord-notify
+        with:
+          webhook-url: ${{ secrets.DISCORD_STAGING_WEBHOOK || secrets.DISCORD_STAFF_WEBHOOK }}
+          content: ${{ vars.DISCORD_STAGING_ROLE_ID && format('<@&{0}>', vars.DISCORD_STAGING_ROLE_ID) || '' }}
+          status: success
+          title: Please test staging ${{ steps.publish.outputs.version }}
+          description: ${{ steps.report.outputs.summary }}
+          file: ${{ steps.report.outputs.file }}
 
   # Deploy reports its own result; this covers validation failing before anything was touched.
   notify-failure:
