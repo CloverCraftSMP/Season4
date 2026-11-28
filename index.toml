@@ -424,12 +424,12 @@ metafile = true
 
 [[files]]
 file = "mods/advanced-core-info.pw.toml"
-hash = "f1c01a7adeb8e0fbe416b8fca7d7e20d183eccd8df49fd0c50274a57248b68d8"
+hash = "8c13ec269e66c66618ee95fea53088880d9098cb5aac56cb2c3c8d8b7da17c04"
 metafile = true
 
 [[files]]
 file = "mods/advanced-loot-info.pw.toml"
-hash = "44b343f4efe4035a4cd5d448486b4ee7e73d8ba02c70faf7eb14d1e9db7c76d4"
+hash = "ca2b968752576a581aff29a08e7adbef513c9f53adb09f84e9ec916ca3dfb869"
 metafile = true
 
 [[files]]
@@ -494,7 +494,7 @@ metafile = true
 
 [[files]]
 file = "mods/badoptimizations.pw.toml"
-hash = "8e6033c2642308835d119a073fdf24306394cdb6985c482a08e67b8087f6e90d"
+hash = "bbd30d0fa6d15e6bdd416eb787b9d9f08a0b2fa23564ccf8c7ae39f410a7b211"
 metafile = true
 
 [[files]]
@@ -564,7 +564,7 @@ metafile = true
 
 [[files]]
 file = "mods/c2me-fabric.pw.toml"
-hash = "d84d1fb724ea48b2bcd4de4b1d05607c88b2e6340fc467be38bc2254c807be16"
+hash = "d79a5384cba9fa8a3b96daaae9f4424b8bc75f67984cd0d33c0a934d93bbc3e2"
 metafile = true
 
 [[files]]
@@ -749,7 +749,7 @@ metafile = true
 
 [[files]]
 file = "mods/eunomia.pw.toml"
-hash = "084cc84e9e4dd4ee90958a7d368caa702b2e0bd0a7f6ec76199b25251518bcba"
+hash = "debe530f07fca46ca12b0f68caff190c5a4c6507ab9f21748ffa7aab5df2d033"
 metafile = true
 
 [[files]]
@@ -769,7 +769,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-permissions-api.pw.toml"
-hash = "42b1a79c6ac2b23e1ad440f901ac42ed10180b340b8c69bb0755a9c55dbfb481"
+hash = "ee90d9985f4475f5b90aeabe2170caac7c26de8fc4f75bfc3652db106a0f1e75"
 metafile = true
 
 [[files]]
@@ -1564,7 +1564,7 @@ metafile = true
 
 [[files]]
 file = "mods/zoomify.pw.toml"
-hash = "52ea03cdd94b04ca3bb3260bd29c265ca3ff4914aba336e861bcd797d9b6086e"
+hash = "71e40af8d13034ff9ebbed2b30ca002c322bcc34383e297c19f43ae2fbdca8e6"
 metafile = true
 
 [[files]]

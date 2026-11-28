@@ -1,13 +1,13 @@
 name = "fabric-permissions-api"
-filename = "fabric-permissions-api-0.7.0.jar"
+filename = "fabric-permissions-api-0.7.2.jar"
 side = "server"
 
 [download]
-url = "https://cdn.modrinth.com/data/lzVo0Dll/versions/b1EqjxFs/fabric-permissions-api-0.7.0.jar"
+url = "https://cdn.modrinth.com/data/lzVo0Dll/versions/SxNeefOw/fabric-permissions-api-0.7.2.jar"
 hash-format = "sha512"
-hash = "fd1961a4496cdc6cf22fbac0627a331407e97d3131f222641c1e370824adb3179e530e33e9e03adff1843e5556750edbb7abe0be7a241c7f0e3ca3ddc8b78ab7"
+hash = "35a52f4be6da34d43e7f0b1b6852f774b95a5ce64466837551d88dee7ca9e9514a5a895123282ea11c439d6e4fea8d9ba9f2d15ad23c0c74f6d9e11dfdc9b019"
 
 [update]
 [update.modrinth]
 mod-id = "lzVo0Dll"
-version = "b1EqjxFs"
+version = "SxNeefOw"
