@@ -1,13 +1,13 @@
 name = "Eunomia"
-filename = "eunomia-fabric-0.3.15+mc-26.1.0-2.jar"
+filename = "eunomia-fabric-0.3.16+mc-26.1.0-2.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/BvzQw4wL/versions/rXNZfUCY/eunomia-fabric-0.3.15%2Bmc-26.1.0-2.jar"
+url = "https://cdn.modrinth.com/data/BvzQw4wL/versions/Ji1fVNDt/eunomia-fabric-0.3.16%2Bmc-26.1.0-2.jar"
 hash-format = "sha512"
-hash = "7fbd6dd64db92c8b5f74d8e857ccd332b70126e09892f64108cc3356d6e13e929d4ac4c4b470e34a22fc6df1cd6a70e7648dfd794f03c27dd014d97d8f0ea5f1"
+hash = "cf33f3606b91ff27371528dfe57902904d4df481edadbb7fdaea10f20c3c821c8bb991455d3671dca4e57a7af07d2e0ea6d3e32be6ef7958527621569926b07a"
 
 [update]
 [update.modrinth]
 mod-id = "BvzQw4wL"
-version = "rXNZfUCY"
+version = "Ji1fVNDt"
